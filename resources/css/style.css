@@ -13,7 +13,7 @@
     box-sizing: border-box;
     outline: none; border:none;
     text-decoration: none;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     transition: .2s linear;
 }
 
@@ -284,6 +284,11 @@ section{
     padding:1rem 0;
 }
 
+.menu .box-container .box p{
+    color: white;
+    font-size: 1.6rem;
+}
+
 .menu .box-container .box .price{
     color: #fff;
     font-size: 2.5rem;
@@ -376,7 +381,7 @@ section{
 }
 
 .review .box-container .box p{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     line-height: 1.8;
     color:#ccc;
     padding:2rem 0;
