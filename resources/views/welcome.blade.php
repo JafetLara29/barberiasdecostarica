@@ -18,7 +18,7 @@
 
         {{-- Scripts 'resources/sass/app.scss',--}}
         @vite(['resources/js/app.js', 'resources/css/style.css', 'resources/js/script.js'])
-
+ 
 </head>
 <body>
 <!-- header section starts  -->
