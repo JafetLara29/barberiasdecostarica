@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// ?Route::get('/', [MainController::class,'index'])->name('main-web-route'); 
+
+Route::get('/',[HomeController::class,'index'])->name('main');
+
+/*Route::resource('Barbeshop','BarbeshopController');
+Route::resource('Barber','BarberController');
+Route::resource('Citation','CitationController');
+Route::resource('Service','ServiceController');*/
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// ?Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
