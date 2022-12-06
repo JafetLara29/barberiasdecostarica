@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
-
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use App\Http\Controllers;
 |
 */
 
-// ?Route::get('/', [MainController::class,'index'])->name('main-web-route'); 
+// ?Route::get('/', [MainController::class,'index'])->name('main-web-route');
 
 Route::get('/',[HomeController::class,'index'])->name('main');
 

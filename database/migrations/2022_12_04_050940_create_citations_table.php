@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('citations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('service_id')->unique();
+            $table->string('barber_id')->unique();
+            $table->string('date');
+            $table->timestamp('time');
+
         });
     }
 

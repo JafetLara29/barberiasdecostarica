@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('barbers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('barbershop_id')->unique();
+            $table->string('name')->unique();
+            $table->string('image');
         });
     }
 

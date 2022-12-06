@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('social_media', function (Blueprint $table) {
             $table->id();
+            $table->string('data');
+            $table->string('type');
+            $table->string('barbershop_barber_id')->unique();
             $table->timestamps();
         });
     }

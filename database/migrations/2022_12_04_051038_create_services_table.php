@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('barbershop_id')->unique();
+            $table->string('description',1000)->nullable();
+            $table->float('price')->unsigned();
         });
     }
 
