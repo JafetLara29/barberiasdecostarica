@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('data');
             $table->string('type');
-            $table->string('barbershop_barber_id')->unique();
+            $table->unsignedBigInteger('barbershop_barber_id');
+            $table->foreign('barbershop_barber_id')->references('id')->on('barbershops');
             $table->timestamps();
         });
     }

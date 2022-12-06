@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers;
 use App\Http\Controllers\HomeController;
 
@@ -14,6 +15,7 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 // ?Route::get('/', [MainController::class,'index'])->name('main-web-route');
 

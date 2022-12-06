@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('citations', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('description',1000);
+            $table->string('price');
+            $table->unsignedBigInteger('barbershop_id');
+            $table->foreign('barbershop_id')->references('id')->on('barbershops');
             $table->timestamps();
-            $table->string('service_id')->unique();
-            $table->string('barber_id')->unique();
-            $table->string('date');
-            $table->timestamp('time');
-
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citations');
+        Schema::dropIfExists('services');
     }
 };
