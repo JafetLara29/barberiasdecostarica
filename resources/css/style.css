@@ -92,6 +92,7 @@ section{
     margin:0 1rem;
     font-size: 1.6rem;
     color:#fff;
+    text-decoration: none;
 }
 
 .header .navbar a:hover{
@@ -117,7 +118,8 @@ section{
 
 .header .search-form{
     position: absolute;
-    top:115%; right: 7%;
+    top:115%; 
+    right: 7%;
     background: #fff;
     width: 50rem;
     height: 5rem;
@@ -285,7 +287,7 @@ section{
 }
 
 .menu .box-container .box p{
-    color: white;
+    color:  var(--main-color);
     font-size: 1.6rem;
 }
 
@@ -600,7 +602,7 @@ section{
     .header .navbar{
         position: absolute;
         top:100%; right: -100%;
-        background: #fff;
+        background: var(--bg);
         width: 30rem;
         height: calc(100vh - 9.5rem);
     }
@@ -610,7 +612,7 @@ section{
     }
 
     .header .navbar a{
-        color:var(--black);
+        color: var(--main-color);
         display: block;
         margin:1.5rem;
         padding:.5rem;
