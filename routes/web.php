@@ -13,6 +13,7 @@ use App\Http\Controllers\PublicController;
 */
 Route::get('/', [PublicController::class,'index'])->name('welcome');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
+Route::get('/barbershop/{barbershop}', [PublicController::class,'showBarbershop'])->name('barbershop');
 
 /*
  |--------------------------------------------------------------------------

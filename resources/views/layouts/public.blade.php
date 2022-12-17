@@ -17,7 +17,7 @@
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
         {{-- Scripts 'resources/sass/app.scss',--}}
-        @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css', 'resources/css/search.css', 'resources/js/script.js'])
+        @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css', 'resources/css/app.css', 'resources/js/script.js'])
  
 </head>
     <body>
@@ -28,7 +28,7 @@
                 <img src="{{asset('storage/welcome_images/barberLogo.png')}}" alt="">
             </a>
 
-            <nav class="navbar">
+            <nav class="navbar_">
                 @if(Route::has('search'))
                     <a href="/#home">Inicio</a>
                     <a href="/#about">Nosotros</a>
@@ -38,7 +38,7 @@
                     <a href="/#contact">Contacto</a>
                     <a href="/#blogs">Blogs</a>
                     <a href="{{ route('search') }}"><i class="fas fa-search-location"></i> Buscar barbería</a>
-                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Ingresar</a>
+                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Mi barber</a>
                 @else
                     <a href="#home">Inicio</a>
                     <a href="#about">Nosotros</a>
@@ -48,7 +48,7 @@
                     <a href="#contact">Contacto</a>
                     <a href="#blogs">Blogs</a>
                     <a href="{{ route('search') }}"><i class="fas fa-search-location"></i> Buscar barbería</a>
-                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Ingresar</a>
+                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Mi barber</a>
                 @endif
             </nav>
 

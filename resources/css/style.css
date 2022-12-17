@@ -88,14 +88,14 @@ section{
     height: 6rem;
 }
 
-.header .navbar a{
+.header .navbar_ a{
     margin:0 1rem;
     font-size: 1.6rem;
     color:#fff;
     text-decoration: none;
 }
 
-.header .navbar a:hover{
+.header .navbar_ a:hover{
     color:var(--main-color);
     border-bottom: .1rem solid var(--main-color);
     padding-bottom: .5rem;
@@ -599,7 +599,7 @@ section{
         display: inline-block;
     }
 
-    .header .navbar{
+    .header .navbar_{
         position: absolute;
         top:100%; right: -100%;
         background: var(--bg);
@@ -607,11 +607,11 @@ section{
         height: calc(100vh - 9.5rem);
     }
 
-    .header .navbar.active{
+    .header .navbar_.active{
         right:0;
     }
 
-    .header .navbar a{
+    .header .navbar_ a{
         color: var(--main-color);
         display: block;
         margin:1.5rem;
