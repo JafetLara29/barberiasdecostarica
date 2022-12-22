@@ -1,0 +1,12 @@
+/* Auth pages style */
+.app{
+    height: 100vh;
+}
+.login-header-img{
+    height: 150px;
+}
+.login-card{
+    margin-top: 100px;
+    background-color: rgba(211, 173, 127,0.4) !important;
+    
+}

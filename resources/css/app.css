@@ -46,6 +46,21 @@
 }
 
 /* Babershop information page */
+.btn-go-to-citation{
+    width: 200px;
+    border-radius: 20px;
+}
 .ad-image{
     width: 400px!important;
+}
+
+
+/* Week page */
+.day-card{
+    width: 170px;
+    height: 170px;
+
+}
+.day-card-title{
+    font-size: 35px!important;
 }

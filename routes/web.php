@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers;
+use App\Http\Controllers\CitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
 
@@ -14,6 +15,15 @@ use App\Http\Controllers\PublicController;
 Route::get('/', [PublicController::class,'index'])->name('welcome');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 Route::get('/barbershop/{barbershop}', [PublicController::class,'showBarbershop'])->name('barbershop');
+
+/*
+ |-----------------------
+  | Rutas para las citas-
+ |-----------------------
+*/
+// Route::resource('citations', CitationController::class);
+Route::get('/citations/{barbershop}/week', [CitationController::class,'index'])->name('citations.index');
+Route::get('/citations/{barbershop}/hours', [CitationController::class,'hours'])->name('citations.hours');
 
 /*
  |--------------------------------------------------------------------------

@@ -5,6 +5,9 @@
         <div class="row justify-content-center">
             <img src="https://lalista.admagazine.com/wp-content/uploads/2021/11/logo_LA-LISTA_COLOR.png" class="img-thumbnail ad-image" alt="Imagen publicitaria"/>
         </div>
+        <div class="row mt-5 d-flex justify-content-center">
+            <a href="{{ route('citations.index', ['barbershop'=> $barbershop]) }}" class="btn btn-success btn-go-to-citation">Agendar cita</a>
+        </div>
         {{-- Row para la informacion de la barberia y barberos --}}
         <div class="row mt-5 d-flex justify-content-center flex-wrap">
             

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barbershop;
 use App\Models\Citation;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,18 @@ class CitationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($barbershop)
     {
-        //
+        return view('public.week')->with([
+            'barbershop' => $barbershop
+        ]);
+    }
+
+    public function hours($barbershop)
+    {
+        return view('public.hours')->with([
+            'barbershop' => $barbershop
+        ]);
     }
 
     /**
