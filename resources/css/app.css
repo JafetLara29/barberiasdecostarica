@@ -41,7 +41,7 @@
 .search-result-title, .barbershop-information-title{
     font-size: 35px!important;
 }
-.search-result-text, .barbershop-information-text{
+.search-result-text, .barbershop-information-text, .card-text{
     font-size: 13px!important;
 }
 
@@ -63,4 +63,14 @@
 }
 .day-card-title{
     font-size: 35px!important;
+}
+
+/* citation form page */
+.citation-card-form{
+    border-radius: 20px;
+    width: 400px!important;
+    background-color: #d3ad7f;
+}
+.citation-input {
+    font-size: 17px;
 }

@@ -20,12 +20,27 @@ class CitationController extends Controller
         ]);
     }
 
-    public function hours($barbershop)
+    public function barbers($barbershop)
     {
-        return view('public.hours')->with([
-            'barbershop' => $barbershop
+        return view('public.barbers')->with([
+            'barber' => '1'
         ]);
     }
+
+    public function hours($barber)
+    {
+        return view('public.hours')->with([
+            'barber' => $barber
+        ]);
+    }
+
+    public function form($barber)
+    {
+        return view('public.citationform')->with([
+            'barber' => $barber
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

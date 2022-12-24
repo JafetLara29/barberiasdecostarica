@@ -12,4 +12,6 @@ class Barber extends Model
     protected $fillable = [
         
     ];
+
+    
 }

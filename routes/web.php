@@ -23,7 +23,9 @@ Route::get('/barbershop/{barbershop}', [PublicController::class,'showBarbershop'
 */
 // Route::resource('citations', CitationController::class);
 Route::get('/citations/{barbershop}/week', [CitationController::class,'index'])->name('citations.index');
-Route::get('/citations/{barbershop}/hours', [CitationController::class,'hours'])->name('citations.hours');
+Route::get('/citations/{barbershop}/barbers', [CitationController::class,'barbers'])->name('citations.barbers');
+Route::get('/citations/{barber}/hours', [CitationController::class,'hours'])->name('citations.hours');
+Route::get('/citations/{barber}/form', [CitationController::class,'form'])->name('citations.form');
 
 /*
  |--------------------------------------------------------------------------
