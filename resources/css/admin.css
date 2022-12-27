@@ -1,0 +1,8 @@
+#myChart{
+    max-height: 400px;
+}
+ main{
+    background-image: url('../../storage/app/public/publicImages/portadaAdmin2.jpg');
+    background-position: center;
+    background-size: contain;
+} 

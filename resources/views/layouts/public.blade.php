@@ -18,7 +18,9 @@
 
         {{-- Scripts 'resources/sass/app.scss',--}}
         @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css', 'resources/css/app.css', 'resources/js/script.js'])
- 
+
+        {{-- Jquery --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
     <body>
         <!-- header section starts  -->

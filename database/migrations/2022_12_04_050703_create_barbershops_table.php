@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('schedule',500);
             $table->string('ubication',256);
             $table->string('map')->unique();
+            // Agregar campo para numero de barberos permitidos int
+            // Agregar campo para numero de barberos creados
+
             $table->timestamps();
 
         });

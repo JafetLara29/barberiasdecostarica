@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers;
+use App\Http\Controllers\BarbershopController;
 use App\Http\Controllers\CitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\PublicController;
 Route::get('/', [PublicController::class,'index'])->name('welcome');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 Route::get('/barbershop/{barbershop}', [PublicController::class,'showBarbershop'])->name('barbershop');
+Route::post('/search', [BarbershopController::class,'search'])->name('barbershop.search');
 
 /*
  |-----------------------
@@ -26,6 +28,7 @@ Route::get('/citations/{barbershop}/week', [CitationController::class,'index'])-
 Route::get('/citations/{barbershop}/barbers', [CitationController::class,'barbers'])->name('citations.barbers');
 Route::get('/citations/{barber}/hours', [CitationController::class,'hours'])->name('citations.hours');
 Route::get('/citations/{barber}/form', [CitationController::class,'form'])->name('citations.form');
+Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
 
 /*
  |--------------------------------------------------------------------------

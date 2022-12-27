@@ -18,6 +18,20 @@ class BarbershopController extends Controller
     }
 
     /**
+     * Display a listing of the resource that we are searching.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = Barbershop::where('name', 'like', '%'.$query.'%')->get();
+        //dd($request);
+        return response()->json($results);
+
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

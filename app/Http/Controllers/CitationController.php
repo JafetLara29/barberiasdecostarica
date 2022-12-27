@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class CitationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +22,21 @@ class CitationController extends Controller
     {
         return view('public.week')->with([
             'barbershop' => $barbershop
+        ]);
+    }
+
+    /**
+     * Display a listing of citations for the citation inbox.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function inbox()
+    {
+        // Obtenemos todas las citas
+        $citations = Citation::all();
+        
+        return view('dashboards.citationinbox')->with([
+            'citations' => $citations
         ]);
     }
 

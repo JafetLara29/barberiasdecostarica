@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Barbershop extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'schedule',
+        'ubication',
+        'map',
+    ];
 }

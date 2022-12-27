@@ -1,4 +1,17 @@
 /* Auth pages style */
+body{
+    background: black;
+}
+.img-container{
+    width: 200px;
+    height: 200px;
+    background-color: #d3ad7f;
+}
+.card:hover{
+    background-color: #d3ad7f;
+    color: black;
+    transition: .2s linear;
+}
 .app{
     height: 100vh;
 }
@@ -7,6 +20,4 @@
 }
 .login-card{
     margin-top: 100px;
-    background-color: rgba(211, 173, 127,0.4) !important;
-    
 }

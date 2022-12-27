@@ -12,6 +12,14 @@
                     <input type="text" class="form-control citation-input" id="nombre" placeholder="Ingrese el nombre">
                 </div>
                 <div class="m-3 text-start">
+                    <p class="card-text">Seleccione el servicio que desea:</p>
+                    <select class="form-select form-select-lg citation-input" name="" id="">
+                        <option selected><strong>Corte de cabello:</strong> 3500₡</option>
+                        <option value=""><strong>Corte de cabello con corte de barba:</strong> 4500₡</option>
+                        <option value=""><strong>Aplicación de keratina:</strong> 11500₡</option>
+                    </select>
+                </div>
+                {{-- <div class="m-3 text-start">
                     <p class="card-text">¿Paga por adelantado el servicio?:</p>
                     <select class="form-select form-select-lg citation-input" name="" id="">
                         <option selected>Sí</option>
@@ -21,7 +29,7 @@
                 <div class="m-3 text-start">
                     <p class="card-text">Seleccione la imagen de su comprobante de pago Sinpe:</p>
                     <input type="file" class="form-control citation-input" id="nombre">
-                </div>
+                </div> --}}
                 <div class="m-3 text-start">
                     <input type="submit" class="form-control bg-dark citation-input text-light" value="Agendar cita">
                 </div>
