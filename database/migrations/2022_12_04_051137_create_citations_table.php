@@ -15,15 +15,17 @@ return new class extends Migration
     {
 
         Schema::create('citations', function (Blueprint $table) {
-            
-            $table->id();      
+
+            $table->id();
             $table->string('date');
             $table->string('time');
-            $table->unsignedBigInteger('service_id');
-            $table->unsignedBigInteger('barber_id');
+            $table->unsignedBiginteger('service_id');
+            $table->unsignedBiginteger('barber_id');
+            $table->string('sender');
+            $table->boolean('read')->default(1);
 
-            $table->foreign('service_id')->references('id')->on('services');
-            $table->foreign('barber_id')->references('id')->on('barbers');
+          $table->foreign('service_id')->references('id')->on('services');
+          $table->foreign('barber_id')->references('id')->on('barbers');
 
             $table->timestamps();
 
