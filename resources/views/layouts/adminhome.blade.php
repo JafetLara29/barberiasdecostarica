@@ -26,12 +26,12 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     {{-- Charts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/admin.css', 'resources/css/adminlte.min.css', 'resources/js/adminlte.min.js'])
     <style>
         .active, .bg-green{
-            background-color: greenyellow!important; 
-        }    
+            background-color: greenyellow!important;
+        }
     </style>
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
@@ -50,7 +50,7 @@
         <aside class="main-sidebar elevation-4 bg-light">
             <div class="sidebar">
                 <nav class="mt-2">
-                    
+
                     <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a class="nav-link py-3" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
@@ -114,12 +114,12 @@
                                 {{-- <input type="submit" value="Salir"/> --}}
                             </form>
                         </li>
-                               
+
                     </ul>
                 </nav>
             </div>
         </aside>
-        
+
         @if (session()->has("success"))
             <script>
                 Toastify({
@@ -156,10 +156,10 @@
         <main class="content-wrapper p-3">
             @yield('content')
         </main>
-       
+
         {{-- Icons --}}
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        
+
 </body>
 </html>

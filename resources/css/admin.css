@@ -1,8 +1,22 @@
+body{
+    overflow: hidden;
+}
+
 #myChart{
     max-height: 400px;
 }
- main{
+main{
+
+
     background-image: url('../../storage/app/public/publicImages/portadaAdmin2.jpg');
     background-position: center;
     background-size: contain;
-} 
+}
+.scroll-area{
+    overflow-y: scroll!important;
+    height: calc(100vh - 10px)!important;
+}
+.main-sidebar{
+
+    height: calc(100vh - 10px)!important;
+}

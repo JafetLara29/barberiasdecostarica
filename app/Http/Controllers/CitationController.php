@@ -34,7 +34,7 @@ class CitationController extends Controller
     {
         // Obtenemos todas las citas
         $citations = Citation::all();
-        
+
         return view('dashboards.citationinbox')->with([
             'citations' => $citations
         ]);
@@ -60,6 +60,70 @@ class CitationController extends Controller
             'barber' => $barber
         ]);
     }
+
+//   Citations recieve , send , display methods
+
+public function sendCitationForm(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'barber_id' => 'required|exists:users,id',
+            'service_id' => 'required',
+        ]);
+
+        // Create a new citation based in the input in the form
+        $citation = new Citation();
+        $citation->sender = $request->auth()->id();
+        $citation->barber_id = auth()->id();
+        $citation->service_id = $request->citation;
+        $citation->save();
+
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+            'message' => 'Message sent successfully',
+        ]);
+    }
+    public function getCitation()
+    {
+        // Retrieve all unread citations for the authenticated user
+        $citation = Citation::where('read', false)
+            ->get();
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+            'citation' => $citation,
+        ]);
+    }
+    public function acceptCitation(Request $request)
+{
+    // Retrieve the message
+    $citation = Citation::findOrFail($request->id);
+
+    // Mark the message as read
+    $citation->read = true;
+    $citation->save();
+
+    // Return a JSON response
+    return response()->json([
+        'success' => true,
+    ]);
+}
+public function rejectCitation(Request $request)
+{
+    // Retrieve the message
+    $citation = Citation::findOrFail($request->id);
+
+    // Delete the message of citation
+        $citation->delete();
+
+
+    // Return a JSON response
+    return response()->json([
+        'success' => true,
+    ]);
+}
+
 
 
     /**

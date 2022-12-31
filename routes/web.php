@@ -43,3 +43,8 @@ Auth::routes();
  |----------------------------------------------------
 */
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('citation/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');
+Route::post('citation/reject/{id}', [CitationController::class,'rejectCitation'])->name('rejectCitation');
+Route::post('citation/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');
+Route::get('citation/get', [CitationController::class,'getCitation'])->name('ReceiveCitations');
+

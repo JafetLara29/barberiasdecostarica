@@ -17,11 +17,11 @@ class CitationFactory extends Factory
     public function definition()
     {
         return [
-            'date'=>$this->faker->sentence(1),
-            'time'=>$this->faker->sentence(1),
+            'date'=>$this->faker->date(),
+            'time'=>$this->faker->time(),
             'service_id'=>$this->faker->numberBetween(1,5),
             'barber_id'=>$this->faker->numberBetween(1,5),
-            'sender'=>$this->faker->sentence(1),
+            'sender'=>$this->faker->name($gender ='male'|'female'),
             'read'=>$this->faker->boolean(),
               //
           ];

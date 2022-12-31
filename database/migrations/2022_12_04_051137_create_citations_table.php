@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('sender');
             $table->boolean('read')->default(1);
 
-          $table->foreign('service_id')->references('id')->on('services');
-          $table->foreign('barber_id')->references('id')->on('barbers');
+          //$table->foreign('service_id')->references('id')->on('services');
+         //$table->foreign('barber_id')->references('id')->on('barbers');
 
             $table->timestamps();
 
