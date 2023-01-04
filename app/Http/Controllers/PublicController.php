@@ -13,9 +13,4 @@ class PublicController extends Controller
     public function goToSearch(){
         return view('public.search');
     }
-    public function showBarbershop($barbershop){
-        return view('public.barbershopinfo')->with([
-            'barbershop' => $barbershop
-        ]);
-    }
 }

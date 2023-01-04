@@ -26,7 +26,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     {{-- Charts --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    {{-- Animation css --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/admin.css', 'resources/css/adminlte.min.css', 'resources/js/adminlte.min.js'])
     <style>
         .active, .bg-green{
@@ -65,6 +67,22 @@
                                 <ion-icon size="large" name="home"></ion-icon>
                                 <p>
                                     Inicio
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('barbershop.create') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="business-outline"></ion-icon>
+                                <p>
+                                    Barbería
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="people-circle-outline"></ion-icon>
+                                <p>
+                                    Barberos
                                 </p>
                             </a>
                         </li>
@@ -160,6 +178,12 @@
         {{-- Icons --}}
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        {{-- Animations --}}
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
 
 </body>
 </html>

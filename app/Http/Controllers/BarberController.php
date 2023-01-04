@@ -14,7 +14,7 @@ class BarberController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboards.barbercontrol');
     }
 
     /**

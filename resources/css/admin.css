@@ -20,3 +20,17 @@ main{
 
     height: calc(100vh - 10px)!important;
 }
+
+/* Barber module */
+.barber-card{
+    width: 215px;
+}
+.img-container{
+    width: 200px;
+    height: 200px;
+    background-color: #d3ad7f;
+}
+.img-container img{
+    width: 100%;
+    height: 100%;
+}

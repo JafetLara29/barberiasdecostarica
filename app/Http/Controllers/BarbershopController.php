@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class BarbershopController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['search']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +43,7 @@ class BarbershopController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboards.forms.addbarbershopinformationform');
     }
 
     /**
@@ -60,7 +65,9 @@ class BarbershopController extends Controller
      */
     public function show(Barbershop $barbershop)
     {
-        //
+        return view('public.barbershopinfo')->with([
+            'barbershop' => $barbershop
+        ]);
     }
 
     /**

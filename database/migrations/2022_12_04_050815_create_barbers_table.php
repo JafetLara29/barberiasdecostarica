@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('image');
             $table->unsignedBigInteger('barbershop_id');
-            $table->foreign('barbershop_id')->references('id')->on('barbershops');
             $table->timestamps();
+
+            $table->foreign('barbershop_id')->references('id')->on('barbershops');
         });
     }
 
