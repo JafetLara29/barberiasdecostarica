@@ -8,6 +8,7 @@ use App\Http\Controllers\BarbershopController;
 use App\Http\Controllers\CitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |-----------------
@@ -49,6 +50,13 @@ Route::get('/barbershop/{barbershop}', [BarbershopController::class,'show'])->na
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
+
+/*
+|--------------------------
+| Rutas para los servicios-
+|--------------------------
+*/
+Route::resource('/services', ServiceController::class);
 
 /*
 |--------------------------------------------------------------------------

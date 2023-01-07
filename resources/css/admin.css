@@ -6,8 +6,6 @@ body{
     max-height: 400px;
 }
 main{
-
-
     background-image: url('../../storage/app/public/publicImages/portadaAdmin2.jpg');
     background-position: center;
     background-size: contain;
@@ -15,6 +13,10 @@ main{
 .scroll-area{
     overflow-y: scroll!important;
     height: calc(100vh - 10px)!important;
+}
+.min-scroll-area{
+    overflow-y: scroll!important;
+    height: calc(300px - 10px)!important;
 }
 .main-sidebar{
 
@@ -32,5 +34,5 @@ main{
 }
 .img-container img{
     width: 100%;
-    height: 100%;
+    height: auto;
 }

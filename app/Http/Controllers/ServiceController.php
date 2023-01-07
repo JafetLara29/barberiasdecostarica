@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\ViewErrorBag;
 
 class ServiceController extends Controller
 {
@@ -14,7 +15,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboards.servicecontrol');
     }
 
     /**
