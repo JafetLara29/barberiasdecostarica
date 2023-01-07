@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h2 data-aos="fade-right" data-aos-delay="500" class="display-5">Control de barberos</h2>
             </div>
-            <a class="btn btn-outline-success mb-3" href="#" role="button">Agregar</a>
+            <a class="btn btn-outline-success mb-3" href="{{route('barbers.create')}}" role="button">Agregar</a>
             <div class="row align-items-center p-3 d-flex justify-content-center flex-wrap">
                 {{-- Card --}}
                 <div class="card barber-card m-2 p-2 shadow">
@@ -120,7 +120,7 @@
                     // targets: -1,
                     visible: false
                 } ]
-            });   
+            });
         }
 
     </script>

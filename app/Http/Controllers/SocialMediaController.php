@@ -35,7 +35,22 @@ class SocialMediaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          // Validate the request data
+          $request->validate([
+            'data' => 'required',
+            'type' => 'required',
+        ]);
+
+        // Create a new barber based in the input in the form
+        $socialMedia = new SocialMedia();
+        $socialMedia->data= $request->data;
+        $socialMedia->type= $request->type;
+        $socialMedia->save();
+
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
     /**

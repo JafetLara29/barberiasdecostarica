@@ -9,6 +9,8 @@ use App\Http\Controllers\CitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SocialMediaController;
+use App\Models\Barber;
 
 /*
 |-----------------
@@ -50,6 +52,15 @@ Route::get('/barbershop/{barbershop}', [BarbershopController::class,'show'])->na
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
+//Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
+
+
+/*
+|------------------------
+| Rutas para las redes Sociales-
+|------------------------
+*/
+Route::resource('/socialmedia',SocialMediaController::class);
 
 /*
 |--------------------------
