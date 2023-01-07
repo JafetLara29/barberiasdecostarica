@@ -24,7 +24,7 @@ class BarberController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboards.forms.addbarbersinformationform');//
     }
 
     /**
@@ -35,8 +35,25 @@ class BarberController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+            // Validate the request data
+            $request->validate([
+                'name' => 'required',
+                'image' => 'required',
+            ]);
+
+            // Create a new barber based in the input in the form
+            $barbers = new Barber();
+            $barbers->name= $request->name;
+            $barbers->image= $request->image;
+            $barbers->save();
+
+            // Return a JSON response
+            return response()->json([
+                'success' => true,
+            ]);
+
+        }
+
 
     /**
      * Display the specified resource.
@@ -82,4 +99,5 @@ class BarberController extends Controller
     {
         //
     }
+
 }

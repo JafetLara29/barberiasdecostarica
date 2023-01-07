@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h2 data-aos="fade-right" data-aos-delay="500" class="display-5">Control de barberos</h2>
             </div>
-            <a class="btn btn-outline-success mb-3" href="#" role="button">Agregar</a>
+            <a class="btn btn-outline-success mb-3" href="{{route('barbers.create')}}" role="button">Agregar</a>
             <div class="row align-items-center p-3 d-flex justify-content-center flex-wrap">
                 {{-- Card --}}
                 <div class="card barber-card m-2 p-2">
@@ -14,7 +14,17 @@
                     </div>
                     <div class="text-center">
                         Rolbin Jafet Lara Lopez
-                        <a href="" class="btn btn-outline-info mt-3">>>Servicios</a>
+                        <a href="{" class="btn btn-outline-info mt-3">>>Servicios</a>
+                    </div>
+                </div>
+                {{-- Card --}}
+                <div class="card barber-card m-2 p-2">
+                    <div class="img-container rounded-circle d-flex justify-content-center">
+                        <img class="img-thumbnail rounded-circle" src="https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg" alt="Imagen de barbero">
+                    </div>
+                    <div class="text-center">
+                        Rolbin Jafet Lara Lopez
+                        <a href="{" class="btn btn-outline-info mt-3">>>Servicios</a>
                     </div>
                 </div>
                 {{-- Card --}}
@@ -37,17 +47,7 @@
                         <a href="" class="btn btn-outline-info mt-3">>>Servicios</a>
                     </div>
                 </div>
-                {{-- Card --}}
-                <div class="card barber-card m-2 p-2">
-                    <div class="img-container rounded-circle d-flex justify-content-center">
-                        <img class="img-thumbnail rounded-circle" src="https://cdn.pixabay.com/photo/2016/11/21/12/42/beard-1845166_960_720.jpg" alt="Imagen de barbero">
-                    </div>
-                    <div class="text-center">
-                        Rolbin Jafet Lara Lopez
-                        <a href="" class="btn btn-outline-info mt-3">>>Servicios</a>
-                    </div>
-                </div>
-                
+
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
                     // targets: -1,
                     visible: false
                 } ]
-            });   
+            });
         }
 
     </script>
