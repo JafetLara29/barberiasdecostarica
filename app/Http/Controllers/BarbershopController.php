@@ -9,7 +9,7 @@ class BarbershopController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['search']);
+        $this->middleware('auth')->except(['search', 'show']);
     }
 
     /**

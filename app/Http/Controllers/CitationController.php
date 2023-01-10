@@ -10,7 +10,7 @@ class CitationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'barbers', 'hours']);
     }
 
     /**
@@ -37,13 +37,6 @@ class CitationController extends Controller
 
         return view('dashboards.citationinbox')->with([
             'citations' => $citations
-        ]);
-    }
-
-    public function barbers($barbershop)
-    {
-        return view('public.barbers')->with([
-            'barber' => '1'
         ]);
     }
 

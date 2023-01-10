@@ -12,9 +12,20 @@ class BarberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($route)
     {
-        return view('dashboards.barbercontrol');
+        if($route == 'public'){
+            return view('public.barbers');
+        }else{
+            return view('dashboards.barbercontrol');
+        }
+    }
+
+    public function barbersPublic($barbershop)
+    {
+        return view('public.barbers')->with([
+            'barber' => '1'
+        ]);
     }
 
     /**

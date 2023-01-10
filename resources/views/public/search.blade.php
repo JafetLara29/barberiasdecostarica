@@ -25,7 +25,7 @@
                 //var form = new FormData(htmlForm);
                 $.ajax({
                     type: "POST",
-                    url: '/search',
+                    url: '/barbershops/search',
                     data: query,
                     processData: false,
                     contentType: false,
@@ -38,7 +38,7 @@
                         }else{
                             $('#search-result-container').html('');
                             $.each(results, function(index, result) {
-                                array += `<a href="/barbershop/${ result.id }" class="a-card">
+                                array += `<a href="/barbershops/${ result.id }" class="a-card">
                                                 <div class="card m-2 d-flex flex-wrap flex-row">
                                                     <div class="img-container d-flex justify-content-center align-items-center rounded-circle">
                                                         <img src="https://cdn.pixabay.com/photo/2012/04/18/00/32/barbershop-36290_960_720.png" alt="...">

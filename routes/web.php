@@ -13,38 +13,13 @@ use App\Http\Controllers\SocialMediaController;
 use App\Models\Barber;
 
 /*
-|-----------------
-| Rutas públicas-
-|-----------------
+|---------------------
+| Rutas de barbershop-
+|---------------------
 */
-Route::get('/', [PublicController::class,'index'])->name('welcome');
-Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
-Route::post('/search', [BarbershopController::class,'search'])->name('barbershop.search');
-
-/*
-|-----------------------
-| Rutas para las citas-
-|-----------------------
-*/
-Route::get('/citations/{barbershop}/week', [CitationController::class,'index'])->name('citations.index');
-Route::get('/citations/{barbershop}/barbers', [CitationController::class,'barbers'])->name('citations.barbers');
-Route::get('/citations/{barber}/hours', [CitationController::class,'hours'])->name('citations.hours');
-Route::get('/citations/{barber}/form', [CitationController::class,'form'])->name('citations.form');
-Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
-
-/*
-|----------------------
-| Rutas del dashboard-
-|----------------------
-*/
-// Citation
-Route::post('citation/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');
-Route::post('citation/reject/{id}', [CitationController::class,'rejectCitation'])->name('rejectCitation');
-Route::post('citation/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');
-Route::get('citation/get', [CitationController::class,'getCitation'])->name('ReceiveCitations');
-// barbershop
-Route::get('/barbershop/create', [BarbershopController::class,'create'])->name('barbershop.create');
-Route::get('/barbershop/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
+Route::get('/barbershops/create', [BarbershopController::class,'create'])->name('barbershop.create');
+Route::post('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
+Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
 
 /*
 |------------------------
@@ -52,8 +27,8 @@ Route::get('/barbershop/{barbershop}', [BarbershopController::class,'show'])->na
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
+Route::post('/barbers/{route}', [BarberController::class,'index'])->name('barbers.index');
 //Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
-
 
 /*
 |------------------------
@@ -63,11 +38,34 @@ Route::resource('/barbers', BarberController::class);
 Route::resource('/socialmedia',SocialMediaController::class);
 
 /*
+|---------------------
+| Rutas para citation-
+|---------------------
+*/
+Route::get('/citations/{barbershop}/week', [CitationController::class,'index'])->name('citations.index');
+Route::get('/citations/{barbershop}/barbers', [CitationController::class,'barbers'])->name('citations.barbers');
+Route::get('/citations/{barber}/hours', [CitationController::class,'hours'])->name('citations.hours');
+Route::get('/citations/{barber}/form', [CitationController::class,'form'])->name('citations.form');
+Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
+Route::post('/citations/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');
+Route::post('/citations/reject/{id}', [CitationController::class,'rejectCitation'])->name('rejectCitation');
+Route::post('/citations/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');
+Route::get('/citations/get', [CitationController::class,'getCitation'])->name('ReceiveCitations');
+
+/*
 |--------------------------
 | Rutas para los servicios-
 |--------------------------
 */
 Route::resource('/services', ServiceController::class);
+
+/*
+|-----------------
+| Rutas públicas-
+|-----------------
+*/
+Route::get('/', [PublicController::class,'index'])->name('welcome');
+Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 
 /*
 |--------------------------------------------------------------------------
