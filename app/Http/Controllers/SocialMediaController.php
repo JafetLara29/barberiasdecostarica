@@ -37,19 +37,34 @@ class SocialMediaController extends Controller
     {
           // Validate the request data
           $request->validate([
+            'barber_id'=>'required',
             'data' => 'required',
             'type' => 'required',
         ]);
 
-        // Create a new barber based in the input in the form
-        $socialMedia = new SocialMedia();
-        $socialMedia->data= $request->data;
-        $socialMedia->type= $request->type;
-        $socialMedia->save();
+        //requesting the info by array from frontend
+            $dataInfo = array_filter($request->data);
+            $typeInfo = array_filter($request->type);
+            //making a temp function to remove the spaces and restart the keys from twice arrays
 
+            $dataInfo = array_merge($dataInfo);
+
+
+        //Based in the quantity of checkboxes typed in frontend add the info in db
+
+        for ($i=0;$i<sizeof($dataInfo);$i++) {
+
+            $socialMedia = new SocialMedia();
+            $socialMedia->barbershop_barber_id=$request->barber_id;
+            $socialMedia->data = $dataInfo[$i];
+            $socialMedia->type= $typeInfo[$i];
+            $socialMedia->save();
+
+        }
         // Return a JSON response
         return response()->json([
             'success' => true,
+
         ]);
     }
 

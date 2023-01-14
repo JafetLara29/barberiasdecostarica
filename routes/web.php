@@ -8,6 +8,7 @@ use App\Http\Controllers\BarbershopController;
 use App\Http\Controllers\CitationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialMediaController;
 use App\Models\Barber;
@@ -21,14 +22,6 @@ Route::get('/barbershops/create', [BarbershopController::class,'create'])->name(
 Route::post('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
 Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
 
-/*
-|------------------------
-| Rutas para los barbers-
-|------------------------
-*/
-Route::resource('/barbers', BarberController::class);
-Route::post('/barbers/{route}', [BarberController::class,'index'])->name('barbers.index');
-//Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
 
 /*
 |------------------------
@@ -57,7 +50,21 @@ Route::get('/citations/get', [CitationController::class,'getCitation'])->name('R
 | Rutas para los servicios-
 |--------------------------
 */
+
 Route::resource('/services', ServiceController::class);
+
+/*
+|--------------------------
+| Rutas para los Horarios-
+|--------------------------
+*/
+Route::resource('/schedule', ScheduleController::class);
+/*
+|------------------------
+| Rutas para los barbers-
+|------------------------
+*/
+Route::resource('/barbers', BarberController::class);
 
 /*
 |-----------------

@@ -21,6 +21,9 @@ class BarbershopFactory extends Factory
             'schedule'=>$this->faker->sentence(),
             'ubication'=>$this->faker->address(),
             'map'=>$this->faker->sentence(),
+            'total_barbers'=>$this->faker->numberBetween(1,10),
+            'created_barbers'=>$this->faker->numberBetween(1,5),
+
           ];
     }
 }

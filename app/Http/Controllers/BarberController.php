@@ -12,13 +12,11 @@ class BarberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($route)
+    public function index()
     {
-        if($route == 'public'){
-            return view('public.barbers');
-        }else{
-            return view('dashboards.barbercontrol');
-        }
+
+         return view('dashboards.barbercontrol');
+
     }
 
     public function barbersPublic($barbershop)
@@ -48,12 +46,14 @@ class BarberController extends Controller
     {
             // Validate the request data
             $request->validate([
+                'barber_id'=>'required',
                 'name' => 'required',
                 'image' => 'required',
             ]);
 
             // Create a new barber based in the input in the form
             $barbers = new Barber();
+            $barbers->id=$request->barber_id;
             $barbers->name= $request->name;
             $barbers->image= $request->image;
             $barbers->save();
@@ -61,6 +61,7 @@ class BarberController extends Controller
             // Return a JSON response
             return response()->json([
                 'success' => true,
+                'id'=>$barbers->id,
             ]);
 
         }
