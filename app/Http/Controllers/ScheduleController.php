@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Schedule;
 use App\Http\Requests\StoreScheduleRequest;
 use App\Http\Requests\UpdateScheduleRequest;
+use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
@@ -34,9 +35,34 @@ class ScheduleController extends Controller
      * @param  \App\Http\Requests\StoreScheduleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreScheduleRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Validate the request data
+        $request->validate([
+            'barber_id'=>'required',
+        ]);
+        //requesting an array with the info and parsing it without spaces
+            $day = $request->day;
+            $endTime = array_filter($request->end);
+            $startTime = array_filter($request->start);
+            $day= array_merge($day);
+
+
+        //run the array and save the corresponding info based in the day of the schedule
+        for ($i = 0; $i < sizeof($day); $i++) {
+            $Schedule = new Schedule();
+            $Schedule->barber_id = $request->barber_id;
+            $Schedule->start_time = $startTime[$i];
+            $Schedule->end_time = $endTime[$i];
+            $Schedule->day = $day[$i];
+            $Schedule->save();
+        }
+
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+            'id'=>$request->barber_id,
+        ]);
     }
 
     /**

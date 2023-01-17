@@ -10,6 +10,7 @@ class Barber extends Model
     use HasFactory;
 
     protected $fillable = [
+        'barber_id',
         'name',
         'image',
         'barbershop_id',

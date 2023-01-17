@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('barbers', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('image');
-            $table->unsignedBigInteger('barbershop_id');
+
+            //$table->unsignedBigInteger('barbershop_id');
             $table->timestamps();
 
-            $table->foreign('barbershop_id')->references('id')->on('barbershops');
+            //$table->foreign('barbershop_id')->references('id')->on('barbershops');
         });
     }
 
