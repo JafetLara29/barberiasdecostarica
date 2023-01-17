@@ -17,12 +17,12 @@ class CitationFactory extends Factory
     public function definition()
     {
         return [
-            'date'=>$this->faker->date(),
-            'time'=>$this->faker->time(),
-            'service_id'=>$this->faker->numberBetween(1,5),
-            'barber_id'=>$this->faker->numberBetween(1,5),
-            'sender'=>$this->faker->name($gender ='male'|'female'),
-            'read'=>$this->faker->boolean(),
+            'service_id'  =>'1', //Colocamos el primer servicio para evitar problemas de servicios inexistentes
+            'barber_id'   =>$this->faker->numberBetween(1,50),
+            'day'        =>$this->faker->date(),
+            'time'        =>$this->faker->time(),
+            'sender'      =>$this->faker->name($gender ='male'|'female'),
+            'read'        =>$this->faker->boolean(),
               //
           ];
     }

@@ -6,7 +6,7 @@
             <img src="https://lalista.admagazine.com/wp-content/uploads/2021/11/logo_LA-LISTA_COLOR.png" class="img-thumbnail ad-image" alt="Imagen publicitaria"/>
         </div>
         <div class="row mt-5 d-flex justify-content-center">
-            <a href="{{ route('citations.index', ['barbershop'=> $barbershop]) }}" class="btn btn-success btn-go-to-citation">Agendar cita</a>
+            <a href="{{ route('citations.getBarbersToSelect', ['barbershop'=> $barbershop]) }}" class="btn btn-success btn-go-to-citation">Agendar cita</a>
         </div>
         {{-- Row para la informacion de la barberia y barberos --}}
         <div class="row mt-5 d-flex justify-content-center flex-wrap">
@@ -15,15 +15,12 @@
             <div class="card m-2">
                 <h5 class="card-header barbershop-information-title"><ion-icon name="cut-outline"></ion-icon>Babashop</h5>
                 <div class="card-body">
-                    <p class="barbershop-information-text"><strong><ion-icon name="location-outline"></ion-icon>Ubicación:</strong> 10m norte de la parada de la villalobos, local comercial.</p>
+                    <p class="barbershop-information-text"><strong><ion-icon name="location-outline"></ion-icon>Ubicación:</strong> {{ $barbershop->address }}</p>
                     <p class="barbershop-information-text"><strong><ion-icon name="calendar-number-outline"></ion-icon>Horario:</strong></p>
                     <ul class="barbershop-information-text">
-                        <li>Lunes: 8:00am - 5:00pm</li>
-                        <li>Martes: 8:00am - 5:00pm</li>
-                        <li>Miercoles: 8:00am - 5:00pm</li>
-                        <li>Jueves: 8:00am - 5:00pm</li>
-                        <li>Viernes: 8:00am - 5:00pm</li>
-                        <li>Sabado: 8:00am - 5:00pm</li>
+                        @foreach ($schedule as $item)
+                            <li>{{ $item->day }}: {{ $item->start_time }} - {{ $item->end_time }}</li>
+                        @endforeach
                     </ul>
 
                     {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
@@ -36,15 +33,11 @@
                 <div class="card-body">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="{{asset('storage/welcome_images/barber.jpg')}}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{asset('storage/welcome_images/barber.jpg')}}" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{asset('storage/welcome_images/barber.jpg')}}" class="d-block w-100" alt="...">
-                            </div>
+                            @foreach ($barbers as $item)
+                                <div class="carousel-item {{ ($barbers->first())->id == $item->id ? 'active' : ''  }}">
+                                    <img src="{{asset($item->image)}}" class="d-block w-100" alt="...">
+                                </div>
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,12 +55,9 @@
             <div class="card m-2">
                 <h5 class="card-header barbershop-information-title"><ion-icon name="flame-outline"></ion-icon>Servicios</h5>
                 <div class="card-body">
-                    <p class="barbershop-information-text"><ion-icon name="flame-outline"></ion-icon><strong>Corte de cabello:</strong> 3500₡</p>
-                    <p class="barbershop-information-text"><ion-icon name="flame-outline"></ion-icon><strong>Corte de cabello con corte de barba:</strong> 4500₡</p>
-                    <p class="barbershop-information-text"><ion-icon name="flame-outline"></ion-icon><strong>Aplicación de keratina:</strong> 11500₡</p>
-                    <p class="barbershop-information-text"><ion-icon name="flame-outline"></ion-icon><strong>Corte y cejas:</strong> 3500₡</p>
-                    
-                    {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+                    @foreach ($services as $item)
+                        <p class="barbershop-information-text"><ion-icon name="flame-outline"></ion-icon><strong>{{ $item->description }}:</strong> {{ $item->price }}₡</p>                        
+                    @endforeach
                 </div>
             </div>
 

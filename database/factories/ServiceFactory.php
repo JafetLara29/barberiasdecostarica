@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Barber>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule>
  */
-class BarberFactory extends Factory
+class ServiceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,9 +16,10 @@ class BarberFactory extends Factory
      */
     public function definition()
     {
+        $types = ['barber', 'barbershop'];
         return [
-            'name'          =>$this->faker->company(),
-            'image'         =>'storage/welcome_images/barber.jpg',
+            'description'   =>$this->faker->sentence(2),
+            'price'         =>$this->faker->numberBetween(3500, 5000),
             'barbershop_id' =>$this->faker->numberBetween(1, 20)
         ];
     }

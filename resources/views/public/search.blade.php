@@ -6,9 +6,8 @@
             <span class="input-group-text search-icon"><ion-icon size="large" name="search"></ion-icon></span>
             <input type="text" class="form-control form-control-lg search" id="search-query" placeholder="Escribe el nombre de tu barbería aquí...">
         </div>
-        <p class="display-4 text-light text-center">Resultados:</p>
-        <div class="container-lg d-flex justify-content-center flex-wrap" id="search-result-container">
-            <p class="search-result-text mt-5 text-light">Escriba algo en el input de busqueda</p>
+        <div class="container-lg d-flex justify-content-center flex-wrap search-result-container" id="search-result-container">
+
         </div>
     </div>
     <script>
@@ -38,16 +37,17 @@
                         }else{
                             $('#search-result-container').html('');
                             $.each(results, function(index, result) {
+                                // d-flex flex-wrap flex-row
                                 array += `<a href="/barbershops/${ result.id }" class="a-card">
-                                                <div class="card m-2 d-flex flex-wrap flex-row">
-                                                    <div class="img-container d-flex justify-content-center align-items-center rounded-circle">
+                                                <div class="card m-2 d-flex flex-row">
+                                                    <div class="img-container d-flex justify-content-center align-items-center">
                                                         <img src="https://cdn.pixabay.com/photo/2012/04/18/00/32/barbershop-36290_960_720.png" alt="...">
                                                     </div>
-                                                    <div class="card-body">
+                                                    <div class="card-body search-result-card-body">
                                                         <h5 class="search-result-title">${ result.name }</h5>
                                                         <div class="d-flex align-items-center">
                                                             <ion-icon name="location-outline" size="large"></ion-icon>
-                                                            <p class="search-result-text mx-3">${ result.ubication }</p>
+                                                            <p class="search-result-text mx-3">${ result.canton }</p>
                                                         </div>
                                                     </div>
                                                 </div>

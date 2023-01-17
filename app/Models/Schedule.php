@@ -9,21 +9,17 @@ class Schedule extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'day',
+        'start_time',
+        'end_time',
+    ];
     /**
-     *|-------------------------------------------------------------
-     * |Metodo para indicar que un horario pertenece a una barbería-
-     *|-------------------------------------------------------------
+     *|----------------------------------------------------------------------------------------
+     * |Metodo para indicar que un horario pertenece a una barbería o un barbero dinamicamente-
+     *|----------------------------------------------------------------------------------------
      */
-    public function barbershop(){
-        return $this->belongsTo(Barbershop::class);
-    }
-
-    /**
-     *|-----------------------------------------------------------
-     * |Metodo para indicar que un horario pertenece a un barbero-
-     *|-----------------------------------------------------------
-     */
-    public function barber(){
-        return $this->belongsTo(Barber::class);
+    public function scheduleable(){
+        return $this->morphTo();
     }
 }

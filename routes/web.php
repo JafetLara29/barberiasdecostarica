@@ -27,7 +27,6 @@ Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->n
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
-Route::post('/barbers/{route}', [BarberController::class,'index'])->name('barbers.index');
 //Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
 
 /*
@@ -42,9 +41,9 @@ Route::resource('/socialmedia',SocialMediaController::class);
 | Rutas para citation-
 |---------------------
 */
-Route::get('/citations/{barbershop}/week', [CitationController::class,'index'])->name('citations.index');
-Route::get('/citations/{barbershop}/barbers', [CitationController::class,'barbers'])->name('citations.barbers');
-Route::get('/citations/{barber}/hours', [CitationController::class,'hours'])->name('citations.hours');
+Route::get('/citations/{barber}/week', [CitationController::class,'getWeekByBarber'])->name('citations.getWeekByBarber');
+Route::get('/citations/barbers/{barbershop}/list', [CitationController::class,'getBarbersToSelect'])->name('citations.getBarbersToSelect');
+Route::get('/citations/{schedule}/hours', [CitationController::class,'getHoursByBarber'])->name('citations.getHoursByBarber');
 Route::get('/citations/{barber}/form', [CitationController::class,'form'])->name('citations.form');
 Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
 Route::post('/citations/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');

@@ -66,7 +66,10 @@ class BarbershopController extends Controller
     public function show(Barbershop $barbershop)
     {
         return view('public.barbershopinfo')->with([
-            'barbershop' => $barbershop
+            'barbershop' => $barbershop,
+            'schedule'   => $barbershop->schedules,
+            'barbers'    => $barbershop->barbers,
+            'services'   => $barbershop->services
         ]);
     }
 

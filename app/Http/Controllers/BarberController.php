@@ -21,10 +21,16 @@ class BarberController extends Controller
         }
     }
 
-    public function barbersPublic($barbershop)
+    public function getBarbersPublicSite($barbershop)
     {
+        /*
+        // Extraemos la barberia y sus datos
+        $barbershop = Barbershop::findOrFail($barbershop);
+        // Extraemos la lista de barberos deacuerdo a la barbería
+        $barbers = $barbershop->barbers();
+        */
         return view('public.barbers')->with([
-            'barber' => '1'
+            'barbers' => '1'
         ]);
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule>
  */
-class ScheduleFactory extends Factory
+class SocialMediaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,14 +16,13 @@ class ScheduleFactory extends Factory
      */
     public function definition()
     {
-        
+        $medias = ['facebook', 'whatsapp', 'instagram'];
         $types = ['App\Models\Barber', 'App\Models\Barbershop'];
         return [
-            'day'               =>$this->faker->dayOfWeek(),
-            'start_time'        =>$this->faker->time(),
-            'end_time'          =>$this->faker->time(),
-            'scheduleable_id'   =>$this->faker->numberBetween(1, 20),
-            'scheduleable_type' =>$types[rand(0, 1)]
+            'data'                 =>$this->faker->sentence(2),
+            'type'                 =>$medias[rand(0, 2)],
+            'socialMediable_id'   =>$this->faker->numberBetween(1, 20),
+            'socialMediable_type' =>$types[rand(0, 1)]
         ];
     }
 }

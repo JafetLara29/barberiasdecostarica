@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barber;
 use App\Models\Barbershop;
 use App\Models\Citation;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class CitationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'barbers', 'hours']);
+        $this->middleware('auth')->except(['index', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getWeekByBarber']);
     }
 
     /**
@@ -18,10 +20,47 @@ class CitationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($barbershop)
+    public function index()
     {
         return view('public.week')->with([
-            'barbershop' => $barbershop
+            'barbershop' => '1'
+        ]);
+    }
+
+    /**
+     * Display a listing of the barbershop's barbers.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getWeekByBarber(Barber $barber){
+        
+        // Extraemos la lista de barberos deacuerdo a la barbería
+        $schedules = $barber->schedules;
+        
+        // Vamos llenando los datos de la citation en variables session
+        // session(['barber_id' => $barber]);
+
+        return view('public.week')->with([
+            'schedules' => $schedules,
+        ]);
+    }
+
+    /**
+     * Display a listing of the barbershop's barbers.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getBarbersToSelect(Barbershop $barbershop){
+        
+        // Extraemos la barberia y sus datos
+        // $barbershop = Barbershop::findOrFail($barbershop);
+        // Extraemos la lista de barberos deacuerdo a la barbería
+        $barbers = $barbershop->barbers;
+        
+        // Vamos llenando los datos de la citation en variables session
+        // session(['barbershop_id' => $barbershop]);
+        return view('public.barbers')->with([
+            'barbers' => $barbers
         ]);
     }
 
@@ -40,17 +79,23 @@ class CitationController extends Controller
         ]);
     }
 
-    public function hours($barber)
+    public function getHoursByBarber(Schedule $schedule)
     {
+        // Vamos llenando los datos de la citation en variables session
+        // session(['schedule_id' => $schedule]);
+        // Sacamos las horas de acuerdo al rango del horario escogido
+        $hours = intervaloHora($schedule->start_time, $schedule->end_time);
+        
         return view('public.hours')->with([
-            'barber' => $barber
+            'hours' => $hours
         ]);
     }
 
-    public function form($barber)
+    public function form(Barber $barber)
     {
+        $services = $barber->services;
         return view('public.citationform')->with([
-            'barber' => $barber
+            'services' => $services
         ]);
     }
 

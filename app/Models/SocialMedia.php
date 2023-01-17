@@ -16,20 +16,11 @@ class SocialMedia extends Model
     ];
 
     /**
-     *|-----------------------------------------------------------------
-     * |Metodo para indicar que una red social pertenece a una barbería-
-     *|-----------------------------------------------------------------
+     *|------------------------------------------------------------------------------
+     * |Metodo para indicar que una red social pertenece a una barbería o un barbero-
+     *|------------------------------------------------------------------------------
      */
-    public function barbershop(){
-        return $this->belongsTo(Barbershop::class);
-    }
-
-    /**
-     *|--------------------------------------------------------------
-     * |Metodo para indicar que una red social pertenece a un barber-
-     *|--------------------------------------------------------------
-     */
-    public function barber(){
-        return $this->belongsTo(Barber::class);
+    public function socialMediable(){
+        return $this->morphTo();
     }
 }

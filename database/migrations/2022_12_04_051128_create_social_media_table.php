@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('data');
             $table->string('type');
-            $table->unsignedBigInteger('barbershop_barber_id');
-            $table->foreign('barbershop_barber_id')->references('id')->on('barbershops');
+            $table->morphs('socialMediable');
             $table->timestamps();
         });
     }

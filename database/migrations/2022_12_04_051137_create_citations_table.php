@@ -17,12 +17,13 @@ return new class extends Migration
         Schema::create('citations', function (Blueprint $table) {
 
             $table->id();
-            $table->string('date');
-            $table->string('time');
+            $table->date('day');
+            $table->time('time');
             $table->unsignedBiginteger('service_id');
             $table->unsignedBiginteger('barber_id');
+            // $table->unsignedBiginteger('schedule_id');
             $table->string('sender');
-            $table->boolean('read')->default(1);
+            $table->boolean('read')->default(false);
 
           //$table->foreign('service_id')->references('id')->on('services');
          //$table->foreign('barber_id')->references('id')->on('barbers');

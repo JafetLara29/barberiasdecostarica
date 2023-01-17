@@ -15,18 +15,13 @@ return new class extends Migration
     {
         Schema::create('barbershops', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('schedule',500);
-            $table->string('ubication',256);
-            $table->string('map')->unique();
-
-            // Agregar campo para numero de barberos permitidos int
-            $table->integer('total_barbers')->unique();
-            // Agregar campo para numero de barberos creados
-            $table->integer('created_barbers')->unique();
-
+            $table->string('name');
+            $table->string('address', 500);//Direccion exacta
+            $table->string('canton', 100);//Canton para filtrar por canton en un futuro
+            // $table->string('map'); Queda a la espera hasta determinar la herramiento a usar
+            $table->integer('total_barbers_available');
+            $table->integer('created_barbers');
             $table->timestamps();
-
         });
     }
 

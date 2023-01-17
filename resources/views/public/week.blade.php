@@ -4,38 +4,14 @@
         <label class="display-3 text-light mb-3">Seleccione el día en que desea agendar</label>
         {{-- Row --}}
         <div class="row mt-5 d-flex justify-content-center flex-wrap">
+            @foreach ($schedules as $item)
+                <div class="day-card-container gold-background rounded-circle d-flex justify-content-center align-items-center m-2">
+                    <a class="card day-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.getHoursByBarber', ['schedule'=>'1']) }}">
+                        <p class="day-card-title">{{ $item->day }}</p>
+                    </a>
+                </div>
+            @endforeach
 
-            {{-- Cards de los dias de la semana --}}
-                <a class="card day-card m-2 justify-content-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.barbers', ['barbershop'=>$barbershop]) }}">
-                    
-                            <p class="day-card-title">Lunes</p>
-                    
-                </a>
-                <a class="card day-card m-2 justify-content-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.barbers', ['barbershop'=>$barbershop]) }}">
-                    
-                            <p class="day-card-title">Martes</p>
-                    
-                </a>
-                <a class="card day-card m-2 justify-content-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.barbers', ['barbershop'=>$barbershop]) }}">
-                    
-                            <p class="day-card-title">Miércoles</p>
-                    
-                </a>
-                <a class="card day-card m-2 justify-content-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.barbers', ['barbershop'=>$barbershop]) }}">
-                    
-                            <p class="day-card-title">Jueves</p>
-                    
-                </a>
-                <a class="card day-card m-2 justify-content-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.barbers', ['barbershop'=>$barbershop]) }}">
-                    
-                            <p class="day-card-title">Viernes</p>
-                    
-                </a>
-                <a class="card day-card m-2 justify-content-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.barbers', ['barbershop'=>$barbershop]) }}">
-                    
-                            <p class="day-card-title">Sabado</p>
-                    
-                </a>
         </div>
 
     </div>

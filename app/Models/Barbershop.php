@@ -35,20 +35,20 @@ class Barbershop extends Model
     }
     
     /**
-     *|------------------------------------------------------------------
-     * |Metodo para indicar que una barbería tiene muchas redes sociales-
-     *|------------------------------------------------------------------
+     *|-----------------------------------------------------------------------------------------
+     * |Metodo para indicar que una barberia tiene muchas redes sociales (relacion polimorfica)-
+     *|-----------------------------------------------------------------------------------------
      */
     public function socialMedias(){
-        return $this->hasMany(SocialMedia::class);
+        return $this->morphMany(SocialMedia::class, 'socialMediable');
     }
 
     /**
-     *|-------------------------------------------------------------------------------------------
-     * |Metodo para indicar que una barbería tiene varios horarios (Dia, hora inicio, hora final)-
-     *|-------------------------------------------------------------------------------------------
+     *|------------------------------------------------------------------------------------------------------------------
+     * |Metodo para indicar que una barberia tiene varios horarios (Dia, hora inicio, hora final) (relacion polimorfica)-
+     *|------------------------------------------------------------------------------------------------------------------
      */
-    public function schedule(){
-        return $this->hasMany(Schedule::class);
+    public function schedules(){
+        return $this->morphMany(Schedule::class, 'scheduleable');
     }
 }

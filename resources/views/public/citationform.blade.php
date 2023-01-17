@@ -8,15 +8,16 @@
             {{-- Formulario para la agenda --}}
             <form class="card citation-card-form m-2" style="color:black; text-decoration:none;">
                 <div class="m-3 text-start">
-                    <p class="card-text">Ingrese el nombre del propietario(a) de la cita:</p>
-                    <input type="text" class="form-control citation-input" id="nombre" placeholder="Ingrese el nombre">
+                    {{-- <p class="card-text">Ingrese el nombre del propietario(a) de la cita:</p> --}}
+                    <input type="text" class="form-control citation-input" id="nombre" placeholder="Ingrese su nombre">
                 </div>
                 <div class="m-3 text-start">
                     <p class="card-text">Seleccione el servicio que desea:</p>
                     <select class="form-select form-select-lg citation-input" name="" id="">
-                        <option selected><strong>Corte de cabello:</strong> 3500₡</option>
-                        <option value=""><strong>Corte de cabello con corte de barba:</strong> 4500₡</option>
-                        <option value=""><strong>Aplicación de keratina:</strong> 11500₡</option>
+                        <option value="-" selected>Seleccionar</option>
+                        @foreach ($services as $item)
+                            <option selected><strong>{{ $item->description }}:</strong> {{ $item->price }}₡</option>
+                        @endforeach
                     </select>
                 </div>
                 {{-- <div class="m-3 text-start">
@@ -34,7 +35,7 @@
                     <input type="submit" class="form-control bg-dark citation-input text-light" value="Agendar cita">
                 </div>
                 <div class="m-5 text-start">
-                    <p class="card-text">NOTA: Una vez llene todos los datos y envíe su cita la persona que usted desea contratar deberá confirmar su cita.</p>
+                    <p class="card-text">NOTA: Una vez envíe su cita el barbero deberá confirmarla. Al confirmarla le llegará un mensaje a su dispositivo indicandolo.</p>
                 </div>
             </form>
         </div>
