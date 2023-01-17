@@ -241,7 +241,6 @@ function barbersave(){
     //Collecting the info from the general-info form
     var htmlForm = document.getElementById('general-info');
         var form = new FormData(htmlForm);
-        form.append("barber_id",99);
 
     $.ajax({
         url: '/barbers',
