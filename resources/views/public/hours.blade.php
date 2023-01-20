@@ -14,7 +14,7 @@
                             $pm = true;
                         }
                     @endphp
-                    <a class="card hours-card justify-content-center m-1" style="color:black; text-decoration:none;" href="{{ route('citations.form', ['barber'=>'1']) }}">
+                    <a class="card hours-card justify-content-center m-1" style="color:black; text-decoration:none;" href="{{ route('citations.form', ['barber'=>$barber, 'hour'=>$item]) }}">
                         <p class="day-card-title">{{ $pm == true ? $item.'PM' : $item.'AM'}}</p>
                     </a>
                 @endforeach

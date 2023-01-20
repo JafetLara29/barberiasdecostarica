@@ -1,3 +1,8 @@
+/* Home */
+.custom_toast{
+    font-size: 17px;
+}
+
 /* Search page */
 .container{
     padding-top:100px;
@@ -98,6 +103,10 @@
     width: 700px!important;
     background-color: #d3ad7f;
 }
+.list-group-item{
+    font-size: 17px;
+}
+
 .citation-input {
     font-size: 17px;
 }
@@ -107,3 +116,4 @@
     width: 250px;
     height: 100px;
 }
+

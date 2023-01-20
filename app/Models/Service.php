@@ -10,12 +10,12 @@ class Service extends Model
     use HasFactory;
     
     /**
-     *|--------------------------------------------------------------
-     * |Metodo para indicar que un servicio pertenece a una barbería-
-     *|--------------------------------------------------------------
+     *|---------------------------------------------------------------------------
+     * |Metodo para indicar que un servicio pertenece a una barbería o un barbero-
+     *|---------------------------------------------------------------------------
      */
-    public function barbershop(){
-        return $this->belongsTo(Barbershop::class);
+    public function serviceable(){
+        return $this->morphTo();
     }
 
     /**

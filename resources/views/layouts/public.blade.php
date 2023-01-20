@@ -19,9 +19,13 @@
         {{-- Scripts 'resources/sass/app.scss',--}}
         @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css', 'resources/css/app.css', 'resources/js/script.js'])
 
+        {{-- Alerts --}}
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        
         {{-- Jquery --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+    </head>
     <body>
         <!-- header section starts  -->
         <header class="header">
@@ -59,7 +63,6 @@
             </div>
         </header>
         <!-- header section ends -->
-        
 
         @yield('content')
 

@@ -9,10 +9,10 @@ class Citation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'date',
         'time',
         'service_id',
         'barber_id',
+        'schedule_id',
         'sender',
         'read',
     ];

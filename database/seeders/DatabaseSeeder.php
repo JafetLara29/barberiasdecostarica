@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $barbershopSeeder   =Barbershop::factory()->count(20)->create();
         $barberSeeder       =Barber::factory()->count(50)->create();
         $scheduleSeeder     =Schedule::factory()->count(100)->create();
-        $citationSeeder     =Citation::factory()->count(50)->create();
+        // $citationSeeder     =Citation::factory()->count(50)->create();
         $SocialMediaSeeder  =SocialMedia::factory()->count(50)->create();
         $ServiceSeeder      =Service::factory()->count(50)->create();
         

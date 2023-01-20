@@ -45,12 +45,13 @@ Route::resource('/socialmedia',SocialMediaController::class);
 Route::get('/citations/{barber}/week', [CitationController::class,'getWeekByBarber'])->name('citations.getWeekByBarber');
 Route::get('/citations/barbers/{barbershop}/list', [CitationController::class,'getBarbersToSelect'])->name('citations.getBarbersToSelect');
 Route::get('/citations/{schedule}/hours', [CitationController::class,'getHoursByBarber'])->name('citations.getHoursByBarber');
-Route::get('/citations/{barber}/form', [CitationController::class,'form'])->name('citations.form');
+Route::get('/citations/{barber}/{hour}/form', [CitationController::class,'form'])->name('citations.form');
 Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
 Route::post('/citations/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');
 Route::post('/citations/reject/{id}', [CitationController::class,'rejectCitation'])->name('rejectCitation');
 Route::post('/citations/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');
 Route::get('/citations/get', [CitationController::class,'getCitation'])->name('ReceiveCitations');
+Route::post('/citations/store', [CitationController::class,'store'])->name('citations.store');
 
 /*
 |--------------------------

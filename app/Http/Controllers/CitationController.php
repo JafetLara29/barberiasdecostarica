@@ -12,7 +12,7 @@ class CitationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getWeekByBarber']);
+        $this->middleware('auth')->except(['index', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getWeekByBarber', 'store']);
     }
 
     /**
@@ -38,7 +38,7 @@ class CitationController extends Controller
         $schedules = $barber->schedules;
         
         // Vamos llenando los datos de la citation en variables session
-        // session(['barber_id' => $barber]);
+        session(['barber_id' => $barber->id]);
 
         return view('public.week')->with([
             'schedules' => $schedules,
@@ -82,26 +82,28 @@ class CitationController extends Controller
     public function getHoursByBarber(Schedule $schedule)
     {
         // Vamos llenando los datos de la citation en variables session
-        // session(['schedule_id' => $schedule]);
+        session(['schedule_id' => $schedule->id]);// Guardamos el id del schedule para obtener el dia de la cita
         // Sacamos las horas de acuerdo al rango del horario escogido
         $hours = intervaloHora($schedule->start_time, $schedule->end_time);
-        
+        $barber = session('barber_id');
         return view('public.hours')->with([
-            'hours' => $hours
+            'hours'  => $hours,
+            'barber' => $barber
         ]);
     }
 
-    public function form(Barber $barber)
+    public function form(Barber $barber, $hour)
     {
+        // Vamos llenando los datos de la citation en variables session
+        session(['time' => $hour]);
         $services = $barber->services;
         return view('public.citationform')->with([
             'services' => $services
         ]);
     }
 
-//   Citations recieve , send , display methods
-
-public function sendCitationForm(Request $request)
+    //   Citations recieve , send , display methods
+    public function sendCitationForm(Request $request)
     {
         // Validate the request data
         $request->validate([
@@ -134,33 +136,33 @@ public function sendCitationForm(Request $request)
         ]);
     }
     public function acceptCitation(Request $request)
-{
-    // Retrieve the message
-    $citation = Citation::findOrFail($request->id);
+    {
+        // Retrieve the message
+        $citation = Citation::findOrFail($request->id);
 
-    // Mark the message as read
-    $citation->read = true;
-    $citation->save();
+        // Mark the message as read
+        $citation->read = true;
+        $citation->save();
 
-    // Return a JSON response
-    return response()->json([
-        'success' => true,
-    ]);
-}
-public function rejectCitation(Request $request)
-{
-    // Retrieve the message
-    $citation = Citation::findOrFail($request->id);
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+        ]);
+    }
+    public function rejectCitation(Request $request)
+    {
+        // Retrieve the message
+        $citation = Citation::findOrFail($request->id);
 
-    // Delete the message of citation
-        $citation->delete();
+        // Delete the message of citation
+            $citation->delete();
 
 
-    // Return a JSON response
-    return response()->json([
-        'success' => true,
-    ]);
-}
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+        ]);
+    }
 
 
 
@@ -182,7 +184,15 @@ public function rejectCitation(Request $request)
      */
     public function store(Request $request)
     {
-        //
+        // Guardamos la informacion de la cita
+        $citation = new Citation();
+        $citation->time = session('time');
+        $citation->service_id = $request->service_id;
+        $citation->barber_id = session('barber_id');
+        $citation->schedule_id = session('schedule_id');
+        $citation->sender = $request->sender;
+        $citation->save();
+        return view('public.welcome')->with(['result'=>'success']);
     }
 
     /**

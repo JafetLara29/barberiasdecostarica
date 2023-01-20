@@ -31,7 +31,7 @@ class Barbershop extends Model
      *|-------------------------------------------------------------
      */
     public function services(){
-        return $this->hasMany(Service::class);
+        return $this->morphMany(Service::class, 'serviceable');
     }
     
     /**

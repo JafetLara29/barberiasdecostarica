@@ -17,9 +17,10 @@ class CitationFactory extends Factory
     public function definition()
     {
         return [
-            'service_id'  =>'1', //Colocamos el primer servicio para evitar problemas de servicios inexistentes
+            // 'service_id'  =>'1', //Colocamos el primer servicio para evitar problemas de servicios inexistentes
             'barber_id'   =>$this->faker->numberBetween(1,50),
-            'day'        =>$this->faker->date(),
+            'schedule_id' =>$this->faker->numberBetween(1,4),
+            // 'day'         =>$this->faker->date(),
             'time'        =>$this->faker->time(),
             'sender'      =>$this->faker->name($gender ='male'|'female'),
             'read'        =>$this->faker->boolean(),
