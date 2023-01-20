@@ -50,9 +50,10 @@ class BarberController extends Controller
      */
     public function store(Request $request)
     {
+        try {
+
             // Validate the request data
             $request->validate([
-                'barber_id'=>'required',
                 'name' => 'required',
                 'image' => 'required',
             ]);
@@ -70,7 +71,15 @@ class BarberController extends Controller
                 'id'=>$barbers->id,
             ]);
 
+        } catch (\Throwable $th) {
+            // An error response
+            return response()->json([
+                'errors' => true,
+            ]);
+            //throw $th;
         }
+
+    }
 
 
     /**

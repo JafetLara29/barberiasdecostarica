@@ -35,37 +35,51 @@ class SocialMediaController extends Controller
      */
     public function store(Request $request)
     {
-          // Validate the request data
-          $request->validate([
-            'barber_id'=>'required',
-            'data' => 'required',
-            'type' => 'required',
-        ]);
-
-        //requesting the info by array from frontend
-            $dataInfo = array_filter($request->data);
-            $typeInfo = array_filter($request->type);
-            //making a temp function to remove the spaces and restart the keys from twice arrays
-
-            $dataInfo = array_merge($dataInfo);
+        try {
+                // Validate the request data
+                $request->validate([
+                    'type' => 'required',
+                    'data' => 'required',
+                    'barber_id'=>'required',
+                ]);
 
 
-        //Based in the quantity of checkboxes typed in frontend add the info in db
+            //requesting the info by array from frontend
+                $dataInfo = array_filter($request->data);
+                $typeInfo = array_filter($request->type);
+                //making a temp function to remove the spaces and restart the keys from twice arrays
 
-        for ($i=0;$i<sizeof($dataInfo);$i++) {
+                $dataInfo = array_merge($dataInfo);
 
-            $socialMedia = new SocialMedia();
-            $socialMedia->barbershop_barber_id=$request->barber_id;
-            $socialMedia->data = $dataInfo[$i];
-            $socialMedia->type= $typeInfo[$i];
-            $socialMedia->save();
+                if(sizeof($dataInfo)==0){
+                        return response()->json([
+                            'errors' => true,
+                        ]);
+                } else {
+                //Based in the quantity of checkboxes typed in frontend add the info in db
 
+                    for ($i = 0; $i < sizeof($dataInfo); $i++) {
+
+                        $socialMedia = new SocialMedia();
+                        $socialMedia->barbershop_barber_id = $request->barber_id;
+                        $socialMedia->data = $dataInfo[$i];
+                        $socialMedia->type = $typeInfo[$i];
+                        $socialMedia->save();
+
+                    }
+                    // Return a JSON response
+                    return response()->json([
+                        'success' => true,
+
+                    ]);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json([
+                'errors' => true,
+
+            ]);
         }
-        // Return a JSON response
-        return response()->json([
-            'success' => true,
-
-        ]);
     }
 
     /**
