@@ -129,7 +129,7 @@
                             <div class="m-3">
                               <input id="phone-checkbox" class="form-check-input me-1" name="type[]" type="checkbox" value="Telefono">
                               <ion-icon size="large" name="call-outline"></ion-icon>
-                              <input id="phone-input" class="form-control" type="text" name="data[]" placeholder="Escriba su número de teléfono">
+                              <input id="phone-input" class="form-control" type="text" name="data[]" placeholder="Escriba su número de teléfono" value="">
                             </div>
                           </label>
                           {{-- Item --}}
@@ -137,7 +137,7 @@
                             <div class="m-3">
                               <input id="whatsapp-checkbox" class="form-check-input me-1"name="type[]" type="checkbox" value="Whatsapp">
                               <ion-icon size="large" name="logo-whatsapp"></ion-icon>
-                              <input id="whatsapp-input" class="form-control" type="text" name="data[]" placeholder="Escriba su número de whatsapp">
+                              <input id="whatsapp-input" class="form-control" type="text" name="data[]" placeholder="Escriba su número de whatsapp" value="">
                             </div>
                           </label>
                           {{-- Item --}}
@@ -145,7 +145,7 @@
                             <div class="m-3">
                               <input id="facebook-checkbox" class="form-check-input me-1" name="type[]" type="checkbox" value="facebook">
                               <ion-icon size="large" name="logo-facebook"></ion-icon>
-                              <input id="facebook-input" class="form-control" type="text" name="data[]" placeholder="Nombre de su perfil">
+                              <input id="facebook-input" class="form-control" type="text" name="data[]" placeholder="Nombre de su perfil" value="">
                             </div>
                           </label>
                           {{-- Item --}}
@@ -153,7 +153,7 @@
                             <div class="m-3">
                               <input id="insta-checkbox" class="form-check-input me-1" name="type[]" type="checkbox" value="Instagram">
                               <ion-icon size="large" name="logo-instagram"></ion-icon>
-                              <input id="insta-input" class="form-control" type="text" name="data[]" placeholder="Nombre de su perfil">
+                              <input id="insta-input" class="form-control" type="text" name="data[]" placeholder="Nombre de su perfil" value="">
                             </div>
                           </label>
                           {{-- Item --}}
@@ -161,7 +161,7 @@
                             <div class="m-3">
                               <input id="tiktok-checkbox" class="form-check-input me-1" name="type[]" type="checkbox" value="Tiktok">
                               <ion-icon size="large" name="logo-tiktok"></ion-icon>
-                              <input id="titktok-input" class="form-control" type="text" name="data[]" placeholder="Escriba su perfil">
+                              <input id="titktok-input" class="form-control" type="text" name="data[]" placeholder="Escriba su perfil" value="">
                             </div>
                           </label>
                           <div class="mb-3">
@@ -180,7 +180,7 @@
 <script>
  // making validations on the checkboxes to ensure that something is coming from imputs of every form
 function barberValidate(){
-    if($('#barbername').val()!=''&& $('#inputimage').val()!=0){
+    if($('#barbername').val()!=''&& $('#inputimage').val()!=''){
 
         scheduleValidate();
 }else{
@@ -251,13 +251,25 @@ function barbersave(){
         contentType: false,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         success: function (response) {
-            if (response.success ==true && response.id !='') {
+            if (response.success ==true && response.id !=0) {
 
                  // If we receipt the corresponding data from backend we proceed to save the info and let the pass to the next method
 
                 schedulesave(response.id);
 
-            } else {
+            } else if(response.errors==true) {
+                Toastify({
+                    text: "Ha ocurrido un error, asegurese de llenar los campos de su barbero!",
+                    duration: 5000,
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background:  "linear-gradient(to right, red, red)",
+                    },
+
+                }).showToast();
+
+            }else{
                 Toastify({
                     text: "Un error ha ocurrido al guardar el nombre y perfil de su barbero !",
                     duration: 5000,
@@ -268,6 +280,7 @@ function barbersave(){
                     },
 
                 }).showToast();
+
             }
         }
     });
@@ -293,7 +306,20 @@ function schedulesave(id){
                 // If we receipt the corresponding data from backend we proceed to save the info and let the pass to the next method
                 socialmediasave(response.id);
 
-            } else {
+            } else if(response.errors==true) {
+
+                Toastify({
+                    text: "Ha ocurrido un error, debe de llenar la informacion del horario !",
+                    duration: 5000,
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background:  "linear-gradient(to right, red, red)",
+                    },
+
+                }).showToast();
+
+            }else{
                 Toastify({
                     text: "Un error ha ocurrido al guardar el horario !",
                     duration: 5000,
@@ -340,7 +366,20 @@ function socialmediasave(id){
                 }).showToast();
 
 
-            } else {
+            } else if(response.errors==true) {
+                // Display an error message
+                Toastify({
+                    text: "Ha ocurrido un error, debe de llenar los campos de la informacion de contacto !!!!!",
+                    duration: 5000,
+                    gravity: "top",
+                    position: "center",
+                    style: {
+                        background:  "linear-gradient(to right, red, red)",
+                    },
+
+                }).showToast();
+
+            }else{
                 // Display an error message
                 Toastify({
                     text: "Un error ha ocurrido !!!!!",

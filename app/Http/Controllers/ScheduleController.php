@@ -37,32 +37,43 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate the request data
-        $request->validate([
-            'barber_id'=>'required',
-        ]);
-        //requesting an array with the info and parsing it without spaces
-            $day = $request->day;
-            $endTime = array_filter($request->end);
-            $startTime = array_filter($request->start);
-            $day= array_merge($day);
+
+        try {
+            // Validate the request data
+            $request->validate([
+                'barber_id'=>'required',
+                'start'=>'required',
+                'end'=>'required',
+
+            ]);
+
+            //requesting an array with the info and parsing it without spaces
+                $day = $request->day;
+                $endTime = array_filter($request->end);
+                $startTime = array_filter($request->start);
+                $day= array_merge($day);
 
 
-        //run the array and save the corresponding info based in the day of the schedule
-        for ($i = 0; $i < sizeof($day); $i++) {
-            $Schedule = new Schedule();
-            $Schedule->barber_id = $request->barber_id;
-            $Schedule->start_time = $startTime[$i];
-            $Schedule->end_time = $endTime[$i];
-            $Schedule->day = $day[$i];
-            $Schedule->save();
+            //run the array and save the corresponding info based in the day of the schedule
+            for ($i = 0; $i < sizeof($day); $i++) {
+                $Schedule = new Schedule();
+                $Schedule->barber_id = $request->barber_id;
+                $Schedule->start_time = $startTime[$i];
+                $Schedule->end_time = $endTime[$i];
+                $Schedule->day = $day[$i];
+                $Schedule->save();
+            }
+
+            // Return a JSON response
+            return response()->json([
+                'success' => true,
+                'id'=>$request->barber_id,
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'errors' => true,
+            ]);
         }
-
-        // Return a JSON response
-        return response()->json([
-            'success' => true,
-            'id'=>$request->barber_id,
-        ]);
     }
 
     /**
