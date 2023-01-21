@@ -10,11 +10,25 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+
+    {{-- Styles --}}
+    @vite([
+        'resources/sass/app.scss', 
+        'resources/assets/icon/themify-icons/themify-icons.css', 
+        'resources/assets/icon/icofont/css/icofont.css',
+        'resources/assets/pages/flag-icon/flag-icon.min.css',
+        'resources/assets/pages/menu-search/css/component.css',
+        'resources/assets/pages/multi-step-sign-up/css/reset.min.css',
+        'resources/assets/pages/multi-step-sign-up/css/style.css',
+        'resources/assets/css/style.css'
+        ])
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/auth.css'])
+    @vite(['resources/js/app.js'])
 </head>
 <body>
     <div id="app" class="app">
@@ -76,5 +90,22 @@
             @yield('content')
         </main>
     </div>
+    @vite([
+        "resources/assets/bower_components/jquery/dist/jquery.min.js",
+        "resources/assets/bower_components/jquery-ui/jquery-ui.min.js",
+        "resources/assets/bower_components/popper.js/dist/umd/popper.min.js",
+        "resources/assets/bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "resources/assets/bower_components/jquery-slimscroll/jquery.slimscroll.js",
+        "resources/assets/bower_components/modernizr/modernizr.js",
+        "resources/assets/bower_components/modernizr/feature-detects/css-scrollbars.js",
+        'http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
+        "resources/assets/assets/pages/multi-step-sign-up/js/main.js",
+        "resources/assets/bower_components/i18next/i18next.min.js",
+        "resources/assets/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js",
+        "resources/assets/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js",
+        "resources/assets/bower_components/jquery-i18next/jquery-i18next.min.js",
+        "resources/assets/assets/js/common-pages.js",
+
+    ])
 </body>
 </html>
