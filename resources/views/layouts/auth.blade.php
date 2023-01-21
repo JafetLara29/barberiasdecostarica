@@ -91,20 +91,20 @@
         </main>
     </div>
     @vite([
-        "resources/assets/bower_components/jquery/dist/jquery.min.js",
-        "resources/assets/bower_components/jquery-ui/jquery-ui.min.js",
-        "resources/assets/bower_components/popper.js/dist/umd/popper.min.js",
-        "resources/assets/bower_components/bootstrap/dist/js/bootstrap.min.js",
-        "resources/assets/bower_components/jquery-slimscroll/jquery.slimscroll.js",
-        "resources/assets/bower_components/modernizr/modernizr.js",
-        "resources/assets/bower_components/modernizr/feature-detects/css-scrollbars.js",
+        "resources/bower_components/jquery/dist/jquery.min.js",
+        "resources/bower_components/jquery-ui/jquery-ui.min.js",
+        "resources/bower_components/popper.js/dist/umd/popper.min.js",
+        "resources/bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "resources/bower_components/jquery-slimscroll/jquery.slimscroll.js",
+        "resources/bower_components/modernizr/modernizr.js",
+        "resources/bower_components/modernizr/feature-detects/css-scrollbars.js",
         'http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
-        "resources/assets/assets/pages/multi-step-sign-up/js/main.js",
-        "resources/assets/bower_components/i18next/i18next.min.js",
-        "resources/assets/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js",
-        "resources/assets/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js",
-        "resources/assets/bower_components/jquery-i18next/jquery-i18next.min.js",
-        "resources/assets/assets/js/common-pages.js",
+        "resources/assets/pages/multi-step-sign-up/js/main.js",
+        "resources/bower_components/i18next/i18next.min.js",
+        "resources/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js",
+        "resources/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js",
+        "resources/bower_components/jquery-i18next/jquery-i18next.min.js",
+        "resources/assets/js/common-pages.js",
 
     ])
 </body>
