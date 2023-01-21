@@ -41,7 +41,7 @@
                                 array += `<a href="/barbershops/${ result.id }" class="a-card">
                                                 <div class="card m-2 d-flex flex-row">
                                                     <div class="img-container d-flex justify-content-center align-items-center">
-                                                        <img src="https://cdn.pixabay.com/photo/2012/04/18/00/32/barbershop-36290_960_720.png" alt="...">
+                                                        <img src="https://cdn.pixabay.com/photo/2020/09/06/22/58/barbershop-5550320_960_720.png" alt="...">
                                                     </div>
                                                     <div class="card-body search-result-card-body">
                                                         <h5 class="search-result-title">${ result.name }</h5>

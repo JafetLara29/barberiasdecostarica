@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    {{-- <link rel="icon" href="../files/assets/images/favicon.ico" type="image/x-icon"> --}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -12,12 +12,13 @@
     <!-- Fonts -->
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
-
     {{-- Styles --}}
     @vite([
-        'resources/sass/app.scss', 
+        'resources/sass/app.scss',
         'resources/assets/icon/themify-icons/themify-icons.css', 
         'resources/assets/icon/icofont/css/icofont.css',
         'resources/assets/pages/flag-icon/flag-icon.min.css',
@@ -29,6 +30,7 @@
 
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
+
 </head>
 <body>
     <div id="app" class="app">
@@ -93,19 +95,18 @@
     @vite([
         "resources/bower_components/jquery/dist/jquery.min.js",
         "resources/bower_components/jquery-ui/jquery-ui.min.js",
-        "resources/bower_components/popper.js/dist/umd/popper.min.js",
+        "resources/bower_components/popper.js/dist/umd/popper.min.js",  
         "resources/bower_components/bootstrap/dist/js/bootstrap.min.js",
         "resources/bower_components/jquery-slimscroll/jquery.slimscroll.js",
         "resources/bower_components/modernizr/modernizr.js",
         "resources/bower_components/modernizr/feature-detects/css-scrollbars.js",
-        'http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',
         "resources/assets/pages/multi-step-sign-up/js/main.js",
         "resources/bower_components/i18next/i18next.min.js",
         "resources/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js",
         "resources/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js",
         "resources/bower_components/jquery-i18next/jquery-i18next.min.js",
         "resources/assets/js/common-pages.js",
-
     ])
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 </body>
 </html>
