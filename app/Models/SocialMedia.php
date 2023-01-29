@@ -12,7 +12,8 @@ class SocialMedia extends Model
     protected $fillable = [
         'data',
         'type',
-        'barbershop_barber_id',
+        'socialMediable_id',
+        'socialMediable_type',
     ];
 
     /**

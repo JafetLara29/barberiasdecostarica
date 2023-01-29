@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BarberController;
 use App\Http\Controllers\BarbershopController;
 use App\Http\Controllers\CitationController;
@@ -89,3 +90,4 @@ Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 */
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::post('/register/custom', [RegisterController::class, 'customRegister'])->name('auth.register');

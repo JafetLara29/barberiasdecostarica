@@ -10,10 +10,11 @@ class Barbershop extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'schedule',
-        'ubication',
-        'map',
+        'address',
+        'canton',
     ];
 
     /**
@@ -50,5 +51,14 @@ class Barbershop extends Model
      */
     public function schedules(){
         return $this->morphMany(Schedule::class, 'scheduleable');
+    }
+
+    /**
+     *|---------------------------------------------------------------
+     * |Metodo para indicar que una barberia esta ligada a un usuario-
+     *|---------------------------------------------------------------
+     */
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

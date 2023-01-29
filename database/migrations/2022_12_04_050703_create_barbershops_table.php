@@ -19,9 +19,12 @@ return new class extends Migration
             $table->string('address', 500);//Direccion exacta
             $table->string('canton', 100);//Canton para filtrar por canton en un futuro
             // $table->string('map'); Queda a la espera hasta determinar la herramiento a usar
-            $table->integer('total_barbers_available');
-            $table->integer('created_barbers');
+            $table->integer('total_barbers_available')->default(10);
+            $table->integer('created_barbers')->nullable();
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

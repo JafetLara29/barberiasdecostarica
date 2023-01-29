@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barbershop;
+use App\Models\SocialMedia;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,10 +53,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+                'name'     => ['required', 'string', 'max:255'],
+                'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'phone'    => ['required', 'numeric'],
+                'name'     => ['required', 'string'],
+                'canton'   => ['required', 'string'],
+                'address'  => ['required', 'string']
+            ], 
+            [
+                'required' => 'Este input es requerido',
+                'phone.numeric'=> 'Este input solo puede contener numeros',
+                'password.confirmed'=> 'Las contraseñas ingresadas deben coincidir'
+            ]
+        );
     }
 
     /**
@@ -63,12 +76,28 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
-        // Aqui registramos el nombre de la barberia en la tabla de barbershops. Los demas campos quedan con guión
-        return User::create([
+    {   
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $barbershop = Barbershop::create([
+                'name'   => $data['name'],
+                'address'=> $data['address'],
+                'canton' => $data['canton'],
+                'user_id'=> $user->id
+            ]
+        );
+
+        SocialMedia::create([
+            'data'                => $data['phone'],
+            'type'                => 'Telefono',
+            'socialMediable_id'   => $barbershop->id,
+            'socialMediable_type' => 'App\Models\Barbershop',
+        ]);
+
+        return $user;
     }
 }
