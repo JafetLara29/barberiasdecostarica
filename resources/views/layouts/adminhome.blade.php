@@ -30,11 +30,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/admin.css', 'resources/css/adminlte.min.css', 'resources/js/adminlte.min.js'])
-    <style>
-        .active, .bg-green{
-            background-color: greenyellow!important;
-        }
-    </style>
+   
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
