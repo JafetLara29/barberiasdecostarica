@@ -1,4 +1,4 @@
-'use strict';
+
 $(document).ready(function() {
     var ctx = document.getElementById('update-chart-1').getContext("2d");
     var myChart = new Chart(ctx, {

@@ -18,6 +18,12 @@ class BarberController extends Controller
          return view('dashboards.barbercontrol');
 
     }
+    public function profile()
+    {
+
+         return view('dashboards.forms.barberprofile');
+
+    }
 
     public function getBarbersPublicSite($barbershop)
     {
