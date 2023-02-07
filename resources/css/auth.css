@@ -12,13 +12,15 @@ body {
 
 /* Form styles */
 #msform {
+	background-image: url(https://cdn.pixabay.com/photo/2016/06/12/21/41/barber-1453064_960_720.jpg) !important;
+	background-size: cover;
 	width: 400px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
 }
 #msform fieldset {
-	background: #fff;
+	background-color:rgba(0,0,0,0.4) !important;
 	border: 0 none;
 	border-radius: 5px;
 	box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
