@@ -49,7 +49,6 @@
     'resources/js/adminlte.min.js'
     ])
 
-
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -115,7 +114,7 @@
                                 <ion-icon size="large" name="mail-unread"></ion-icon>
                                 {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
                                 <p>
-                                    Bandeja de entrada
+                                    Citas entrantes
                                 </p>
                             </a>
                         </li>
