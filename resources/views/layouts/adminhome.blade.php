@@ -48,11 +48,7 @@
     'resources/css/adminlte.min.css',
     'resources/js/adminlte.min.js'
     ])
-    <style>
-        .active, .bg-green{
-            background-color: greenyellow!important;
-        }
-    </style>
+
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
@@ -209,7 +205,7 @@
         "resources/bower_components/moment/src/moment.js",
         'resources/js/app.js',
         // "resources/bower_components/bootstrap/dist/js/bootstrap.min.js",
-        // "resources/bower_components/popper.js/dist/umd/popper.min.js",
+         "resources/bower_components/popper.js/dist/umd/popper.min.js",
         //"resources/bower_components/jquery-slimscroll/jquery.slimscroll.js",
         // "resources/bower_components/modernizr/modernizr.js",
        // "resources/bower_components/chart.js/dist/Chart.js",
