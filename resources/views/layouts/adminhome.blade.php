@@ -37,6 +37,7 @@
         'resources/css/admin.css',
         'resources/css/adminlte.min.css',
         'resources/js/adminlte.min.js',
+        'resources/sass/app.scss',
     ])
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
