@@ -17,13 +17,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- Css old Vite --}}
-    <link rel="stylesheet" href="storage/assets/css/sweetalert.css">
-    <link rel="stylesheet" href="storage/assets/icon/feather/css/feather.css">
-    <link rel="stylesheet" href="storage/assets/css/style.css">
-    <link rel="stylesheet" href="storage/assets/icon/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="storage/assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" href="{{asset("storage/assets/css/sweetalert.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/feather/css/feather.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/css/style.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/themify-icons/themify-icons.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/icofont/css/icofont.css")}}">
     {{-- Css Font-Awesome --}}
-    <link rel="stylesheet" href="storage/assets/icon/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/font-awesome/css/font-awesome.min.css")}}">
 
     
 
