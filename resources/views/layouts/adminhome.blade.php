@@ -16,27 +16,17 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    {{-- Scripts --}}
-    {{-- @vite(["resources/bower_components/jquery/dist/jquery.min.js"]) --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    {{-- Css old Vite --}}
+    <link rel="stylesheet" href="storage/assets/css/sweetalert.css">
+    <link rel="stylesheet" href="storage/assets/icon/feather/css/feather.css">
+    <link rel="stylesheet" href="storage/assets/css/style.css">
+    <link rel="stylesheet" href="storage/assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="storage/assets/icon/icofont/css/icofont.css">
+    {{-- Css Font-Awesome --}}
+    <link rel="stylesheet" href="storage/assets/icon/font-awesome/css/font-awesome.min.css">
 
-    <!-- Font Awesome -->
-    @vite(['resources/assets/icon/font-awesome/css/font-awesome.min.css'])
-
-    {{-- Styles --}}
-    @vite([
-        'resources/assets/css/sweetalert.css',
-        //  'resources/bower_components/bootstrap/dist/css/bootstrap.min.css',
-        'resources/assets/icon/feather/css/feather.css',
-        'resources/assets/css/style.css',
-        'resources/assets/icon/themify-icons/themify-icons.css',
-        'resources/assets/icon/icofont/css/icofont.css',
-        'resources/assets/pages/advance-elements/css/bootstrap-datetimepicker.css',
-        'resources/bower_components/bootstrap-daterangepicker/daterangepicker.css',
-        'resources/bower_components/datedropper/datedropper.min.css',
     
-        //"resources/assets/css/jquery.mCustomScrollbar.css",
-    ])
+
     {{-- DataTables --}}
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.css" />
@@ -44,8 +34,6 @@
 
 
     @vite([
-        //'resources/sass/app.scss',
-        //'resources/js/app.js',
         'resources/css/admin.css',
         'resources/css/adminlte.min.css',
         'resources/js/adminlte.min.js',
@@ -217,38 +205,6 @@
             AOS.init();
         </script>
         {{-- ##################################################################################################################### --}}
-       
-       @vite([
-            // "resources/bower_components/jquery-ui/jquery-ui.min.js",
-            // "resources/bower_components/moment/src/moment.js",
-            // 'resources/js/app.js',
-            // "resources/bower_components/bootstrap/dist/js/bootstrap.min.js",
-            //  "resources/bower_components/popper.js/dist/umd/popper.min.js",
-            //"resources/bower_components/jquery-slimscroll/jquery.slimscroll.js",
-            // "resources/bower_components/modernizr/modernizr.js",
-            // "resources/bower_components/chart.js/dist/Chart.js",
-            // "resources/assets/pages/widget/amchart/amcharts.js",
-            // "resources/assets/pages/widget/amchart/serial.js",
-            // "resources/assets/pages/widget/amchart/light.js",
-            //"resources/assets/js/jquery.mCustomScrollbar.concat.min.js",
-            // "resources/assets/js/SmoothScroll.js",
-            // "resources/assets/js/sweetalert.js",
-            // "resources/assets/js/modal.js",
-            //"resources/assets/js/modalEffects.js",
-            //"resources/assets/js/classie.js",
-            // "resources/assets/js/pcoded.min.js",
-            //"resources/assets/js/vartical-layout.min.js",
-            //"resources/assets/pages/dashboard/custom-dashboard.js",
-            //"resources/assets/js/script.js",
-            // "resources/assets/pages/user-profile.js",
-            //  "resources/assets/pages/ckeditor/ckeditor.js",
-            //    "resources/assets/pages/ckeditor/ckeditor-custom.js",
-            // "resources/assets/pages/advance-elements/moment-with-locales.min.js",
-            // "resources/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js",
-            // "resources/assets/pages/advance-elements/bootstrap-datetimepicker.min.js",
-            // "resources/bower_components/bootstrap-daterangepicker/daterangepicker.js",
-            // "resources/bower_components/datedropper/datedropper.min.js"
-        ])
 
          {{-- scripts ADMINTY --}}
         <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>
