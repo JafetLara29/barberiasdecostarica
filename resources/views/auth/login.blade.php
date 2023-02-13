@@ -2,7 +2,7 @@
 
 @section('content')
 
- <!-- Pre-loader start -->
+ {{-- <!-- Pre-loader start -->
  <div class="theme-loader">
     <div class="ball-scale">
         <div class='contain'>
@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<!-- Pre-loader end -->
+<!-- Pre-loader end --> --}}
 <section class="login-block">
     <!-- Container-fluid starts -->
     <div class="container-fluid">
@@ -50,8 +50,8 @@
                     @csrf
                     <div class="auth-box card">
                         <div class="text-center">
-                            
-                            <img class="logo" src="https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png" alt="logo.png" width="150" height="150">
+
+                            <img class="logo" src="{{asset("https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png")}}" alt="logo.png" width="150" height="150">
                         </div>
                         <div class="card-block">
                             <div class="row m-b-20">

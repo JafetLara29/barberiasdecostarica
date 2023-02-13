@@ -17,15 +17,18 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- Css old Vite --}}
-    <link rel="stylesheet" href="{{asset("storage/assets/css/sweetalert.css")}}">
-    <link rel="stylesheet" href="{{asset("storage/assets/icon/feather/css/feather.css")}}">
-    <link rel="stylesheet" href="{{asset("storage/assets/css/style.css")}}">
-    <link rel="stylesheet" href="{{asset("storage/assets/icon/themify-icons/themify-icons.css")}}">
-    <link rel="stylesheet" href="{{asset("storage/assets/icon/icofont/css/icofont.css")}}">
+    <link rel="stylesheet" href="{{asset('storage/assets/pages/menu-search/css/component.css')}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/css/sweetalert.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/icon/feather/css/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/icon/themify-icons/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/icon/icofont/css/icofont.css') }}">
+    <link rel="stylesheet" href="{{asset('storage/assets/pages/multi-step-sign-up/css/reset.min.css')}}">
+    <link rel="stylesheet" href="{{asset('storage/assets/pages/menu-search/css/component.css')}}">
     {{-- Css Font-Awesome --}}
-    <link rel="stylesheet" href="{{asset("storage/assets/icon/font-awesome/css/font-awesome.min.css")}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/icon/font-awesome/css/font-awesome.min.css') }}">
 
-    
+
 
     {{-- DataTables --}}
     <link rel="stylesheet" type="text/css"
@@ -34,10 +37,10 @@
 
 
     @vite([
-        'resources/css/admin.css',
-        'resources/css/adminlte.min.css',
-        'resources/js/adminlte.min.js',
-        'resources/sass/app.scss',
+    'resources/css/admin.css',
+    'resources/css/adminlte.min.css',
+    'resources/js/adminlte.min.js',
+    'resources/sass/app.scss'
     ])
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
@@ -207,7 +210,7 @@
         </script>
         {{-- ##################################################################################################################### --}}
 
-         {{-- scripts ADMINTY --}}
+        {{-- scripts ADMINTY --}}
         <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/storage/bower_components/popper.js/dist/umd/popper.min.js') }}">
@@ -240,7 +243,7 @@
         {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/vartical-layout.min.js') }}"></script> --}}
         <script type="text/javascript" src="{{ asset('/storage/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
         {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/script.js') }}"></script> --}}
-        <script  src="{{ asset('/storage/assets/pages/user-profile.js') }}"></script>
+        <script src="{{ asset('/storage/assets/pages/user-profile.js') }}"></script>
 
 
         {{-- ##################################################################################################################### --}}
@@ -255,6 +258,8 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 </body>
 
 </html>

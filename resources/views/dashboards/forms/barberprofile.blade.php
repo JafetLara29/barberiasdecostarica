@@ -264,7 +264,7 @@
                                                                                 <div
                                                                                     class="input-group">
                                                                                     <span
-                                                                                        class="input-group-addon pbP-1"><i
+                                                                                        class="input-group-addon pb-1"><i
                                                                                             class="icofont icofont-ui-email"></i></span>
                                                                                     <input
                                                                                         type="text"
