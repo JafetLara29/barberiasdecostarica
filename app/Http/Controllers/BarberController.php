@@ -18,10 +18,18 @@ class BarberController extends Controller
          return view('dashboards.barbercontrol');
 
     }
+    // Ruta de perfil barber
     public function profile()
     {
 
          return view('dashboards.forms.barberprofile');
+
+    }
+    // ruta de calendario Barber
+    public function schedule()
+    {
+
+         return view('dashboards.forms.barberschedule');
 
     }
 

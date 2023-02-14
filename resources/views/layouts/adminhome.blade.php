@@ -17,16 +17,23 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- Css old Vite --}}
-    <link rel="stylesheet" href="{{asset('storage/assets/pages/menu-search/css/component.css')}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/pages/menu-search/css/component.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/css/sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/feather/css/feather.css') }}">
-    <link rel="stylesheet" href="{{ asset('storage/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('storage/assets/icon/themify-icons/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/icon/themify-icons/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/icofont/css/icofont.css') }}">
-    <link rel="stylesheet" href="{{asset('storage/assets/pages/multi-step-sign-up/css/reset.min.css')}}">
-    <link rel="stylesheet" href="{{asset('storage/assets/pages/menu-search/css/component.css')}}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/pages/multi-step-sign-up/css/reset.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('storage/assets/pages/menu-search/css/component.css') }}">
     {{-- Css Font-Awesome --}}
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/font-awesome/css/font-awesome.min.css') }}">
+
+    <!-- Calendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
 
 
 
@@ -36,12 +43,7 @@
     {{-- ############################################################################################################# --}}
 
 
-    @vite([
-    'resources/css/admin.css',
-    'resources/css/adminlte.min.css',
-    'resources/js/adminlte.min.js',
-    'resources/sass/app.scss'
-    ])
+    @vite(['resources/css/admin.css', 'resources/css/adminlte.min.css','resources/sass/app.scss','resources/css/adminschedule.css','resources/js/schedules.js'])
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
@@ -105,8 +107,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link py-3 border-bottom" title="Citas"
-                                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                            <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom"
+                                title="Citas" data-bs-toggle="tooltip" data-bs-placement="right"
+                                data-bs-original-title="Dashboard">
                                 <ion-icon size="large" name="calendar"></ion-icon>
                                 {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
                                 <p>
@@ -218,12 +221,12 @@
         <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}">
         </script>
         <!-- jquery slimscroll js -->
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}">
-        </script>
+        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}">
+        </script> --}}
         <!-- modernizr js -->
         <script type="text/javascript" src="{{ asset('/storage/bower_components/modernizr/modernizr.js') }}"></script>
-        <script type="text/javascript"
-            src="{{ asset('/storage/bower_components/modernizr/feature-detects/css-scrollbars.js') }}"></script>
+        {{-- <script type="text/javascript"
+            src="{{ asset('/storage/bower_components/modernizr/feature-detects/css-scrollbars.js') }}"></script> --}}
 
         <!-- ck editor -->
         <script type="text/javascript" src="{{ asset('/storage/assets/pages/ckeditor/ckeditor.js') }}"></script>
@@ -241,7 +244,7 @@
 
         <script type="text/javascript" src="{{ asset('/storage/assets/js/pcoded.min.js') }}"></script>
         {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/vartical-layout.min.js') }}"></script> --}}
-        <script type="text/javascript" src="{{ asset('/storage/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script> --}}
         {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/script.js') }}"></script> --}}
         <script src="{{ asset('/storage/assets/pages/user-profile.js') }}"></script>
 
@@ -258,8 +261,11 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src=""></script>
+        {{-- BarbersSchedule Calendar --}}
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
 </body>
 
 </html>

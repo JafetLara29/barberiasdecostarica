@@ -75,6 +75,7 @@ Route::resource('/schedule', ScheduleController::class);
 */
 Route::resource('/barbers', BarberController::class);
 Route::get('/profile', [BarberController::class, 'profile'])->name('barbers.profile');
+Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barbers.schedule');
 
 /*
 |-----------------
