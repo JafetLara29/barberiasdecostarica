@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.publicdos')
 @section('content')
     @if (isset($result) && $result == 'success')
     <script>

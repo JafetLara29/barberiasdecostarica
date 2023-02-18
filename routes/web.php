@@ -82,8 +82,8 @@ Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barb
 | Rutas públicas-
 |-----------------
 */
-//Route::get('/', [PublicController::class,'index'])->name('welcome');
 Route::get('/', [PublicController::class,'index'])->name('welcome');
+Route::get('/2', [PublicController::class,'index2'])->name('welcome');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 
 /*
