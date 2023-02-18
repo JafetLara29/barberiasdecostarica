@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     public function index(){
-        return view('public.welcome');
+        return view('public.welcome2');
     }
     public function goToSearch(){
         return view('public.search');
