@@ -12,6 +12,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialMediaController;
+use App\Http\Controllers\IncomeController;
 use App\Models\Barber;
 
 /*
@@ -76,6 +77,9 @@ Route::resource('/schedule', ScheduleController::class);
 Route::resource('/barbers', BarberController::class);
 Route::get('/profile', [BarberController::class, 'profile'])->name('barbers.profile');
 Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barbers.schedule');
+
+// ? Route by Heyner --> INCOME = Ingresos
+Route::get('/income',[IncomeController::class,'index'])->name('income');
 
 /*
 |-----------------
