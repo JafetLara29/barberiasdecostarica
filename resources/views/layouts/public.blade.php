@@ -165,81 +165,86 @@
                             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                                 <ul class="navbar-nav nav justify-content-center ms-auto">
                                     <li class="nav-item">
-                                        <a href="index.html" class="nav-link">Home <i class="fas fa-chevron-down"></i></a>
+                                        <a href="index.html" class="nav-link">Inicio<i class="fas fa-chevron-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item">
-                                                <a href="index.html" class="nav-link active">Home Silder</a>
+                                                <a href="index.html" class="nav-link active">Comunidad</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="index1.html" class="nav-link">Home Default</a>
+                                                <a href="index1.html" class="nav-link">Reseñas</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">Pages <i class="fas fa-chevron-down"></i></a>
+                                        <a href="#" class="nav-link">Paginas <i class="fas fa-chevron-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item">
-                                                <a href="about.html" class="nav-link">About Us</a>
+                                                <a href="about.html" class="nav-link">Nosotros</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="service.html" class="nav-link">Service</a>
+                                                <a href="service.html" class="nav-link">Servicios</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="portfolio.html" class="nav-link">Gallery</a>
+                                                <a href="portfolio.html" class="nav-link">Galleria</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="pricing.html" class="nav-link">Pricing</a>
+                                                <a href="planes.html" class="nav-link">Planes</a>
                                             </li>
 
                                             <li class="nav-item">
-                                                <a href="error.html" class="nav-link">404</a>
+                                                <a href="comunidad.html" class="nav-link">Comunidad</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="client.html" class="nav-link">Client</a>
+                                                <a href="client.html" class="nav-link">Clientes</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="team.html" class="nav-link">Team</a>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a href="privacy.html" class="nav-link">Privacy & Policy</a>
+                                                <a href="team.html" class="nav-link">Equipo</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="terms.html" class="nav-link">Terms & Condition</a>
+                                                <a href="contact.html" class="nav-link">Reseñas</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="contact.html" class="nav-link">Contact</a>
+                                                <a href="contacto.html" class="nav-link">Contacto</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="mi barber.html" class="nav-link">Mi barber</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="privacy.html" class="nav-link">Política de Privacidad</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="terms.html" class="nav-link">Terminoss & Condiciones</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="about.html" class="nav-link">About</a>
+                                        <a href="about.html" class="nav-link">Nosotros</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="service.html" class="nav-link">Service</a>
+                                        <a href="service.html" class="nav-link">Servicios</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="portfolio.html" class="nav-link">Gallery</a>
+                                        <a href="portfolio.html" class="nav-link">Galleria</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="pricing.html" class="nav-link">Pricing</a>
+                                        <a href="pricing.html" class="nav-link">Planes</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="client.html" class="nav-link">Client</a>
+                                        <a href="client.html" class="nav-link">Clientes</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">Blog <i class="fas fa-chevron-down"></i></a>
+                                        <a href="#" class="nav-link">Contacto <i class="fas fa-chevron-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item">
-                                                <a href="blog.html" class="nav-link">Blog Grid</a>
+                                                <a href="blog.html" class="nav-link">Equipo</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a href="blog-details.html" class="nav-link">Blog Details</a>
+                                                <a href="blog-details.html" class="nav-link">Blogs</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="contact.html" class="nav-link">Contact</a>
+                                        <a href="contact.html" class="nav-link">Mi barber</a>
                                     </li>
                                 </ul>
                             </div>
@@ -269,29 +274,29 @@
                             </div><!--- END COL -->
 
                             <div class="col-lg-2 col-md-6 col-12 atf-footer-link">
-                                <h5>Quick Links</h5>
+                                <h5>enlaces rápidos</h5>
                                 <ul class="atf-list-menu">
-                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Get Stared</a></li>
-                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>It Consultant</a></li>
+                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Empezar</a></li>
+                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Soporte 24/7</a></li>
                                     <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>About Us</a></li>
-                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Need Helps</a></li>
-                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Contact Us</a></li>
+                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Necesito ayuda</a></li>
+                                    <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Contacto</a></li>
                                 </ul>
                             </div><!--- END COL -->
 
                             <div class="col-lg-2 col-md-6 col-12 atf-footer-link">
-                                <h5>Company</h5>
+                                <h5>Compañía</h5>
                                 <ul class="atf-list-menu">
-                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Our Service</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Our Privacy</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Update News</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Our Team</a></li>
-                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Free Consult</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestro servicio</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestra Privacidad</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Noticias actualizadas</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestro equipo</a></li>
+                                    <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Consulta Gratis</a></li>
                                 </ul>
                             </div><!--- END COL -->
 
                             <div class="col-lg-5 col-md-6 col-12 atf-footer-link">
-                                <h5>Our Map </h5>
+                                <h5>Nuestro Mapa </h5>
                                 <!-- Google Map start-->
                                 <div id="atf-map-area">
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.1516153355674!2d-105.24276688517374!3d38.43796677964402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87148f9a4466afe5%3A0x24b66e04146cc9e2!2sCanon%20City%20Santa%20Fe%20Depot!5e0!3m2!1sen!2sbd!4v1622049345355!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -313,7 +318,7 @@
                 </div>
                 <!-- FOOTER SECTION END-->
             </footer><!--- END FOOTER -->
-            
+
         </div>
         <!-- PAGE WRAPPER END-->
 
@@ -321,16 +326,16 @@
 		<script src="{{asset('storage/public/assets/js/jquery-1.12.4.min.js')}}"></script>
 		<!-- Latest compiled and minified Bootstrap -->
 		<script src="{{asset('storage/public/assets/bootstrap/js/bootstrap.bundle.js')}}"></script>
-		<!-- modernizer JS -->		
+		<!-- modernizer JS -->
 		<script src="{{asset('storage/public/assets/js/modernizr.custom.js')}}"></script>
 		<!-- imagesloaded JS -->
 		<script src="{{asset('storage/public/assets/js/imagesloaded.pkgd.js')}}"></script>
-		<!-- isotope.pkgd JS -->		
+		<!-- isotope.pkgd JS -->
 		<script src="{{asset('storage/public/assets/js/isotope.pkgd.min.js')}}"></script>
 		<!-- stellar JS -->
-		<script src="{{asset('storage/public/assets/js/jquery.stellar.min.js')}}"></script>		
+		<script src="{{asset('storage/public/assets/js/jquery.stellar.min.js')}}"></script>
 		<!-- owl-carousel min js  -->
-		<script src="{{asset('storage/public/assets/owlcarousel/js/owl.carousel.min.js')}}"></script>		
+		<script src="{{asset('storage/public/assets/owlcarousel/js/owl.carousel.min.js')}}"></script>
 		<!-- waypoints js -->
 		<script src="{{asset('storage/public/assets/js/waypoints.min.js')}}"></script>
 		<!-- jquery.appear js -->
@@ -349,7 +354,7 @@
 		<!-- form-contact js -->
 		<script src="{{asset('storage/public/assets/js/form-contact.js')}}"></script>
 		<!-- main js -->
-		<script src="{{asset('storage/public/assets/js/main.js')}}"></script>	
+		<script src="{{asset('storage/public/assets/js/main.js')}}"></script>
 
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
