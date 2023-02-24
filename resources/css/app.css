@@ -1,13 +1,14 @@
+/* Estilos de la parte publica "busqueda y proceso de citas" */
 /* Home */
 .custom_toast{
     font-size: 17px;
 }
 
 /* Search page */
-.container{
+/* .container{
     padding-top:100px;
     padding-bottom:100px;
-}
+} */
 .search{
     height: 45px;
     font-size: 20px;

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     {{-- ############################################################################################################# --}}
     <!-- Fonts -->
+<<<<<<< Updated upstream
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
@@ -35,6 +36,35 @@
     @vite(['resources/js/app.js', 'resources/sass/app.scss', 'resources/css/auth.css'])
 
 
+=======
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    {{-- Styles --}}
+    <link rel="stylesheet" href="{{asset("storage/assets/css/sweetalert.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/feather/css/feather.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/css/style.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/themify-icons/themify-icons.css")}}">
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/icofont/css/icofont.css")}}">
+    {{-- Css Font-Awesome --}}
+    <link rel="stylesheet" href="{{asset("storage/assets/icon/font-awesome/css/font-awesome.min.css")}}">`
+    @vite([
+        'resources/sass/app.scss',
+        // 'resources/assets/icon/themify-icons/themify-icons.css', 
+        // 'resources/assets/icon/icofont/css/icofont.css',
+        // 'resources/assets/pages/flag-icon/flag-icon.min.css',
+        // 'resources/assets/pages/menu-search/css/component.css',
+        // 'resources/assets/pages/multi-step-sign-up/css/reset.min.css',
+        // 'resources/assets/pages/multi-step-sign-up/css/style.css',
+        // 'resources/assets/css/style.css'
+        ])
+
+    <!-- Scripts -->
+    @vite(['resources/js/app.js'])
+>>>>>>> Stashed changes
 
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>

@@ -35,11 +35,19 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
 
+     <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/storage/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+
+    <!-- Select 2 css -->
+    <link rel="stylesheet" href="{{ asset('/storage/bower_components/select2/dist/css/select2.min.css') }}" />
+    <!-- Multi Select css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/storage/bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/storage/bower_components/multiselect/css/multi-select.css') }}" />
+
 
 
     {{-- DataTables --}}
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.css" />
     {{-- ############################################################################################################# --}}
 
 
@@ -65,21 +73,17 @@
             <div class="sidebar">
                 <nav class="mt-2">
 
-                    <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview"
-                        role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a class="nav-link py-3" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24"
-                                    class="rounded-circle">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
                                 <p>
                                     {{ Auth::user()->name }}
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('home') }}" class="nav-link py-3 border-bottom" aria-current="page"
-                                title="Inicio" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-original-title="Home">
+                            <a href="{{ url('home') }}" class="nav-link py-3 border-bottom" aria-current="page" title="Inicio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                                 <ion-icon size="large" name="home"></ion-icon>
                                 <p>
                                     Inicio
@@ -87,9 +91,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('barbershop.create') }}" class="nav-link py-3 border-bottom"
-                                title="Citas" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-original-title="Dashboard">
+                            <a href="{{ route('barbershop.create') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <ion-icon size="large" name="business-outline"></ion-icon>
                                 <p>
                                     Barbería
@@ -97,8 +99,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas"
-                                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                            <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <ion-icon size="large" name="people-circle-outline"></ion-icon>
                                 <p>
 
@@ -107,9 +108,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom"
-                                title="Citas" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-original-title="Dashboard">
+                            <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <ion-icon size="large" name="calendar"></ion-icon>
                                 {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
                                 <p>
@@ -118,9 +117,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('citations.inbox') }}" class="nav-link py-3 border-bottom"
-                                title="Bandeja de entrada" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-original-title="Orders">
+                            <a href="{{ route('citations.inbox') }}" class="nav-link py-3 border-bottom" title="Bandeja de entrada" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
                                 <ion-icon size="large" name="mail-unread"></ion-icon>
                                 {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
                                 <p>
@@ -129,8 +126,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link py-3 border-bottom" title="Producción de leche"
-                                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                            <a href="{{ url('income') }}" class="nav-link py-3 border-bottom" title="Producción de leche" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
                                 <ion-icon size="large" name="cash"></ion-icon>
                                 <p>
                                     Ingresos
@@ -138,9 +134,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link py-3 border-bottom" title="Datos"
-                                data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-original-title="Customers">
+                            <a href="" class="nav-link py-3 border-bottom" title="Datos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
                                 <ion-icon size="large" name="bar-chart"></ion-icon>
                                 <p>
                                     Datos
@@ -166,36 +160,36 @@
         </aside>
 
         @if (session()->has('success'))
-            <script>
-                Toastify({
-                    text: "¡{{ session()->get('success') }}!",
-                    duration: 5000,
-                    gravity: "top",
-                    position: "center",
-                    style: {
-                        background: "linear-gradient(to right, #00b09b, greenyellow)",
-                    },
+        <script>
+            Toastify({
+                text: "¡{{ session()->get('success') }}!",
+                duration: 5000,
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "linear-gradient(to right, #00b09b, greenyellow)",
+                },
 
-                }).showToast();
-            </script>
+            }).showToast();
+        </script>
         @endif
         {{-- Validar si hay algo en la bolsa de errores, se llena cuando se proveen datos incorrectos etc en formularios --}}
         @if (isset($errors) && $errors->any())
-            @foreach ($errors->all() as $error)
-                {{-- <li>{{$error}}</li> --}}
-                <script>
-                    Toastify({
-                        text: "{{ $error }}",
-                        duration: 5000,
-                        gravity: "top",
-                        position: "center",
-                        style: {
-                            background: "linear-gradient(to right, gray, greenyellow)",
-                        },
+        @foreach ($errors->all() as $error)
+        {{-- <li>{{$error}}</li> --}}
+        <script>
+            Toastify({
+                text: "{{ $error }}",
+                duration: 5000,
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "linear-gradient(to right, gray, greenyellow)",
+                },
 
-                    }).showToast();
-                </script>
-            @endforeach
+            }).showToast();
+        </script>
+        @endforeach
         @endif
         {{-- Main app container --}}
         <main class="content-wrapper p-3">
@@ -232,10 +226,8 @@
         <script type="text/javascript" src="{{ asset('/storage/assets/pages/ckeditor/ckeditor.js') }}"></script>
         <!-- i18next.min.js -->
         <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next/i18next.min.js') }}"></script>
-        <script type="text/javascript"
-            src="{{ asset('/storage/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js') }}"></script>
-        <script type="text/javascript"
-            src="{{ asset('/storage/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js') }}">
+        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js') }}">
         </script>
         <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-i18next/jquery-i18next.min.js') }}">
         </script>
@@ -251,8 +243,7 @@
 
         {{-- ##################################################################################################################### --}}
         {{-- Datatables --}}
-        <script type="text/javascript"
-            src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.js">
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.js">
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>

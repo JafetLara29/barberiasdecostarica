@@ -32,7 +32,7 @@ if (response.success) {
             html+=  `
             <a href="#" class="list-group-item list-group-item-action" aria-current="true" style="background: linear-gradient(90deg, #E9F7F3 0%, #00D29C 100%); ">
                 <div class="d-flex w-100 justify-content-between flex-wrap">
-                     <h5 class="mb-1">${citation.sender}</h5>
+                    <h5 class="mb-1">${citation.sender}</h5>
                         <small>${citation.created_at}</small>
                 </div>
                 <p class="mb-1"></p>
