@@ -43,7 +43,8 @@ Route::resource('/socialmedia',SocialMediaController::class);
 | Rutas para citation-
 |---------------------
 */
-Route::get('/citations/{barber}/week', [CitationController::class,'getWeekByBarber'])->name('citations.getWeekByBarber');
+Route::get('/citations/barbersSchedule', [CitationController::class,'getCitationSchedule'])->name('citations.getcitationSchedule');
+// Route::get('/citations/{barber}/week', [CitationController::class,'getWeekByBarber'])->name('citations.getWeekByBarber'); [reemplazado por calendar]
 Route::get('/citations/barbers/{barbershop}/list', [CitationController::class,'getBarbersToSelect'])->name('citations.getBarbersToSelect');
 Route::get('/citations/{schedule}/hours', [CitationController::class,'getHoursByBarber'])->name('citations.getHoursByBarber');
 Route::get('/citations/{barber}/{hour}/form', [CitationController::class,'form'])->name('citations.form');

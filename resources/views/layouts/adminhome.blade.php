@@ -263,7 +263,7 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src=""></script>
-        {{-- BarbersSchedule Calendar --}}
+        
 
 
 </body>

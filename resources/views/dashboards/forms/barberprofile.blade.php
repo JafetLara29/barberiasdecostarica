@@ -18,9 +18,9 @@
                         <div class="page-header-breadcrumb">
                             <ul class="breadcrumb-title">
                                 <li class="breadcrumb-item"  style="float: left;">
-                                    <a href="index.html"> <i class="feather icon-home"></i> </a>
+                                    <a href="{{ route('barbers.index') }}"> <i class="feather icon-home"></i> </a>
                                 </li>
-                                <li class="breadcrumb-item"  style="float: left;"><a href="#!">Barberos</a>
+                                <li class="breadcrumb-item"  style="float: left;"><a href="{{ route('barbers.index') }}">Barberos</a>
                                 </li>
                                 <li class="breadcrumb-item"  style="float: left;"><a href="#!">Área Personal</a>
                                 </li>

@@ -110,7 +110,7 @@
                             <div class="row m-t-30">
                                 <div class="col-md-12">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-outline-primary">
+                                        <button type="submit" class="btn btn-outline-secondary">
                                             Ingresar
                                         </button>
                                     </div>
