@@ -12,7 +12,7 @@ class CitationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getWeekByBarber', 'store']);
+        $this->middleware('auth')->except(['index', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getcitationSchedule', 'store']);
     }
 
     /**
@@ -32,6 +32,8 @@ class CitationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //  Este metodo va ser reemplazado por el calendario de CitationSchedule
     public function getWeekByBarber(Barber $barber){
         
         // Extraemos la lista de barberos deacuerdo a la barbería
@@ -41,6 +43,18 @@ class CitationController extends Controller
         session(['barber_id' => $barber->id]);
 
         return view('public.week')->with([
+            'schedules' => $schedules,
+        ]);
+    }
+    public function getCitationSchedule(Barber $barber){
+        
+        // Extraemos la lista de barberos deacuerdo a la barbería
+        $schedules = $barber->schedules;
+        
+        // Vamos llenando los datos de la citation en variables session
+        session(['barber_id' => $barber->id]);
+
+        return view('public.citationschedule')->with([
             'schedules' => $schedules,
         ]);
     }

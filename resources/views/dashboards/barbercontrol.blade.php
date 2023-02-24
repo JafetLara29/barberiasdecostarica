@@ -82,11 +82,11 @@
                     <div class="page-header-breadcrumb">
                         <ul class="breadcrumb-title">
                             <li class="breadcrumb-item" style="float: left;">
-                                <a href="index.html"> <i class="feather icon-home"></i> </a>
+                                <a href="{{ route('barbers.index') }}"> <i class="feather icon-home"></i> </a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Barberos</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="{{ route('barbers.profile') }}">Barberos</a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Perfiles</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="{{ route('barbers.index') }}">Perfiles</a>
                             </li>
                         </ul>
                     </div>
@@ -109,7 +109,7 @@
                                 <span>
                                     <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
                                         data-popup="lightbox"><i class="icofont icofont-briefcase-alt-1"></i></a>
-                                    <a href="" class="btn btn-outline-primary"><i
+                                    <a href="{{ route('barbers.profile') }}" class="btn btn-outline-primary"><i
                                             class="icofont icofont-businessman"></i></a>
                                 </span>
                             </div>
@@ -133,7 +133,7 @@
                                 <span>
                                     <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
                                         data-popup="lightbox"><i class="icofont icofont-briefcase-alt-1"></i></a>
-                                    <a href="" class="btn btn-outline-primary"><i
+                                    <a href="{{ route('barbers.profile') }}" class="btn btn-outline-primary"><i
                                             class="icofont icofont-businessman"></i></a>
                                 </span>
                             </div>
@@ -179,7 +179,7 @@
                                 <span>
                                     <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
                                         data-popup="lightbox"><i class="icofont icofont-briefcase-alt-1"></i></a>
-                                    <a href="" class="btn btn-outline-primary"><i
+                                    <a href="{{ route('barbers.profile') }}" class="btn btn-outline-primary"><i
                                             class="icofont icofont-businessman"></i></a>
                                 </span>
                             </div>

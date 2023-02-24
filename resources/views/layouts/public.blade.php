@@ -50,51 +50,39 @@
         <!-- header section starts  -->
         {{-- <header class="header">
 
-            <a href="#" class="logo">
-                <img src="{{asset('storage/welcome_images/barberLogo.png')}}" alt="">
-            </a>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-            <nav class="navbar_">
-                @if(Route::has('search'))
-                    <a href="/#home">Inicio</a>
-                    <a href="/#about">Nosotros</a>
-                    <a href="/#services">Servicios</a>
-                    <a href="/#comunity">Comunidad</a>
-                    <a href="/#review">Reseñas</a>
-                    <a href="/#contact">Contacto</a>
-                    <a href="/#blogs">Blogs</a>
-                    <a href="{{ route('search') }}"><i class="fas fa-search-location"></i> Buscar barbería</a>
-                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Mi barber</a>
-                @else
-                    <a href="#home">Inicio</a>
-                    <a href="#about">Nosotros</a>
-                    <a href="#services">Servicios</a>
-                    <a href="#comunity">Comunidad</a>
-                    <a href="#review">Reseñas</a>
-                    <a href="#contact">Contacto</a>
-                    <a href="#blogs">Blogs</a>
-                    <a href="{{ route('search') }}"><i class="fas fa-search-location"></i> Buscar barbería</a>
-                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Mi barber</a>
-                @endif
-            </nav>
+    {{-- Animation css --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-            <div class="icons">
-                <div class="fas fa-bars" id="menu-btn"></div>
-            </div>
-        </header> --}}
-        <!-- header section ends -->
+    {{-- Scripts 'resources/sass/app.scss', --}}
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css', 'resources/css/app.css', 'resources/js/script.js','resources/css/adminschedule.css','resources/js/schedules.js'])
 
-        {{-- @yield('content') --}}
+    {{-- Alerts --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
-        <!-- footer section starts  -->
-        {{-- <section class="footer">
+    {{-- Jquery --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Calendar -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+</head>
 
-            <div class="share">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="#" class="fab fa-youtube"></a>
-            </div>
+<body>
+    <!-- header section starts  -->
+    <header class="header">
 
-            <div class="credit">TeamCode</div>
+        <a href="#" class="logo">
+            <img src="{{ asset('storage/welcome_images/barberLogo.png') }}" alt="">
+        </a>
 
         </section> --}}
         <!-- footer section ends -->

@@ -6,7 +6,7 @@
         <div class="row mt-5 d-flex justify-content-center flex-wrap">
             @foreach ($barbers as $item)
                 <div class="barber-card-container">
-                    <a class="card barber-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.getWeekByBarber', ['barber'=>$item->id]) }}">
+                    <a class="card barber-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{route('citations.getcitationSchedule', ['barber'=>$item->id]) }}">
                         <img class="rounded-circle" src="{{asset($item->image)}}"/>
                     </a>
                     <p class="card-text text-light">

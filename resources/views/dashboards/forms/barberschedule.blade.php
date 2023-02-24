@@ -1,7 +1,7 @@
 @extends('layouts.adminhome')
 @section('content')
 
-<body style="margin: 0;">
+<body>
     <?php // include "../Shared/adminnavbar.php";$bussiness = new ScheduleBusiness(); ?>
     <!-- Contenedor del calendario -->
     <div class="scroll-area" id="calendar-container" >
@@ -123,7 +123,7 @@
 
 
     <script>
-       let view = "schedule";
+       let view = "home";
     // var myModal = new bootstrap.Modal(document.getElementById('mymodal'));
     //   let form_ = document.getElementById("form");
     //   var events_ = <?php // echo json_encode($bussiness->getAllEvents(), JSON_UNESCAPED_UNICODE);?>;
