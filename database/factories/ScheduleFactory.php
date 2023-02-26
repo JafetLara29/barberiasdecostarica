@@ -16,14 +16,14 @@ class ScheduleFactory extends Factory
      */
     public function definition()
     {
-        
+
         $types = ['App\Models\Barber', 'App\Models\Barbershop'];
         return [
-            'day'               =>$this->faker->dayOfWeek(),
-            'start_time'        =>$this->faker->time(),
-            'end_time'          =>$this->faker->time(),
-            'scheduleable_id'   =>$this->faker->numberBetween(1, 20),
-            'scheduleable_type' =>$types[rand(0, 1)]
+            'day'               => $this->faker->dayOfWeek(),
+            'start_time'        => $this->faker->time(),
+            'end_time'          => $this->faker->time(),
+            'scheduleable_id'   => $this->faker->numberBetween(1, 20),
+            'scheduleable_type' => $types[rand(0, 1)]
         ];
     }
 }

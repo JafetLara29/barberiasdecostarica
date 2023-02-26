@@ -17,9 +17,9 @@ class BarberFactory extends Factory
     public function definition()
     {
         return [
-            'name'          =>$this->faker->company(),
-            'image'         =>'storage/welcome_images/barber.jpg',
-            'barbershop_id' =>$this->faker->numberBetween(1, 20)
+            'name'          => $this->faker->company(),
+            'image'         => 'storage/welcome_images/barber.jpg',
+            'barbershop_id' => $this->faker->numberBetween(1, 20)
         ];
     }
 }

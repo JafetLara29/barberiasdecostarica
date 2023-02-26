@@ -19,10 +19,10 @@ class SocialMediaFactory extends Factory
         $medias = ['facebook', 'whatsapp', 'instagram'];
         $types = ['App\Models\Barber', 'App\Models\Barbershop'];
         return [
-            'data'                 =>$this->faker->sentence(2),
-            'type'                 =>$medias[rand(0, 2)],
-            'socialMediable_id'   =>$this->faker->numberBetween(1, 20),
-            'socialMediable_type' =>$types[rand(0, 1)]
+            'data'                 => $this->faker->sentence(2),
+            'type'                 => $medias[rand(0, 2)],
+            'socialMediable_id'   => $this->faker->numberBetween(1, 20),
+            'socialMediable_type' => $types[rand(0, 1)]
         ];
     }
 }

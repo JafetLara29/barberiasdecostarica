@@ -18,12 +18,12 @@ class BarbershopFactory extends Factory
     {
         $canton = ['Sarapiqui', 'Limon', 'Heredia', 'El Guarco', 'Desamparados'];
         return [
-            'name'                    =>$this->faker->company(),
-            'address'                 =>$this->faker->address(),
-            'canton'                  =>$canton[rand(0, 4)],
-            'total_barbers_available' =>$this->faker->numberBetween(5, 10),
-            'created_barbers'         =>$this->faker->numberBetween(5, 9)
+            'name'                    => $this->faker->company(),
+            'address'                 => $this->faker->address(),
+            'canton'                  => $canton[rand(0, 4)],
+            'total_barbers_available' => $this->faker->numberBetween(5, 10),
+            'created_barbers'         => $this->faker->numberBetween(5, 9)
             // 'map'=>$this->faker->sentence(),
-          ];
+        ];
     }
 }

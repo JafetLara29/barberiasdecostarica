@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description',1000);
             $table->string('price');
             $table->morphs('serviceable');
+            $table->date('date_service');
             $table->timestamps();
             
         });

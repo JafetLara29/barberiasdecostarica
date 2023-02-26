@@ -18,10 +18,11 @@ class ServiceFactory extends Factory
     {
         $types = ['App\Models\Barber', 'App\Models\Barbershop'];
         return [
-            'description'   =>$this->faker->sentence(2),
-            'price'         =>$this->faker->numberBetween(3500, 5000),
-            'serviceable_id' =>$this->faker->numberBetween(1, 20),
-            'serviceable_type' =>$types[rand(0, 1)]
+            'description'   => $this->faker->sentence(2),
+            'price'         => $this->faker->numberBetween(3500, 5000),
+            'serviceable_id' => $this->faker->numberBetween(1, 20),
+            'serviceable_type' => $types[rand(0, 1)],
+            'date_service' => $this->faker->date(),
         ];
     }
 }

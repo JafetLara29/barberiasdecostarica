@@ -21,13 +21,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $userSeeder         =User::factory()->count(1)->create();
-        $barbershopSeeder   =Barbershop::factory()->count(20)->create();
-        $barberSeeder       =Barber::factory()->count(50)->create();
-        $scheduleSeeder     =Schedule::factory()->count(100)->create();
+        $userSeeder         = User::factory()->count(1)->create();
+        $barbershopSeeder   = Barbershop::factory()->count(20)->create();
+        $barberSeeder       = Barber::factory()->count(50)->create();
+        $scheduleSeeder     = Schedule::factory()->count(100)->create();
         // $citationSeeder     =Citation::factory()->count(50)->create();
-        $SocialMediaSeeder  =SocialMedia::factory()->count(50)->create();
-        $ServiceSeeder      =Service::factory()->count(50)->create();
-        
+        $SocialMediaSeeder  = SocialMedia::factory()->count(50)->create();
+        $ServiceSeeder      = Service::factory()->count(50)->create();
     }
 }
