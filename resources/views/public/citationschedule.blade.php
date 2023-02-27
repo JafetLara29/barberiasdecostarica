@@ -2,17 +2,8 @@
 @section('content')
 
     <body>
-        <?php // include "../Shared/adminnavbar.php";$bussiness = new ScheduleBusiness();
-        ?>
-        <!-- Contenedor del calendario -->
-        <div class="scroll-area" id="calendar-container">
-            <div id="calendar">
-
-            </div>
-        </div>
-
         <!-- Modal -->
-        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-warning">
@@ -54,6 +45,17 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Contenedor del calendario -->
+        <div class="scroll-area" id="calendar-container">
+            <div id="calendar">
+
+            </div>
+        </div>
+
+
+
+        
         <!-- Para mensaje de registro -->
         <?php
       if(isset($_GET['r'])){
@@ -129,7 +131,7 @@
             // var myModalEl = document.querySelector('#myModal')
             // var myModal = new window.bootstrap.Modal.getOrCreateInstance(myModalEl) // Returns a Bootstrap modal instance
             let form_ = document.getElementById("form");
-            var myModal = new window.bootstrap.Modal(document.getElementById('myModal'));
+            //var myModal = new window.bootstrap.Modal(document.getElementById('myModal'));
             
             //   var events_ = <?php // echo json_encode($bussiness->getAllEvents(), JSON_UNESCAPED_UNICODE);?>;
             

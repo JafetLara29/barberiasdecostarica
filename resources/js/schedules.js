@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('start').value = info.dateStr;
                 document.getElementById('action').value = "save";
 
-                myModal.show();
+                $('#myModal').modal('show');//Mostramos el modal bootstrap
             },
             eventClick: function (info) {
                 // console.log(info);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('color').value = info.event.backgroundColor;
                 document.getElementById('action').value = "edit";
 
-                myModal.show();
+                $('#myModal').modal('show');//Mostramos el modal bootstrap
             }
         });
 
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // })
 
         btnDelete.addEventListener('click', function (e) {
-            myModal.hide();
+            $('#myModal').modal('hide');//Ocultamos el modal bootstrap
             swal({
                 title: 'Advertencia',
                 text: '¿Estas seguro que deseas eliminar este evento?',
