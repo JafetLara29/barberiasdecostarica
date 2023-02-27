@@ -22,8 +22,8 @@
 
                             <div class="col-sm-12 col-xl-3 m-b-30">
                                 <h4 class="sub-title">Ver Ingresos</h4>
-                                <select name="select" class="form-select form-control form-control-primary">
-                                    <option selected value="opt1">Seleccione un año
+                                <select name="select_year" id="select_year" class="form-select form-control form-control-primary">
+                                    <option selected value="0">Seleccione un año
                                     </option>
                                     <option value="2023">2023</option>
                                     <option value="2024">2024</option>
@@ -248,5 +248,9 @@
     </div>
 
 </div>
+
+@vite([
+"/resources/js/incomereport.js"
+])
 
 @endsection

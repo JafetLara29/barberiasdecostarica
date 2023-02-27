@@ -15,22 +15,19 @@ class BarberController extends Controller
     public function index()
     {
 
-         return view('dashboards.barbercontrol');
-
+        return view('dashboards.barbercontrol');
     }
     // Ruta de perfil barber
     public function profile()
     {
 
-         return view('dashboards.forms.barberprofile');
-
+        return view('dashboards.forms.barberprofile');
     }
     // ruta de calendario Barber
     public function schedule()
     {
 
-         return view('dashboards.forms.barberschedule');
-
+        return view('dashboards.forms.barberschedule');
     }
 
     public function getBarbersPublicSite($barbershop)
@@ -53,7 +50,7 @@ class BarberController extends Controller
      */
     public function create()
     {
-        return view('dashboards.forms.addbarbersinformationform');//
+        return view('dashboards.forms.addbarbersinformationform'); //
     }
 
     /**
@@ -74,17 +71,16 @@ class BarberController extends Controller
 
             // Create a new barber based in the input in the form
             $barbers = new Barber();
-            $barbers->id=$request->barber_id;
-            $barbers->name= $request->name;
-            $barbers->image= $request->image;
+            $barbers->id = $request->barber_id;
+            $barbers->name = $request->name;
+            $barbers->image = $request->image;
             $barbers->save();
 
             // Return a JSON response
             return response()->json([
                 'success' => true,
-                'id'=>$barbers->id,
+                'id' => $barbers->id,
             ]);
-
         } catch (\Throwable $th) {
             // An error response
             return response()->json([
@@ -92,7 +88,6 @@ class BarberController extends Controller
             ]);
             //throw $th;
         }
-
     }
 
 
@@ -140,5 +135,4 @@ class BarberController extends Controller
     {
         //
     }
-
 }

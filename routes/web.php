@@ -24,6 +24,7 @@ Route::get('/barbershops/create', [BarbershopController::class,'create'])->name(
 Route::post('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
 Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
 
+
 /*
 |------------------------
 | Rutas para los barbers-
@@ -56,6 +57,11 @@ Route::post('/citations/send', [CitationController::class,'sendCitationForm'])->
 Route::get('/citations/get', [CitationController::class,'getCitation'])->name('ReceiveCitations');
 Route::post('/citations/store', [CitationController::class,'store'])->name('citations.store');
 
+// ! Route by Heyner --> INCOME = Ingresos
+Route::get('/income',[IncomeController::class,'index'])->name('income');
+// ! Route to filter income by year
+Route::post('/income/filter', [IncomeController::class,'filter'])->name('income.filter');
+
 /*
 |--------------------------
 | Rutas para los servicios-
@@ -70,6 +76,7 @@ Route::resource('/services', ServiceController::class);
 |--------------------------
 */
 Route::resource('/schedule', ScheduleController::class);
+
 /*
 |------------------------
 | Rutas para los barbers-
@@ -78,9 +85,6 @@ Route::resource('/schedule', ScheduleController::class);
 Route::resource('/barbers', BarberController::class);
 Route::get('/profile', [BarberController::class, 'profile'])->name('barbers.profile');
 Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barbers.schedule');
-
-// ? Route by Heyner --> INCOME = Ingresos
-Route::get('/income',[IncomeController::class,'index'])->name('income');
 
 /*
 |-----------------
@@ -96,6 +100,12 @@ Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 | Rutas para login, register y funcionalidades derivadas del paquete Auth-
 |--------------------------------------------------------------------------
 */
+
+
+
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::post('/register/custom', [RegisterController::class, 'customRegister'])->name('auth.register');
+
+
+

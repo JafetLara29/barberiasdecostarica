@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('dashboards.home');
     }
+
+    /*public function filterIncome(){
+        return view('dashboard.income');
+    }*/
 }

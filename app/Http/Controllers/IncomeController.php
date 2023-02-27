@@ -16,6 +16,9 @@ class IncomeController extends Controller
         return view('dashboards.income');
     }
 
+    public function filter(Request $request){
+        return "hola";
+    }
     /**
      * Show the form for creating a new resource.
      *
