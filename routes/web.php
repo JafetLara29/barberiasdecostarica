@@ -24,7 +24,6 @@ Route::get('/barbershops/create', [BarbershopController::class,'create'])->name(
 Route::post('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
 Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
 
-
 /*
 |------------------------
 | Rutas para los barbers-
@@ -56,11 +55,6 @@ Route::post('/citations/reject/{id}', [CitationController::class,'rejectCitation
 Route::post('/citations/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');
 Route::get('/citations/get', [CitationController::class,'getCitation'])->name('ReceiveCitations');
 Route::post('/citations/store', [CitationController::class,'store'])->name('citations.store');
-
-// ! Route by Heyner --> INCOME = Ingresos
-Route::get('/income',[IncomeController::class,'index'])->name('income');
-// ! Route to filter income by year
-Route::post('/income/filter', [IncomeController::class,'filter'])->name('income.filter');
 
 /*
 |--------------------------
@@ -101,6 +95,10 @@ Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 |--------------------------------------------------------------------------
 */
 
+// ! Route by Heyner --> INCOME = Ingresos
+Route::get('/income',[IncomeController::class,'index'])->name('income');
+// ! Route to filter income by year
+Route::post('/incomes/filter', [IncomeController::class,'filter'])->name('income.filter');
 
 
 Auth::routes();

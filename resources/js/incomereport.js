@@ -7,23 +7,22 @@ const filterIncome = () => {
 
     $('#select_year').change(function () {
         $(this).find(":selected").each(function () {
-            console.log($(this).val());
+            //console.log($(this).val());
             filter_income($(this).val());
         });
     });
 }
 
 const filter_income = (year) => {
-    console.log("El anio es: " + year)
+    console.log("Enviando... El anio es: " + year)
     $.ajax({
         type: "POST",
         url: '/income/filter',
-        data: year,
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        data: {year: year},
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         dataType: "json",
-        success: function(results){
-            console.log(results)
+        success: function (results) {
+            console.log(results.prueba);
         }
-
     });
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IncomeController extends Controller
 {
@@ -16,8 +17,16 @@ class IncomeController extends Controller
         return view('dashboards.income');
     }
 
-    public function filter(Request $request){
-        return "hola";
+    public function filter(Request $request)
+    {
+
+        $temp_year = null;
+        if (isset($request->year)) {
+            $temp_year = $request->year;
+        }
+        $temp_year = "vacio!";
+
+        return response()->json($temp_year);
     }
     /**
      * Show the form for creating a new resource.

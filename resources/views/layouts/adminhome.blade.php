@@ -35,15 +35,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
 
-     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/storage/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="../public/storage/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <!-- Select 2 css -->
-    <link rel="stylesheet" href="{{ asset('/storage/bower_components/select2/dist/css/select2.min.css') }}" />
-    <!-- Multi Select css -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/storage/bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('/storage/bower_components/multiselect/css/multi-select.css') }}" />
-
+        <!-- Select 2 css -->
+        <link rel="stylesheet" href="../public/storage/bower_components/select2/dist/css/select2.min.css" />
 
 
     {{-- DataTables --}}
@@ -255,8 +250,6 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src=""></script>
         
-
-
 </body>
 
 </html>
