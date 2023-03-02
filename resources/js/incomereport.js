@@ -17,12 +17,12 @@ const filter_income = (year) => {
     console.log("Enviando... El anio es: " + year)
     $.ajax({
         type: "POST",
-        url: '/income/filter',
+        url: '/incomes/filter',
         data: {year: year},
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         dataType: "json",
         success: function (results) {
-            console.log(results.prueba);
+            console.log(results);
         }
     });
 }

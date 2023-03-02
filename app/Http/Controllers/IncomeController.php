@@ -23,10 +23,14 @@ class IncomeController extends Controller
         $temp_year = null;
         if (isset($request->year)) {
             $temp_year = $request->year;
+        }else{
+            $temp_year = "vacio!";
         }
-        $temp_year = "vacio!";
+            
 
-        return response()->json($temp_year);
+        return response()->json([
+            "temp_year" => $temp_year
+        ]);
     }
     /**
      * Show the form for creating a new resource.

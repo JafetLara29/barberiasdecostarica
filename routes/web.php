@@ -100,7 +100,6 @@ Route::get('/income',[IncomeController::class,'index'])->name('income');
 // ! Route to filter income by year
 Route::post('/incomes/filter', [IncomeController::class,'filter'])->name('income.filter');
 
-
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::post('/register/custom', [RegisterController::class, 'customRegister'])->name('auth.register');
