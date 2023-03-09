@@ -21,15 +21,13 @@
         <div class="swiper-container atf-parallax-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="atf-swiper-img atf-align-item-center"
-                        data-background="{{ asset('storage/public/assets/img/slider/2.jpg') }}" data-overlay-dark="6">
+                    <div class="atf-swiper-img atf-align-item-center" style="border-end-start-radius: 100px; border-start-end-radius: 100px" data-background="{{ asset('/storage/welcome_images/barber.jpg') }}" data-overlay-dark="6">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
                                     <div class="atf-slider-content">
-                                        <h1>Un servicio premium en tu barbería</h1>
-                                        <p>Implementa la tecnología en tu barbershop y sé parte de la comunidad premium de
-                                            barberías.</p>
+                                        <h1>Un servicio premium para tu barbería</h1>
+                                        <p>Implementa la tecnología en tu barbershop y sé parte de la comunidad.</p>
                                         <div class="atf-main-btn mt-5">
                                             <a class="atf-themes-btn" href="#" data-hover="Quiero ser parte">
                                                 <span>Quiero ser parte</span>
@@ -43,19 +41,17 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="atf-swiper-img atf-align-item-center"
-                        data-background="{{ asset('storage/public/assets/img/slider/1.jpg') }}" data-overlay-dark="6">
+                    <div class="atf-swiper-img atf-align-item-center" style="border-end-start-radius: 100px; border-start-end-radius: 100px" data-background="{{ asset('storage/public/assets/img/slider/1.jpg') }}" data-overlay-dark="6">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
                                     <div class="atf-slider-content">
-                                        <h2>NUNCA TIENES UNA SEGUNDA OPORTUNIDAD DE CAUSAR UNA PRIMERA IMPRESIÓN</h2>
+                                        <h1>Causa una mejor impresión</h1>
                                         <p>Una primera impresión negativa es mas dificil de cambiar que una positiva, NO TE
                                             LA JUEGUES!.</p>
-                                        <div class="atf-main-btn atf-video atf-animation-zoom1 mt-5">
-
-                                            <a href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase"
-                                                class="atf-themes-btn" data-hover="ver video"><span>Ver video</span>
+                                        <div class="atf-main-btn mt-5">
+                                            <a class="atf-themes-btn" href="#" data-hover="Quiero ser parte">
+                                                <span>Quiero ser parte</span>
                                             </a>
                                         </div>
                                     </div>
@@ -86,20 +82,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-image">
-                        <img src="{{ asset('storage/public/assets/img/about/1.jpg') }}" alt="">
+                        <img style="border-top-right-radius: 100px; border-end-start-radius: 100px" src="https://cdn.pixabay.com/photo/2023/02/28/08/56/salon-7820299_640.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5 align-self-center">
                     <div class="atf-section-title">
                         <h5>Nosotros</h5>
-                        <h2 class="">Barberiasdecostarica</h2>
-                        <p class="">Este increíble servicio fué creado y puesto a disposición del público por parte de
-                            TeamCode. TeamCode es un organización generadora de soluciones de software, soporte técnico y
-                            diseño gráfico ubicada en Costa Rica.
-
-                            Para TeamCode es un honor poder contribuir y poner a disposición de miles de barberías en Costa
-                            Rica este cómodo y agradable servicio que sin duda mejorará tu relación con los clientes y el
-                            servicio que les das.</p>
+                        <h2 class="">barberscr</h2>
+                        <p class="">
+                            Un servicio pensado para tí. 
+                            ¿Quieres ser parte del nuevo movimiento tecnológico y ofrecer un mejor servicio a tus clientes? ¡Hagamoslo realidad!
+                        </p>
                     </div>
                     {{-- <ul class="listing-style">
                         <li>Photographer of good or services for sale</li>
@@ -108,8 +101,7 @@
                         <li>You can It Solution Easy to Learn </li>
                     </ul> --}}
                     <div class="atf-about-btn mt-5">
-                        <a class="atf-themes-btn" href="#" data-hover="ver más sobre TeamCode"> <span>ver más sobre
-                                TeamCode</span></a>
+                        <a class="atf-themes-btn" href="#" data-hover="ver más sobre TeamCode"> <span>ver más</span></a>
                     </div>
                 </div>
             </div>
@@ -149,7 +141,7 @@
                     <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
                         data-wow-offset="0">
                         <h5 class="atf-sheading"> Servicios</h5>
-                        <h2 class="">De la App</h2>
+                        <h2>App</h2>
                         {{-- <p class="">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit
                             amet elit dolor sit amet elit.</p> --}}
                     </div>

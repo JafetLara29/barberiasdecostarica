@@ -18,8 +18,8 @@
     <!-- home section starts  -->
     <section class="home" id="home" style="background: url('{{asset('storage/welcome_images/barber3.jpg')}}') no-repeat;background-size: cover;opacity:.6;">
         <div class="content">
-            <h3 data-aos="fade-right">Implementa un servicio premium en tu barbería</h3>
-            <p data-aos="fade-right">Implementa la tecnología en tu barbershop y sé parte de la comunidad premium de barberías.</p>
+            <h3 data-aos="fade-right">Un servicio premium para tu barbería</h3>
+            <p data-aos="fade-right">Implementa la tecnología en tu barbershop.</p>
             <a data-aos="fade-up" href="#" class="btn">Quiero ser parte</a>
             <br><br>
             {{-- <a style="color:white" href="https://www.freepik.com/free-photo/handsome-man-barbershop-shaving-beard_12804101.htm">Imagen tomada por senivpetro</a> en Freepik --}}
