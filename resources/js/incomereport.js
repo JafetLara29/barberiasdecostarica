@@ -14,7 +14,6 @@ const filterIncome = () => {
 }
 
 const filter_income = (year) => {
-    console.log("Enviando... El anio es: " + year)
     $.ajax({
         type: "POST",
         url: '/incomes/filter',
