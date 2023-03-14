@@ -1,15 +1,47 @@
 @extends('layouts.public')
 @section('content')
-    <div class="container-lg container">
-        <label class="display-3 text-light mb-3">Busqueda de barbería</label>
-        <div class="input-group mb-3">
-            <span class="input-group-text search-icon"><ion-icon size="large" name="search"></ion-icon></span>
-            <input type="text" class="form-control form-control-lg search" id="search-query" placeholder="Escribe el nombre de tu barbería aquí...">
-        </div>
-        <div class="container-lg d-flex justify-content-center flex-wrap search-result-container" id="search-result-container">
+    <section class="background">
+        <!-- Start Slider Area -->
+        <section id="atf-slider" class="atf-slider">
+            <div class="swiper-container atf-parallax-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="atf-swiper-img atf-align-item-center" style="border-end-start-radius: 100px; border-start-end-radius: 100px" data-background="{{asset('/storage/public/assets/img/search/barber-tools.jpg')}}" data-overlay-dark="6">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="atf-slider-content">
+                                            <h1>Busqueda de barberías</h1>
+                                            {{-- <p>Implementa la tecnología en tu barbershop y sé parte de la comunidad.</p> --}}
+                                            <div class="atf-main-btn mt-5">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text search-icon"><ion-icon size="large" name="search"></ion-icon></span>
+                                                    <input type="text" class="form-control form-control-lg search" id="search-query" placeholder="Escribe el nombre de tu barbería aquí...">
+                                                </div>
+                                                <a class="atf-themes-btn" href="#search-results-section" data-hover="Ver resultados">
+                                                    <span>Ver resultados</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- slider setting -->
+            </div>
+        </section>
+        <!-- End Slider Area -->
+        <section class="pt-2 search-results-section" id="search-results-section">
+            <div class="atf-section-padding">
+                <div class="d-flex justify-content-center flex-wrap" id="search-result-container">
+                    <span class="text-muted">Ingresa el nombre de tu barbershop preferida...</span>
+                </div>
+            </div>
+        </section>
+    </section>
 
-        </div>
-    </div>
     <script>
         $(document).ready(function() {
             search();

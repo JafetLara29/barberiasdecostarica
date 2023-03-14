@@ -85,7 +85,7 @@
                                 <div class="col-lg-9 col-md-8">
                                     <div class="atf-top-header-in">
                                         <ul class="atf-top-header-list">
-                                            <li><i class="fas fa-envelope"></i> <a class="a-navbar-link" href="#">contact@teamcodecr.tech</a></li>
+                                            <li><i class="fas fa-envelope"></i> <a class="a-navbar-link" href="mailto:contact@teamcodecr.tech">contact@teamcodecr.tech</a></li>
                                             <li><i class="fas fa-phone-volume"></i><a class="a-navbar-link" href="#">6296 2424</a></li>
                                             <li><i class="fas fa-map-marker-alt"></i><a class="a-navbar-link" href="#">Costa Rica</a></li>
                                         </ul>
@@ -109,7 +109,8 @@
                             <div class="atf-main-responsive-menu">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img src="{{asset('storage/public/assets/img/logo.png')}}" class="logo" alt="logo">
+                                        {{-- <img src="{{asset('storage/public/assets/img/logo.png')}}" class="logo" alt="logo"> --}}
+                                        <a class="navbar-brand text-light logo" href="/">BarbersCR</a>
                                     </a>
                                 </div>
                             </div>
@@ -119,7 +120,8 @@
                         <div class="container">
                             <nav class="navbar navbar-expand-md navbar-light">
                                 <a class="navbar-brand" href="index.html">
-                                    <img src="{{asset('storage/public/assets/img/logo.png')}}" class="logo" alt="logo">
+                                    {{-- <img src="{{asset('storage/public/assets/img/logo.png')}}" class="logo" alt="logo"> --}}
+                                    <a class="navbar-brand text-light logo" href="/">BarbersCR</a>
                                 </a>
                                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                                     <ul class="navbar-nav nav justify-content-center ms-auto">
@@ -203,7 +205,10 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="contact.html" class="nav-link">Mi barber</a>
+                                            <a href="{{route('search')}}" class="nav-link">Buscar barbershop</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('login')}}" class="nav-link">Mi barber</a>
                                         </li>
                                     </ul>
                                 </div>

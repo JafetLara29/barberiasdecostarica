@@ -1,3 +1,6 @@
+.background{
+    background-color: currentColor;
+}
 /* Estilos de la parte publica "busqueda y proceso de citas" */
 /* Home */
 .custom_toast{
@@ -5,13 +8,18 @@
 }
 
 /* Search page */
-/* .container{
-    padding-top:100px;
-    padding-bottom:100px;
-} */
+.ad-header{
+    width:100%;
+    height: 40vh;
+}
+.radius-image{
+    border-end-start-radius: 100px; 
+    width: 100%;
+    height: 300px;
+}
 .search{
     height: 45px;
-    font-size: 20px;
+    /* font-size: 20px; */
     font-style: italic;
 }
 .search-icon{
@@ -30,6 +38,9 @@
 }
 .card{
     width: 350px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition: all ease-in-out 0.3s;
 }
 .card:hover{
     background-color: #d3ad7f;
@@ -42,14 +53,19 @@
     width: 100px;
     height: 100px;
     background-color: #d3ad7f;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
 }
 .img-container img{
     width: 50px;
     height: 75px;
 }
-/* .search-result-container{
-    height: 50vh!important;
-} */
+.search-results-section{
+    padding-top: 20px!important;
+}
+.barbershop-section{
+    background-color: currentColor;
+}
 .search-result-card-body{
     width: 100%;
     height: 100px;
