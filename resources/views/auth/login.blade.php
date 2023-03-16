@@ -57,7 +57,7 @@
                             <div class="card-block">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-center text-light mainLogintitle ">Inicio de Sesión</h3>
+                                        <h3 class="text-center text-light loginTitles ">Inicio de Sesión</h3>
                                     </div>
                                 </div>
                                 {{-- <div class="row m-b-20">
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div> --}}
-                                <p class="text-center p-b-5 text-light ">Ingresa tus credenciales</p>
+                                <p class="text-center p-b-5 text-light loginTitles ">Ingresa tus credenciales</p>
                                 <div class="mb-3 form-primary">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
@@ -116,7 +116,7 @@
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
                                         <div class="d-grid">
-                                            <button type="submit" class="btn">
+                                            <button type="submit" class="btn btn-outline-danger submit">
                                                 Ingresar
                                             </button>
                                         </div>
