@@ -34,8 +34,8 @@
             <div class="input-group">
                 <input id="password-confirm" type="password" class="colorsI" name="password_confirmation" autocomplete="new-password" placeholder="Confirmar contraseña">
             </div>
-            <button type="button" name="next" class="btn btn-outline-secondary colorBtn next" value="Next">Siguiente</button>
-            <a class="btn btn-outline-secondary  " href="{{ url('/') }}">Salir</a>
+            <button type="button" name="next" class="btn btn-outline-danger colorBtn next" value="Next">Siguiente</button>
+            <a class="btn btn-outline-danger text-light  " href="{{ url('/') }}">Salir</a>
         </fieldset>
         <fieldset>
             <img class="logo" src="https://cdn.pixabay.com/photo/2018/03/26/18/20/man-3263509__340.png" alt="logo.png">
@@ -50,9 +50,9 @@
                     </span>
                 @enderror
             </div>
-            <button type="button" name="previous" class=" btn btn-outline-secondary colorBtn previous"
+            <button type="button" name="previous" class=" btn btn-outline-danger colorBtn previous"
                 value="Previous">Anterior</button>
-            <button type="button" name="next" class="btn btn-outline-secondary colorBtn next" value="Next">Siguiente</button>
+            <button type="button" name="next" class="btn btn-outline-danger colorBtn next" value="Next">Siguiente</button>
             
         </fieldset>
         <fieldset>
@@ -91,8 +91,8 @@
                 <p>4. Una vez el proveedor valide tu pago procederá a activar tu cuenta y se te notificará al correo electrónico que brindaste.</p>
             </div>
             
-            <button type="button" name="previous" class="btn btn-outline-secondary colorBtn previous" value="Previous">Anterior</button>
-            <button type="submit" class="btn btn-outline-secondary colorBtn">Registrarme</button>
+            <button type="button" name="previous" class="btn btn-outline-danger colorBtn previous" value="Previous">Anterior</button>
+            <button type="submit" class="btn btn-outline-danger colorBtn">Registrarme</button>
         </fieldset>
 </form>
 
