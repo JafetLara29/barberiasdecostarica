@@ -29,7 +29,7 @@ class BarbershopController extends Controller
      */
     public function search(Request $request)
     {
-        $query = $request->input('query');
+        $query = $request->get('term');
         $results = Barbershop::where('name', 'like', '%'.$query.'%')->get();
         //dd($request);
         return response()->json($results);
