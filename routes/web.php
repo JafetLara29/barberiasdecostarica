@@ -21,7 +21,7 @@ use App\Models\Barber;
 |---------------------
 */
 Route::get('/barbershops/create', [BarbershopController::class,'create'])->name('barbershop.create');
-Route::post('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
+Route::get('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
 Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
 
 /*
