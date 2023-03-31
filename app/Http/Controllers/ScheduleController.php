@@ -60,34 +60,23 @@ class ScheduleController extends Controller
 
 
             //run the array and save the corresponding info based in the day of the schedule
-            for ($i = 0; $i < count($day); $i++) {
+            foreach ($day as $key => $value) {
+                if (!empty($value)) {
+                    $start_time = array_shift($startTime);
+                    $end_time = array_shift($endTime);
 
-                if($day[$i]!=""){
-                    for ($j=0; $j<sizeof($startTime) ; $j++) {
-                        if($startTime[$j]!=""){
-                            $result_start=$startTime[$j];
-                            $startTime[$j]="";
-                        }
+                    if (!empty($start_time) && !empty($end_time)) {
+                        $Schedule = new Schedule();
+                        $barber = Barber::findOrFail($request->barber_id);
+                        $Schedule->scheduleable()->associate($barber);
+                        $Schedule->start_time = $start_time;
+                        $Schedule->end_time = $end_time;
+                        $Schedule->day = $value;
+                        $Schedule->save();
                     }
-                    for ($k=0; $k <sizeof($endTime) ; $k++) {
-                        if($endTime[$k]!=""){
-                            $result_end=$endTime[$k];
-                            $endTime[$k]="";
-                        }
-                    }
-
-                    $Schedule = new Schedule();
-                    $barber= Barber::findOrFail($request->barber_id);
-                    $Schedule->scheduleable()->associate($barber);
-                    // $Schedule->scheduleable()=$barber;
-                    $Schedule->start_time = $result_start[$i];
-                    $Schedule->end_time = $result_end[$i];
-                    $Schedule->day = $day[$i];
-                    $Schedule->save();
                 }
-
-
             }
+
 
             // Return a JSON response
             return response()->json([
