@@ -1,12 +1,12 @@
-let navbar = document.querySelector('.navbar_');
+// let navbar = document.querySelector('.navbar_');
 
-document.querySelector('#menu-btn').onclick = () =>{
-    navbar.classList.toggle('active');
-}
+// document.querySelector('#menu-btn').onclick = () =>{
+//     navbar.classList.toggle('active');
+// }
 
-let cartItem = document.querySelector('.cart-items-container');
+// let cartItem = document.querySelector('.cart-items-container');
 
 
-window.onscroll = () =>{
-    navbar.classList.remove('active');
-}
+// window.onscroll = () =>{
+//     navbar.classList.remove('active');
+// }

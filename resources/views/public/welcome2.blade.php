@@ -21,7 +21,9 @@
         <div class="swiper-container atf-parallax-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="atf-swiper-img atf-align-item-center" style="border-end-start-radius: 100px; border-start-end-radius: 100px" data-background="{{ asset('/storage/welcome_images/barber.jpg') }}" data-overlay-dark="6">
+                    <div class="atf-swiper-img atf-align-item-center"
+                        style="border-end-start-radius: 100px; border-start-end-radius: 100px"
+                        data-background="{{ asset('/storage/welcome_images/barber.jpg') }}" data-overlay-dark="6">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
@@ -41,7 +43,9 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="atf-swiper-img atf-align-item-center" style="border-end-start-radius: 100px; border-start-end-radius: 100px" data-background="{{ asset('storage/public/assets/img/slider/1.jpg') }}" data-overlay-dark="6">
+                    <div class="atf-swiper-img atf-align-item-center"
+                        style="border-end-start-radius: 100px; border-start-end-radius: 100px"
+                        data-background="{{ asset('storage/public/assets/img/slider/1.jpg') }}" data-overlay-dark="6">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
@@ -82,7 +86,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-image">
-                        <img style="border-top-right-radius: 100px; border-end-start-radius: 100px" src="https://cdn.pixabay.com/photo/2023/02/28/08/56/salon-7820299_640.jpg" alt="">
+                        <img style="border-top-right-radius: 100px; border-end-start-radius: 100px"
+                            src="https://cdn.pixabay.com/photo/2023/02/28/08/56/salon-7820299_640.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5 align-self-center">
@@ -90,8 +95,9 @@
                         <h5>Nosotros</h5>
                         <h2 class="">barberscr</h2>
                         <p class="">
-                            Un servicio pensado para tí. 
-                            ¿Quieres ser parte del nuevo movimiento tecnológico y ofrecer un mejor servicio a tus clientes? ¡Hagamoslo realidad!
+                            Un servicio pensado para tí.
+                            ¿Quieres ser parte del nuevo movimiento tecnológico y ofrecer un mejor servicio a tus clientes?
+                            ¡Hagamoslo realidad!
                         </p>
                     </div>
                     {{-- <ul class="listing-style">
@@ -101,7 +107,8 @@
                         <li>You can It Solution Easy to Learn </li>
                     </ul> --}}
                     <div class="atf-about-btn mt-5">
-                        <a class="atf-themes-btn" href="#" data-hover="ver más sobre TeamCode"> <span>ver más</span></a>
+                        <a class="atf-themes-btn" href="#" data-hover="ver más sobre TeamCode"> <span>ver
+                                más</span></a>
                     </div>
                 </div>
             </div>
@@ -234,43 +241,7 @@
     </section>
     <!-- END SERVICE -->
 
-    <!-- START COMPANY BRAND LOGO  -->
-    <div id="atf-brand-area" class="atf-section-padding">
-        <div class="atf-brand-overlay">
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="atf-brand-active owl-carousel">
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/1.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/2.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/3.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/4.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/5.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/1.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/2.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/3.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/4.png') }}"
-                                    alt="image"></a>
-                            <a href="#"><img src="{{ asset('storage/public/assets/img/partner/5.png') }}"
-                                    alt="image"></a>
-                        </div>
-                    </div><!-- END COL  -->
-                </div>
-                <!--END  ROW  -->
-            </div><!-- END CONTAINER  -->
-        </div><!-- END OVERLAY -->
-    </div>
-    <!-- END COMPANY BRAND LOGO -->
-
-    <!-- START CHOOSE -->
+    {{-- <!-- START CHOOSE -->
     <section id="service" class="atf-service-area atf-section-padding">
         <div class="container">
             <div class="row justify-content-center">
@@ -377,10 +348,11 @@
         </div>
         <!--- END CONTAINER -->
     </div>
-    <!-- END HIRE-->
+    <!-- END HIRE--> --}}
 
+    {{-- OCULTANDO LA CARTERA DE CLIENTES PARA MOSTRARLA CUANDO TENGAMOS CLIENTES REALES --}}
 
-    <!-- START PORTFOLIO -->
+    {{-- <!-- START CLIENT PORTFOLIO -->
     <section id="portfolio" class="atf-portfolio-area atf-section-padding">
         <div class="container">
             <div class="row justify-content-center">
@@ -550,7 +522,7 @@
         </div>
         <!--- END CONTAINER -->
     </section>
-    <!-- END PORTFOLIO -->
+    <!-- END CLIENT PORTFOLIO --> --}}
 
 
     <!-- TESTIMONIAL SECTION START-->
@@ -578,11 +550,10 @@
                         class="atf-testimonials-slide atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
                         <div class="testimonial">
                             <div class="pic">
-                                <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
-                                    alt="Portfolio Image">
+                                <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}" alt="Portfolio Image">
                             </div>
                             <h3 class="testimonial-title">Al-Mubdi</h3>
-                            <small class="post">Web Designer</small>
+                            {{-- <small class="post">Web Designer</small> --}}
                             <p class="description">
                                 Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
                             </p>
@@ -594,7 +565,7 @@
                                     alt="Portfolio Image">
                             </div>
                             <h3 class="testimonial-title">Al-Mushi</h3>
-                            <small class="post">Web Developer</small>
+                            {{-- <small class="post">Web Developer</small> --}}
                             <p class="description">
                                 Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
                             </p>
@@ -606,7 +577,7 @@
                                     alt="Portfolio Image">
                             </div>
                             <h3 class="testimonial-title">Al-Hasib</h3>
-                            <small class="post">Web Developer</small>
+                            {{-- <small class="post">Web Developer</small> --}}
                             <p class="description">
                                 Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
                             </p>
@@ -618,7 +589,7 @@
                                     alt="Portfolio Image">
                             </div>
                             <h3 class="testimonial-title">Al-Wahid</h3>
-                            <small class="post">Web Developer</small>
+                            {{-- <small class="post">Web Developer</small> --}}
                             <p class="description">
                                 Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
                             </p>
@@ -659,16 +630,16 @@
                             <div class="price-value">
                                 <span class="amount">15.000</span>
                                 <span class="currency">₡</span>
-                                <span class="duration">per-month</span>
+                                <span class="duration">por-mes</span>
                             </div>
                         </div>
-                        <h2 class="title">Basic</h2>
+                        <h2 class="title">Basico</h2>
                         <ul class="pricing-content">
-                            <li>Photo Editing Sesion</li>
-                            <li>Video Editing Sesion</li>
-                            <li>Online Editing Sesion</li>
-                            <li class="disable">Art Photo Sesion</li>
-                            <li class="disable">24/7 Support</li>
+                            <li>1 Barbero</li>
+                            <li>Control De Citas</li>
+                            <li>24/7 Support</li>
+                            <li class="disable">Ingresos-Egresos</li>
+                            <li class="disable">Implementaciones a medida</li>
                         </ul>
                         <div class="atf-about-btn">
                             <a class="atf-themes-btn" data-hover="inscribirse" href="#">
@@ -684,16 +655,16 @@
                             <div class="price-value">
                                 <span class="amount">20.000</span>
                                 <span class="currency">₡</span>
-                                <span class="duration">per-month</span>
+                                <span class="duration">por-mes</span>
                             </div>
                         </div>
                         <h2 class="title">Standard</h2>
                         <ul class="pricing-content">
-                            <li>Photo Editing Sesion</li>
-                            <li>Video Editing Sesion</li>
-                            <li>Online Editing Sesion</li>
-                            <li class="disable">Art Photo Sesion</li>
-                            <li class="disable">24/7 Support</li>
+                            <li>1-5  Barberos</li>
+                            <li>Control De Citas</li>
+                            <li>24/7 Support</li>
+                            <li class="">Ingresos-Egresos</li>
+                            <li class="disable">Implementaciones a medida</li>
                         </ul>
                         <div class="atf-about-btn">
                             <a class="atf-themes-btn" data-hover="inscribirse" href="#">
@@ -707,17 +678,17 @@
                         <div class="pricingTable-header">
                             <div class="price-value">
                                 <span class="amount">30.000</span>
-                                <span class="currency">$</span>
-                                <span class="duration">per-month</span>
+                                <span class="currency">₡</span>
+                                <span class="duration">por-mes</span>
                             </div>
                         </div>
                         <h2 class="title">Premium</h2>
                         <ul class="pricing-content">
-                            <li>Photo Editing Sesion</li>
-                            <li>Video Editing Sesion</li>
-                            <li>Online Editing Sesion</li>
-                            <li class="">Art Photo Sesion</li>
-                            <li class="">24/7 Support</li>
+                            <li>5-10  Barberos</li>
+                            <li>Control De Citas</li>
+                            <li>24/7 Support</li>
+                            <li class="">Ingresos-Egresos</li>
+                            <li class="">Implementaciones a medida</li>
                         </ul>
                         <div class="atf-about-btn">
                             <a class="atf-themes-btn" data-hover="inscribirse" href="#">
@@ -733,73 +704,6 @@
     <!-- END  PRICING SECTION-->
 
 
-
-    <!-- START  PROCESS SECTION-->
-    <section id="processing" class="atf-processing-area atf-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-xl-6">
-                    <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
-                        data-wow-offset="0">
-                        <h5 class="atf-sheading">Process</h5>
-                        <h2 class="">Our Processing</h2>
-                        <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
-                            sit amet elit.</p>
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="process">
-                        <div class="process-icon">
-                            <span><i class="fa fa-globe"></i></span>
-                        </div>
-                        <h3 class="title">Editing <span>Process</span></h3>
-                        <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit
-                            quas veniam.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="process">
-                        <div class="process-icon">
-                            <span><i class="fa fa-rocket"></i></span>
-                        </div>
-                        <h3 class="title">Video <span>Graphic</span></h3>
-                        <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit
-                            quas veniam.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="process">
-                        <div class="process-icon">
-                            <span><i class="fa fa-rocket"></i></span>
-                        </div>
-                        <h3 class="title">Final <span>Shoting</span></h3>
-                        <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit
-                            quas veniam.</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="process">
-                        <div class="process-icon">
-                            <span><i class="fa fa-rocket"></i></span>
-                        </div>
-                        <h3 class="title">Photo <span>Graphy</span></h3>
-                        <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit
-                            quas veniam.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END  PROCESS SECTION-->
-
     <!-- BLOG SECTION START-->
     <section id="blog" class="atf-blog-area atf-section-padding">
         <div class="container">
@@ -807,8 +711,8 @@
                 <div class="col-lg-7 col-xl-6">
                     <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
                         data-wow-offset="0">
-                        <h5 class="atf-sheading"> Clientes emblematicos</h5>
-                        <h2 class="">NUESTRA COMUNIDAD TOP</h2>
+                        <h5 class="atf-sheading"> STYLOS</h5>
+                        <h2 class="">ARTICULOS DE INTERES</h2>
                         {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
                             sit amet elit.</p> --}}
                     </div>
@@ -823,94 +727,41 @@
                     <div id="blog-slider" class="atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
                         <div class="atf-post-slide">
                             <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/1.jpg') }}" alt="Blog">
+                                <img src="{{ asset('storage/public/assets/img/blog/7.jpg') }}" alt="Blog">
                             </div>
-                            <h5 class="atf-post-title"><a href="blog.html">Recent Shooting News...</a></h5>
+                            <h5 class="atf-post-title"><a href="https://diprofem.com/blog/que-es-el-corte-buzz"> Corte Buzz</a></h5>
 
                             <p class="atf-post-description pr-lg-3">
-                                Lorem ipsum dolor sit amet, consectetur adipisc elit. Maecenas cuatfus sed felis sit amet
-                                ull amcorper. In congue felis vitae.
+                                El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con
+                                maquinilla. También se le conoce como Corte de Bola porque es completamente redondo.
+                            <a href=""></a>
                             </p>
-                            <ul class="atf-post-bar">
-                                <li class="atf-post-date"><i class="far fa-clock"></i>May 20,2021</li>
-                                <li class="atf-author"><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                <li class="atf-comment"><i class="fa fa-comment"></i><a href="#">1.5k</a></li>
-                            </ul>
                         </div>
-
                         <div class="atf-post-slide">
                             <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/2.jpg') }}" alt="Blog">
+                                <img src="{{ asset('storage/public/assets/img/blog/8.jpg') }}" alt="Blog">
                             </div>
-                            <h5 class="atf-post-title"><a href="blog.html">Video Photography Service...</a></h5>
+                            <h5 class="atf-post-title"><a href="https://tocado.es/corte-fade-en-que-consiste-y-como-mantenerlo/">corte Fade</a></h5>
 
                             <p class="atf-post-description pr-lg-3">
-                                Lorem ipsum dolor sit amet, consectetur adipisc elit. Maecenas cuatfus sed felis sit amet
-                                ull amcorper. In congue felis vitae.
+                                El corte fade (desvanecido)hace referencia al degradado que va de la nuca baja hacia la coronilla, en algunas ocaciones se utiliza navaja para el área más rebajada y en otras ocaciones se trabaja con máquina y tijera.
                             </p>
-                            <ul class="atf-post-bar">
-                                <li class="atf-post-date"><i class="far fa-clock"></i>May 20,2021</li>
-                                <li class="atf-author"><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                <li class="atf-comment"><i class="fa fa-comment"></i><a href="#">1.5k</a></li>
-                            </ul>
                         </div>
-
                         <div class="atf-post-slide">
                             <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/3.jpg') }}" alt="Blog">
+                                <img src="{{ asset('storage/public/assets/img/blog/9.jpg') }}" alt="Blog">
                             </div>
-                            <h5 class="atf-post-title"><a href="blog.html">Online Video Editing...</a></h5>
+                            <h5 class="atf-post-title"><a href="https://www.allthingshair.com/es-ar/cortes-de-pelo-de-hombre/corte-mullet-hombre/">Corte mullet</a></h5>
                             <p class="atf-post-description pr-lg-3">
-                                Lorem ipsum dolor sit amet, consectetur adipisc elit. Maecenas cuatfus sed felis sit amet
-                                ull amcorper. In congue felis vitae.
+                                El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta, tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.
                             </p>
-
-                            <ul class="atf-post-bar">
-                                <li class="atf-post-date"><i class="far fa-clock"></i>May 20,2021</li>
-                                <li class="atf-author"><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                <li class="atf-comment"><i class="fa fa-comment"></i><a href="#">1.5k</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="atf-post-slide">
-                            <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/4.jpg') }}" alt="Blog">
-                            </div>
-                            <h5 class="atf-post-title"><a href="blog.html">It Solution World...</a></h5>
-                            <p class="atf-post-description pr-lg-3">
-                                Lorem ipsum dolor sit amet, consectetur adipisc elit. Maecenas cuatfus sed felis sit amet
-                                ull amcorper. In congue felis vitae.
-                            </p>
-                            <ul class="atf-post-bar">
-                                <li class="atf-post-date"><i class="far fa-clock"></i>May 20,2021</li>
-                                <li class="atf-author"><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                <li class="atf-comment"><i class="fa fa-comment"></i><a href="#">1.5k</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="atf-post-slide">
-
-                            <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/5.jpg') }}" alt="Blog">
-                            </div>
-                            <h5 class="atf-post-title"><a href="blog.html">Best Art Photo Service...</a></h5>
-                            <p class="atf-post-description pr-lg-3">
-                                Lorem ipsum dolor sit amet, consectetur adipisc elit. Maecenas cuatfus sed felis sit amet
-                                ull amcorper. In congue felis vitae.
-                            </p>
-                            <ul class="atf-post-bar">
-                                <li class="atf-post-date"><i class="far fa-clock"></i>May 20,2021</li>
-                                <li class="atf-author"><i class="fa fa-user"></i><a href="#">admin</a></li>
-                                <li class="atf-comment"><i class="fa fa-comment"></i><a href="#">1.5k</a></li>
-                            </ul>
                         </div>
                     </div>
+                    <!--- END COL -->
                 </div>
-                <!--- END COL -->
+                <!--- END ROW -->
             </div>
-            <!--- END ROW -->
-        </div>
-        <!--- END CONTAINER -->
+            <!--- END CONTAINER -->
     </section>
     <!-- BLOG SECTION END-->
 
@@ -920,14 +771,14 @@
         <div class="container">
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-12 atf-mailchamp-headding">
-                    <h2>Subcribe to Newletter Now</h2>
+                    {{-- <h2>Subcribe to Newletter Now</h2> --}}
                 </div>
                 <!--- END COL -->
                 <div class="col-lg-6 col-md-6 col-12 atf-mailchamp-subscribe mx-auto my-auto mt-1">
                     <form class="form-group" id="mc-form">
-                        <input type="email" name="email" class="form-control" id="email"
+                        {{-- <input type="email" name="email" class="form-control" id="email"
                             placeholder="Your Email" required="required">
-                        <button type="submit" id="subscribe-button" class="btn">Subcribe</button>
+                        <button type="submit" id="subscribe-button" class="btn">Subcribe</button> --}}
                         <!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
                         <br>
                         <label class="atf-subscription-label" for="email"></label>
@@ -959,46 +810,27 @@
                 </div>
                 <!--- END ROW -->
 
-
-                <div class="row clearfix">
-                    <div class="col-lg-5 pr-lg-5">
-                        <div class="atf-contact-info">
-                            <div class="atf-section-title atf-section-title2">
-                                <h2 class="">Nuestra dirección</h2>
-                            </div>
-
-                            <div class="atf-contact-details">
-                                <i class="fa fa-home"></i>
-                                <h4>Your Location</h4>
-                                <p>United State, Californiya</p>
-                                <p>South Africa & London</p>
-                            </div>
-
-                            <div class="atf-contact-details">
-                                <i class="fa fa-phone"></i>
-                                <h4>Mobile Number</h4>
-                                <p>+135 478 4442</p>
-                                <p>+222 545 4442</p>
-                            </div>
-
-                            <div class="atf-contact-details">
-                                <i class="fa fa-envelope"></i>
-                                <h4>Email Address</h4>
-                                <p>demo@example.com</p>
-                            </div>
-                            <h4 class="">Quick Connect</h4>
-                            <div class="atf-footer-social-icon mt-3">
-                                <a href="#" class="icon"> <i class="fab fa-facebook"></i> </a>
-                                <a href="#" class="icon"> <i class="fab fa-dribbble"></i> </a>
-                                <a href="#" class="icon"> <i class="fab fa-behance"></i> </a>
-                                <a href="#" class="icon"> <i class="fab fa-linkedin"></i> </a>
-                                <a href="#" class="icon"> <i class="fab fa-twitter"></i> </a>
-                            </div>
-                        </div>
-                        <!--- END CONTACT -->
+<!-- START REDES BRAND LOGO  -->
+<div id="atf-brand-area" class="atf-section-padding">
+    <div class="atf-brand-overlay">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 col-lg-12">
+                    <div class="atf-brand-active owl-carousel">
+                        <a href="https://www.facebook.com/profile.php?id=100078238669949"><img src="{{ asset('storage/public/assets/img/redes/1.png') }}" alt="image"></a>
+                        <a href="https://www.instagram.com/grupoteamcode/"><img src="{{ asset('storage/public/assets/img/redes/2.png') }}" alt="image"></a>
+                        <a href="https://wa.me/+50662962424"><img src="{{ asset('storage/public/assets/img/redes/3.png') }}" alt="image"></a>
+                        <a href="mailto:grupoteamcode@gmail.com"><img src="{{ asset('storage/public/assets/img/redes/4.png') }}" alt="image"></a>
+                        <a href="https://www.tiktok.com/@teamcode.tech?lang=es"><img src="{{ asset('storage/public/assets/img/redes/5.png') }}" alt="image"></a>
                     </div>
-                    <!--- END COL -->
+                </div><!-- END COL  -->
+            </div><!--END  ROW  -->
+        </div><!-- END CONTAINER  -->
+    </div><!-- END OVERLAY -->
+</div>
+<!-- END REDES BRAND LOGO -->
 
+ <!-- CONTACT SECTION START-->
                     <div class="col-lg-7 col-12 d-block mx-auto my-auto" data-aos="fade-up">
                         <div class="contact">
                             <h4>Send a Message</h4>
