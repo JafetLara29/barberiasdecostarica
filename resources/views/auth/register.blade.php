@@ -12,7 +12,7 @@
     <!-- fieldsets -->
         <fieldset>
             <img class="logo" src="https://cdn.pixabay.com/photo/2018/03/26/18/20/man-3263509__340.png" alt="logo.png">
-            
+
             <h2 class="fs-title1">Registro de barbería</h2>
             <h3 class="fs-subtitle1">Comencemos con la creación de tu cuenta</h3>
             <div class="input-group">
@@ -38,9 +38,9 @@
             <a class="btn btn-outline-danger text-light  " href="{{ url('/') }}">Salir</a>
         </fieldset>
         <fieldset>
-            <img class="logo" src="https://cdn.pixabay.com/photo/2018/03/26/18/20/man-3263509__340.png" alt="logo.png">
-            
-            <h2 class="fs-title1">Información de contacto</h2>
+            <img class="logo" src="https://cdn.pixabay.com/photo/2014/04/02/10/38/telephone-304080_960_720.png" alt="logo.png">
+
+            <h2 class="fs-title1 ">Información de contacto</h2>
             <h3 class="fs-subtitle1">Dinos un poco más sobre tu barbershop</h3>
             <div class="input-group">
                 <input type="text" class="colorsI @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Número de telefono" />
@@ -53,7 +53,7 @@
             <button type="button" name="previous" class=" btn btn-outline-danger colorBtn previous"
                 value="Previous">Anterior</button>
             <button type="button" name="next" class="btn btn-outline-danger colorBtn next" value="Next">Siguiente</button>
-            
+
         </fieldset>
         <fieldset>
             <img class="logo" src="https://cdn.pixabay.com/photo/2020/09/06/22/58/barbershop-5550320_960_720.png" alt="logo.png">
@@ -90,7 +90,7 @@
                 <p>3. En la descripción del sinpe debe ir el nombre de la barbería que se está registrando. El nombre ingresado en la sección <strong>"Sobre tu barbershop"</strong> de este formulario.</p>
                 <p>4. Una vez el proveedor valide tu pago procederá a activar tu cuenta y se te notificará al correo electrónico que brindaste.</p>
             </div>
-            
+
             <button type="button" name="previous" class="btn btn-outline-danger colorBtn previous" value="Previous">Anterior</button>
             <button type="submit" class="btn btn-outline-danger colorBtn">Registrarme</button>
         </fieldset>

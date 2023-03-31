@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
+use App\Models\Barber;
 
 class SocialMediaController extends Controller
 {
@@ -36,44 +37,51 @@ class SocialMediaController extends Controller
     public function store(Request $request)
     {
         try {
-                // Validate the request data
-                $request->validate([
-                    'type' => 'required',
-                    'data' => 'required',
-                    'barber_id'=>'required',
-                ]);
+            // Validate the request data
+            $request->validate([
+                'type' => 'required',
+                'data' => 'required',
+                'barber_id' => 'required',
+            ]);
 
 
             //requesting the info by array from frontend
-                $dataInfo = array_filter($request->data);
-                $typeInfo = array_filter($request->type);
-                //making a temp function to remove the spaces and restart the keys from twice arrays
+            $dataInfo = $request->data;
+            $typeInfo = $request->type;
+            $result_data = "";
+            $result_type = "";
 
-                $dataInfo = array_merge($dataInfo);
 
-                if(sizeof($dataInfo)==0){
-                        return response()->json([
-                            'errors' => true,
-                        ]);
-                } else {
+            //making a temp function to remove the spaces and restart the keys from twice arrays
+
+            $dataInfo = array_merge($dataInfo);
+
+            if (sizeof($dataInfo) == 0) {
+                return response()->json([
+                    'errors' => true,
+                ]);
+            } else {
                 //Based in the quantity of checkboxes typed in frontend add the info in db
-
-                    for ($i = 0; $i < sizeof($dataInfo); $i++) {
-
+                foreach ($dataInfo as $key => $data) {
+                    if (!empty($data)) {
+                        $type = isset($typeInfo[$key]) ? $typeInfo[$key] : '';
+                        $barber = Barber::findOrFail($request->barber_id);
                         $socialMedia = new SocialMedia();
-                        $socialMedia->barbershop_barber_id = $request->barber_id;
-                        $socialMedia->data = $dataInfo[$i];
-                        $socialMedia->type = $typeInfo[$i];
+                        $socialMedia->social_mediable()->associate($barber);
+                        $socialMedia->data = $data;
+                        $socialMedia->type = $type;
                         $socialMedia->save();
-
                     }
-                    // Return a JSON response
-                    return response()->json([
-                        'success' => true,
+                }
 
-                    ]);
+                // Return a JSON response
+                return response()->json([
+                    'success' => true,
+
+                ]);
             }
         } catch (\Throwable $th) {
+            dd($th);
             //throw $th;
             return response()->json([
                 'errors' => true,

@@ -1,8 +1,8 @@
 @extends('layouts.adminhome')
 @section('content')
     <div class="scroll-area">
-        <div class="card shadow mb-5">
-            <h1>Información de tu barbería</h1>
+        <div class="card shadow mb-5 ">
+            <h1 class="container-fluid pt-2">Información de tu barbería</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
@@ -106,7 +106,7 @@
                           </label>
                           <input class="btn btn-success" type="submit" value="Guardar">
                         </form>
-                        
+
                     </div>
                   </div>
                 </div>
@@ -164,7 +164,7 @@
                             <input class="btn btn-success" type="submit" value="Guardar">
                           </div>
                         </form>
-                        
+
                       </div>
                     </div>
                   </div>

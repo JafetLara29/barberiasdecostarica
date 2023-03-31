@@ -10,10 +10,10 @@ class SocialMedia extends Model
     use HasFactory;
 
     protected $fillable = [
+        'social_mediable_id',
+        'social_mediable_type',
         'data',
         'type',
-        'socialMediable_id',
-        'socialMediable_type',
     ];
 
     /**
@@ -21,7 +21,7 @@ class SocialMedia extends Model
      * |Metodo para indicar que una red social pertenece a una barbería o un barbero-
      *|------------------------------------------------------------------------------
      */
-    public function socialMediable(){
+    public function social_mediable(){
         return $this->morphTo();
     }
 }

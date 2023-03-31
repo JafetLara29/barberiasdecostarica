@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -60,7 +61,7 @@ class RegisterController extends Controller
                 'name'     => ['required', 'string'],
                 'canton'   => ['required', 'string'],
                 'address'  => ['required', 'string']
-            ], 
+            ],
             [
                 'required' => 'Este input es requerido',
                 'phone.numeric'=> 'Este input solo puede contener numeros',
@@ -75,8 +76,8 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {   
+    protected function create(  array $data)
+    {
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -90,12 +91,12 @@ class RegisterController extends Controller
                 'user_id'=> $user->id
             ]
         );
-
+            $barbershop= Barbershop::findOrFail($barbershop);
         SocialMedia::create([
             'data'                => $data['phone'],
             'type'                => 'Telefono',
-            'socialMediable_id'   => $barbershop->id,
-            'socialMediable_type' => 'App\Models\Barbershop',
+            'social_mediable_id'   => $barbershop->id,
+            'social_mediable_type' => $barbershop->user_id,
         ]);
 
         return $user;

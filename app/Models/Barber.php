@@ -31,7 +31,7 @@ class Barber extends Model
      *|----------------------------------------------------------------------------------------
      */
     public function socialMedias(){
-        return $this->morphMany(SocialMedia::class, 'socialMediable');
+        return $this->morphMany(SocialMedia::class, 'social_mediable');
     }
 
     /**

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('data');
             $table->string('type');
-            $table->morphs('socialMediable');
+            $table->morphs('social_mediable');
             $table->timestamps();
         });
     }

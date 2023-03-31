@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('day', 10);
             $table->time('start_time');
             $table->time('end_time');
-            // El siguiente campo de la tabla se declara como polimorfico porque puede pertenecer a una barber o a una barbershop
+    // El siguiente campo de la tabla se declara como polimorfico porque puede pertenecer a un barber o a una barbershop
             $table->morphs('scheduleable');
             $table->timestamps();
         });
