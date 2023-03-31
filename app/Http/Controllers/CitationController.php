@@ -46,17 +46,20 @@ class CitationController extends Controller
             'schedules' => $schedules,
         ]);
     }
-    public function getCitationSchedule(Barber $barber){
+    // public function getCitationSchedule(Barber $barber){
+    public function getCitationSchedule(){
         
         // Extraemos la lista de barberos deacuerdo a la barbería
-        $schedules = $barber->schedules;
+        // $schedules = $barber->schedules;
         
         // Vamos llenando los datos de la citation en variables session
-        session(['barber_id' => $barber->id]);
+        // session(['barber_id' => $barber->id]);
 
-        return view('public.citationschedule')->with([
-            'schedules' => $schedules,
-        ]);
+        // return view('public.citationschedule')->with([
+        //     'schedules' => $schedules,
+        // ]);
+        // return view('public.citationschedule');
+        return 'Hola munndo';
     }
 
     /**

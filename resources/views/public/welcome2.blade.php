@@ -31,7 +31,7 @@
                                         <h1>Un servicio premium para tu barbería</h1>
                                         <p>Implementa la tecnología en tu barbershop y sé parte de la comunidad.</p>
                                         <div class="atf-main-btn mt-5">
-                                            <a class="atf-themes-btn" href="#" data-hover="Quiero ser parte">
+                                            <a class="atf-themes-btn" href="{{route('register')}}" data-hover="Quiero ser parte">
                                                 <span>Quiero ser parte</span>
                                             </a>
                                         </div>
@@ -54,7 +54,7 @@
                                         <p>Una primera impresión negativa es mas dificil de cambiar que una positiva, NO TE
                                             LA JUEGUES!.</p>
                                         <div class="atf-main-btn mt-5">
-                                            <a class="atf-themes-btn" href="#" data-hover="Quiero ser parte">
+                                            <a class="atf-themes-btn" href="{{route('register')}}" data-hover="Quiero ser parte">
                                                 <span>Quiero ser parte</span>
                                             </a>
                                         </div>
@@ -107,8 +107,7 @@
                         <li>You can It Solution Easy to Learn </li>
                     </ul> --}}
                     <div class="atf-about-btn mt-5">
-                        <a class="atf-themes-btn" href="#" data-hover="ver más sobre TeamCode"> <span>ver
-                                más</span></a>
+                        <a class="atf-themes-btn" href="#project" data-hover="ver servicios"> <span>ver servicios</span></a>
                     </div>
                 </div>
             </div>

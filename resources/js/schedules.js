@@ -31,27 +31,6 @@
 //                 document.getElementById('start').value = info.dateStr;
 //                 document.getElementById('action').value = "save";
 
-<<<<<<< Updated upstream
-                $('#myModal').modal('show');//Mostramos el modal bootstrap
-            },
-            eventClick: function (info) {
-                // console.log(info);
-                // Cambiamos titulo y nombre de boton
-                document.getElementById('modal-title').textContent = 'Modificar evento';
-                document.getElementById('btn-action').textContent = 'Modificar';
-                btnDelete.classList.remove('d-none');
-                // Seteamos valores a los inputs
-                document.getElementById('id').value = info.event.id;
-                document.getElementById('title').value = info.event.title;
-                document.getElementById('start').value = info.event.startStr;
-                document.getElementById('detail').value = info.event.extendedProps.detail;
-                document.getElementById('color').value = info.event.backgroundColor;
-                document.getElementById('action').value = "edit";
-
-                $('#myModal').modal('show');//Mostramos el modal bootstrap
-            }
-        });
-=======
 //                 myModal.show();
 //             },
 //             eventClick: function (info) {
@@ -71,7 +50,6 @@
 //                 myModal.show();
 //             }
 //         });
->>>>>>> Stashed changes
 
 //         calendar.render();
 
@@ -91,39 +69,6 @@
 //         //     }
 //         // })
 
-<<<<<<< Updated upstream
-        btnDelete.addEventListener('click', function (e) {
-            $('#myModal').modal('hide');//Ocultamos el modal bootstrap
-            swal({
-                title: 'Advertencia',
-                text: '¿Estas seguro que deseas eliminar este evento?',
-                showCancelButton: true,
-                cancelButtonText: 'Cancelar',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Eliminar',
-                confirmButtonColor: '#d33'
-            }).then(result => {
-                if (result.value) {//Boton de confirm (Eliminar)
-                    document.getElementById('action').value = "delete";
-                    form_.submit();
-                }
-            });
-        })
-    } else {
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            themeSystem: 'bootstrap5',
-            initialView: 'dayGridMonth',
-            height: 'auto',
-            timeZone: 'UTC',
-            locale: "es",
-            headerToolbar: {
-                left: '',
-                center: 'title',
-                right: ''
-            },
-            // events: events_
-        });
-=======
 //         btnDelete.addEventListener('click', function (e) {
 //             myModal.hide();
 //             swal({
@@ -155,7 +100,6 @@
 //             },
 //             // events: events_
 //         });
->>>>>>> Stashed changes
 
 //         calendar.render();
 //     }
