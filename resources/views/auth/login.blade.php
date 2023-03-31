@@ -52,7 +52,7 @@
 
                                 <img class="logo"
                                     src="{{ asset('https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png') }}"
-                                    alt="logo.png" width="150" height="150">
+                                    alt="logo.png" width="150" height="125">
                             </div>
                             <div class="card-block">
                                 <div class="row m-b-20">
@@ -77,9 +77,9 @@
                                 </div>
                             </div> --}}
                                 <p class="text-center p-b-5 text-light loginTitles ">Ingresa tus credenciales</p>
-                                <div class="mb-3 form-primary">
+                                <div class="mb-3 form-primary ">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        class=" colorsI @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus
                                         placeholder="Usuario">
                                     @error('email')
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="mb-3 form-primary">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="colorsI @error('password') is-invalid @enderror colorsI" name="password"
                                         required autocomplete="current-password" placeholder="Contraseña">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -116,7 +116,7 @@
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
                                         <div class="d-grid">
-                                            <button type="submit" class="btn btn-outline-danger submit">
+                                            <button type="submit" class="btn btn-outline-danger">
                                                 Ingresar
                                             </button>
                                         </div>

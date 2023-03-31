@@ -2,7 +2,7 @@
 @section('content')
     <div class="scroll-area">
         <div class="card shadow mb-5">
-            <h1>Información de Barbero</h1>
+            <h1 class="container-fluid pt-2">Información de barbero</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
@@ -185,7 +185,7 @@ function barberValidate(){
         scheduleValidate();
 }else{
     Toastify({
-                    text: "Debe llenar los campos requeridos !!!!!",
+                    text: "Asegurese de no dejar campos vacios !!!!!",
                     duration: 5000,
                     gravity: "top",
                     position: "center",
@@ -198,7 +198,7 @@ function barberValidate(){
 
 }
 function scheduleValidate(){
-    if($('#monday-checkbox').prop('checked')||$('#tuesday-checkbox').prop('checked')||$('#wednesday-checkbox').prop('checked')||$('#thursday-checkbox').prop('checked')||$('#friday-checkbox').prop('checked')||$('#saturday-checkbox').prop('checked')||$('#sunday-checkbox').prop('checked')){
+    if($('#monday-checkbox').prop('checked')||$('#tuesday-checkbox').is(':checked')||$('#wednesday-checkbox').prop('checked')||$('#thursday-checkbox').prop('checked')||$('#friday-checkbox').prop('checked')||$('#saturday-checkbox').prop('checked')||$('#sunday-checkbox').prop('checked')){
 
         socialmediaValidate();
     }else{

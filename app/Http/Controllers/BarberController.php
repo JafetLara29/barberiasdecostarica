@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barber;
 use Illuminate\Http\Request;
+use Throwable;
 
 class BarberController extends Controller
 {
@@ -72,6 +73,7 @@ class BarberController extends Controller
             // Create a new barber based in the input in the form
             $barbers = new Barber();
             $barbers->id = $request->barber_id;
+            $barbers->barbershop_id= auth()->user()->id;
             $barbers->name = $request->name;
             $barbers->image = $request->image;
             $barbers->save();
@@ -81,10 +83,12 @@ class BarberController extends Controller
                 'success' => true,
                 'id' => $barbers->id,
             ]);
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
+            dd($th);
             // An error response
             return response()->json([
                 'errors' => true,
+
             ]);
             //throw $th;
         }

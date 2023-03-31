@@ -21,8 +21,8 @@ class SocialMediaFactory extends Factory
         return [
             'data'                 => $this->faker->sentence(2),
             'type'                 => $medias[rand(0, 2)],
-            'socialMediable_id'   => $this->faker->numberBetween(1, 20),
-            'socialMediable_type' => $types[rand(0, 1)]
+            'social_mediable_id'   => $this->faker->numberBetween(1, 20),
+            'social_mediable_type' => $types[rand(0, 1)]
         ];
     }
 }
