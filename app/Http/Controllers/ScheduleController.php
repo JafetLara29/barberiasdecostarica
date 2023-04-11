@@ -55,10 +55,6 @@ class ScheduleController extends Controller
                 $result_start="";
                 $result_end="";
 
-
-
-
-
             //run the array and save the corresponding info based in the day of the schedule
             foreach ($day as $key => $value) {
                 if (!empty($value)) {
