@@ -320,7 +320,10 @@
                             gravity: "top",
                             position: "center",
                             style: {
-                                background: "linear-gradient(to right, red, red)",
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
+                                color: "black", // Color del texto en negro para mayor contraste
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
                             },
 
                         }).showToast();
@@ -332,7 +335,10 @@
                             gravity: "top",
                             position: "center",
                             style: {
-                                background: "linear-gradient(to right, red, red)",
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
+                                color: "black", // Color del texto en negro para mayor contraste
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
                             },
 
                         }).showToast();
