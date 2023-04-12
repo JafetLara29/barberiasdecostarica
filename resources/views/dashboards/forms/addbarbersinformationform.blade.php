@@ -52,7 +52,7 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="lunes"
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="monday"
                                             id="monday-checkbox">
                                         Lunes
                                     </div>
@@ -62,7 +62,7 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="martes"
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="tuesday"
                                             id="tuesday-checkbox">
                                         Martes
                                     </div>
@@ -72,8 +72,8 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="miercoles"
-                                            id="Wednesday-checkbox">
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="wednesday"
+                                            id="wednesday-checkbox">
                                         Miércoles
                                     </div>
                                     de: <input id="Wednesday-start" type="time" name="start[]">
@@ -82,7 +82,7 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="jueves"
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="thursday"
                                             id="thursday-checkbox">
                                         Jueves
                                     </div>
@@ -92,7 +92,7 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="viernes"
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="friday"
                                             id="friday-checkbox">
                                         Viernes
                                     </div>
@@ -102,7 +102,7 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="sabado"
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="saturday"
                                             id="saturday-checkbox">
                                         Sabado
                                     </div>
@@ -112,7 +112,7 @@
                                 {{-- Item --}}
                                 <label class="list-group-item">
                                     <div class="m-3">
-                                        <input class="form-check-input" name="day[]" type="checkbox" value="domingo"
+                                        <input class="form-check-input" name="day[]" type="checkbox" value="sunday"
                                             id="sunday-checkbox">
                                         Domingo
                                     </div>
@@ -243,24 +243,61 @@
                 $('#sunday-checkbox')
             ];
 
-            if (checkboxes.some(checkbox => checkbox.prop('checked'))) {
-                socialmediaValidate();
-            } else {
+            let isChecked = false; // Variable para verificar si al menos un checkbox está seleccionado
+
+            const days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+            for (let i = 0; i < checkboxes.length; i++) {
+                const checkbox = checkboxes[i];
+                const startInput = $('#' + checkbox.val() + '-start'); // Se utiliza jQuery para obtener el elemento input
+                const endInput = $('#' + checkbox.val() + '-end'); // Se utiliza jQuery para obtener el elemento input
+
+                if (checkbox.is(":checked")) {
+                    isChecked = true; // Se marca la variable como true si al menos un checkbox está seleccionado
+
+                    if (startInput.val() === '' || endInput.val() === '') {
+                        const day = days[i]; // Obtener el nombre del día en español
+
+                        Toastify({
+                            text: "Debe añadir una hora de entrada y salida correspondiente al día seleccionado: " +
+                                day + "!",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                            },
+                        }).showToast();
+                        return false; // Se retorna false para evitar el envío del formulario y salir de la función
+                    }
+                }
+            }
+
+            if (!isChecked) {
                 Toastify({
-                    text: " Debe de seleccionar al menos un dia a trabajar y agregar su horario correspondiente !",
+                    text: "Debe seleccionar al menos un día para trabajar y agregar su horario correspondiente!",
                     duration: 5000,
                     gravity: "top",
                     position: "center",
                     style: {
-                        background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                        color: "black", // Color del texto en negro para mayor contraste
-                        fontWeight: "bold", // Negrita en el texto
-                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                        background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
+                        color: "black",
+                        fontWeight: "bold",
+                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                     },
-
                 }).showToast();
+                return false; // Se retorna false para evitar el envío del formulario
             }
+
+            // Si los checkboxes seleccionados y los inputs están llenos, se ejecuta la función socialmediaValidate()
+            socialmediaValidate();
         }
+
+
+
 
         function socialmediaValidate() {
             const checkboxes = ['#phone-checkbox', '#whatsapp-checkbox', '#facebook-checkbox', '#insta-checkbox',
