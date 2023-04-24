@@ -146,7 +146,7 @@
                                     <label class="list-group-item">
                                         <div class="m-3">
                                             <input id="phone-checkbox" class="form-check-input me-1" name="type[]"
-                                                type="checkbox" value="Telefono">
+                                                type="checkbox" value="phone">
                                             <ion-icon size="large" name="call-outline"></ion-icon>
                                             <input id="phone-input" class="form-control" type="text" name="data[]"
                                                 placeholder="Escriba su número de teléfono" value="">
@@ -156,7 +156,7 @@
                                     <label class="list-group-item">
                                         <div class="m-3">
                                             <input id="whatsapp-checkbox" class="form-check-input me-1"name="type[]"
-                                                type="checkbox" value="Whatsapp">
+                                                type="checkbox" value="whatsapp">
                                             <ion-icon size="large" name="logo-whatsapp"></ion-icon>
                                             <input id="whatsapp-input" class="form-control" type="text"
                                                 name="data[]" placeholder="Escriba su número de whatsapp"
@@ -177,7 +177,7 @@
                                     <label class="list-group-item">
                                         <div class="m-3">
                                             <input id="insta-checkbox" class="form-check-input me-1" name="type[]"
-                                                type="checkbox" value="Instagram">
+                                                type="checkbox" value="insta">
                                             <ion-icon size="large" name="logo-instagram"></ion-icon>
                                             <input id="insta-input" class="form-control" type="text" name="data[]"
                                                 placeholder="Nombre de su perfil" value="">
@@ -187,7 +187,7 @@
                                     <label class="list-group-item">
                                         <div class="m-3">
                                             <input id="tiktok-checkbox" class="form-check-input me-1" name="type[]"
-                                                type="checkbox" value="Tiktok">
+                                                type="checkbox" value="tiktok">
                                             <ion-icon size="large" name="logo-tiktok"></ion-icon>
                                             <input id="titktok-input" class="form-control" type="text" name="data[]"
                                                 placeholder="Escriba su perfil" value="">
@@ -296,22 +296,48 @@
             socialmediaValidate();
         }
 
-
-
-
         function socialmediaValidate() {
-            const checkboxes = ['#phone-checkbox', '#whatsapp-checkbox', '#facebook-checkbox', '#insta-checkbox',
+            const checkboxes = [
+                '#phone-checkbox',
+                '#whatsapp-checkbox',
+                '#facebook-checkbox',
+                '#insta-checkbox',
                 '#tiktok-checkbox'
             ];
+            const contacts = ['Telefono', 'Whatsapp', 'Facebook', 'Instagram', 'Tiktok'];
 
-            if (checkboxes.some(checkbox => $(checkbox).prop('checked'))) {
+            let isChecked = false; // Variable para verificar si al menos un checkbox está seleccionado
 
+            for (let i = 0; i < checkboxes.length; i++) {
+                const checkbox = $(checkboxes[i]);
+                const input = $('#' + checkbox.val() + '-input'); // Se utiliza jQuery para obtener el elemento input
 
-                barbersave();
+                if (checkbox.is(":checked")) {
+                    isChecked = true; // Se marca la variable como true si al menos un checkbox está seleccionado
 
-            } else {
+                    if (input.val() === '') {
+                        const contact = contacts[i]; // Obtener el nombre del contacto en español
+
+                        Toastify({
+                            text: `Debe agregar información correspondiente al canal de contacto seleccionado: ${contact}!`,
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
+                                color: "black", // Color del texto en negro para mayor contraste
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                            },
+                        }).showToast();
+                        return false; // Se retorna false para evitar el envío del formulario y salir de la función
+                    }
+                }
+            }
+
+            if (!isChecked) {
                 Toastify({
-                    text: "Debe de marcar al menos una opción de contacto y su información correspondiente",
+                    text: "Debe seleccionar al menos una opción de contacto y agregar su información correspondiente!",
                     duration: 5000,
                     gravity: "top",
                     position: "center",
@@ -322,11 +348,15 @@
                         boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
                     },
                 }).showToast();
-
+                return false; // Se retorna false para evitar el envío del formulario
             }
 
-
+            // Si los checkboxes seleccionados y los inputs están llenos, se ejecuta la función barbersave()
+            barbersave();
         }
+
+
+
         // Since we validate the info we can proceed to save it in the next schema : [Barber->schedule->socialmedia]
         function barbersave() {
             //Collecting the info from the general-info form
