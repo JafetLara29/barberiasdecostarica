@@ -17,16 +17,17 @@
                     
                     {{-- Card para informacion de la barberia --}}
                     <div class="card m-2">
-                        <h5 class="card-header barbershop-information-title"><ion-icon name="cut-outline"></ion-icon>Babashop</h5>
+                        <h5 class="card-header barbershop-information-title"><ion-icon name="cut-outline"></ion-icon>{{ $barbershop->name }}</h5>
                         <div class="card-body">
                             <p class="barbershop-information-text"><strong><ion-icon name="location-outline"></ion-icon>Ubicación:</strong> {{ $barbershop->address }}</p>
-                            <p class="barbershop-information-text"><strong><ion-icon name="calendar-number-outline"></ion-icon>Horario:</strong></p>
-                            <ul class="barbershop-information-text">
-                                @foreach ($schedule as $item)
-                                    <li>{{ $item->day }}: {{ $item->start_time }} - {{ $item->end_time }}</li>
-                                @endforeach
-                            </ul>
-        
+                            @if (sizeOf($schedule) > 0)
+                                <p class="barbershop-information-text"><strong><ion-icon name="calendar-number-outline"></ion-icon>Horario:</strong></p>
+                                <ul class="barbershop-information-text">
+                                    @foreach ($schedule as $item)
+                                        <li>{{ $item->day }}: {{ $item->start_time }} - {{ $item->end_time }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
                             {{-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
                         </div>
                     </div>

@@ -53,9 +53,9 @@ class Barber extends Model
     }
 
     /**
-     *|-------------------------------------------------------------
-     * |Metodo para indicar que una barbería tiene muchos servicios-
-     *|-------------------------------------------------------------
+     *|-----------------------------------------------------------
+     * |Metodo para indicar que un barbero tiene muchos servicios-
+     *|-----------------------------------------------------------
      */
     public function services(){
         return $this->morphMany(Service::class, 'serviceable');

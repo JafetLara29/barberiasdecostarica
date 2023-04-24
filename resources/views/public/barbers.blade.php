@@ -7,7 +7,7 @@
             {{-- Esta parte se ejecuta si vienen registros de la db --}}
             @foreach ($barbers as $item)
                 <div class="barber-card-container">
-                    <a class="card barber-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{route('citations.getcitationSchedule', ['barber'=>$item->id]) }}">
+                    <a class="card barber-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{ route('citations.schedule', ['barber'=>$item->id]) }}">
                         <img class="rounded-circle" src="{{asset($item->image)}}"/>
                     </a>
                     <p class="card-text text-light">
@@ -16,12 +16,12 @@
                 </div>
             @endforeach
             {{-- BARBERO QUEMADO PARA TERMINOS DE TERMINAR EL FRONTEND --}}
-            <a class="card barber-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{route('citations.getcitationSchedule')}}">
+            {{-- <a class="card barber-card justify-content-center align-items-center rounded-circle" style="color:black; text-decoration:none;" href="{{route('citations.schedule')}}">
                 <img class="rounded-circle" src="{{asset('/storage/welcome_images/pic-1.png')}}"/>
             </a>
             <p class="card-text text-light">
                 Jafet Lara
-            </p>
+            </p> --}}
             
         </div>
 

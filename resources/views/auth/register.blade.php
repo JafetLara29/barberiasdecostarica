@@ -16,7 +16,7 @@
             <h2 class="fs-title1">Registro de barbería</h2>
             <h3 class="fs-subtitle1">Comencemos con la creación de tu cuenta</h3>
             <div class="input-group">
-                <input id="email" type="email" class="colorsI @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Correo electrónico">
+                <input id="email" type="email" class="colorsI text-light @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Correo electrónico">
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
                 @enderror
             </div>
             <div class="input-group">
-                <input id="password" type="password" class="colorsI @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Contraseña">
+                <input id="password" type="password" class="colorsI text-light @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Contraseña">
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -32,9 +32,9 @@
                 @enderror
             </div>
             <div class="input-group">
-                <input id="password-confirm" type="password" class="colorsI" name="password_confirmation" autocomplete="new-password" placeholder="Confirmar contraseña">
+                <input id="password-confirm" type="password" class="colorsI text-light" name="password_confirmation" autocomplete="new-password" placeholder="Confirmar contraseña">
             </div>
-            <button type="button" name="next" class="btn btn-outline-danger colorBtn next" value="Next">Siguiente</button>
+            <button type="button" name="next" class="btn colorBtn next" value="Next">Siguiente</button>
             <a class="btn btn-outline-danger text-light  " href="{{ url('/') }}">Salir</a>
         </fieldset>
         <fieldset>
@@ -43,16 +43,16 @@
             <h2 class="fs-title1 ">Información de contacto</h2>
             <h3 class="fs-subtitle1">Dinos un poco más sobre tu barbershop</h3>
             <div class="input-group">
-                <input type="text" class="colorsI @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Número de telefono" />
+                <input type="text" class="colorsI text-light @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Número de telefono" />
                 @error('phone')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
-            <button type="button" name="previous" class=" btn btn-outline-danger colorBtn previous"
+            <button type="button" name="previous" class=" btn btn-outline-danger previous"
                 value="Previous">Anterior</button>
-            <button type="button" name="next" class="btn btn-outline-danger colorBtn next" value="Next">Siguiente</button>
+            <button type="button" name="next" class="btn colorBtn next" value="Next">Siguiente</button>
 
         </fieldset>
         <fieldset>
@@ -60,7 +60,7 @@
             <h2 class="fs-title1">Sobre tu barbershop</h2>
             <h3 class="fs-subtitle1">Para tus clientes</h3>
             <div class="input-group">
-                <input id="name" type="text" class="colorsI @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Nombre de la barbería">
+                <input id="name" type="text" class="colorsI text-light @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Nombre de la barbería">
                 @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                 @enderror
             </div>
             <div class="input-group">
-                <input class="colorsI @error('canton') is-invalid @enderror" type="text" name="canton" id="canton" value="{{ old('canton') }}" placeholder="Canton donde se localiza">
+                <input class="colorsI text-light @error('canton') is-invalid @enderror" type="text" name="canton" id="canton" value="{{ old('canton') }}" placeholder="Canton donde se localiza">
                 @error('canton')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -76,7 +76,7 @@
                 @enderror
             </div>
             <div class="input-group">
-                <textarea name="address" class="colorsI @error('address') is-invalid @enderror" placeholder="Escriba la dirección de la barbería">{{ old('address') }}</textarea>
+                <textarea name="address" class="colorsI text-light @error('address') is-invalid @enderror" placeholder="Escriba la dirección de la barbería">{{ old('address') }}</textarea>
                 @error('address')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -91,84 +91,10 @@
                 <p>4. Una vez el proveedor valide tu pago procederá a activar tu cuenta y se te notificará al correo electrónico que brindaste.</p>
             </div>
 
-            <button type="button" name="previous" class="btn btn-outline-danger colorBtn previous" value="Previous">Anterior</button>
-            <button type="submit" class="btn btn-outline-danger colorBtn">Registrarme</button>
+            <button type="button" name="previous" class="btn btn-outline-danger previous" value="Previous">Anterior</button>
+            <button type="submit" class="btn colorBtn">Registrarme</button>
         </fieldset>
 </form>
-
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 
 @endsection

@@ -41,6 +41,7 @@
     {{-- Alerts --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="{{ asset('storage/assets/css/sweetalert.css') }}">
 
     {{-- Jquery --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -49,7 +50,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-    @vite(['resources/css/adminschedule.css','resources/js/schedules.js'])
+    @vite(['resources/css/adminschedule.css'])
 
     <!-- Calendar -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js"></script>
@@ -326,6 +327,10 @@
     <script src="{{asset('storage/public/assets/js/form-contact.js')}}"></script>
     <!-- main js -->
     <script src="{{asset('storage/public/assets/js/main.js')}}"></script>
+    {{-- Sweet Alert Script --}}
+    <link rel="stylesheet" href="{{ asset('storage/assets/js/sweetalert.js') }}">
+    
+    @vite(['resources/js/schedules.js'])
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

@@ -43,5 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Hay que hacer las relaciones de usuarios barbershop y usuarios barber
+    public function barbershop(){
+        return $this->hasOne(Barbershop::class);
+    }
+    
+
 }

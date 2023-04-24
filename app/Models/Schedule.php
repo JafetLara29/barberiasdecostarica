@@ -24,4 +24,12 @@ class Schedule extends Model
     public function scheduleable(){
         return $this->morphTo();
     }
+    /**
+     *|--------------------------------------------------------
+     * |Metodo para indicar que un horario tiene varias citas -
+     *|--------------------------------------------------------
+     */
+    public function citations(){
+        return $this->hasMany(Citation::class);
+    }
 }

@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    
+    protected $fillable = [
+        'description',
+        'price',
+        'serviceable_id',
+        'serviceable_type',
+    ];
+
     /**
      *|---------------------------------------------------------------------------
      * |Metodo para indicar que un servicio pertenece a una barbería o un barbero-

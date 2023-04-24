@@ -60,26 +60,10 @@
                                         <h3 class="text-center text-light loginTitles ">Inicio de Sesión</h3>
                                     </div>
                                 </div>
-                                {{-- <div class="row m-b-20">
-                                <div class="col-md-6">
-                                    <div class="d-grid">
-                                        <button class="btn btn-facebook m-b-20">
-                                            <i class="icofont icofont-social-facebook"></i>facebook
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-grid">
-                                        <button class="btn btn-twitter m-b-20">
-                                            <i class="icofont icofont-social-twitter"></i>twitter
-                                        </button>
-                                    </div>
-                                </div>
-                            </div> --}}
                                 <p class="text-center p-b-5 text-light loginTitles ">Ingresa tus credenciales</p>
                                 <div class="mb-3 form-primary ">
                                     <input id="email" type="email"
-                                        class=" colorsI @error('email') is-invalid @enderror" name="email"
+                                        class=" colorsI @error('email') is-invalid @enderror text-light" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus
                                         placeholder="Usuario">
                                     @error('email')
@@ -90,28 +74,13 @@
                                 </div>
                                 <div class="mb-3 form-primary">
                                     <input id="password" type="password"
-                                        class="colorsI @error('password') is-invalid @enderror colorsI" name="password"
+                                        class="colorsI @error('password') is-invalid @enderror text-light" name="password"
                                         required autocomplete="current-password" placeholder="Contraseña">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div>
-                                <div class="row m-t-25 text-start">
-                                    <div class="col-12">
-                                        {{-- <div class="checkbox-fade fade-in-primary">
-                                        <label class="form-label">
-                                            <input type="checkbox" value="">
-                                            <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                            <span class="text-inverse">Remember me</span>
-                                        </label>
-                                    </div>
-                                    <div class="forgot-phone text-end f-right">
-                                        <a href="auth-reset-password.html" class="text-end f-w-600"> Forgot
-                                            Password?</a>
-                                    </div> --}}
-                                    </div>
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
@@ -122,7 +91,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <p class="text-inverse text-start">Don't have an account?<a href="auth-sign-up-social.html"> <b class="f-w-600">Register here </b></a>for free!</p> --}}
+                                {{-- <div class="row m-t-25 text-start">
+                                    <div class="col-12">
+                                        <div class="forgot-phone text-end f-right">
+                                            <a href="auth-reset-password.html" class="text-end f-w-600">Registrar mi barbershop</a>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                                <p class="text-inverse text-start text-light">¿No tienes una cuenta?<a href="{{ route('register') }}"> <b class="f-w-600">Registra tu barbershop</b></a>!</p>
                             </div>
                         </div>
                     </form>

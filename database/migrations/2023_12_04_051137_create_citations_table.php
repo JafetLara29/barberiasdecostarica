@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->id();
             $table->time('time');//Necesitamos un time porque el schedule solo nos da la fecha y un rango de horas, no la hora especifica
+            $table->date('date');
             $table->unsignedBiginteger('service_id');
             $table->unsignedBiginteger('barber_id');
             $table->unsignedBiginteger('schedule_id');

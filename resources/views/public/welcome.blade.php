@@ -1,20 +1,5 @@
 @extends('layouts.publicdos')
 @section('content')
-    @if (isset($result) && $result == 'success')
-    <script>
-        Toastify({
-            text: "Cita enviada exitosamente",
-            duration: 5000,
-            gravity: "bottom",
-            position: "right",
-            className: "custom_toast",
-            style: {
-                background: "linear-gradient(to right, green, yellowgreen)",
-            },
-
-        }).showToast();
-    </script>
-    @endif
     <!-- home section starts  -->
     <section class="home" id="home" style="background: url('{{asset('storage/welcome_images/barber3.jpg')}}') no-repeat;background-size: cover;opacity:.6;">
         <div class="content">

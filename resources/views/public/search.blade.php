@@ -62,9 +62,8 @@
         } else {
             $('#search-result-container').html('');
             $.each(results, function(index, result) {
-                // d-flex flex-wrap flex-row
                 array += `<a href="/barbershops/${ result.id }" class="a-card">
-                                                <div class="card m-2 d-flex flex-row">
+                                                <div class="card result-card m-2 d-flex flex-row">
                                                     <div class="img-container d-flex justify-content-center align-items-center">
                                                         <img src="https://cdn.pixabay.com/photo/2020/09/06/22/58/barbershop-5550320_960_720.png" alt="...">
                                                     </div>

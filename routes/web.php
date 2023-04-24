@@ -33,9 +33,9 @@ Route::resource('/barbers', BarberController::class);
 //Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
 
 /*
-|------------------------
+|-------------------------------
 | Rutas para las redes Sociales-
-|------------------------
+|-------------------------------
 */
 Route::resource('/socialmedia',SocialMediaController::class);
 
@@ -44,7 +44,10 @@ Route::resource('/socialmedia',SocialMediaController::class);
 | Rutas para citation-
 |---------------------
 */
-Route::get('/citations/barbersSchedule', [CitationController::class,'getCitationSchedule'])->name('citations.getcitationSchedule');
+Route::get('/citations/barbersSchedule/{barber}', [CitationController::class,'getCitationCalendar'])->name('citations.schedule');
+Route::post('/barber_citation_schedule', [CitationController::class,'getBarberCitationSchedule']);
+Route::post('/barber_citation_hours', [CitationController::class,'getBarberCitationHours']);
+Route::post('/barber_citation_client_name', [CitationController::class,'getBarberCitationClientName']);
 // Route::get('/citations/{barber}/week', [CitationController::class,'getWeekByBarber'])->name('citations.getWeekByBarber'); [reemplazado por calendar]
 Route::get('/citations/barbers/{barbershop}/list', [CitationController::class,'getBarbersToSelect'])->name('citations.getBarbersToSelect');
 Route::get('/citations/{schedule}/hours', [CitationController::class,'getHoursByBarber'])->name('citations.getHoursByBarber');
@@ -64,12 +67,6 @@ Route::post('/citations/store', [CitationController::class,'store'])->name('cita
 
 Route::resource('/services', ServiceController::class);
 
-/*
-|--------------------------
-| Rutas para los Horarios-
-|--------------------------
-*/
-Route::resource('/schedule', ScheduleController::class);
 
 /*
 |------------------------

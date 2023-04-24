@@ -10,6 +10,7 @@ class Citation extends Model
     use HasFactory;
     protected $fillable = [
         'time',
+        'date',
         'service_id',
         'barber_id',
         'schedule_id',

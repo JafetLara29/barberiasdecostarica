@@ -6,13 +6,17 @@ use App\Models\Barber;
 use App\Models\Barbershop;
 use App\Models\Citation;
 use App\Models\Schedule;
+use App\Models\Service;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CitationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getcitationSchedule', 'store']);
+        $this->middleware('auth')->except(['index', 'getBarberCitationClientName', 'barbers', 'getHoursByBarber', 'form', 'getBarbersToSelect', 'getCitationCalendar', 'store', 'getBarberCitationSchedule', 'getBarberCitationHours']);
     }
 
     /**
@@ -46,20 +50,52 @@ class CitationController extends Controller
             'schedules' => $schedules,
         ]);
     }
-    // public function getCitationSchedule(Barber $barber){
-    public function getCitationSchedule(){
-        
-        // Extraemos la lista de barberos deacuerdo a la barbería
-        // $schedules = $barber->schedules;
-        
-        // Vamos llenando los datos de la citation en variables session
-        // session(['barber_id' => $barber->id]);
 
-        // return view('public.citationschedule')->with([
-        //     'schedules' => $schedules,
-        // ]);
-        // return view('public.citationschedule');
-        return 'Hola munndo';
+    public function getCitationCalendar(Barber $barber){
+        session(['barber_id' => $barber->id]);
+        return view('public.citationschedule')->with([
+            'barber' => $barber,
+            'services'  => $barber->services
+        ]);
+    }
+
+    public function getBarberCitationSchedule(Request $request){
+        $colors = ['#9A40F4', '#111', '#859F11', '#389D9A', '#7E73EB', '#BC73EB', '#BF2C66', '#C0A339', '#C039BE'];
+        
+        $barber = Barber::find(session('barber_id'));
+        // Obtenemos las citas ligadas a este barber
+        $citations = $barber->citations;
+        $events = [];
+        foreach ($citations as $key => $citation) {
+            $hour = explode(":", $citation->time);
+            $hour = $hour[0].":".$hour[1];
+            $events[] = [
+                'title' => $hour,
+                'start' => $citation->date,
+                'color' => $colors[rand(0, sizeof($colors)-1)],
+                'detail' => 'Cita agendada',
+            ];    
+            
+        }
+
+        session(['barber_id' => $barber->id]); // Vamos llenando los datos de la citation en variables session. Esto nos permite acceder a un dato desde otros metodos
+
+        return response()->json([
+            'ok'        => true,
+            'events'    => $events
+        ]);
+    }
+
+    public function getBarberCitationClientName(Request $request){
+        $barber = Barber::find(session('barber_id'));
+        $citations = $barber->citations()
+                     ->where('date', $request->date)
+                     ->where('time', $request->time)
+                     ->get();
+        return response()->json([
+            'ok'        => true,
+            'sender'    => $citations[0]->sender
+        ]);
     }
 
     /**
@@ -69,13 +105,8 @@ class CitationController extends Controller
      */
     public function getBarbersToSelect(Barbershop $barbershop){
         
-        // Extraemos la barberia y sus datos
-        // $barbershop = Barbershop::findOrFail($barbershop);
-        // Extraemos la lista de barberos deacuerdo a la barbería
         $barbers = $barbershop->barbers;
         
-        // Vamos llenando los datos de la citation en variables session
-        // session(['barbershop_id' => $barbershop]);
         return view('public.barbers')->with([
             'barbers' => $barbers
         ]);
@@ -96,17 +127,41 @@ class CitationController extends Controller
         ]);
     }
 
-    public function getHoursByBarber(Schedule $schedule)
+    public function getBarberCitationHours(Request $request)
     {
-        // Vamos llenando los datos de la citation en variables session
-        session(['schedule_id' => $schedule->id]);// Guardamos el id del schedule para obtener el dia de la cita
-        // Sacamos las horas de acuerdo al rango del horario escogido
-        $hours = intervaloHora($schedule->start_time, $schedule->end_time);
-        $barber = session('barber_id');
-        return view('public.hours')->with([
-            'hours'  => $hours,
-            'barber' => $barber
-        ]);
+        try{
+            $day = Carbon::parse($request->date)->locale('es')->dayName; // Usamos la libreria carbon para pasar una fecha 00/00/00 a su equivalente dia de la semana (Lunes, martes ...)
+            $day = removeAccentMarks($day);                              // Quitamos las tildes con una funcion creada por lara en app/Http/helpers
+            $day = ucfirst($day);
+            $schedule = [];                                              // Nos aseguramos que la primer letra sea mayuscula para ser consistentes
+            // Obtenemos el orario del barbero que coinside con el dia indicado
+            $barber     = Barber::find(session('barber_id'));
+            $schedule   = $barber->schedules()->where('day', $day)->get();
+            if(sizeof($schedule) == 0){                                     // Si NO hay algun horario registrado para ese dia:
+                return response()->json(['ok' => true, 'hours' => 'Empty']);// Retornamos un mensaje "Empty" para atrapar el evento en el front
+            }else{
+                // Seteamos el horario y fecha escogida:
+                session(['schedule_id' => $schedule[0]->id]);
+                session(['date'        => $request->date]);
+                $hours = intervaloHora($schedule[0]->start_time, $schedule[0]->end_time, 30); // Extraemos las horas entre la hora de inicio y hora final segun el intervalo escogido por el barbero
+                // Quitamos las horas que ya se escogieron de las citas agendadas a este barbero:
+                $citations = $schedule[0]->citations()->where('date', $request->date)->get();
+                if(sizeof($citations) > 0){
+                    foreach ($citations as $key => $citation) {
+                        $citationHour = explode(":", $citation->time);
+                        $hour = ($citationHour[0][0] == '0' ? $citationHour[0][1] : $citationHour[0] ).":".$citationHour[1];
+                        for ($i=0; $i < sizeof($hours); $i++) { 
+                            if($hour == $hours[$i]){
+                                $hours[$i] = '-';
+                            }    
+                        }
+                    }
+                }
+                return response()->json(['ok' => true, 'hours' => $hours]);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['ok' => false, 'error' => $th->getMessage()]);
+        }
     }
 
     public function form(Barber $barber, $hour)
@@ -141,15 +196,18 @@ class CitationController extends Controller
             'message' => 'Message sent successfully',
         ]);
     }
+
+    // Retrieve all unread citations for the authenticated user
     public function getCitation()
     {
-        // Retrieve all unread citations for the authenticated user
-        $citation = Citation::where('read', false)
-            ->get();
+        session(['barber_id' => 1]);
+        // TODO: Hay que implementar una columna para la tabla user que nos permita saber si un usuario es de un barbero o una barberia 
+        // TODO: if($user->type == Barber::class){}
+        $citations = Barber::find(1)->citations()->where('read', false)->get();
         // Return a JSON response
         return response()->json([
             'success' => true,
-            'citation' => $citation,
+            'citation' => $citations,
         ]);
     }
     public function acceptCitation(Request $request)
@@ -181,18 +239,6 @@ class CitationController extends Controller
         ]);
     }
 
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -201,59 +247,28 @@ class CitationController extends Controller
      */
     public function store(Request $request)
     {
-        // Guardamos la informacion de la cita
-        $citation = new Citation();
-        $citation->time = session('time');
-        $citation->service_id = $request->service_id;
-        $citation->barber_id = session('barber_id');
-        $citation->schedule_id = session('schedule_id');
-        $citation->sender = $request->sender;
-        $citation->save();
-        return view('public.welcome')->with(['result'=>'success']);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Citation  $citation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Citation $citation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Citation  $citation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Citation $citation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Citation  $citation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Citation $citation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Citation  $citation
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Citation $citation)
-    {
-        //
+        try {
+            // Guardamos la informacion de la cita
+            $citation = new Citation();
+            $citation->time = $request->hour;
+            $citation->service_id = $request->service_id;
+            $citation->barber_id = session('barber_id');
+            $citation->schedule_id = session('schedule_id');
+            $citation->sender = $request->sender;
+            $citation->date = session('date');
+            $citation->save();
+            $barber = Barber::find(session('barber_id'));
+            return view('public.citationschedule')->with([
+                'barber' => $barber,
+                'services'  => $barber->services,
+                'result'  => 'success'
+            ]);
+        } catch (\Throwable $th) {
+            return view('public.citationschedule')->with([
+                'barber' => $barber,
+                'services'  => $barber->services,
+                'result'  => 'error'
+            ]);
+        }
     }
 }

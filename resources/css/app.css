@@ -39,16 +39,29 @@
 }
 .card{
     width: 350px;
-    border-top-right-radius: 50px;
-    border-bottom-left-radius: 50px;
+    /* border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px; */
     transition: all ease-in-out 0.3s;
 }
-.card:hover{
+
+.result-card{
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.services-card{
+    background-color: gray;
+    /* width: 130px; */
+    /* border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px; */
+    transition: all ease-in-out 0.3s;
+}
+.card:hover, .services-card:hover{
     background-color: #d3ad7f;
     color: black;
 }
 .gold-background{
-    background-color: #d3ad7f;
+    background-color: #d3ad7f!important;
 }
 .img-container{
     width: 100px;
@@ -131,28 +144,30 @@
 
 /* Hours page */
 .hours-card{
-    width: 250px;
-    height: 100px;
+    background-color: gray;
+    width: 90px;
+    height: 50px;
 }
 
 /* Calendar  */
 #calendar{
     display: flex;
-
+    color: white;
 }
-
+#calendar th{
+    color: black;
+}
 #calendar-container{
-display:flex;
-width:100%;
-height:100%;
+    display:flex;
+    width:100%;
+    height:100%;
 }
-.fc .fc-view-harness{
-    padding: 25px;
+/* :root{
     height: 100vh !important;
-}
-:root{
-    height: 100vh !important;
-}
+} */
 .modal-backdrop{
-    --bs-backdrop-zindex: 999;
+    --bs-backdrop-zindex: 0;
+}
+.modal{
+    --bs-modal-zindex: 1000000;
 }

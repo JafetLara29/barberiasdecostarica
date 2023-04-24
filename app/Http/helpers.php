@@ -25,11 +25,25 @@
         
         foreach( $periodo as $hora ) {   
             // Guardamos las horas (intervalos) 
-            // $horas[] =  $hora->format('H:i:s');
             $horas[] =  $hora->format('g:i');//Le damos el formato hora:minuto y quitamos el formato de 24 hora a uno de 12
         }   
 
         return $horas;
+    }
+
+    /**
+     * Metodo para eliminar tildes y de un texto
+     * @param String text - El texto que deseamos modificar
+     * @return String result - El texto modificado
+     */
+    function removeAccentMarks($text){
+        $accentMarkLetters = [
+            'á', 'é', 'í', 'ó', 'ú'
+        ];
+        $toReplaceLetters = [
+            'a', 'e', 'i', 'o', 'u'
+        ];
+        return str_replace($accentMarkLetters, $toReplaceLetters, $text);
     }
 
 ?>
