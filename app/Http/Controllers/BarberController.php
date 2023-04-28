@@ -73,7 +73,7 @@ class BarberController extends Controller
             // Create a new barber based in the input in the form
             $barbers = new Barber();
             $barbers->id = $request->barber_id;
-            $barbers->barbershop_id= auth()->user()->id;
+            $barbers->barbershop_id= auth()->user()->id;//Polimorphic relationship
             $barbers->name = $request->name;
             $barbers->image = $request->image;
             $barbers->save();
