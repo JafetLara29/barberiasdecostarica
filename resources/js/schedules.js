@@ -209,31 +209,34 @@ document.addEventListener("DOMContentLoaded", function () {
                     success: function (response) {
                         if (response.success && response.events.length !== 0) {
                             // Agregar estilos personalizados para el modal
-                            $("#modal-body").css({
+
+                            $(".modal-footer").css({
                                 "font-size": "15px",
                                 "font-weight": "bold",
-                                color: "#333",
                                 "text-shadow":
                                     "0 1px 1px rgba(255, 255, 255, 0.5)",
+                                "background-color": "white",
+                                "background-image":
+                                    "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)",
+                                "background-size": "20px 20px",
+                                "background-position":
+                                    "0 0, 0 10px, 10px -10px, -10px 0px",
                             });
 
                             $(".table th").css({
                                 "background-color": "#fff",
-                                color: "#333",
                                 "font-weight": "bold",
                                 "text-align": "center",
                             });
 
                             $(".table td").css({
                                 "background-color": "#fff",
-                                color: "#333",
                                 "font-weight": "normal",
                                 "text-align": "center",
                             });
 
                             var table = `
-                            <div class="table-responsive" style=";
-                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);">
+                            <div class="table-responsive" style="">
                               <table class="table table-striped  rounded shadow">
                                 <thead>
                                   <tr>
@@ -249,8 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 var rowColor = randomColor(); // Genera un color aleatorio para cada fila
 
                                 table += `
-                              <tr style="background-color:${rowColor}; border-radius: 10px;
-                              box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); border: 10px solid white;"  class="rounded">
+                              <tr style="background-color:${rowColor}; border-radius: 10px; border: 10px solid white;"  class="rounded">
                                 <td>${response.events[i].service}</td>
                                 <td>${response.events[i].time}</td>
                                 <td>${response.events[i].date}</td>
@@ -265,6 +267,14 @@ document.addEventListener("DOMContentLoaded", function () {
                           `;
                             $("#modal-body").html(table);
                             $("#mymodal").modal("show"); // Abre el modal
+                            $(document).ready(function () {
+                                // Seleccionar el boton cerrar y hacer la animacion fadeout
+                                $(".btn-outline-success").click(function () {
+                                    $("#mymodal").fadeOut("slow", function () {
+                                        $(this).modal("toggle");
+                                    });
+                                });
+                            });
                         } else {
                             let html = "";
                             $("#hours-container").html(html);

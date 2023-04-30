@@ -19,13 +19,8 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header"
-                        style="background:
-                    linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0,
-                    linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0,
-                    linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
-                    linear-gradient(45deg, #ECEDDC 25%, transparent 25%);
-                  background-size: 100px 100px;
-                  background-color: salmon;">
+                        style=" background: rgb(242,178,159);
+                        background: linear-gradient(90deg, rgba(242,178,159,1) 0%, rgba(237,122,108,1) 50%, rgba(169,65,55,1) 90%); ">
                         <h4 class="modal-title" style="font-family: 'Roboto', sans-serif;" id="myModalLabel">Citas
                             Agendadas
                         </h4>
@@ -34,7 +29,7 @@
                         <!-- Aquí se agregará la tabla generada por la consulta AJAX -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button"  style="background-color:#019283; color:azure; "class="btn  btn-outline-success" data-dismiss="modal">Cerrar</button>
 
                     </div>
 
