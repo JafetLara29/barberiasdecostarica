@@ -162,7 +162,6 @@ class CitationController extends Controller
     {
         try {
             $day = Carbon::parse($request->date)->locale('en')->dayName; // Usamos la libreria carbon para pasar una fecha 00/00/00 a su equivalente dia de la semana (Lunes, martes ...)
-
             $day = removeAccentMarks($day);                              // Quitamos las tildes con una funcion creada por lara en app/Http/helpers
             $day = ucfirst($day);
             $schedule = [];                                              // Nos aseguramos que la primer letra sea mayuscula para ser consistentes
@@ -279,6 +278,7 @@ class CitationController extends Controller
      */
     public function store(Request $request)
     {
+        $barber = Barber::find(session('barber_id'));
         try {
             // Guardamos la informacion de la cita
             $citation = new Citation();
@@ -289,7 +289,6 @@ class CitationController extends Controller
             $citation->sender = $request->sender;
             $citation->date = session('date');
             $citation->save();
-            $barber = Barber::find(session('barber_id'));
             return view('public.citationschedule')->with([
                 'barber' => $barber,
                 'services'  => $barber->services,

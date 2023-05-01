@@ -56,7 +56,7 @@ class BarberController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new barber.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -64,19 +64,29 @@ class BarberController extends Controller
     public function store(Request $request)
     {
         try {
-
-            // Validate the request data
             $request->validate([
                 'name' => 'required',
                 'image' => 'required',
             ]);
 
-            // Create a new barber based in the input in the form
             $barbers = new Barber();
-            $barbers->id = $request->barber_id;
-            $barbers->barbershop_id = auth()->user()->id; //Polimorphic relationship
+            $barbers->barbershop_id = auth()->user()->id;           //Polimorphic relationship
             $barbers->name = $request->name;
-            $barbers->image = $request->image;
+            // Proceso de guardado de imagen:                   
+            $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
+            $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
+
+            // Verificamos el tipo de archivo
+            if(str_contains($fileType, 'image') == true){
+                $path = $request->file('image')->storeAs('barbers', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
+            }else{
+                // An error response
+                return response()->json([
+                    'errors' => true,    
+                ]);
+            }
+            // Guardamos el path y el tipo de archivo en el modelo
+            $barbers->image = '/storage/'.$path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
             $barbers->save();
 
             // Return a JSON response
@@ -85,11 +95,8 @@ class BarberController extends Controller
                 'id' => $barbers->id,
             ]);
         } catch (Throwable $th) {
-            dd($th);
-            // An error response
             return response()->json([
                 'errors' => true,
-
             ]);
             //throw $th;
         }

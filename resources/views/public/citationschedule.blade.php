@@ -173,7 +173,7 @@
         }
     </script>
     <script>
-        let view = "schedule";
+        let view = "home";
         // var myModal = window.bootstrap.Modal(document.getElementById('mymodal'));
         let form_ = document.getElementById("form");
     </script>

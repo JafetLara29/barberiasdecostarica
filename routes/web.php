@@ -30,7 +30,6 @@ Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->n
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
-//Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
 
 /*
 |-------------------------------
