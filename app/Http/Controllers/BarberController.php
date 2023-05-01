@@ -15,8 +15,9 @@ class BarberController extends Controller
      */
     public function index()
     {
+        $barbers=Barber::all();
 
-        return view('dashboards.barbercontrol');
+        return view('dashboards.barbercontrol')->with(['barbers'=>$barbers]);
     }
     // Ruta de perfil barber
     public function profile()
@@ -73,7 +74,7 @@ class BarberController extends Controller
             // Create a new barber based in the input in the form
             $barbers = new Barber();
             $barbers->id = $request->barber_id;
-            $barbers->barbershop_id= auth()->user()->id;//Polimorphic relationship
+            $barbers->barbershop_id = auth()->user()->id; //Polimorphic relationship
             $barbers->name = $request->name;
             $barbers->image = $request->image;
             $barbers->save();
