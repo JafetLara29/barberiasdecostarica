@@ -129,10 +129,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link py-3 border-bottom" title="Datos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-                                <ion-icon size="large" name="bar-chart"></ion-icon>
+                            <a href="{{ route('servicesform') }}" class="nav-link py-3 border-bottom" title="Servicios" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                                <ion-icon size="large" name="briefcase"></ion-icon>
                                 <p>
-                                    Datos
+                                    Servicios
                                 </p>
                             </a>
                         </li>
@@ -250,7 +250,7 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src=""></script>
-        
+
 </body>
 
 </html>

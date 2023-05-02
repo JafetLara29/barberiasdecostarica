@@ -63,7 +63,7 @@ Route::post('/citations/store', [CitationController::class,'store'])->name('cita
 | Rutas para los servicios-
 |--------------------------
 */
-
+Route::get('/addServices',[ServiceController::class,'index'])->name('servicesform');
 Route::resource('/services', ServiceController::class);
 
 
