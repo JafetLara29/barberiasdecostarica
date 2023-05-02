@@ -30,7 +30,6 @@ Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->n
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
-//Route::post('/barbers/fillinfo', [BarberController::class,'create'])->name('fillbarbersinfo');
 
 /*
 |-------------------------------
@@ -52,7 +51,7 @@ Route::post('/barber_citation_client_name', [CitationController::class,'getBarbe
 Route::get('/citations/barbers/{barbershop}/list', [CitationController::class,'getBarbersToSelect'])->name('citations.getBarbersToSelect');
 Route::get('/citations/{schedule}/hours', [CitationController::class,'getHoursByBarber'])->name('citations.getHoursByBarber');
 Route::get('/citations/{barber}/{hour}/form', [CitationController::class,'form'])->name('citations.form');
-Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
+Route::post('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
 Route::post('/citations/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');
 Route::post('/citations/reject/{id}', [CitationController::class,'rejectCitation'])->name('rejectCitation');
 Route::post('/citations/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');
@@ -101,5 +100,10 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::post('/register/custom', [RegisterController::class, 'customRegister'])->name('auth.register');
 
-
+/*
+|--------------------------
+| Rutas para los guardar Horarios
+|--------------------------
+*/
+Route::resource('/schedule', ScheduleController::class);
 

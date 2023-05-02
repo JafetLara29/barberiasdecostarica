@@ -1,135 +1,118 @@
 @extends('layouts.adminhome')
 @section('content')
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    </style>
 
-<body>
-    <?php // include "../Shared/adminnavbar.php";$bussiness = new ScheduleBusiness(); ?>
-    <!-- Contenedor del calendario -->
-    <div class="scroll-area" id="calendar-container" >
-        <div id="calendar" >
+    <body>
+        <?php // include "../Shared/adminnavbar.php";$bussiness = new ScheduleBusiness();
+        ?>
+        <!-- Contenedor del calendario -->
+        <div class="scroll-area" id="calendar-container">
+            <div id="calendar">
 
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header bg-warning">
-            <h5 id="modal-title" class="modal-title">Programar evento en agenda</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form id="form" action="../../business/Admin/scheduleaction.php" method="post">
-            <div class="modal-body">
-              <div class="mb-3">
-                <input type="hidden" name="id" id="id" class="form-control" placeholder="id">
-                <label for="id" class="form-label"></label>
-              </div>
-              <div class="mb-3">
-                <input type="text" name="title" id="title" class="form-control" placeholder="Titulo">
-                <label for="title" class="form-label"></label>
-              </div>
-              <div class="mb-3">
-                <textArea name="detail" id="detail" class="form-control" placeholder="Detalle de la actividad"></textArea>
-                <label for="detail" class="form-label"></label>
-              </div>
-              <div class="mb-3">
-                <input type="date" name="start" id="start" class="form-control">
-                <label for="start" class="form-label"></label>
-              </div>
-              <div class="mb-3">
-                Escoja un color:
-                <input type="color" name="color" id="color" class="form-control">
-                <label for="color" class="form-label"></label>
-              </div>
             </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-success" id="btn-action">Guardar</button>
-              <button type="button" class="btn btn-danger" id="btn-delete">Eliminar</button>
-            </div>
-          <!-- Variables hidden -->
-          <input type="hidden" id="action" name="action" value="save">
-          </form>
         </div>
-      </div>
-    </div>
-    <!-- Para mensaje de registro -->
-    <?php
+
+        <!-- Modal -->
+        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header"
+                        style=" background: rgb(242,178,159);
+                        background: linear-gradient(90deg, rgba(242,178,159,1) 0%, rgba(237,122,108,1) 50%, rgba(169,65,55,1) 90%); ">
+                        <h4 class="modal-title" style="font-family: 'Roboto', sans-serif;" id="myModalLabel">Citas
+                            Agendadas
+                        </h4>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                        <!-- Aquí se agregará la tabla generada por la consulta AJAX -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"  style="background-color:#019283; color:azure; "class="btn  btn-outline-success" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Para mensaje de registro -->
+        <?php
       if(isset($_GET['r'])){
         if($_GET['r'] == 's'){
     ?>
-          <script>
+        <script>
             swal(
-              'Muy bien!',
-              'Registro realizado con exito!!',
-              'success'
+                'Muy bien!',
+                'Registro realizado con exito!!',
+                'success'
             )
-          </script>
-    <?php
+        </script>
+        <?php
         }else{
     ?>
-          <script>
+        <script>
             swal(
-              'Aviso',
-              'No se pudo realizar el registro, porfavor comuniquese con el desarrollador si el problema persiste',
-              'warning'
+                'Aviso',
+                'No se pudo realizar el registro, porfavor comuniquese con el desarrollador si el problema persiste',
+                'warning'
             )
-          </script>
-    <?php
+        </script>
+        <?php
         }
       }
     ?>
 
-    <!-- Para mensaje de editado -->
-    <?php
+        <!-- Para mensaje de editado -->
+        <?php
       if(isset($_GET['e'])){
         if($_GET['e'] == 's'){
     ?>
-          <script>
+        <script>
             swal(
-              'Muy bien!',
-              'Actualización realizada con exito!!',
-              'success'
+                'Muy bien!',
+                'Actualización realizada con exito!!',
+                'success'
             )
-          </script>
-    <?php
+        </script>
+        <?php
         }else{
     ?>
-          <script>
+        <script>
             swal(
-              'Aviso',
-              'No se pudo actualizar el registro, porfavor comuniquese con el desarrollador si el problema persiste',
-              'warning'
+                'Aviso',
+                'No se pudo actualizar el registro, porfavor comuniquese con el desarrollador si el problema persiste',
+                'warning'
             )
-          </script>
-    <?php
+        </script>
+        <?php
         }
       }
     ?>
 
-    <?php
+        <?php
        if(isset($_GET['e'])){
            if($_GET['e'] == 'd'){ ?>
-            <script>
+        <script>
             swal(
-              'Muy bien!',
-              'Eliminado con exito!',
-              'success'
+                'Muy bien!',
+                'Eliminado con exito!',
+                'success'
             )
-             </script>
-         <?php
+        </script>
+        <?php
            }
        }
     ?>
 
 
-    <script>
-       let view = "home";
-    // var myModal = new bootstrap.Modal(document.getElementById('mymodal'));
-    //   let form_ = document.getElementById("form");
-    //   var events_ = <?php // echo json_encode($bussiness->getAllEvents(), JSON_UNESCAPED_UNICODE);?>;
+        <script>
+            let view = "home1";
+            // var myModal = new bootstrap.Modal(document.getElementById('mymodal'));
+            //   let form_ = document.getElementById("form");
+            //   var events_ = <?php // echo json_encode($bussiness->getAllEvents(), JSON_UNESCAPED_UNICODE);
+            ?>;
+        </script>
 
-    </script>
-
-</body>
-
+    </body>
 @endsection
