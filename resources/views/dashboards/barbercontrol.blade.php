@@ -63,7 +63,7 @@
                         </div>
                     </div>-->
     {{-- Barbers profiles from DB NEW ADMINTY --}}
-    <div class="page-body">
+    <div class="page-body scroll-area">
         <!-- Page-header start -->
         <div class="page-header">
             <div class="row align-items-end">

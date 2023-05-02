@@ -54,7 +54,7 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper" id="app">
         {{-- Navbar --}}
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        {{-- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button">
@@ -62,9 +62,9 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> --}}
         {{-- sidebar --}}
-        <aside class="main-sidebar elevation-4 bg-light">
+        <aside class="main-sidebar elevation-4 bg-dark">
             <div class="sidebar">
                 <nav class="mt-2">
 
@@ -139,7 +139,7 @@
                         <li class="nav-item">
                             <form class="nav-link" action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button class="btn btn-light p-0" type="submit">
+                                <button class="btn btn-dark p-0" type="submit">
                                     <ion-icon size="large" name="exit"></ion-icon>
                                     <p>
                                         Salir
@@ -187,7 +187,8 @@
         @endforeach
         @endif
         {{-- Main app container --}}
-        <main class="content-wrapper p-3">
+        <main class="content-wrapper">
+            
             @yield('content')
         </main>
 
