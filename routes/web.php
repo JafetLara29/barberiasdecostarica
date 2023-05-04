@@ -14,6 +14,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\IncomeController;
 use App\Models\Barber;
+use App\Models\Service;
 
 /*
 |---------------------
@@ -63,6 +64,11 @@ Route::post('/citations/store', [CitationController::class,'store'])->name('cita
 | Rutas para los servicios-
 |--------------------------
 */
+Route::get('/loadServices', [ServiceController::class, 'getServices'])->name('obtain.services');
+Route::post('/deleteServices/{id}', [ServiceController::class, 'deleteService'])->name('delete.service');
+
+Route::get('/serviceList',[ServiceController::class,'serviceList'])->name('show.service.list');
+Route::post('/serviceStore',[ServiceController::class,'store'])->name('servicesSave');
 Route::get('/addServices',[ServiceController::class,'index'])->name('servicesform');
 Route::resource('/services', ServiceController::class);
 
