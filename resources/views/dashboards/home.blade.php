@@ -3,14 +3,13 @@
 @section('content')
 <div class="scroll-area" style="background-image:url('storage/welcome_images/admin-bg.jpg')">
 
-    <div class="text-center " >
+    <div class="text-center ">
 
-        <div class="row justify-content-center">
+        <div class="col d-flex justify-content-center">
             <div class="col-md-8">
                 
                 <div class="card-body">
 
-                    <div class=""></div>
 
                     <div class="bg-text bg-card">
                         @if (session('status'))

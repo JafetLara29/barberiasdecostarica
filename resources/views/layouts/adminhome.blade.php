@@ -56,7 +56,7 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper" id="app">
         {{-- Navbar --}}
-        {{-- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        {{-- <nav class="main-header navbar navbar-expand navbar-dark navbar-ligth">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button">
@@ -66,6 +66,8 @@
             </ul>
         </nav> --}}
         {{-- sidebar --}}
+
+
         <aside class="main-sidebar elevation-4 bg-dark">
             <div class="sidebar">
                 <nav class="mt-2">
@@ -107,7 +109,9 @@
                         <li class="nav-item">
                             <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <ion-icon size="large" name="calendar"></ion-icon>
+
                                 {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
+                                
                                 <p>
                                     Citas agendadas
                                 </p>
@@ -116,7 +120,10 @@
                         <li class="nav-item">
                             <a href="{{ route('citations.inbox') }}" class="nav-link py-3 border-bottom" title="Bandeja de entrada" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
                                 <ion-icon size="large" name="mail-unread"></ion-icon>
+
                                 {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
+                                
+                                
                                 <p>
                                     Citas entrantes
                                 </p>
@@ -147,7 +154,10 @@
                                         Salir
                                     </p>
                                 </button>
+
                                 {{-- <input type="submit" value="Salir"/> --}}
+                                
+
                             </form>
                         </li>
 
