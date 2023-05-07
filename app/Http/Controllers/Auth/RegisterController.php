@@ -7,6 +7,7 @@ use App\Models\Barbershop;
 use App\Models\SocialMedia;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -84,6 +85,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $role = Role::where('name', 'barbershop')->first();
+
+        $user->roles()->attach($role->id);
+
         $barbershop = Barbershop::create([
                 'name'   => $data['name'],
                 'address'=> $data['address'],
@@ -91,7 +96,7 @@ class RegisterController extends Controller
                 'user_id'=> $user->id
             ]
         );
-            $barbershop= Barbershop::findOrFail($barbershop);
+        $barbershop= Barbershop::findOrFail($barbershop);
         SocialMedia::create([
             'data'                => $data['phone'],
             'type'                => 'Telefono',
