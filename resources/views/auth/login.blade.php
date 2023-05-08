@@ -82,12 +82,19 @@
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="row m-t-30">
-                                    <div class="col-md-12">
+                                <div class="row mt-3">
+                                    <div class="col-md-8">
                                         <div class="d-grid">
                                             <button type="submit" class="btn btn-outline-danger">
                                                 Ingresar
                                             </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="d-grid">
+                                            <a href="{{ route('welcome') }}" class="btn btn-dark">
+                                                Salir
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

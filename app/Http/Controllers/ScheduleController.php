@@ -38,7 +38,6 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
             // Validate the request data
             $request->validate([
@@ -80,7 +79,6 @@ class ScheduleController extends Controller
                 'id'=>$request->barber_id,
             ]);
         } catch (\Throwable $th) {
-            dd($th);
             return response()->json([
                 'errors' => true,
             ]);

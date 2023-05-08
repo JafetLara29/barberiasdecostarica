@@ -65,28 +65,37 @@ class CitationController extends Controller
     public function getBarberCitationSchedule(Request $request)
     {
         $colors = ['#9A40F4', '#111', '#859F11', '#389D9A', '#7E73EB', '#BC73EB', '#BF2C66', '#C0A339', '#C039BE'];
-
-        $barber = Barber::find(session('barber_id'));
-        // Obtenemos las citas ligadas a este barber
-        $citations = $barber->citations;
-        $events = [];
-        foreach ($citations as $key => $citation) {
-            $hour = explode(":", $citation->time);
-            $hour = $hour[0] . ":" . $hour[1];
-            $events[] = [
-                'title' => $hour,
-                'start' => $citation->date,
-                'color' => $colors[rand(0, sizeof($colors) - 1)],
-                'detail' => 'Cita agendada',
-            ];
+        if(session('barber_id') != null){                    // Si tenemos variable de session (Proceso de la parte publica)
+            $barber = Barber::find(session('barber_id'));
+        }else{
+            $barber = Barber::find(Auth::user()->id);
         }
-
-        session(['barber_id' => $barber->id]); // Vamos llenando los datos de la citation en variables session. Esto nos permite acceder a un dato desde otros metodos
-
-        return response()->json([
-            'ok'        => true,
-            'events'    => $events
-        ]);
+        // Obtenemos las citas ligadas a este barber
+        $events = [];
+        if($citations = $barber->citations){
+            foreach ($citations as $key => $citation) {
+                $hour = explode(":", $citation->time);
+                $hour = $hour[0] . ":" . $hour[1];
+                $events[] = [
+                    'title' => $hour,
+                    'start' => $citation->date,
+                    'color' => $colors[rand(0, sizeof($colors) - 1)],
+                    'detail' => 'Cita agendada',
+                ];
+            }
+    
+            session(['barber_id' => $barber->id]); // Vamos llenando los datos de la citation en variables session. Esto nos permite acceder a un dato desde otros metodos
+    
+            return response()->json([
+                'ok'        => true,
+                'events'    => $events
+            ]);
+        }else{
+            return response()->json([
+                'ok'        => true,
+                'events'    => $events
+            ]);
+        }
     }
 
     public function getBarberCitationClientName(Request $request)
@@ -124,7 +133,7 @@ class CitationController extends Controller
      */
     // Obtenemos todas las citas para parte de admin
 
-    public function inbox(Request $request)
+    public function barberCitationsForSchedule(Request $request)
     {
         try {
             $user = auth()->user();
@@ -157,6 +166,14 @@ class CitationController extends Controller
         }
     }
 
+    public function inbox(){
+        $barber = Barber::find(Auth::user()->id);
+        $barber->citations()->where('read', 0);
+        $citations = Citation::all();
+        return view('dashboards.citationinbox')->with([
+            'citations' => $citations
+        ]);
+    }
 
     public function getBarberCitationHours(Request $request)
     {

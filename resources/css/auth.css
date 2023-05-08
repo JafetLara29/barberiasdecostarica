@@ -9,6 +9,11 @@ body {
 	font-size: 14px;
 }
 
+/* login card */
+.auth-box{
+    backdrop-filter: blur(5px);
+	background: inherit;
+}
 
 /* Form styles */
 /* #msform {

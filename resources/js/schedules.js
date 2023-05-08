@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
             type: "POST",
             url: "/barber_citation_schedule",
             data: {},
-            // processData: false,
-            // contentType: false,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
@@ -32,8 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
             type: "POST",
             url: "/barber_citation_schedule",
             data: {},
-            // processData: false,
-            // contentType: false,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
@@ -195,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
             dateClick: function (info) {
                 $.ajax({
                     type: "POST",
-                    url: "/citations/inbox",
+                    url: "/barber_citations_for_schedule",
                     data: {
                         // ID de fecha
                         date: info.dateStr,

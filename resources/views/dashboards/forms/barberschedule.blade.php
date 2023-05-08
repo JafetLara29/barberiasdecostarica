@@ -36,83 +36,12 @@
                 </div>
             </div>
         </div>
-        <!-- Para mensaje de registro -->
-        <?php
-      if(isset($_GET['r'])){
-        if($_GET['r'] == 's'){
-    ?>
-        <script>
-            swal(
-                'Muy bien!',
-                'Registro realizado con exito!!',
-                'success'
-            )
-        </script>
-        <?php
-        }else{
-    ?>
-        <script>
-            swal(
-                'Aviso',
-                'No se pudo realizar el registro, porfavor comuniquese con el desarrollador si el problema persiste',
-                'warning'
-            )
-        </script>
-        <?php
-        }
-      }
-    ?>
-
-        <!-- Para mensaje de editado -->
-        <?php
-      if(isset($_GET['e'])){
-        if($_GET['e'] == 's'){
-    ?>
-        <script>
-            swal(
-                'Muy bien!',
-                'Actualización realizada con exito!!',
-                'success'
-            )
-        </script>
-        <?php
-        }else{
-    ?>
-        <script>
-            swal(
-                'Aviso',
-                'No se pudo actualizar el registro, porfavor comuniquese con el desarrollador si el problema persiste',
-                'warning'
-            )
-        </script>
-        <?php
-        }
-      }
-    ?>
-
-        <?php
-       if(isset($_GET['e'])){
-           if($_GET['e'] == 'd'){ ?>
-        <script>
-            swal(
-                'Muy bien!',
-                'Eliminado con exito!',
-                'success'
-            )
-        </script>
-        <?php
-           }
-       }
-    ?>
-
-
-        <script>
-            let view = "home1";
-            // var myModal = new bootstrap.Modal(document.getElementById('mymodal'));
-            //   let form_ = document.getElementById("form");
-            //   var events_ = <?php // echo json_encode($bussiness->getAllEvents(), JSON_UNESCAPED_UNICODE);
-            ?>;
-        </script>
-
     </body>
+@endsection
+
+@section('custom-scripts')
+    <script>
+        let view = "admin";
+    </script>
+    @vite(['resources/js/schedules.js'])
 @endsection

@@ -52,7 +52,8 @@ Route::post('/barber_citation_client_name', [CitationController::class,'getBarbe
 Route::get('/citations/barbers/{barbershop}/list', [CitationController::class,'getBarbersToSelect'])->name('citations.getBarbersToSelect');
 Route::get('/citations/{schedule}/hours', [CitationController::class,'getHoursByBarber'])->name('citations.getHoursByBarber');
 Route::get('/citations/{barber}/{hour}/form', [CitationController::class,'form'])->name('citations.form');
-Route::post('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
+Route::get('/citations/inbox', [CitationController::class,'inbox'])->name('citations.inbox');
+Route::post('/barber_citations_for_schedule', [CitationController::class,'barberCitationsForSchedule'])->name('citations.citationInbox');
 Route::post('/citations/accept/{id}', [CitationController::class,'acceptCitation'])->name('acceptCitation');
 Route::post('/citations/reject/{id}', [CitationController::class,'rejectCitation'])->name('rejectCitation');
 Route::post('/citations/send', [CitationController::class,'sendCitationForm'])->name('sendCitations');

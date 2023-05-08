@@ -18,14 +18,14 @@
                             </div>
                         @endif
 
-                        <div text-align: center class="nav-link py-3"  id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div text-align: center class="py-3">
                             <img src="https://github.com/mdo.png" alt="mdo" width="100" height="100" class="rounded-circle">
-
-                            <h5>{{ __('Bienvenido al Dashboard!') }}</h5>
                             <h3>
                                 <strong>{{ Auth::user()->name }}</strong>
                             </h3>
-                            {{ __('You are logged in!!') }}
+
+                            <h5>Bienvenido al Dashboard!</h5>
+                            Despliega el menu y escoge la opción que deseas
                             
                         </div>
                     </div>

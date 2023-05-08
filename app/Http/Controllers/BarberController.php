@@ -63,7 +63,7 @@ class BarberController extends Controller
      */
     public function store(Request $request)
     {
-        try {
+        // try {
             $request->validate([
                 'name' => 'required',
                 'image' => 'required',
@@ -88,18 +88,16 @@ class BarberController extends Controller
             // Guardamos el path y el tipo de archivo en el modelo
             $barbers->image = '/storage/'.$path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
             $barbers->save();
-
             // Return a JSON response
             return response()->json([
                 'success' => true,
-                'id' => $barbers->id,
+                'id' => Barber::latest('id')->first()->id,
             ]);
-        } catch (Throwable $th) {
-            return response()->json([
-                'errors' => true,
-            ]);
-            //throw $th;
-        }
+        // } catch (Throwable $th) {
+        //     return response()->json([
+        //         'errors' => true,
+        //     ]);
+        // }
     }
 
 

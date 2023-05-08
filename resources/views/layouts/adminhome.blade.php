@@ -12,13 +12,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     {{-- Animation css --}}
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    {{-- ############################################################################################################# --}}
     <!-- Fonts -->
-    {{-- Bootsrap5cdn --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    {{-- Css old Vite --}}
+    {{-- Css --}}
     <link rel="stylesheet" href="{{ asset('storage/assets/pages/menu-search/css/component.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/css/sweetalert.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/feather/css/feather.css') }}">
@@ -37,18 +34,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
 
-    <link rel="stylesheet" type="text/css" href="../public/storage/bower_components/bootstrap/dist/css/bootstrap.min.css">
-
-        <!-- Select 2 css -->
-        <link rel="stylesheet" href="../public/storage/bower_components/select2/dist/css/select2.min.css" />
-
 
     {{-- DataTables --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.css" />
     {{-- ############################################################################################################# --}}
 
 
-    @vite(['resources/css/admin.css', 'resources/css/adminlte.min.css','resources/sass/app.scss','resources/css/adminschedule.css','resources/js/schedules.js'])
+    @vite(['resources/css/admin.css', 'resources/css/adminlte.min.css','resources/sass/app.scss','resources/css/adminschedule.css'])
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
@@ -56,7 +48,7 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper" id="app">
         {{-- Navbar --}}
-        {{-- <nav class="main-header navbar navbar-expand navbar-dark navbar-ligth">
+        <nav class="main-header navbar navbar-expand navbar-dark navbar-ligth">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button">
@@ -64,7 +56,7 @@
                     </a>
                 </li>
             </ul>
-        </nav> --}}
+        </nav>
         {{-- sidebar --}}
 
 
@@ -146,16 +138,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <form class="nav-link" action="{{ route('logout') }}" method="POST">
+                            <form action="{{ route('logout') }}" method="POST">
                                 @csrf
-                                <button class="btn btn-dark p-0" type="submit">
+                                <button class="nav-link py-3 border-bottom text-left" type="submit">
                                     <ion-icon size="large" name="exit"></ion-icon>
                                     <p>
                                         Salir
                                     </p>
                                 </button>
-
-                                {{-- <input type="submit" value="Salir"/> --}}
                                 
 
                             </form>
@@ -204,6 +194,7 @@
             @yield('content')
         </main>
 
+        @vite(['resources/js/adminlte.min.js']);
         {{-- Icons --}}
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -213,44 +204,28 @@
         <script>
             AOS.init();
         </script>
-        {{-- ##################################################################################################################### --}}
-        {{-- Bootstrap5 bundle --}}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         {{-- scripts ADMINTY --}}
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>
+        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/storage/bower_components/popper.js/dist/umd/popper.min.js') }}">
-        </script>
+        </script> --}}
         <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}">
         </script>
         <!-- jquery slimscroll js -->
         {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}">
         </script> --}}
         <!-- modernizr js -->
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/modernizr/modernizr.js') }}"></script>
+        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/modernizr/modernizr.js') }}"></script> --}}
         {{-- <script type="text/javascript"
             src="{{ asset('/storage/bower_components/modernizr/feature-detects/css-scrollbars.js') }}"></script> --}}
 
         <!-- ck editor -->
-        <script type="text/javascript" src="{{ asset('/storage/assets/pages/ckeditor/ckeditor.js') }}"></script>
+        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/pages/ckeditor/ckeditor.js') }}"></script> --}}
         <!-- i18next.min.js -->
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next/i18next.min.js') }}"></script>
+        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next/i18next.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js') }}">
-        </script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-i18next/jquery-i18next.min.js') }}">
-        </script>
-        <!-- Custom js -->
-        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/pages/ckeditor/ckeditor-custom.js') }}"></script> --}}
-
-        <script type="text/javascript" src="{{ asset('/storage/assets/js/pcoded.min.js') }}"></script>
-        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/vartical-layout.min.js') }}"></script> --}}
-        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script> --}}
-        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/js/script.js') }}"></script> --}}
-        <script src="{{ asset('/storage/assets/pages/user-profile.js') }}"></script>
-
-
-        {{-- ##################################################################################################################### --}}
+        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-i18next/jquery-i18next.min.js') }}"></script> --}}
         {{-- Datatables --}}
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.js">
         </script>
@@ -262,8 +237,9 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src=""></script>
-
+        
+        {{-- Lugar donde se colocaran los scripts que especifiquemos para cada vista en especifico --}}
+        @yield('custom-scripts')
 </body>
 
 </html>

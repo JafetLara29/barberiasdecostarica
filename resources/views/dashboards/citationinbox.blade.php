@@ -59,7 +59,7 @@
 
         function acceptCitation(id) {
             $.ajax({
-                url: '/citation/accept/' + id,
+                url: '/citations/accept/' + id,
                 type: 'POST',
                 dataType: 'json',
                 headers: {
@@ -92,7 +92,7 @@
 
         function rejectCitation(id) {
             $.ajax({
-                url: '/citation/reject/' + id,
+                url: '/citations/reject/' + id,
                 type: 'POST',
                 dataType: 'json',
                 headers: {
