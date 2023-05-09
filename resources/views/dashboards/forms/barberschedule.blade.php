@@ -18,9 +18,7 @@
         <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header"
-                        style=" background: rgb(242,178,159);
-                        background: linear-gradient(90deg, rgba(242,178,159,1) 0%, rgba(237,122,108,1) 50%, rgba(169,65,55,1) 90%); ">
+                    <div class="modal-header">
                         <h4 class="modal-title" style="font-family: 'Roboto', sans-serif;" id="myModalLabel">Citas
                             Agendadas
                         </h4>
@@ -29,7 +27,7 @@
                         <!-- Aquí se agregará la tabla generada por la consulta AJAX -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button"  style="background-color:#019283; color:azure; "class="btn  btn-outline-success" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn  btn-outline-success" data-dismiss="modal">Cerrar</button>
 
                     </div>
 

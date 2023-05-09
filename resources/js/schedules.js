@@ -205,20 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     success: function (response) {
                         if (response.success && response.events.length !== 0) {
                             // Agregar estilos personalizados para el modal
-
-                            $(".modal-footer").css({
-                                "font-size": "15px",
-                                "font-weight": "bold",
-                                "text-shadow":
-                                    "0 1px 1px rgba(255, 255, 255, 0.5)",
-                                "background-color": "white",
-                                "background-image":
-                                    "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)",
-                                "background-size": "20px 20px",
-                                "background-position":
-                                    "0 0, 0 10px, 10px -10px, -10px 0px",
-                            });
-
                             $(".table th").css({
                                 "background-color": "#fff",
                                 "font-weight": "bold",
