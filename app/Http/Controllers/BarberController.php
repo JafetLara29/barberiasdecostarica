@@ -15,9 +15,9 @@ class BarberController extends Controller
      */
     public function index()
     {
-        $barbers=Barber::all();
+        $barbers = Barber::all();
 
-        return view('dashboards.barbercontrol')->with(['barbers'=>$barbers]);
+        return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
     // Ruta de perfil barber
     public function profile()
@@ -64,35 +64,35 @@ class BarberController extends Controller
     public function store(Request $request)
     {
         // try {
-            $request->validate([
-                'name' => 'required',
-                'image' => 'required',
-            ]);
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+        ]);
 
-            $barbers = new Barber();
-            $barbers->barbershop_id = auth()->user()->id;           //Polimorphic relationship
-            $barbers->name = $request->name;
-            // Proceso de guardado de imagen:                   
-            $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
-            $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
+        $barbers = new Barber();
+        $barbers->barbershop_id = auth()->user()->id;           //Polimorphic relationship
+        $barbers->name = $request->name;
+        // Proceso de guardado de imagen:
+        $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
+        $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
 
-            // Verificamos el tipo de archivo
-            if(str_contains($fileType, 'image') == true){
-                $path = $request->file('image')->storeAs('barbers', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
-            }else{
-                // An error response
-                return response()->json([
-                    'errors' => true,    
-                ]);
-            }
-            // Guardamos el path y el tipo de archivo en el modelo
-            $barbers->image = '/storage/'.$path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
-            $barbers->save();
-            // Return a JSON response
+        // Verificamos el tipo de archivo
+        if (str_contains($fileType, 'image') == true) {
+            $path = $request->file('image')->storeAs('barbers', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
+        } else {
+            // An error response
             return response()->json([
-                'success' => true,
-                'id' => Barber::latest('id')->first()->id,
+                'errors' => true,
             ]);
+        }
+        // Guardamos el path y el tipo de archivo en el modelo
+        $barbers->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
+        $barbers->save();
+        // Return a JSON response
+        return response()->json([
+            'success' => true,
+            'id' => Barber::latest('id')->first()->id,
+        ]);
         // } catch (Throwable $th) {
         //     return response()->json([
         //         'errors' => true,
@@ -143,6 +143,10 @@ class BarberController extends Controller
      */
     public function destroy(Barber $barber)
     {
-        //
+        $barber->delete();
+
+        $barbers = Barber::all();
+
+        return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
 }

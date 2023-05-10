@@ -7,11 +7,10 @@
             <div class="row align-items-end">
                 <div class="col-lg-8 ">
                     <div class="page-header-title">
-
                         <div class="d-inline">
                             <h4>Control de Barberos</h4>
                             <span>
-                                <a class="btn btn-outline-success mb-3" href="{{ route('barbers.create') }}"
+                                <a class="btn btn-outline-success mb-3 sm ml-3" href="{{ route('barbers.create') }}"
                                     role="button">Agregar</a></span>
                         </div>
                     </div>
@@ -22,9 +21,11 @@
                             <li class="breadcrumb-item" style="float: left;">
                                 <a href="{{ route('barbers.index') }}"> <i class="feather icon-home"></i> </a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="{{ route('barbers.profile') }}">Barberos</a>
+                            <li class="breadcrumb-item" style="float: left;"><a
+                                    href="{{ route('barbers.profile') }}">Barberos</a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="{{ route('barbers.index') }}">Perfiles</a>
+                            <li class="breadcrumb-item" style="float: left;"><a
+                                    href="{{ route('barbers.index') }}">Perfiles</a>
                             </li>
                         </ul>
                     </div>
@@ -33,17 +34,13 @@
         </div>
         <!-- Page-header end -->
         <!-- round card start -->
-
         <div class="row users-card">
-            @foreach ($barbers as $barber )
+            @foreach ($barbers as $barber)
                 <div class="col-lg-6 col-xl-3 col-md-6">
                     <div class="card rounded-card user-card">
-
                         <div class="card-block">
                             <div class="img-hover">
-                                <img class="img-fluid img-radius"
-                                    src="{{ asset($barber->image) }}"
-                                    alt="round-img">
+                                <img class="img-fluid img-radius" src="{{ asset($barber->image) }}" alt="round-img">
                                 <div class="img-overlay img-radius">
                                     <span>
                                         <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
@@ -54,15 +51,20 @@
                                 </div>
                             </div>
                             <div class="user-content">
-                                <h4 class="">{{$barber->name}}</h4>
+                                <h4 class="">{{ $barber->name }}</h4>
                                 <p class="m-b-0 text-muted">Barbero</p>
                             </div>
-
                         </div>
+                        {{-- Boton de eliminar barberos --}}
+                        <form method="POST" action="{{ route('barbers.destroy', ['barber' => $barber->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger sm ml-3">Eliminar</button>
+                        </form>
                     </div>
                 </div>
             @endforeach
         </div>
         <!-- Round card end -->
-    </div>  
+    </div>
 @endsection

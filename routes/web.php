@@ -82,7 +82,7 @@ Route::resource('/services', ServiceController::class);
 Route::resource('/barbers', BarberController::class);
 Route::get('/profile', [BarberController::class, 'profile'])->name('barbers.profile');
 Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barbers.schedule');
-
+Route::delete('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('barbers.destroy');
 /*
 |-----------------
 | Rutas públicas-
