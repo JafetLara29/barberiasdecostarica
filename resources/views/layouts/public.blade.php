@@ -174,7 +174,7 @@
                                             <a href="contacto.html" class="nav-link">Contacto</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="mi barber.html" class="nav-link">Mi barber</a>
+                                            <a href="mi barber.html" class="nav-link">Mi barbershop</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="privacy.html" class="nav-link">Política de Privacidad</a>

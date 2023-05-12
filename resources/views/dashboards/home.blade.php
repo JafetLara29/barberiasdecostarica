@@ -12,9 +12,9 @@
 
 
                     <div class="bg-text bg-card">
-                        @if (session('status'))
+                        @if (session('status') && session('status') == "Your password has been reset!")
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                                Contraseña restablecida exitosamente
                             </div>
                         @endif
 

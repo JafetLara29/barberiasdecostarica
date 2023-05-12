@@ -105,7 +105,8 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <p class="text-inverse text-start text-light">¿No tienes una cuenta?<a href="{{ route('register') }}"> <b class="f-w-600">Registra tu barbershop</b></a>!</p>
+                                <p class="text-inverse text-start text-light">¿No tienes una cuenta?<a href="{{ route('register') }}"> <b class="f-w-600">Registrate</b></a>!👈</p>
+                                <p class="text-inverse text-start text-light">¿Olvidaste tu contraseña?<a href="{{ route('password.request') }}"> <b class="f-w-600">Restablecerla</b></a></p>
                             </div>
                         </div>
                     </form>

@@ -13,8 +13,10 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\IncomeController;
+use App\Mail\Test;
 use App\Models\Barber;
 use App\Models\Service;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |---------------------
@@ -88,6 +90,11 @@ Route::delete('/barbers/{barber}', [BarberController::class ,'destroy'] )->name(
 | Rutas públicas-
 |-----------------
 */
+// Para pruebas de email
+// Route::get('/', function () {
+//     Mail::to("jafetlara29.11.2000@gmail.com")->send(new Test("Hola Jafet"));
+//     return view('public.welcome');
+// })->name('welcome');
 Route::get('/', [PublicController::class,'index'])->name('welcome');
 Route::get('/2', [PublicController::class,'index2'])->name('welcome');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');

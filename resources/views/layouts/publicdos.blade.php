@@ -64,7 +64,7 @@
                     <a href="/#contact">Contacto</a>
                     <a href="/#blogs">Blogs</a>
                     <a href="{{ route('search') }}"><i class="fas fa-search-location"></i> Buscar barbería</a>
-                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Mi barber</a>
+                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Mi barbershop</a>
                 @else
                     <a href="#home">Inicio</a>
                     <a href="#about">Nosotros</a>
