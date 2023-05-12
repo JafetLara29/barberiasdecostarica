@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Barber;
 use Illuminate\Http\Request;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Throwable;
 
 class BarberController extends Controller
@@ -53,6 +58,57 @@ class BarberController extends Controller
     public function create()
     {
         return view('dashboards.forms.addbarbersinformationform'); //
+    }
+
+    /**
+     * * Create a new user barber
+     */
+    public function createUser()
+    {
+        $users = DB::table('role_user')
+        ->join('users', 'users.id', '=', 'role_user.user_id')
+        ->select('users.id', 'users.name', 'users.email')
+        ->where('role_user.role_id', '=', '2')
+            ->get();
+        return view('dashboards.forms.addusersform')->with(['users' => $users]);
+    }
+
+    /**
+     * * Store user barber
+     */
+
+    public function storeUser(Request $request)
+    {
+        $rule = [
+            'name' => 'required', 'string', 'max:255',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
+            'password' => 'required', 'string', 'min:8',
+        ];
+
+        $message = [
+            'required' => 'Este :attribute es requerido',
+            'email' => 'Este :attribute debe tener un formato de email',
+        ];
+
+        $this->validate($request, $rule, $message);
+
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+        
+        $role = Role::where('name', 'barber')->first();
+
+        DB::table('role_user')->insert([
+            'user_id' => User::latest('id')->first()->id,
+            'role_id' => $role->id,
+            'parent_id' => Auth::user()->id
+        ]);
+        
+        $user->role = $role->id;
+
+        return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
     }
 
     /**

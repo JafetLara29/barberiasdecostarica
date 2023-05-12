@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -87,7 +87,12 @@ class RegisterController extends Controller
 
         $role = Role::where('name', 'barbershop')->first();
 
-        $user->roles()->attach($role->id);
+        DB::table('role_user')->insert([
+            'user_id' => User::latest('id')->first()->id,
+            'role_id' => $role->id,
+        ]);
+
+        $user->role = $role->id;
 
         $barbershop = Barbershop::create([
                 'name'   => $data['name'],

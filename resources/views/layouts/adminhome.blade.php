@@ -81,6 +81,17 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="person-add-outline"></ion-icon>
+                                <p>
+                                    Administrar usuarios
+                                </p>
+                            </a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a href="{{ route('barbershop.create') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                 <ion-icon size="large" name="business-outline"></ion-icon>
@@ -103,7 +114,7 @@
                                 <ion-icon size="large" name="calendar"></ion-icon>
 
                                 {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
-                                
+
                                 <p>
                                     Citas agendadas
                                 </p>
@@ -114,8 +125,8 @@
                                 <ion-icon size="large" name="mail-unread"></ion-icon>
 
                                 {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
-                                
-                                
+
+
                                 <p>
                                     Citas entrantes
                                 </p>
@@ -146,7 +157,7 @@
                                         Salir
                                     </p>
                                 </button>
-                                
+
 
                             </form>
                         </li>
@@ -237,7 +248,7 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        
+
         {{-- Lugar donde se colocaran los scripts que especifiquemos para cada vista en especifico --}}
         @yield('custom-scripts')
 </body>

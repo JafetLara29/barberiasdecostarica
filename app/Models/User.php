@@ -48,9 +48,9 @@ class User extends Authenticatable
     }
 
     // Relacion muchos a muchos con Roles
-    public function roles()
+    public function role()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->hasOne(Role::class);
     }
     
 }

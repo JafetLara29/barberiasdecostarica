@@ -85,6 +85,10 @@ Route::resource('/barbers', BarberController::class);
 Route::get('/profile', [BarberController::class, 'profile'])->name('barbers.profile');
 Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barbers.schedule');
 Route::delete('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('barbers.destroy');
+
+Route::get('/createuser', [BarberController::class, 'createUser'])->name('barbers.createUser');
+Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers.storeUser');
+
 /*
 |-----------------
 | Rutas públicas-
