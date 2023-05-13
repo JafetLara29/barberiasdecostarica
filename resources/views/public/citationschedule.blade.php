@@ -124,57 +124,60 @@
             </form>
         </div>
     </section>
-    <script>
-        var validation = [];
-        $(document).ready(function () {
-            $('#form').submit(function(e) {
-                e.preventDefault();
-                if(validation.length == 2 && $('#sender').val() != ""){
-                    document.getElementById('form').submit();
-                }else{
-                    Toastify({
-                        text: "Asegurese de ingresar todos los datos solicitados",
-                        duration: 5000,
-                        gravity: "top",
-                        position: "center",
-                        className: "custom_toast",
-                        style: {
-                            background: "linear-gradient(to right, red, red)",
-                        },
-                    }).showToast();
-                }
-            });
-        });
-
-        function setInput(class_, id, inputId){
-            setBackground(class_, id);
-        } 
-
-        function setBackground(class_ ,id){
-            let exist = false;
-            $(`.${class_}`).removeClass('gold-background');
-            $(`#${id}`).addClass('gold-background');
-            validation.forEach(element => {
-                if(element == class_){
-                    exist = true;
-                }
-            });
-            if(exist == false){
-                validation.push(class_);
-            }
-        }
-
-        function activeButton(){
-            if($('#check').prop('checked')){
-                $('#btn-submit').removeClass('visually-hidden');
+@endsection
+@section('scripts')
+<script>
+    var validation = [];
+    $(document).ready(function () {
+        $('#form').submit(function(e) {
+            e.preventDefault();
+            if(validation.length == 2 && $('#sender').val() != ""){
+                document.getElementById('form').submit();
             }else{
-                $('#btn-submit').addClass('visually-hidden');
+                Toastify({
+                    text: "Asegurese de ingresar todos los datos solicitados",
+                    duration: 5000,
+                    gravity: "top",
+                    position: "center",
+                    className: "custom_toast",
+                    style: {
+                        background: "linear-gradient(to right, red, red)",
+                    },
+                }).showToast();
             }
+        });
+    });
+
+    function setInput(class_, id, inputId){
+        setBackground(class_, id);
+    } 
+
+    function setBackground(class_ ,id){
+        let exist = false;
+        $(`.${class_}`).removeClass('gold-background');
+        $(`#${id}`).addClass('gold-background');
+        validation.forEach(element => {
+            if(element == class_){
+                exist = true;
+            }
+        });
+        if(exist == false){
+            validation.push(class_);
         }
-    </script>
-    <script>
-        let view = "home";
-        // var myModal = window.bootstrap.Modal(document.getElementById('mymodal'));
-        let form_ = document.getElementById("form");
-    </script>
+    }
+
+    function activeButton(){
+        if($('#check').prop('checked')){
+            $('#btn-submit').removeClass('visually-hidden');
+        }else{
+            $('#btn-submit').addClass('visually-hidden');
+        }
+    }
+</script>
+<script>
+    let view = "home";
+    // var myModal = window.bootstrap.Modal(document.getElementById('mymodal'));
+    let form_ = document.getElementById("form");
+</script>
+@vite(['resources/js/schedules.js']);
 @endsection

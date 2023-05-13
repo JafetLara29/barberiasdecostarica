@@ -733,7 +733,6 @@
                             <p class="atf-post-description pr-lg-3">
                                 El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con
                                 maquinilla. También se le conoce como Corte de Bola porque es completamente redondo.
-                            <a href=""></a>
                             </p>
                         </div>
                         <div class="atf-post-slide">
@@ -756,38 +755,17 @@
                             </p>
                         </div>
                     </div>
-                    <!--- END COL -->
                 </div>
-                <!--- END ROW -->
+                <!--- END COL -->
             </div>
-            <!--- END CONTAINER -->
+            <!--- END ROW -->
+        </div>
+        <!--- END CONTAINER -->
     </section>
     <!-- BLOG SECTION END-->
 
     <!-- MAILCHAMP SECTION START-->
-    <div id="mailchamp" class="atf-mailchamp-area"
-        style="background-image:url({{ asset('storage/public/assets/img/slider/4.jpg') }});background-size:cover; background-position: center center">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-12 atf-mailchamp-headding">
-                    {{-- <h2>Subcribe to Newletter Now</h2> --}}
-                </div>
-                <!--- END COL -->
-                <div class="col-lg-6 col-md-6 col-12 atf-mailchamp-subscribe mx-auto my-auto mt-1">
-                    <form class="form-group" id="mc-form">
-                        {{-- <input type="email" name="email" class="form-control" id="email"
-                            placeholder="Your Email" required="required">
-                        <button type="submit" id="subscribe-button" class="btn">Subcribe</button> --}}
-                        <!-- SUBSCRIPTION SUCCESSFUL OR ERROR MESSAGES -->
-                        <br>
-                        <label class="atf-subscription-label" for="email"></label>
-                    </form>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END COL -->
-        </div>
-        <!--- END ROW -->
+    <div id="mailchamp" class="atf-mailchamp-area" style="background-image:url({{ asset('storage/public/assets/img/slider/4.jpg') }});background-size:cover; background-position: center center">
     </div>
     <!--- END MAILCHAMP -->
 
@@ -809,27 +787,27 @@
                 </div>
                 <!--- END ROW -->
 
-<!-- START REDES BRAND LOGO  -->
-<div id="atf-brand-area" class="atf-section-padding">
-    <div class="atf-brand-overlay">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 col-lg-12">
-                    <div class="atf-brand-active owl-carousel">
-                        <a href="https://www.facebook.com/profile.php?id=100078238669949"><img src="{{ asset('storage/public/assets/img/redes/1.png') }}" alt="image"></a>
-                        <a href="https://www.instagram.com/grupoteamcode/"><img src="{{ asset('storage/public/assets/img/redes/2.png') }}" alt="image"></a>
-                        <a href="https://wa.me/+50662962424"><img src="{{ asset('storage/public/assets/img/redes/3.png') }}" alt="image"></a>
-                        <a href="mailto:grupoteamcode@gmail.com"><img src="{{ asset('storage/public/assets/img/redes/4.png') }}" alt="image"></a>
-                        <a href="https://www.tiktok.com/@teamcode.tech?lang=es"><img src="{{ asset('storage/public/assets/img/redes/5.png') }}" alt="image"></a>
-                    </div>
-                </div><!-- END COL  -->
-            </div><!--END  ROW  -->
-        </div><!-- END CONTAINER  -->
-    </div><!-- END OVERLAY -->
-</div>
-<!-- END REDES BRAND LOGO -->
+                <!-- START REDES BRAND LOGO  -->
+                <div id="atf-brand-area" class="atf-section-padding">
+                    <div class="atf-brand-overlay">
+                        <div class="container">
+                            <div class="row clearfix">
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="atf-brand-active owl-carousel">
+                                        <a href="https://www.facebook.com/profile.php?id=100078238669949"><img src="{{ asset('storage/public/assets/img/redes/1.png') }}" alt="image"></a>
+                                        <a href="https://www.instagram.com/grupoteamcode/"><img src="{{ asset('storage/public/assets/img/redes/2.png') }}" alt="image"></a>
+                                        <a href="https://wa.me/+50662962424"><img src="{{ asset('storage/public/assets/img/redes/3.png') }}" alt="image"></a>
+                                        <a href="mailto:grupoteamcode@gmail.com"><img src="{{ asset('storage/public/assets/img/redes/4.png') }}" alt="image"></a>
+                                        <a href="https://www.tiktok.com/@teamcode.tech?lang=es"><img src="{{ asset('storage/public/assets/img/redes/5.png') }}" alt="image"></a>
+                                    </div>
+                                </div><!-- END COL  -->
+                            </div><!--END  ROW  -->
+                        </div><!-- END CONTAINER  -->
+                    </div><!-- END OVERLAY -->
+                </div>
+                <!-- END REDES BRAND LOGO -->
 
- <!-- CONTACT SECTION START-->
+                <!-- CONTACT SECTION START-->
                     <div class="col-lg-7 col-12 d-block mx-auto my-auto" data-aos="fade-up">
                         <div class="contact">
                             <h4>Send a Message</h4>
@@ -873,7 +851,6 @@
                 <!--- END ROW -->
             </div>
             <!--- END CONTAINER -->
-        </div>
         <!--- END OVERLAY -->
     </section>
     <!-- CONTACT SECTION END-->

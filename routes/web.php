@@ -94,11 +94,6 @@ Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers
 | Rutas públicas-
 |-----------------
 */
-// Para pruebas de email
-// Route::get('/', function () {
-//     Mail::to("jafetlara29.11.2000@gmail.com")->send(new Test("Hola Jafet"));
-//     return view('public.welcome');
-// })->name('welcome');
 Route::get('/', [PublicController::class,'index'])->name('welcome');
 Route::get('/2', [PublicController::class,'index2'])->name('welcome');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
