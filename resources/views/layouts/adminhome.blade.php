@@ -133,7 +133,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('income') }}" class="nav-link py-3 border-bottom" title="Producción de leche" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                            <a href="{{ url('income') }}" class="nav-link py-3 border-bottom" title="Ingresos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
                                 <ion-icon size="large" name="cash"></ion-icon>
                                 <p>
                                     Ingresos
