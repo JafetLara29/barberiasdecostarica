@@ -232,6 +232,12 @@
 
         }
 
+        function clearInputsBarbers(){
+            document.getElementById('general-info').reset();
+            document.getElementById('socialmedia-info').reset();
+            document.getElementById('schedule-info').reset();
+        }
+
         function scheduleValidate() {
             const checkboxes = [
                 $('#monday-checkbox'),
@@ -377,7 +383,6 @@
                     if (response.success == true && response.id != 0) {
 
                         // If we receipt the corresponding data from backend we proceed to save the info and let the pass to the next method
-
                         schedulesave(response.id);
 
                     } else if (response.errors == true) {
@@ -509,6 +514,7 @@
 
                         }).showToast();
 
+                        clearInputsBarbers();
 
                     } else if (response.errors == true) {
                         // Display an error message
