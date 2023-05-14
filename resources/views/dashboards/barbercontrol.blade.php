@@ -55,12 +55,35 @@
                                 <p class="m-b-0 text-muted">Barbero</p>
                             </div>
                         </div>
+
                         {{-- Boton de eliminar barberos --}}
                         <form method="POST" action="{{ route('barbers.destroy', ['barber' => $barber->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger sm ml-3">Eliminar</button>
+                            <button type="button" class="btn btn-outline-danger sm ml-3"
+                                onclick="confirmDelete()">Eliminar</button>
                         </form>
+
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            function confirmDelete() {
+                                Swal.fire({
+                                    title: '¿Estás seguro de que quieres eliminar esto?',
+                                    text: "Esta acción no se puede deshacer.",
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Sí, eliminar'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        // El usuario ha confirmado, envía el formulario
+                                        document.querySelector('form').submit();
+                                        window.location.href = "{{ route('barbers.destroy', ['barber' => $barber->id]) }}";
+                                    }
+                                });
+                            }
+                        </script>
                     </div>
                 </div>
             @endforeach

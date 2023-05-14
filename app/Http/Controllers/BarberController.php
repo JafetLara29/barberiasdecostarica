@@ -97,7 +97,7 @@ class BarberController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
-        
+
         $role = Role::where('name', 'barber')->first();
 
         DB::table('role_user')->insert([
@@ -105,7 +105,7 @@ class BarberController extends Controller
             'role_id' => $role->id,
             'parent_id' => Auth::user()->id
         ]);
-        
+
         $user->role = $role->id;
 
         return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
@@ -204,5 +204,6 @@ class BarberController extends Controller
         $barbers = Barber::all();
 
         return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
+
     }
 }

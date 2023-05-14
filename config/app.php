@@ -81,8 +81,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+    'locale' => 'es',
+    // 'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,8 +95,8 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
-
+    //'fallback_locale' => 'es',
+     'fallback_locale' => 'en',
     /*
     |--------------------------------------------------------------------------
     | Faker Locale
@@ -107,8 +107,8 @@ return [
     | localized telephone numbers, street address information and more.
     |
     */
-
-    'faker_locale' => 'en_US',
+    //'faker_locale' => 'es_ES'
+     'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
