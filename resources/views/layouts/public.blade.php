@@ -130,7 +130,9 @@
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav nav justify-content-center ms-auto">
-                                <li class="nav-item">
+
+
+                                {{-- <li class="nav-item">
                                     <a href="index.html" class="nav-link">Inicio<i class="fas fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -140,8 +142,10 @@
                                             <a href="index1.html" class="nav-link">Reseñas</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="nav-item">
+                                </li> --}}
+
+
+                                {{-- <li class="nav-item">
                                     <a href="#" class="nav-link">Paginas <i class="fas fa-chevron-down"></i></a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -182,8 +186,10 @@
                                             <a href="terms.html" class="nav-link">Terminoss & Condiciones</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="nav-item">
+                                </li> --}}
+
+
+                                {{-- <li class="nav-item">
                                     <a href="about.html" class="nav-link">Nosotros</a>
                                 </li>
                                 <li class="nav-item">
@@ -208,7 +214,7 @@
                                             <a href="blog-details.html" class="nav-link">Blogs</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a href="{{route('search')}}" class="nav-link">Buscar barbershop</a>
                                 </li>
