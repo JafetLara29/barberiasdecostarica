@@ -104,10 +104,7 @@ Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 | Rutas para login, register y funcionalidades derivadas del paquete Auth-
 |--------------------------------------------------------------------------
 */
-
-// ! Route by Heyner --> INCOME = Ingresos
 Route::get('/income',[IncomeController::class,'index'])->name('income');
-// ! Route to filter income by year
 Route::post('/incomes/filter', [IncomeController::class,'filter'])->name('income.filter');
 
 Auth::routes();

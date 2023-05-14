@@ -31,7 +31,6 @@ class BarbershopController extends Controller
     {
         $query = $request->get('term');
         $results = Barbershop::where('name', 'like', '%'.$query.'%')->get();
-        //dd($request);
         return response()->json($results);
 
     }
