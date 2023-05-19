@@ -22,7 +22,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="atf-swiper-img atf-align-item-center"
-                        style="border-end-start-radius: 100px; border-start-end-radius: 100px"
+                        style="border-end-start-radius: 50px; border-start-end-radius: 50px"
                         data-background="{{ asset('/storage/welcome_images/barber.jpg') }}" data-overlay-dark="6">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -44,7 +44,7 @@
 
                 <div class="swiper-slide">
                     <div class="atf-swiper-img atf-align-item-center"
-                        style="border-end-start-radius: 100px; border-start-end-radius: 100px"
+                        style="border-end-start-radius: 50px; border-start-end-radius: 50px"
                         data-background="{{ asset('storage/public/assets/img/slider/1.jpg') }}" data-overlay-dark="6">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -710,7 +710,7 @@
                 <div class="col-lg-7 col-xl-6">
                     <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
                         data-wow-offset="0">
-                        <h5 class="atf-sheading"> STYLOS</h5>
+                        <h5 class="atf-sheading"> ESTILOS</h5>
                         <h2 class="">ARTICULOS DE INTERES</h2>
                         {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
                             sit amet elit.</p> --}}

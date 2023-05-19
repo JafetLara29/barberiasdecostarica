@@ -2,26 +2,16 @@
 
 @section('content')
 
-<div class="scroll-area py-3">
+<div class="py-5">
     <div class="card shadow m-2 mt-3 bg-light">
         <h1 class="container-fluid pt-2">[{{ auth()->user()->name }}] Registrar la informaci&oacute;n de usuarios</h1>
         <div class="m-3">
-            @if(isset($errors) && $errors->any())
-            <div class="alert alert-danger" role="alert">
-                @foreach ($errors->all() as $error)
-                <div>
-                    <li>{{ $error }}</li>
-                </div>
-                @endforeach
-            </div>
-            @endif
-
             @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
             @endif
-            </br>
+            <br>
         </div>
         <form id="add-user" action="{{ route('barbers.storeUser') }}" method="post">
             <div class="container">
@@ -64,7 +54,7 @@
                 <div class="card rounded-card user-card">
                     <div class="card-block">
                         <div class="img-hover">
-                            <img class="img-fluid img-radius" style="height: 150px;width: 150px;" src="{{ asset('/storage/assets/images/user-barber.png') }}" alt="user-image">
+                            <img class="img-fluid img-radius" style="height: 150px;width: 150px;" src="{{ asset('/storage/images/user-barber.png') }}" alt="user-image">
                             <div class="img-overlay img-radius">
                                 <span>
                                     <a href="#" class="btn btn-outline-primary" data-popup="lightbox"><ion-icon name="create-outline"></ion-icon></a>

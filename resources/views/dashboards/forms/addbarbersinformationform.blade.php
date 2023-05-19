@@ -1,6 +1,6 @@
 @extends('layouts.adminhome')
 @section('content')
-    <div class="scroll-area">
+    <div class="">
         <div class="card shadow mb-5">
             <h1 class="container-fluid pt-2">Información de barbero</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">

@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Mail;
 */
 Route::get('/barbershops/create', [BarbershopController::class,'create'])->name('barbershop.create');
 Route::get('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
-Route::get('/barbershops/{barbershop}', [BarbershopController::class,'show'])->name('barbershop.show');
+Route::resource('/barbershops', BarbershopController::class);
 
 /*
 |------------------------

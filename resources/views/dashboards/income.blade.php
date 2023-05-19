@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="scroll-area">
+<div class="">
 
     <!-- Page body start -->
     <div class="page-body">

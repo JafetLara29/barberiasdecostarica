@@ -59,7 +59,6 @@
         </nav>
         {{-- sidebar --}}
 
-
         <aside class="main-sidebar elevation-4 bg-dark">
             <div class="sidebar">
                 <nav class="mt-2">
@@ -73,6 +72,7 @@
                                 </p>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
                             <a href="{{ url('home') }}" class="nav-link py-3 border-bottom" aria-current="page" title="Inicio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                                 <ion-icon size="large" name="home"></ion-icon>
@@ -81,73 +81,86 @@
                                 </p>
                             </a>
                         </li>
+                        
+                        @if ( session('user_type') == "barbershop" )
+                            <li class="nav-item">
+                                <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                    <ion-icon size="large" name="person-add-outline"></ion-icon>
+                                    <p>
+                                        Administrar usuarios
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                        @if ( session('user_type') == "barbershop" )
+                            <li class="nav-item">
+                                <a href="{{ route('barbershops.create') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                    <ion-icon size="large" name="business-outline"></ion-icon>
+                                    <p>
+                                        Barbería
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                        @if ( session('user_type') == "barber" )
+                            <li class="nav-item">
+                                <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                    <ion-icon size="large" name="people-circle-outline"></ion-icon>
+                                    <p>
 
-                        <li class="nav-item">
-                            <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                                <ion-icon size="large" name="person-add-outline"></ion-icon>
-                                <p>
-                                    Administrar usuarios
-                                </p>
-                            </a>
-                        </li>
+                                        Barberos
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                        @if ( session('user_type') == "barber" )
+                            <li class="nav-item">
+                                <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                    <ion-icon size="large" name="calendar"></ion-icon>
+
+                                    {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
+
+                                    <p>
+                                        Citas agendadas
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                        @if ( session('user_type') == "barber" )
+                            <li class="nav-item">
+                                <a href="{{ route('citations.inbox') }}" class="nav-link py-3 border-bottom" title="Bandeja de entrada" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                                    <ion-icon size="large" name="mail-unread"></ion-icon>
+
+                                    {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
 
 
-                        <li class="nav-item">
-                            <a href="{{ route('barbershop.create') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                                <ion-icon size="large" name="business-outline"></ion-icon>
-                                <p>
-                                    Barbería
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                                <ion-icon size="large" name="people-circle-outline"></ion-icon>
-                                <p>
+                                    <p>
+                                        Citas entrantes
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                        @if ( session('user_type') == "barbershop" )
+                            <li class="nav-item">
+                                <a href="{{ url('income') }}" class="nav-link py-3 border-bottom" title="Ingresos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                                    <ion-icon size="large" name="cash"></ion-icon>
+                                    <p>
+                                        Ingresos
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
+                        @if ( session('user_type') == "barber" )
+                            <li class="nav-item">
+                                <a href="{{ route('servicesform') }}" class="nav-link py-3 border-bottom" title="Servicios" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                                    <ion-icon size="large" name="briefcase"></ion-icon>
+                                    <p>
+                                        Servicios
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
 
-                                    Barberos
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                                <ion-icon size="large" name="calendar"></ion-icon>
-
-                                {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
-
-                                <p>
-                                    Citas agendadas
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('citations.inbox') }}" class="nav-link py-3 border-bottom" title="Bandeja de entrada" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
-                                <ion-icon size="large" name="mail-unread"></ion-icon>
-
-                                {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
-
-
-                                <p>
-                                    Citas entrantes
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('income') }}" class="nav-link py-3 border-bottom" title="Ingresos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
-                                <ion-icon size="large" name="cash"></ion-icon>
-                                <p>
-                                    Ingresos
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('servicesform') }}" class="nav-link py-3 border-bottom" title="Servicios" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-                                <ion-icon size="large" name="briefcase"></ion-icon>
-                                <p>
-                                    Servicios
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -181,26 +194,29 @@
             }).showToast();
         </script>
         @endif
-        {{-- Validar si hay algo en la bolsa de errores, se llena cuando se proveen datos incorrectos etc en formularios --}}
-        @if (isset($errors) && $errors->any())
-        @foreach ($errors->all() as $error)
-        {{-- <li>{{$error}}</li> --}}
-        <script>
-            Toastify({
-                text: "{{ $error }}",
-                duration: 5000,
-                gravity: "top",
-                position: "center",
-                style: {
-                    background: "linear-gradient(to right, gray, greenyellow)",
-                },
-
-            }).showToast();
-        </script>
-        @endforeach
-        @endif
         {{-- Main app container --}}
-        <main class="content-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </symbol>
+            <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </symbol>
+            <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </symbol>
+        </svg>
+        <main class="content-wrapper scroll-area">
+            {{-- Validar si hay algo en la bolsa de errores, se llena cuando se proveen datos incorrectos etc en formularios --}}
+            @if(isset($errors) && $errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        {{ $error }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endforeach
+            @endif
 
             @yield('content')
         </main>
@@ -209,34 +225,13 @@
         {{-- Icons --}}
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
         {{-- Animations --}}
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
             AOS.init();
         </script>
-        {{-- scripts ADMINTY --}}
-        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/popper.js/dist/umd/popper.min.js') }}">
-        </script> --}}
         <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}">
         </script>
-        <!-- jquery slimscroll js -->
-        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-slimscroll/jquery.slimscroll.js') }}">
-        </script> --}}
-        <!-- modernizr js -->
-        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/modernizr/modernizr.js') }}"></script> --}}
-        {{-- <script type="text/javascript"
-            src="{{ asset('/storage/bower_components/modernizr/feature-detects/css-scrollbars.js') }}"></script> --}}
-
-        <!-- ck editor -->
-        {{-- <script type="text/javascript" src="{{ asset('/storage/assets/pages/ckeditor/ckeditor.js') }}"></script> --}}
-        <!-- i18next.min.js -->
-        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next/i18next.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-i18next/jquery-i18next.min.js') }}"></script> --}}
         {{-- Datatables --}}
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.js">
         </script>
@@ -248,7 +243,6 @@
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
         {{-- Lugar donde se colocaran los scripts que especifiquemos para cada vista en especifico --}}
         @yield('custom-scripts')
 </body>

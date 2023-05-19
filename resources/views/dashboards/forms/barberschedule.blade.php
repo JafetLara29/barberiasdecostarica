@@ -8,7 +8,7 @@
         <?php // include "../Shared/adminnavbar.php";$bussiness = new ScheduleBusiness();
         ?>
         <!-- Contenedor del calendario -->
-        <div class="scroll-area" id="calendar-container">
+        <div class="" id="calendar-container">
             <div id="calendar">
 
             </div>

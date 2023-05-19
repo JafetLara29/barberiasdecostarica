@@ -1,7 +1,7 @@
 @extends('layouts.adminhome')
 @section('content')
     {{-- Barbers profiles from DB NEW ADMINTY --}}
-    <div class="page-body scroll-area">
+    <div class="page-body">
         <!-- Page-header start -->
         <div class="page-header">
             <div class="row align-items-end">

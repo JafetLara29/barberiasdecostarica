@@ -1,7 +1,7 @@
 @extends('layouts.adminhome')
 
 @section('content')
-    <div class="scroll-area">
+    <div class="">
         <div class="card shadow">
             <h1>Pendientes</h1>
             <div class="list-group overflow-auto p-2" id="citation">

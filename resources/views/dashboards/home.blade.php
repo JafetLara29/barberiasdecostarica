@@ -1,7 +1,7 @@
 @extends('layouts.adminhome')
 
 @section('content')
-<div class="scroll-area" style="background-image:url('storage/welcome_images/admin-bg.jpg')">
+<div class="h-100" style="background-image:url('storage/welcome_images/admin-bg.jpg')">
 
     <div class="text-center ">
 

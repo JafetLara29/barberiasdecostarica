@@ -79,36 +79,41 @@ class BarberController extends Controller
 
     public function storeUser(Request $request)
     {
-        $rule = [
-            'name' => 'required', 'string', 'max:255',
-            'email' => 'required', 'string', 'email', 'max:255', 'unique:users',
-            'password' => 'required', 'string', 'min:8',
-        ];
-
-        $message = [
-            'required' => 'Este :attribute es requerido',
-            'email' => 'Este :attribute debe tener un formato de email',
-        ];
-
-        $this->validate($request, $rule, $message);
-
-        $user = User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-        ]);
-
-        $role = Role::where('name', 'barber')->first();
-
-        DB::table('role_user')->insert([
-            'user_id' => User::latest('id')->first()->id,
-            'role_id' => $role->id,
-            'parent_id' => Auth::user()->id
-        ]);
-
-        $user->role = $role->id;
-
-        return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
+        // try{
+            $rule = [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.Auth::user()->id],
+                'password' => ['required', 'string', 'min:8'],
+            ];
+    
+            $message = [
+                'required' => 'El input :attribute es requerido',
+                'email' => 'El input :attribute debe tener un formato válido',
+                'email.unique' => 'Email ya registrado en el sistema',
+            ];
+    
+            $this->validate($request, $rule, $message);
+    
+            $user = User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($request->input('password')),
+            ]);
+    
+            $role = Role::where('name', 'barber')->first();
+    
+            DB::table('role_user')->insert([
+                'user_id' => User::latest('id')->first()->id,
+                'role_id' => $role->id,
+                'parent_id' => Auth::user()->id
+            ]);
+    
+            $user->role = $role->id;
+    
+            return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
+        // } catch (\Throwable $th) {
+        //     return redirect()->route('barbers.createUser')->withErrors($th->getMessage());
+        // }
     }
 
     /**

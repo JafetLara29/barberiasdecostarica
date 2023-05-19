@@ -1,6 +1,6 @@
 @extends('layouts.adminhome')
 @section('content')
-<div class="scroll-area">
+<div class="">
     <div class="container-fluid" >
         <div class="page-wrapper">
             <!-- Page-header start -->
