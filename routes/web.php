@@ -96,7 +96,7 @@ Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers
 |-----------------
 */
 Route::get('/', [PublicController::class,'index'])->name('welcome');
-Route::get('/2', [PublicController::class,'index2'])->name('welcome');
+Route::get('/2', [PublicController::class,'index2'])->name('welcome2');
 Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 
 /*

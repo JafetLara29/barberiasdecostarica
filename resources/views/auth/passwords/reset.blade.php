@@ -39,14 +39,14 @@
         </div>
     </div>
     <!-- Pre-loader end -->
-    <section class="login-block">
+    <section class="login-block h-100 d-flex align-items-center">
         <!-- Container-fluid starts -->
-        <div class="container-fluid mt-5">
+        <div class="container-fluid ">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="card-shappe col-sm-8">
                     <!-- Authentication card start -->
-                    <div class="p-3" style="backdrop-filter: blur(5px);background: inherit;">
-                        <form class="md-float-material form-material" method="POST" action="{{ route('password.update') }}">
+                    <div class="p-3  " >
+                        <form class="md-float-material form-material " method="POST" action="{{ route('password.update') }}">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="row mb-3">
@@ -76,15 +76,12 @@
                                     @enderror
                                 </div>
                             </div>
-    
                             <div class="row mb-3">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-end text-light">Confirmar contraseña</label>
-    
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="colorsI text-light" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
-    
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
@@ -95,9 +92,7 @@
                                     </a>
                                 </div>
                             </div>
-    
                         </form>
-
                     </div>
                     <!-- end of form -->
                 </div>

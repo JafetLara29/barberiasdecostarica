@@ -39,15 +39,16 @@
         </div>
     </div>
     <!-- Pre-loader end -->
-    <section class="login-block">
+    <section class="login-block  mx-auto">
         <!-- Container-fluid starts -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
+        <div class="container-fluid ">
+            <div class="row ">
+                <div class="col-sm-12 ">
                     <!-- Authentication card start -->
-                    <form class="md-float-material form-material" method="POST" action="{{ route('login') }}">
+                    
+                    <form class="md-float-material form-material d-flex align-items-center justify-content-center" style="height: 100vh;" method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="auth-box card">
+                        <div class="auth-box card ">
                             <div class="text-center">
 
                                 <img class="logo"
@@ -85,14 +86,14 @@
                                 <div class="row mt-3">
                                     <div class="col-md-8">
                                         <div class="d-grid">
-                                            <button type="submit" class="btn btn-outline-danger">
+                                            <button type="submit" class="btn btn-outline-success">
                                                 Ingresar
                                             </button>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="d-grid">
-                                            <a href="{{ route('welcome') }}" class="btn btn-dark">
+                                            <a href="{{ route('welcome') }}" class="btn btn-outline-danger">
                                                 Salir
                                             </a>
                                         </div>
@@ -105,8 +106,30 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <p class="text-inverse text-start text-light">¿No tienes una cuenta?<a href="{{ route('register') }}"> <b class="f-w-600">Registrate</b></a>!👈</p>
-                                <p class="text-inverse text-start text-light">¿Olvidaste tu contraseña?<a href="{{ route('password.request') }}"> <b class="f-w-600">Restablecerla</b></a></p>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="d-grid">
+                                            <button href="{{ route('register') }}" type="submit" class="btn btn-outline-light">
+                                                Crear cuenta
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="d-grid">
+                                            <button href="{{ route('password.request') }}" type="submit" class="btn btn-outline-light">
+                                                Recuperar contraseña
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- <p class="btn btn-outline-light"><a href="{{ route('register') }}"> <b class="f-w-600">Crear cuenta</b></a></p>
+                                <p class="btn btn-outline-light"><a href="{{ route('password.request') }}"> <b class="f-w-600">Recuperar contraseña</b></a></p> --}}
+
+
                             </div>
                         </div>
                     </form>
