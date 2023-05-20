@@ -69,32 +69,35 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-12">
-                <h1 class="pt-3">Control de Servicios</h1>
-                <p class="pt-1">Aqui puedes agregar, visualizar y eliminar los servicios disponibles al público</p>
-                <a href="{{ Route('show.service.list') }}" class="btn btn-primary ml-3 mb-3 mt-3">Agregar servicio</a>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="table-responsive shadow px-3">
-                    <table class="table table-striped">
-                        <thead style="background-color:#f8c1b8;">
-                            <tr>
-                                <th>Id</th>
-                                <th>Descripción</th>
-                                <th>Precio</th>
-                                <th>Fecha de creación</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="services-table">
-                            {{-- informacion de la tabla proveniente del ajax --}}
-                        </tbody>
-                    </table>
+                <div class="page-header-title">
+                    <h1 class="container-fluid mt-0">Control de Servicios</h1>
+                    <p class="pt-1">Aquí puedes agregar, visualizar y eliminar los servicios disponibles al público</p>
+                    <a href="{{ Route('show.service.list') }}" class="btn btn-primary ml-3 mb-3 mt-3">Agregar servicio</a>
+                    <hr>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive shadow px-3">
+                <table class="table table-striped">
+                    <thead style="background-color:#f8c1b8;">
+                        <tr>
+                            <th>Id</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Fecha de creación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="services-table">
+                        {{-- informacion de la tabla proveniente del ajax --}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     </div>
 
 

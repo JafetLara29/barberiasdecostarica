@@ -77,8 +77,9 @@
                             <a href="{{ url('home') }}" class="nav-link py-3 border-bottom" aria-current="page" title="Inicio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                                 <ion-icon size="large" name="home"></ion-icon>
                                 <p>
-                                    Inicio
+                                    @lang('messages.home')
                                 </p>
+
                             </a>
                         </li>
                         
@@ -108,6 +109,7 @@
                                     <ion-icon size="large" name="people-circle-outline"></ion-icon>
                                     <p>
 
+<<<<<<< Updated upstream
                                         Barberos
                                     </p>
                                 </a>
@@ -161,13 +163,79 @@
                             </li>
                         @endif
 
+=======
+                        <li class="nav-item">
+                            <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="person-add-outline"></ion-icon>
+                                <p>
+                                    @lang('messages.manage_users')
+                                </p>
+
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="{{ route('barbershop.create') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="business-outline"></ion-icon>
+                                <p>
+                                    @lang('messages.barbershop')
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="people-circle-outline"></ion-icon>
+                                <p>
+                                    @lang('messages.barbers')
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('barbers.schedule') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="calendar"></ion-icon>
+
+                                {{-- <ion-icon size="large" name="albums"></ion-icon> --}}
+                                <p>
+                                    @lang('messages.scheduled_appointments')
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('citations.inbox') }}" class="nav-link py-3 border-bottom" title="Bandeja de entrada" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                                <ion-icon size="large" name="mail-unread"></ion-icon>
+
+                                {{-- <ion-icon size="large" name="fitness"></ion-icon> --}}
+
+                                <p>
+                                    @lang('messages.incoming_appointments')
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('income') }}" class="nav-link py-3 border-bottom" title="Ingresos" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                                <ion-icon size="large" name="cash"></ion-icon>
+                                <p>
+                                    @lang('messages.incomes')
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('servicesform') }}" class="nav-link py-3 border-bottom" title="Servicios" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                                <ion-icon size="large" name="briefcase"></ion-icon>
+                                <p>
+                                    @lang('messages.services')
+                                </p>
+                            </a>
+                        </li>
+>>>>>>> Stashed changes
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button class="nav-link py-3 border-bottom text-left" type="submit">
                                     <ion-icon size="large" name="exit"></ion-icon>
                                     <p>
-                                        Salir
+                                        @lang('messages.logout')
                                     </p>
                                 </button>
 
@@ -248,3 +316,4 @@
 </body>
 
 </html>
+

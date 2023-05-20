@@ -5,10 +5,10 @@
         <!-- Page-header start -->
         <div class="page-header">
             <div class="row align-items-end">
-                <div class="col-lg-8 ">
+                <div class="row mb-3 ">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Control de Barberos</h4>
+                            <h1>Control de Barberos</h1>
                             <span>
                                 <a class="btn btn-outline-success mb-3 sm ml-3" href="{{ route('barbers.create') }}"
                                     role="button">Agregar</a></span>

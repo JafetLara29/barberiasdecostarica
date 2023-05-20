@@ -10,11 +10,11 @@
             <div class="col-sm-12">
                 <!-- Default select start -->
                 <div class="card">
-                    <div class="card-header">
+                    <div class="page-header-title">
                         <!--  <h5>Default Select</h5>
                     <span>Add class of <code>.form-control</code> with
                         <code>&lt;input&gt;</code> tag</span> -->
-                        Ingresos
+                        <h1 class="container-fluid mt-0">Ingresos</h1>
 
                     </div>
                     <div class="card-block">

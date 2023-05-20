@@ -17,6 +17,8 @@ use App\Mail\Test;
 use App\Models\Barber;
 use App\Models\Service;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\SetLocaleController;
 
 /*
 |---------------------
@@ -89,6 +91,22 @@ Route::get('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('ba
 
 Route::get('/createuser', [BarberController::class, 'createUser'])->name('barbers.createUser');
 Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers.storeUser');
+
+
+/*
+|-----------------
+| Rutas de idioma-
+|-----------------
+*/
+
+
+
+Route::get('language/change', [LanguageController::class, 'change'])->name('language.change');
+Route::get('language/change/{locale}', [SetLocaleController::class, 'setLocale'])->name('language.change');
+
+
+
+
 
 /*
 |-----------------
