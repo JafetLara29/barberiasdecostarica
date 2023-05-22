@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- Alerts --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}"> --}}
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     {{-- Animation css --}}
@@ -28,33 +28,46 @@
     <link rel="stylesheet" href="{{ asset('storage/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/themify-icons/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/icofont/css/icofont.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('storage/assets/pages/menu-search/css/component.css') }}"> --}}
-
     {{-- Css Font-Awesome --}}
     <link rel="stylesheet" href="{{ asset('storage/assets/icon/font-awesome/css/font-awesome.min.css') }}">
-
     @vite(['resources/js/app.js', 'resources/sass/app.scss', 'resources/css/auth.css'])
-
-
-
-
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
 
 <body>
 
-        <main>
-            @yield('content')
-        </main>
+    <main>
+        @yield('content')
+    </main>
+    @if (session('registered') == true)
+        <script>
+            Toastify({
+                text: "Su cuenta debe ser validada y su pago confirmado. Una vez se habilite su cuenta se le notificará por correo.",
+                duration: 15000,
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "green",
+                },
 
+            }).showToast();
+        </script>
+        <script>
+            Toastify({
+                text: "Registro realizado exitosamente",
+                duration: 5000,
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "green",
+                },
+
+            }).showToast();
+        </script>
+    @endif
     {{-- scripts ADMINTY --}}
-
     <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
-    {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}">
-    </script> --}}
-    {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/popper.js/dist/umd/popper.min.js') }}">
-    </script> --}}
     <script text="text/javascript" src="{{ asset('/storage/assets/js/common-pages.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/storage/assets/pages/multi-step-sign-up/js/main.js') }}"></script>
     <!-- modernizr js -->

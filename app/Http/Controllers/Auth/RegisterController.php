@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -79,36 +80,35 @@ class RegisterController extends Controller
      */
     protected function create(  array $data)
     {
+        $role = Role::where('name', 'barbershop')->first();
+        // $user = Auth::user();
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        $role = Role::where('name', 'barbershop')->first();
-
-        DB::table('role_user')->insert([
-            'user_id' => User::latest('id')->first()->id,
-            'role_id' => $role->id,
-        ]);
-
-        $user->role = $role->id;
-
+        $user = User::where('email', $data['email'])
+                        ->where('name', $data['name'])      
+                        ->get();
         $barbershop = Barbershop::create([
-                'name'   => $data['name'],
-                'address'=> $data['address'],
-                'canton' => $data['canton'],
-                'user_id'=> $user->id
-            ]
-        );
-        $barbershop= Barbershop::findOrFail($barbershop);
+            'name'   => $data['name'],
+            'address'=> $data['address'],
+            'image'=> 'none',
+            'canton' => $data['canton'],
+            'user_id'=> $user[0]->id
+        ]);
+        $barbershop = Barbershop::where('user_id', $user[0]->id)->get();
         SocialMedia::create([
             'data'                => $data['phone'],
             'type'                => 'Telefono',
-            'social_mediable_id'   => $barbershop->id,
-            'social_mediable_type' => $barbershop->user_id,
+            'social_mediable_id'   => $barbershop[0]->id,
+            'social_mediable_type' => Barbershop::class,
         ]);
-
+        DB::table('role_user')->insert([
+            'user_id' => $user[0]->id,
+            'role_id' => $role->id
+        ]);
+        session(['registered' => true]);
         return $user;
     }
 }

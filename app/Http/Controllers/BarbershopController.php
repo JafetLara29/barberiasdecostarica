@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barber;
 use App\Models\Barbershop;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BarbershopController extends Controller
 {
@@ -42,7 +45,13 @@ class BarbershopController extends Controller
      */
     public function create()
     {
-        return view('dashboards.forms.addbarbershopinformationform');
+        $user = Auth::user();
+        $barbershop = $user->barbershop;
+        $socialMedia = $barbershop->socialMedias;
+        return view('dashboards.forms.addbarbershopinformationform')->with([
+            'barbershop' => $barbershop,
+            'socialMedia' => $socialMedia
+        ]);
     }
 
     /**
@@ -53,7 +62,7 @@ class BarbershopController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->name);
+        
     }
 
     /**
@@ -92,7 +101,30 @@ class BarbershopController extends Controller
      */
     public function update(Request $request, Barbershop $barbershop)
     {
-        //
+        $barbershop->name = $request->name;
+        $barbershop->address = $request->address;
+        $barbershop->canton = $request->canton;
+
+        // Proceso de guardado de imagen:
+        $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
+        $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
+
+        // Verificamos el tipo de archivo
+        if (str_contains($fileType, 'image') == true) {
+            $path = $request->file('image')->storeAs('barbershops', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
+        } else {
+            // An error response
+            return response()->json([
+                'errors' => true,
+            ]);
+        }
+        // Guardamos el path y el tipo de archivo en el modelo
+        $barbershop->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
+        $barbershop->save();
+        return response()->json([
+            'success' => true,
+            'id' => Barber::latest('id')->first()->id,
+        ]);
     }
 
     /**

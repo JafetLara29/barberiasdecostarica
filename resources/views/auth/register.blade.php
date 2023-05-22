@@ -34,8 +34,8 @@
             <div class="input-group">
                 <input id="password-confirm" type="password" class="colorsI text-light" name="password_confirmation" autocomplete="new-password" placeholder="Confirmar contraseña">
             </div>
+            <a class="btn btn-dark text-light" href="{{ url('/') }}">Salir</a>
             <button type="button" name="next" class="btn colorBtn next" value="Next">Siguiente</button>
-            <a class="btn btn-outline-danger text-light  " href="{{ url('/') }}">Salir</a>
         </fieldset>
         <fieldset>
             <img class="logo" src="https://cdn.pixabay.com/photo/2014/04/02/10/38/telephone-304080_960_720.png" alt="logo.png">
@@ -50,8 +50,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="button" name="previous" class=" btn btn-outline-danger previous"
-                value="Previous">Anterior</button>
+            <button type="button" name="previous" class=" btn btn-dark previous" value="Previous">Anterior</button>
             <button type="button" name="next" class="btn colorBtn next" value="Next">Siguiente</button>
 
         </fieldset>
@@ -91,7 +90,7 @@
                 <p>4. Una vez el proveedor valide tu pago procederá a activar tu cuenta y se te notificará al correo electrónico que brindaste.</p>
             </div>
 
-            <button type="button" name="previous" class="btn btn-outline-danger previous" value="Previous">Anterior</button>
+            <button type="button" name="previous" class="btn btn-dark previous" value="Previous">Anterior</button>
             <button type="submit" class="btn colorBtn">Registrarme</button>
         </fieldset>
 </form>

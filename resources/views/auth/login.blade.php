@@ -84,7 +84,7 @@
                                     @enderror
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col-md-8">
+                                    <div class="col-md-8 mb-2">
                                         <div class="d-grid">
                                             <button type="submit" class="btn btn-outline-success">
                                                 Ingresar
@@ -99,29 +99,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="row m-t-25 text-start">
-                                    <div class="col-12">
-                                        <div class="forgot-phone text-end f-right">
-                                            <a href="auth-reset-password.html" class="text-end f-w-600">Registrar mi barbershop</a>
-                                        </div>
-                                    </div>
-                                </div> --}}
-
-                                <div class="row mt-3">
+                                <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="d-grid">
-                                            <button href="{{ route('register') }}" type="submit" class="btn btn-outline-light">
+                                            <a href="{{ route('register') }}" class="btn btn-info">
                                                 Crear cuenta
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-3">
+                                <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="d-grid">
-                                            <button href="{{ route('password.request') }}" type="submit" class="btn btn-outline-light">
+                                            <a href="{{ route('password.request') }}" type="submit" class="btn btn-outline-light">
                                                 Recuperar contraseña
-                                            </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

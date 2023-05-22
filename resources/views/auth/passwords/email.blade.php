@@ -48,10 +48,10 @@
                     <form class="md-float-material form-material" method="POST" action="{{ route('password.email') }}">
                         @csrf
                         <div class="auth-box card">
-                            @if (session('status') && session('status') == "We have emailed your password reset link!")
+                            @if (session('status'))
                                 
                                 <div class="alert alert-success" role="alert">
-                                    Correo enviado al email indicado
+                                    {{ session('status') }}
                                 </div>
                             @endif
                             <div class="text-center">
@@ -76,14 +76,14 @@
                                     @enderror
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col-md-8">
+                                    <div class="col-md-7 m-1">
                                         <div class="d-grid">
                                             <button type="submit" class="btn btn-outline-danger">
                                                 Enviar link de recuperación
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 m-1">
                                         <div class="d-grid">
                                             <a href="{{ route('welcome') }}" class="btn btn-dark">
                                                 Salir

@@ -1,4 +1,10 @@
 @extends('layouts.adminhome')
+@section('custom-php') {{-- En esta seccion vamos a meter el codigo php que necesitemos en las vistas y se va a setear automaticamente en el admin layout --}}
+    @php
+        $exist = false;
+        $data = "";
+    @endphp
+@endsection
 @section('content')
     <div class="">
         <div class="card shadow mb-5">
@@ -18,17 +24,21 @@
                       </div>
                         <div class="mb-3">
                           <label for="name" class="form-label">Nombre de la barbería</label>
-                          <input type="text" name="name" id="name" class="form-control" placeholder="Escribe el nombre de tu barbería">
-                          {{-- <small id="name-description" class="text-muted">Help text</small> --}}
+                          <input type="text" name="name" id="name" class="form-control" placeholder="Escribe el nombre de tu barbería" value="{{ $barbershop->name }}">
+                          
                         </div>
                         <div class="mb-3">
                           <label for="image" class="form-label">Logo</label>
                           <input type="file" name="image" id="image" class="form-control">
                         </div>
                         <div class="mb-3">
+                          <label for="canton" class="form-label">Cantón</label>
+                          <input type="text" name="canton" id="canton" class="form-control" placeholder="Ingrese el nombre del cantón en el cuál se ubica la barbershop" value="{{ $barbershop->canton }}">
+                        </div>
+                        <div class="mb-3">
                           <label for="address" class="form-label">Dirección</label>
-                          <textarea name="address" id="address" class="form-control" placeholder="Escribe la dirección de tu barbería"></textarea>
-                          {{-- <small id="name-description" class="text-muted">Help text</small> --}}
+                          <textarea name="address" id="address" class="form-control" placeholder="Escribe la dirección de tu barbería">{{ $barbershop->address }}</textarea>
+                          
                         </div>
                   </div>
                 </div>
@@ -51,6 +61,11 @@
                                           desea)"</small>
                                   </div>
                                   {{-- Item --}}
+                                  @foreach ($socialMedia as $item)
+                                    @if ($item->type == 'Telefono')
+                                        
+                                    @endif
+                                  @endforeach
                                   <label class="list-group-item">
                                       <div class="m-3">
                                           <input id="phone-checkbox" class="form-check-input me-1" name="type[]"
@@ -97,7 +112,7 @@
                                           <input id="tiktok-checkbox" class="form-check-input me-1" name="type[]"
                                               type="checkbox" value="tiktok">
                                           <ion-icon size="large" name="logo-tiktok"></ion-icon>
-                                          <input id="titktok-input" class="form-control" type="text" name="data[]"
+                                          <input id="tiktok-input" class="form-control" type="text" name="data[]"
                                               placeholder="Escriba su perfil" value="">
                                       </div>
                                   </label>
@@ -123,14 +138,13 @@
         // Creamos un objeto que nos va almacenar toda la informacion del formulario para poder agregar o modificarla
         let data = new FormData(form);
 
-        if(data.get('name') != '' && data.get('image').name != '' && data.get('address') != ''){
+        if(data.get('name') != '' && data.get('image').name != '' && data.get('canton') != '' && data.get('address') != ''){
             if(socialmediaValidate() == true){
-              console.log('Vamo');
               saveBarbershop(data);
             }
         }else{
           Toastify({
-              text: `Debe agregar información correspondiente a la barbershop (Informacion general)!`,
+              text: `Falta información por agregar correspondiente a la barbershop (Informacion general)`,
               duration: 5000,
               gravity: "top",
               position: "center",
@@ -204,7 +218,8 @@
       }
 
       function saveBarbershop(data){
-        console.log('VA');
+        let url = "{{ route('barbershops.update', ['barbershop' => 0]) }}";
+        url = url.replace('0', );
         $.ajax({
           type: "POST",
           url: "/barbershops",
@@ -216,8 +231,82 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           success: function (response) {
-            
+            socialmediaSave();
           }
+        });
+      }
+
+      function socialmediaSave() {
+        const checkboxes = [
+            '#phone-checkbox',
+            '#whatsapp-checkbox',
+            '#facebook-checkbox',
+            '#insta-checkbox',
+            '#tiktok-checkbox'
+        ];
+        const contacts = ['Telefono', 'Whatsapp', 'Facebook', 'Instagram', 'Tiktok'];
+        let types = [];
+        let info = [];
+
+        let isChecked = false;
+
+        for (let i = 0; i < checkboxes.length; i++) {
+            const checkbox = $(checkboxes[i]);
+            const input = $('#' + checkbox.val() + '-input');
+
+            if (checkbox.is(":checked")) {
+                isChecked = true;
+
+                if (input.val() === '') {
+                    types.push(contacts[i]);   
+                    info.push(input.val());   
+                }
+            }
+        }
+        $.ajax({
+            url: '/socialmedia/store/for_barbershop',
+            type: 'POST',
+            data: {
+                type: types,
+                data: info
+            },
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                if (response.success) {
+                    Toastify({
+                        text: "Información guardada exitosamente",
+                        duration: 5000,
+                        gravity: "top",
+                        position: "center",
+                        style: {
+                            background: "linear-gradient(to right, #a8dba8, #7bc87b)", // Colores de fondo en degradado en tonos de verde
+                            color: "black", // Color del texto en negro para mayor contraste
+                            fontWeight: "bold", // Negrita en el texto
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                        },
+
+                    }).showToast();
+                }else if (response.errors == true) {
+                    Toastify({
+                            text: "Ha ocurrido un error al; guardar la información. Si el problema persiste contacte a los desarrolladores",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
+                                color: "black", // Color del texto en negro para mayor contraste
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                            },
+
+                        }).showToast();
+                }
+            }
         });
       }
     </script>

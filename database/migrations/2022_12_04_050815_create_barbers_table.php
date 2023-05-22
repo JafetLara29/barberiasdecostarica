@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('barbershop_id');
             $table->timestamps();
             
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('barbershop_id')->references('id')->on('barbershops');
         });
     }

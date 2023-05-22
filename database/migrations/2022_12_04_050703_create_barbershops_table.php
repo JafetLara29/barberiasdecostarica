@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('barbershops', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image');
             $table->string('address', 500);//Direccion exacta
             $table->string('canton', 100);//Canton para filtrar por canton en un futuro
             // $table->string('map'); Queda a la espera hasta determinar la herramiento a usar

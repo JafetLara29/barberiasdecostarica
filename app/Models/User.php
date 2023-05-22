@@ -47,6 +47,10 @@ class User extends Authenticatable
         return $this->hasOne(Barbershop::class);
     }
 
+    public function barber(){
+        return $this->hasOne(Barber::class);
+    }
+
     // Relacion muchos a muchos con Roles
     public function role()
     {

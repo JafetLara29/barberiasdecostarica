@@ -84,10 +84,10 @@
                             </div>
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary m-1">
                                         Cambiar contraseña
                                     </button>
-                                    <a href="{{ route('welcome') }}" class="btn btn-dark">
+                                    <a href="{{ route('welcome') }}" class="btn btn-dark m-1">
                                         Salir
                                     </a>
                                 </div>

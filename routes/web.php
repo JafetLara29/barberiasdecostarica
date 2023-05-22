@@ -42,6 +42,7 @@ Route::resource('/barbers', BarberController::class);
 |-------------------------------
 */
 Route::resource('/socialmedia',SocialMediaController::class);
+Route::post('/socialmedia/store/for_barbershop', [SocialMediaController::class,'storeSocialMediaForBarbershop'])->name('socialmedia.storeForBarberhop');
 
 /*
 |---------------------
@@ -98,15 +99,8 @@ Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers
 | Rutas de idioma-
 |-----------------
 */
-
-
-
 Route::get('language/change', [LanguageController::class, 'change'])->name('language.change');
 Route::get('language/change/{locale}', [SetLocaleController::class, 'setLocale'])->name('language.change');
-
-
-
-
 
 /*
 |-----------------
@@ -125,10 +119,6 @@ Route::get('/search', [PublicController::class,'goToSearch'])->name('search');
 Route::get('/income',[IncomeController::class,'index'])->name('income');
 Route::post('/incomes/filter', [IncomeController::class,'filter'])->name('income.filter');
 
-Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::post('/register/custom', [RegisterController::class, 'customRegister'])->name('auth.register');
-
 /*
 |--------------------------
 | Rutas para los guardar Horarios
@@ -136,3 +126,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 */
 Route::resource('/schedule', ScheduleController::class);
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Auth::routes();
