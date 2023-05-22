@@ -34,14 +34,14 @@ class Barbershop extends Model
     public function services(){
         return $this->morphMany(Service::class, 'serviceable');
     }
-    
+
     /**
      *|-----------------------------------------------------------------------------------------
      * |Metodo para indicar que una barberia tiene muchas redes sociales (relacion polimorfica)-
      *|-----------------------------------------------------------------------------------------
      */
     public function socialMedias(){
-        return $this->morphMany(SocialMedia::class, 'socialMediable');
+        return $this->morphMany(SocialMedia::class, 'social_Mediable');
     }
 
     /**

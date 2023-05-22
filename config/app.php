@@ -82,10 +82,10 @@ return [
     |
     */
     'locale' => 'es',
-    'locales' => [
-        'en' => 'English',
-        'es' => 'Español',
-    ],
+    // 'locales' => [
+    //     'en' => 'English',
+    //     'es' => 'Español',
+    // ],
 
 
 
