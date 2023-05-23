@@ -73,7 +73,7 @@
                                 </p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="{{ url('home') }}" class="nav-link py-3 border-bottom" aria-current="page" title="Inicio" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
                                 <ion-icon size="large" name="home"></ion-icon>
@@ -83,7 +83,7 @@
 
                             </a>
                         </li>
-                        
+
                         @if ( session('user_type') == "barbershop" )
                             <li class="nav-item">
                                 <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">

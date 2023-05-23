@@ -82,10 +82,10 @@ return [
     |
     */
     'locale' => 'es',
-    // 'locales' => [
-    //     'en' => 'English',
-    //     'es' => 'Español',
-    // ],
+    'locales' => [
+        'en' => 'English',
+        'es' => 'Español',
+    ],
 
 
 
@@ -101,7 +101,7 @@ return [
     */
 
     //'fallback_locale' => 'es',
-     'fallback_locale' => 'en',
+    'fallback_locale' => 'en',
     /*
     |--------------------------------------------------------------------------
     | Faker Locale
@@ -113,7 +113,7 @@ return [
     |
     */
     //'faker_locale' => 'es_ES'
-     'faker_locale' => 'en_US',
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
