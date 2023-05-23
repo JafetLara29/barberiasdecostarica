@@ -92,6 +92,7 @@ Route::get('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('ba
 
 Route::get('/createuser', [BarberController::class, 'createUser'])->name('barbers.createUser');
 Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers.storeUser');
+// Nueva ruta para consulta
 
 
 /*
