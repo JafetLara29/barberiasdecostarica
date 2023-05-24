@@ -12,14 +12,16 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'error_greeting' => '¡Ups!',
+    'default_greeting' => '¡Hola!',
+    'trouble_clicking' => 'Si tienes problemas al hacer clic en el botón ":actionText", copia y pega la siguiente URL en tu navegador web:',
     'failed' => 'Las credenciales proporcionadas no coinciden con nuestros registros.',
     'throttle' => 'Demasiados intentos de inicio de sesión. Por favor, inténtelo de nuevo en :seconds segundos.',
 
     'password_reset_subject' => 'Restablecimiento de contraseña',
     'password_reset_intro' => 'Está recibiendo este correo electrónico porque recibimos una solicitud de restablecimiento de contraseña para su cuenta.',
     'password_reset_button' => 'Restablecer contraseña',
-    'password_reset_expire' => 'Este enlace de restablecimiento de contraseña caducará en :count minutos.',
+    'password_reset_expire' => 'Este enlace de restablecimiento de contraseña caducará en  :count minutos.',
     'password_reset_outro' => 'Si no solicitó un restablecimiento de contraseña, no se requiere ninguna otra acción.',
 
 
