@@ -99,6 +99,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Email Language
+    |--------------------------------------------------------------------------
+    |
+    | You can set the default language for the emails sent by your application
+    | using this configuration option. The language should be a valid locale
+    | code that corresponds to a language file in your resources/lang folder.
+    |
+    */
+
+    'locale' => 'es',
+
+    /*
+    |--------------------------------------------------------------------------
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |
