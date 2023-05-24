@@ -99,14 +99,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Markdown Mail Settings
+    | Email Language
     |--------------------------------------------------------------------------
     |
-    | If you are using Markdown based email rendering, you may configure your
-    | theme and component paths here, allowing you to customize the design
-    | of the emails. Or, you may simply stick with the Laravel defaults!
+    | You can set the default language for the emails sent by your application
+    | using this configuration option. The language should be a valid locale
+    | code that corresponds to a language file in your resources/lang folder.
     |
     */
+
+    'locale' => 'es',
+
 
     'markdown' => [
         'theme' => 'default',
