@@ -12,7 +12,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'error_greeting' => '¡Ups!',
+    'default_greeting' => '¡Hello!',
+    'trouble_clicking' => 'If you are having trouble clicking the ":actionText" button, copy and paste the following URL into your web browser:',
     'failed' => 'The provided credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
