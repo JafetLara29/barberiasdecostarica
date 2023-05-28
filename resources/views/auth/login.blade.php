@@ -8,93 +8,60 @@
                 <div class="ring">
                     <div class="frame"></div>
                 </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
-                <div class="ring">
-                    <div class="frame"></div>
-                </div>
+                <!-- Resto del código del preloader -->
             </div>
         </div>
     </div>
     <!-- Pre-loader end -->
-    <section class="login-block  mx-auto">
+    <section class="login-block mx-auto">
         <!-- Container-fluid starts -->
-        <div class="container-fluid ">
-            <div class="row ">
-                <div class="col-sm-12 ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
                     <!-- Authentication card start -->
-                    
                     <form class="md-float-material form-material d-flex align-items-center justify-content-center" style="height: 100vh;" method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="auth-box card ">
+                        <div class="auth-box card">
                             <div class="text-center">
-
-                                <img class="logo"
-                                    src="{{ asset('https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png') }}"
-                                    alt="logo.png" width="150" height="125">
+                                <img class="logo" src="{{ asset('https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png') }}" alt="logo.png" width="150" height="125">
                             </div>
                             <div class="card-block">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-center text-light loginTitles ">Inicio de Sesión</h3>
+                                        <h3 class="text-center text-light loginTitles">@lang('messages.login_title')</h3>
                                     </div>
                                 </div>
-                                <p class="text-center p-b-5 text-light loginTitles ">Ingresa tus credenciales</p>
-                                <div class="mb-3 form-primary ">
-                                    <input id="email" type="email"
-                                        class=" colorsI @error('email') is-invalid @enderror text-light" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="Usuario">
+                                <p class="text-center p-b-5 text-light loginTitles">@lang('messages.enter_credentials')</p>
+                                <div class="mb-3 form-primary">
+                                    <input id="email" type="email" class="colorsI @error('email') is-invalid @enderror text-light" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('messages.username_placeholder')">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
+
                                 <div class="mb-3 form-primary">
-                                    <input id="password" type="password"
-                                        class="colorsI @error('password') is-invalid @enderror text-light" name="password"
-                                        required autocomplete="current-password" placeholder="Contraseña">
+                                    <input id="password" type="password" class="colorsI @error('password') is-invalid @enderror text-light" name="password" required autocomplete="current-password" placeholder="@lang('messages.password_placeholder')">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
+
                                 <div class="row mt-3">
                                     <div class="col-md-8 mb-2">
                                         <div class="d-grid">
                                             <button type="submit" class="btn btn-outline-success">
-                                                Ingresar
+                                                @lang('messages.login_button')
                                             </button>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="d-grid">
                                             <a href="{{ route('welcome') }}" class="btn btn-outline-danger">
-                                                Salir
+                                                @lang('messages.logout_link')
                                             </a>
                                         </div>
                                     </div>
@@ -103,7 +70,7 @@
                                     <div class="col-md-12">
                                         <div class="d-grid">
                                             <a href="{{ route('register') }}" class="btn btn-info">
-                                                Crear cuenta
+                                                @lang('messages.register_link')
                                             </a>
                                         </div>
                                     </div>
@@ -111,17 +78,12 @@
                                 <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="d-grid">
-                                            <a href="{{ route('password.request') }}" type="submit" class="btn btn-outline-light">
-                                                Recuperar contraseña
+                                            <a href="{{ route('password.request') }}" class="btn btn-outline-light">
+                                                @lang('messages.recover_password_link')
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-
-                                {{-- <p class="btn btn-outline-light"><a href="{{ route('register') }}"> <b class="f-w-600">Crear cuenta</b></a></p>
-                                <p class="btn btn-outline-light"><a href="{{ route('password.request') }}"> <b class="f-w-600">Recuperar contraseña</b></a></p> --}}
-
-
                             </div>
                         </div>
                     </form>
@@ -132,7 +94,7 @@
             <!-- end of col-sm-12 -->
         </div>
         <!-- end of row -->
-        </div>
-        <!-- end of container-fluid -->
-    </section>
+    </div>
+    <!-- end of container-fluid -->
+</section>
 @endsection

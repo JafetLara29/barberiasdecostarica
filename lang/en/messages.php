@@ -16,6 +16,14 @@ return [
     'incoming_appointments' => 'incoming_appointments',
     'services' => 'services',
     'logout' => 'logout',
-
+    'premium_service' => 'Premium service for your barbershop',
+    'login_title' => 'Login',
+    'enter_credentials' => 'Enter your credentials',
+    'login_button' => 'Login',
+    'logout_link' => 'Logout',
+    'register_link' => 'Create account',
+    'recover_password_link' => 'Recover password',
+    'username_placeholder' => 'Username',
+    'password_placeholder' => 'Password',
     // otros textos de idioma
 ];

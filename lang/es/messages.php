@@ -16,7 +16,15 @@ return [
     'incoming_appointments' => 'Citas entrantes',
     'services' => 'Servicios',
     'logout' => 'Salir',
-
+    'premium_service' => 'Un servicio premium para tu barbería',
+    'login_title' => 'Inicio de Sesión',
+    'enter_credentials' => 'Ingresa tus credenciales',
+    'login_button' => 'Ingresar',
+    'logout_link' => 'Salir',
+    'register_link' => 'Crear cuenta',
+    'recover_password_link' => 'Recuperar contraseña',
+    'username_placeholder' => 'Usuario',
+    'password_placeholder' => 'Contraseña',
     // otros textos de idioma
 ];
 

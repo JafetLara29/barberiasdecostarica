@@ -96,10 +96,23 @@
                         <div class="col-lg-3 col-md-4">
                             <div class="atf-top-social">
                                 <div class="atf-top-social-icon">
-                                    <a href="#" class="icon"> <i class="fab fa-facebook"></i> </a>
-                                    {{-- <a href="#" class="icon"> <i class="fab fa-behance"></i> </a>
-                                            <a href="#" class="icon"> <i class="fab fa-linkedin"></i> </a>
-                                            <a href="#" class="icon"> <i class="fab fa-twitter"></i> </a> --}}
+                                    <div class="switch-container">
+                                        <label class="switch">
+                                            <input id="switch" type="checkbox" onclick="changeLanguage()">
+                                            <span class="slider"></span>
+                                        </label>
+                                        </html>
+
+                                        <a href="/en-page">
+                                            <img id="english-image" src="{{ asset('storage/public/assets/img/flag/English.jpg') }}" alt="English Image" style="display: none;">
+                                        </a>
+
+                                        <a href="/es-page">
+                                            <img id="spanish-image" src="{{ asset('storage/public/assets/img/flag/Español.jpg') }}" alt="Spanish Image" style="display: inline;">
+                                        </a>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -341,3 +354,105 @@
 </body>
 
 </html>
+</html>
+
+<style>
+    .language-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px; /* Ajusta el valor según sea necesario */
+    }
+</style>
+
+<a href="/en-page" class="language-container">
+    <img id="english-image" src="{{ asset('storage/public/assets/img/flag/English.jpg') }}" alt="English Image" style="display: none;">
+</a>
+
+<a href="/es-page" class="language-container">
+    <img id="spanish-image" src="{{ asset('storage/public/assets/img/flag/Español.jpg') }}" alt="Spanish Image" style="display: inline;">
+</a>
+
+
+<script>
+    function changeLanguage() {
+        var currentLocale = '{{ app()->getLocale() }}';
+        var newLocale = currentLocale === 'en' ? 'es' : 'en';
+        var url = "{{ route('language.change', ['locale' => ':locale']) }}";
+        url = url.replace(':locale', newLocale);
+        window.location.href = url;
+    }
+
+    // Mostrar la imagen inicial según el idioma actual
+    var currentLocale = '{{ app()->getLocale() }}';
+    var englishImageElement = document.getElementById('english-image');
+    var spanishImageElement = document.getElementById('spanish-image');
+    if (currentLocale === 'en') {
+        englishImageElement.style.display = 'inline';
+        spanishImageElement.style.display = 'none';
+    } else {
+        englishImageElement.style.display = 'none';
+        spanishImageElement.style.display = 'inline';
+    }
+</script>
+
+
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+        margin-right: 8px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0px; /* Ajuste la posición vertical aquí */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        transition: .4s;
+        border-radius: 20px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: black;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color:#2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(16px);
+    }
+
+    .slider.round {
+        border-radius: 20px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>

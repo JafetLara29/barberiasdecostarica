@@ -28,7 +28,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
                                     <div class="atf-slider-content">
-                                        <h1>Un servicio premium para tu barbería</h1>
+                                   <h1>@lang('messages.premium_service')</h1>
                                         <p>Implementa la tecnología en tu barbershop y sé parte de la comunidad.</p>
                                         <div class="atf-main-btn mt-5">
                                             <a class="atf-themes-btn" href="{{route('register')}}" data-hover="Quiero ser parte">
