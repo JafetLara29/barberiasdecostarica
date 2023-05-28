@@ -41,7 +41,7 @@
             <img class="logo" src="https://cdn.pixabay.com/photo/2014/04/02/10/38/telephone-304080_960_720.png" alt="logo.png">
 
             <h2 class="fs-title1 ">Información de contacto</h2>
-            <h3 class="fs-subtitle1">Dinos un poco más sobre tu barbershop</h3>
+            <h3 class="fs-subtitle1">Cuéntanos un poco más sobre tu barbershop</h3>
             <div class="input-group">
                 <input type="text" class="colorsI text-light @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone') }}" placeholder="Número de telefono" />
                 @error('phone')
