@@ -6,7 +6,8 @@
     @endphp
 @endsection
 @section('content')
-    <div class="">
+<!--contenedor de información del admin barberia-->
+    <div class="container-information-barbery">
         <div class="card shadow mb-5">
           <h1 class="container-fluid pt-2">Información de tu barbería</h1>
           <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -25,7 +26,7 @@
                         <div class="mb-3">
                           <label for="name" class="form-label">Nombre de la barbería</label>
                           <input type="text" name="name" id="name" class="form-control" placeholder="Escribe el nombre de tu barbería" value="{{ $barbershop->name }}">
-                          
+
                         </div>
                         <div class="mb-3">
                           <label for="image" class="form-label">Logo</label>
@@ -38,7 +39,7 @@
                         <div class="mb-3">
                           <label for="address" class="form-label">Dirección</label>
                           <textarea name="address" id="address" class="form-control" placeholder="Escribe la dirección de tu barbería">{{ $barbershop->address }}</textarea>
-                          
+
                         </div>
                   </div>
                 </div>
@@ -63,7 +64,7 @@
                                   {{-- Item --}}
                                   @foreach ($socialMedia as $item)
                                     @if ($item->type == 'Telefono')
-                                        
+
                                     @endif
                                   @endforeach
                                   <label class="list-group-item">
@@ -258,8 +259,8 @@
                 isChecked = true;
 
                 if (input.val() === '') {
-                    types.push(contacts[i]);   
-                    info.push(input.val());   
+                    types.push(contacts[i]);
+                    info.push(input.val());
                 }
             }
         }
