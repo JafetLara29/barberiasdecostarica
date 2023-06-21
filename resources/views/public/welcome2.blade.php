@@ -28,11 +28,12 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
                                     <div class="atf-slider-content">
-                                   <h1>@lang('messages.premium_service')</h1>
-                                        <p>Implementa la tecnología en tu barbershop y sé parte de la comunidad.</p>
+                                        <h1>@lang('messages.premium_service')</h1>
+                                        <p>@lang('messages.comunidad_service')</p>
                                         <div class="atf-main-btn mt-5">
-                                            <a class="atf-themes-btn" href="{{route('register')}}" data-hover="Quiero ser parte">
-                                                <span>Quiero ser parte</span>
+                                            <a class="atf-themes-btn" href="{{ route('register') }}"
+                                                data-hover="@lang('messages.quiero_ser_parte')">
+                                                <span>@lang('messages.quiero_ser_parte')</span>
                                             </a>
                                         </div>
                                     </div>
@@ -50,12 +51,12 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 text-center">
                                     <div class="atf-slider-content">
-                                        <h1>Causa una mejor impresión</h1>
-                                        <p>Una primera impresión negativa es mas dificil de cambiar que una positiva, NO TE
-                                            LA JUEGUES!.</p>
+                                        <h1>@lang('messages.mejor_impresion')</h1>
+                                        <p>@lang('messages.primera_impresion')</p>
                                         <div class="atf-main-btn mt-5">
-                                            <a class="atf-themes-btn" href="{{route('register')}}" data-hover="Quiero ser parte">
-                                                <span>Quiero ser parte</span>
+                                            <a class="atf-themes-btn" href="{{ route('register') }}"
+                                                data-hover="@lang('messages.quiero_ser_parte')">
+                                                <span>@lang('messages.quiero_ser_parte')</span>
                                             </a>
                                         </div>
                                     </div>
@@ -92,13 +93,9 @@
                 </div>
                 <div class="col-lg-6 ps-lg-5 align-self-center">
                     <div class="atf-section-title">
-                        <h5>Nosotros</h5>
+                        <h5>@lang('messages.Nosotros')</h5>
                         <h2 class="">barberscr</h2>
-                        <p class="">
-                            Un servicio pensado para tí.
-                            ¿Quieres ser parte del nuevo movimiento tecnológico y ofrecer un mejor servicio a tus clientes?
-                            ¡Hagamoslo realidad!
-                        </p>
+                        <p class="">@lang('messages.servicio_pensado_ser_parte_hagamoslo')</p>
                     </div>
                     {{-- <ul class="listing-style">
                         <li>Photographer of good or services for sale</li>
@@ -107,140 +104,142 @@
                         <li>You can It Solution Easy to Learn </li>
                     </ul> --}}
                     <div class="atf-about-btn mt-5">
-                        <a class="atf-themes-btn" href="#project" data-hover="ver servicios"> <span>ver servicios</span></a>
+                        <a class="atf-themes-btn" href="#project" data-hover="@lang('messages.ver_servicios')">
+                            <span>@lang('messages.ver_servicios')</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- About Section End -->
+        <!-- About Section End -->
 
-    <!-- START PROGRAM -->
-    <section id="program" class="atf-program-area" data-stellar-background-ratio="0.3"
-        style="background-image:url({{ asset('storage/public/assets/img/slider/3.jpg') }});background-size:cover; background-position: center center">
-        <div class="atf-section-padding program-area">
+        <!-- START PROGRAM -->
+        <section id="program" class="atf-program-area" data-stellar-background-ratio="0.3"
+            style="background-image:url({{ asset('storage/public/assets/img/slider/3.jpg') }});background-size:cover; background-position: center center">
+            <div class="atf-section-padding program-area">
+                <div class="container">
+                    <div class="row clearfix justify-content-center">
+                        <div class="col-xl-6 col-12 text-center">
+                            <div class="atf-video atf-animation-zoom1">
+                                <h2 class="d-none">@lang('message.puedes_ver_video')</h2>
+                                <a class="atf-video-icon atf-video-icon-border"
+                                    href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--- END ROW -->
+                </div>
+                <!--- END CONTAINER -->
+            </div>
+            <!--- END CONTAINER -->
+        </section>
+        <!-- END PROGRAM -->
+
+        <!-- START SERVICE -->
+        <section id="project" class="atf-section-padding">
             <div class="container">
-                <div class="row clearfix justify-content-center">
-                    <div class="col-xl-6 col-12 text-center">
-                        <div class="atf-video atf-animation-zoom1">
-                            <h2 class="d-none">Puedes Ver vídeo</h2>
-                            <a class="atf-video-icon atf-video-icon-border" href="https://www.youtube.com/embed/tlThdr3O5Qo"
-                                data-rel="lightcase">
-                                <i class="fas fa-play"></i>
-                            </a>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-xl-6">
+                        <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
+                            data-wow-offset="0">
+                            <h5 class="atf-sheading">@lang('messages.services_view')</h5>
+                            <h2> @lang('messages.services_app')</h2>
+                            {{-- <p class="">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit
+                            amet elit dolor sit amet elit.</p> --}}
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                </div>
+                <!--- END ROW -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="atf-home-active"
+                            class="atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
+                            <div class="atf-best-service-slide">
+                                <div class="atf-best-service-img">
+                                    <a href="assets/img/blog/1.jpg" data-rel="lightcase:myCollection"><img
+                                            src="{{ asset('storage/public/assets/img/blog/Agendado de citas.jpg') }}" alt="Blog"></a>
+                                </div>
+                                <div class="atf-best-service-content text-center">
+                                    <h3 class="atf-best-service-title">@lang('messages.agendado_de_citas')</h3>
+                                    <p class="atf-best-service-description">@lang('messages.tus_clientes')</p>
+                                </div>
+                            </div>
+
+                            <div class="atf-best-service-slide">
+                                <div class="atf-best-service-img">
+                                    <a href="assets/img/blog/5.jpg" data-rel="lightcase:myCollection"><img
+                                            src="{{ asset('storage/public/assets/img/blog/Posicionamiento.jpg') }}" alt="Blog"></a>
+                                </div>
+                                <div class="atf-best-service-content text-center">
+                                    <h3 class="atf-best-service-title">@lang('messages.el_posicionamiento')</h3>
+                                    <p class="atf-best-service-description">@lang('messages.los_rankings')</p>
+                                </div>
+                            </div>
+
+                            <div class="atf-best-service-slide">
+                                <div class="atf-best-service-img">
+                                    <a href="assets/img/blog/3.jpg" data-rel="lightcase:myCollection"><img
+                                            src="{{ asset('storage/public/assets/img/blog/Control de barberos.jpg') }}" alt="Blog"></a>
+                                </div>
+                                <div class="atf-best-service-content text-center">
+                                    <h3 class="atf-best-service-title">Control de barberos</h3>
+                                    <p class="atf-best-service-description">Agrega, edita o elimina a barberos para darles
+                                        acceso a la plataforma y tener su propio control de citas.</p>
+                                </div>
+                            </div>
+
+                            <div class="atf-best-service-slide">
+                                <div class="atf-best-service-img">
+                                    <a href="assets/img/blog/4.jpg" data-rel="lightcase:myCollection"><img
+                                            src="{{ asset('storage/public/assets/img/blog/Control de citas.jpg') }}" alt="Blog"></a>
+                                </div>
+                                <div class="atf-best-service-content text-center">
+                                    <h3 class="atf-best-service-title">Control de citas</h3>
+                                    <p class="atf-best-service-description">Administra las citas agendadas por tus
+                                        clientes,
+                                        confirmalas o cancelalas de acuerdo a tu disponibilidad.</p>
+                                </div>
+                            </div>
+
+                            <div class="atf-best-service-slide">
+                                <div class="atf-best-service-img">
+                                    <a href="assets/img/blog/6.jpg" data-rel="lightcase:myCollection"><img
+                                            src="{{ asset('storage/public/assets/img/blog/Brinda información.jpg') }}" alt="Blog"></a>
+                                </div>
+                                <div class="atf-best-service-content text-center">
+                                    <h3 class="atf-best-service-title">Brinda información</h3>
+                                    <p class="atf-best-service-description">Con nosotros, tendrás tu espacio para informar
+                                        a
+                                        tus clientes sobre información de contacto de tu barbería y tus barberos. Orarios,
+                                        direcciones de llegada y mucho más</p>
+                                </div>
+                            </div>
+
+                            <div class="atf-best-service-slide">
+                                <div class="atf-best-service-img">
+                                    <a href="assets/img/blog/2.jpg" data-rel="lightcase:myCollection"><img
+                                            src="{{ asset('storage/public/assets/img/blog/Reseñas y valoraciones.jpg') }}" alt="Blog"></a>
+                                </div>
+                                <div class="atf-best-service-content text-center">
+                                    <h3 class="atf-best-service-title">Reseñas y valoraciones</h3>
+                                    <p class="atf-best-service-description">Permite a tus clientes valorar tu servicio,
+                                        recomendarlo y puntuarlo para posicionarte a nivel nacional.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!--- END ROW -->
             </div>
             <!--- END CONTAINER -->
-        </div>
-        <!--- END CONTAINER -->
-    </section>
-    <!-- END PROGRAM -->
+        </section>
+        <!-- END SERVICE -->
 
-    <!-- START SERVICE -->
-    <section id="project" class="atf-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-xl-6">
-                    <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
-                        data-wow-offset="0">
-                        <h5 class="atf-sheading"> Servicios</h5>
-                        <h2>App</h2>
-                        {{-- <p class="">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit
-                            amet elit dolor sit amet elit.</p> --}}
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="atf-home-active" class="atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
-                        <div class="atf-best-service-slide">
-                            <div class="atf-best-service-img">
-                                <a href="assets/img/blog/1.jpg" data-rel="lightcase:myCollection"><img
-                                        src="{{ asset('storage/public/assets/img/blog/1.jpg') }}" alt="Blog"></a>
-                            </div>
-                            <div class="atf-best-service-content text-center">
-                                <h3 class="atf-best-service-title">Agendado de citas</h3>
-                                <p class="atf-best-service-description">Permite a tus clientes agendar citas de manera
-                                    cómoda y sin retrasos.</p>
-                            </div>
-                        </div>
-
-                        <div class="atf-best-service-slide">
-                            <div class="atf-best-service-img">
-                                <a href="assets/img/blog/5.jpg" data-rel="lightcase:myCollection"><img
-                                        src="{{ asset('storage/public/assets/img/blog/5.jpg') }}" alt="Blog"></a>
-                            </div>
-                            <div class="atf-best-service-content text-center">
-                                <h3 class="atf-best-service-title">Posicionamiento</h3>
-                                <p class="atf-best-service-description">Da a conocer tu barbería a nivel nacional con los
-                                    rankings y en la lista de barberías afiliadas por cantón.</p>
-                            </div>
-                        </div>
-
-                        <div class="atf-best-service-slide">
-                            <div class="atf-best-service-img">
-                                <a href="assets/img/blog/3.jpg" data-rel="lightcase:myCollection"><img
-                                        src="{{ asset('storage/public/assets/img/blog/3.jpg') }}" alt="Blog"></a>
-                            </div>
-                            <div class="atf-best-service-content text-center">
-                                <h3 class="atf-best-service-title">Control de barberos</h3>
-                                <p class="atf-best-service-description">Agrega, edita o elimina a barberos para darles
-                                    acceso a la plataforma y tener su propio control de citas.</p>
-                            </div>
-                        </div>
-
-                        <div class="atf-best-service-slide">
-                            <div class="atf-best-service-img">
-                                <a href="assets/img/blog/4.jpg" data-rel="lightcase:myCollection"><img
-                                        src="{{ asset('storage/public/assets/img/blog/4.jpg') }}" alt="Blog"></a>
-                            </div>
-                            <div class="atf-best-service-content text-center">
-                                <h3 class="atf-best-service-title">Control de citas</h3>
-                                <p class="atf-best-service-description">Administra las citas agendadas por tus clientes,
-                                    confirmalas o cancelalas de acuerdo a tu disponibilidad.</p>
-                            </div>
-                        </div>
-
-                        <div class="atf-best-service-slide">
-                            <div class="atf-best-service-img">
-                                <a href="assets/img/blog/6.jpg" data-rel="lightcase:myCollection"><img
-                                        src="{{ asset('storage/public/assets/img/blog/6.jpg') }}" alt="Blog"></a>
-                            </div>
-                            <div class="atf-best-service-content text-center">
-                                <h3 class="atf-best-service-title">Brinda información</h3>
-                                <p class="atf-best-service-description">Con nosotros, tendrás tu espacio para informar a
-                                    tus clientes sobre información de contacto de tu barbería y tus barberos. Orarios,
-                                    direcciones de llegada y mucho más</p>
-                            </div>
-                        </div>
-
-                        <div class="atf-best-service-slide">
-                            <div class="atf-best-service-img">
-                                <a href="assets/img/blog/2.jpg" data-rel="lightcase:myCollection"><img
-                                        src="{{ asset('storage/public/assets/img/blog/2.jpg') }}" alt="Blog"></a>
-                            </div>
-                            <div class="atf-best-service-content text-center">
-                                <h3 class="atf-best-service-title">Reseñas y valoraciones</h3>
-                                <p class="atf-best-service-description">Permite a tus clientes valorar tu servicio,
-                                    recomendarlo y puntuarlo para posicionarte a nivel nacional.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--- END ROW -->
-        </div>
-        <!--- END CONTAINER -->
-    </section>
-    <!-- END SERVICE -->
-
-    {{-- <!-- START CHOOSE -->
+        {{-- <!-- START CHOOSE -->
     <section id="service" class="atf-service-area atf-section-padding">
         <div class="container">
             <div class="row justify-content-center">
@@ -349,9 +348,9 @@
     </div>
     <!-- END HIRE--> --}}
 
-    {{-- OCULTANDO LA CARTERA DE CLIENTES PARA MOSTRARLA CUANDO TENGAMOS CLIENTES REALES --}}
+        {{-- OCULTANDO LA CARTERA DE CLIENTES PARA MOSTRARLA CUANDO TENGAMOS CLIENTES REALES --}}
 
-    {{-- <!-- START CLIENT PORTFOLIO -->
+        {{-- <!-- START CLIENT PORTFOLIO -->
     <section id="portfolio" class="atf-portfolio-area atf-section-padding">
         <div class="container">
             <div class="row justify-content-center">
@@ -524,290 +523,311 @@
     <!-- END CLIENT PORTFOLIO --> --}}
 
 
-    <!-- TESTIMONIAL SECTION START-->
-    <section id="testimonial" class="atf-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-xl-6">
-                    <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
-                        data-wow-offset="0">
-                        <h5 class="atf-sheading"> Reseñas</h5>
-                        <h2 class="text-white">NUESTROS CLIENTES DICEN</h2>
-                        {{-- <p class="text-white">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor
-                            sit amet elit dolor sit amet elit.</p> --}}
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-
-
-            <div class="row">
-                <!-- Testimonials section Starts-->
-                <div class="col-lg-12">
-                    <div id="testimonial-slider"
-                        class="atf-testimonials-slide atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}" alt="Portfolio Image">
-                            </div>
-                            <h3 class="testimonial-title">Al-Mubdi</h3>
-                            {{-- <small class="post">Web Designer</small> --}}
-                            <p class="description">
-                                Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
-                            </p>
-                        </div>
-
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
-                                    alt="Portfolio Image">
-                            </div>
-                            <h3 class="testimonial-title">Al-Mushi</h3>
-                            {{-- <small class="post">Web Developer</small> --}}
-                            <p class="description">
-                                Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
-                            </p>
-                        </div>
-
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
-                                    alt="Portfolio Image">
-                            </div>
-                            <h3 class="testimonial-title">Al-Hasib</h3>
-                            {{-- <small class="post">Web Developer</small> --}}
-                            <p class="description">
-                                Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
-                            </p>
-                        </div>
-
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
-                                    alt="Portfolio Image">
-                            </div>
-                            <h3 class="testimonial-title">Al-Wahid</h3>
-                            {{-- <small class="post">Web Developer</small> --}}
-                            <p class="description">
-                                Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-        </div>
-        <!--- END CONTAINER -->
-    </section>
-    <!-- TESTIMONIAL SECTION END-->
-
-
-
-    <!-- START  PRICING SECTION-->
-    <div id="pricing" class="atf-pricing-area atf-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-xl-6">
-                    <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
-                        data-wow-offset="0">
-                        <h5 class="atf-sheading"> Planes</h5>
-                        <h2 class="">Nuestros precios</h2>
-                        {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
-                            sit amet elit.</p> --}}
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <div class="price-value">
-                                <span class="amount">15.000</span>
-                                <span class="currency">₡</span>
-                                <span class="duration">por-mes</span>
-                            </div>
-                        </div>
-                        <h2 class="title">Basico</h2>
-                        <ul class="pricing-content">
-                            <li>1 Barbero</li>
-                            <li>Control De Citas</li>
-                            <li>24/7 Support</li>
-                            <li class="disable">Ingresos-Egresos</li>
-                            <li class="disable">Implementaciones a medida</li>
-                        </ul>
-                        <div class="atf-about-btn">
-                            <a class="atf-themes-btn" data-hover="inscribirse" href="#">
-                                <span> inscribirse</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <div class="price-value">
-                                <span class="amount">20.000</span>
-                                <span class="currency">₡</span>
-                                <span class="duration">por-mes</span>
-                            </div>
-                        </div>
-                        <h2 class="title">Standard</h2>
-                        <ul class="pricing-content">
-                            <li>1-5  Barberos</li>
-                            <li>Control De Citas</li>
-                            <li>24/7 Support</li>
-                            <li class="">Ingresos-Egresos</li>
-                            <li class="disable">Implementaciones a medida</li>
-                        </ul>
-                        <div class="atf-about-btn">
-                            <a class="atf-themes-btn" data-hover="inscribirse" href="#">
-                                <span> inscribirses</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <div class="price-value">
-                                <span class="amount">30.000</span>
-                                <span class="currency">₡</span>
-                                <span class="duration">por-mes</span>
-                            </div>
-                        </div>
-                        <h2 class="title">Premium</h2>
-                        <ul class="pricing-content">
-                            <li>5-10  Barberos</li>
-                            <li>Control De Citas</li>
-                            <li>24/7 Support</li>
-                            <li class="">Ingresos-Egresos</li>
-                            <li class="">Implementaciones a medida</li>
-                        </ul>
-                        <div class="atf-about-btn">
-                            <a class="atf-themes-btn" data-hover="inscribirse" href="#">
-                                <span> inscribirse</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- END  PRICING SECTION-->
-
-
-    <!-- BLOG SECTION START-->
-    <section id="blog" class="atf-blog-area atf-section-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-xl-6">
-                    <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s" data-wow-delay="0.3s"
-                        data-wow-offset="0">
-                        <h5 class="atf-sheading"> ESTILOS</h5>
-                        <h2 class="">ARTICULOS DE INTERES</h2>
-                        {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
-                            sit amet elit.</p> --}}
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-
-
-            <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div id="blog-slider" class="atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
-                        <div class="atf-post-slide">
-                            <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/7.jpg') }}" alt="Blog">
-                            </div>
-                            <h5 class="atf-post-title"><a href="https://diprofem.com/blog/que-es-el-corte-buzz"> Corte Buzz</a></h5>
-
-                            <p class="atf-post-description pr-lg-3">
-                                El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con
-                                maquinilla. También se le conoce como Corte de Bola porque es completamente redondo.
-                            </p>
-                        </div>
-                        <div class="atf-post-slide">
-                            <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/8.jpg') }}" alt="Blog">
-                            </div>
-                            <h5 class="atf-post-title"><a href="https://tocado.es/corte-fade-en-que-consiste-y-como-mantenerlo/">corte Fade</a></h5>
-
-                            <p class="atf-post-description pr-lg-3">
-                                El corte fade (desvanecido)hace referencia al degradado que va de la nuca baja hacia la coronilla, en algunas ocaciones se utiliza navaja para el área más rebajada y en otras ocaciones se trabaja con máquina y tijera.
-                            </p>
-                        </div>
-                        <div class="atf-post-slide">
-                            <div class="atf-post-img">
-                                <img src="{{ asset('storage/public/assets/img/blog/9.jpg') }}" alt="Blog">
-                            </div>
-                            <h5 class="atf-post-title"><a href="https://www.allthingshair.com/es-ar/cortes-de-pelo-de-hombre/corte-mullet-hombre/">Corte mullet</a></h5>
-                            <p class="atf-post-description pr-lg-3">
-                                El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta, tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--- END COL -->
-            </div>
-            <!--- END ROW -->
-        </div>
-        <!--- END CONTAINER -->
-    </section>
-    <!-- BLOG SECTION END-->
-
-    <!-- MAILCHAMP SECTION START-->
-    <div id="mailchamp" class="atf-mailchamp-area" style="background-image:url({{ asset('storage/public/assets/img/slider/4.jpg') }});background-size:cover; background-position: center center">
-    </div>
-    <!--- END MAILCHAMP -->
-
-    <!-- CONTACT SECTION START-->
-    <section id="contact" class="atf-contact-area">
-        <div class="atf-section-padding">
+        <!-- TESTIMONIAL SECTION START-->
+        <section id="testimonial" class="atf-section-padding">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-7 col-xl-6">
                         <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                             data-wow-delay="0.3s" data-wow-offset="0">
-                            <h5 class="atf-sheading">CONTACTANOS</h5>
-                            <h2 class="">Ponerse en contacto</h2>
-                            {{-- <p class="">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor
-                                sit amet elit dolor sit amet elit.</p> --}}
+                            <h5 class="atf-sheading"> Reseñas</h5>
+                            <h2 class="text-white">NUESTROS CLIENTES DICEN</h2>
+                            {{-- <p class="text-white">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor
+                            sit amet elit dolor sit amet elit.</p> --}}
                         </div>
                     </div>
                     <!--- END COL -->
                 </div>
                 <!--- END ROW -->
 
-                <!-- START REDES BRAND LOGO  -->
-                <div id="atf-brand-area" class="atf-section-padding">
-                    <div class="atf-brand-overlay">
-                        <div class="container">
-                            <div class="row clearfix">
-                                <div class="col-md-12 col-lg-12">
-                                    <div class="atf-brand-active owl-carousel">
-                                        <a href="https://www.facebook.com/profile.php?id=100078238669949"><img src="{{ asset('storage/public/assets/img/redes/1.png') }}" alt="image"></a>
-                                        <a href="https://www.instagram.com/grupoteamcode/"><img src="{{ asset('storage/public/assets/img/redes/2.png') }}" alt="image"></a>
-                                        <a href="https://wa.me/+50662962424"><img src="{{ asset('storage/public/assets/img/redes/3.png') }}" alt="image"></a>
-                                        <a href="mailto:grupoteamcode@gmail.com"><img src="{{ asset('storage/public/assets/img/redes/4.png') }}" alt="image"></a>
-                                        <a href="https://www.tiktok.com/@teamcode.tech?lang=es"><img src="{{ asset('storage/public/assets/img/redes/5.png') }}" alt="image"></a>
-                                    </div>
-                                </div><!-- END COL  -->
-                            </div><!--END  ROW  -->
-                        </div><!-- END CONTAINER  -->
-                    </div><!-- END OVERLAY -->
-                </div>
-                <!-- END REDES BRAND LOGO -->
 
-                <!-- CONTACT SECTION START-->
+                <div class="row">
+                    <!-- Testimonials section Starts-->
+                    <div class="col-lg-12">
+                        <div id="testimonial-slider"
+                            class="atf-testimonials-slide atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
+                            <div class="testimonial">
+                                <div class="pic">
+                                    <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
+                                        alt="Portfolio Image">
+                                </div>
+                                <h3 class="testimonial-title">Al-Mubdi</h3>
+                                {{-- <small class="post">Web Designer</small> --}}
+                                <p class="description">
+                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                </p>
+                            </div>
+
+                            <div class="testimonial">
+                                <div class="pic">
+                                    <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
+                                        alt="Portfolio Image">
+                                </div>
+                                <h3 class="testimonial-title">Al-Mushi</h3>
+                                {{-- <small class="post">Web Developer</small> --}}
+                                <p class="description">
+                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                </p>
+                            </div>
+
+                            <div class="testimonial">
+                                <div class="pic">
+                                    <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
+                                        alt="Portfolio Image">
+                                </div>
+                                <h3 class="testimonial-title">Al-Hasib</h3>
+                                {{-- <small class="post">Web Developer</small> --}}
+                                <p class="description">
+                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                </p>
+                            </div>
+
+                            <div class="testimonial">
+                                <div class="pic">
+                                    <img src="{{ asset('storage/public/assets/img/portfolio/1.jpg') }}"
+                                        alt="Portfolio Image">
+                                </div>
+                                <h3 class="testimonial-title">Al-Wahid</h3>
+                                {{-- <small class="post">Web Developer</small> --}}
+                                <p class="description">
+                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                </div>
+                <!--- END ROW -->
+            </div>
+            <!--- END CONTAINER -->
+        </section>
+        <!-- TESTIMONIAL SECTION END-->
+
+
+
+        <!-- START  PRICING SECTION-->
+        <div id="pricing" class="atf-pricing-area atf-section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-xl-6">
+                        <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
+                            data-wow-delay="0.3s" data-wow-offset="0">
+                            <h5 class="atf-sheading"> Planes</h5>
+                            <h2 class="">Nuestros precios</h2>
+                            {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
+                            sit amet elit.</p> --}}
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                </div>
+                <!--- END ROW -->
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="pricingTable">
+                            <div class="pricingTable-header">
+                                <div class="price-value">
+                                    <span class="amount">15.000</span>
+                                    <span class="currency">₡</span>
+                                    <span class="duration">por-mes</span>
+                                </div>
+                            </div>
+                            <h2 class="title">Basico</h2>
+                            <ul class="pricing-content">
+                                <li>1 Barbero</li>
+                                <li>Control De Citas</li>
+                                <li>24/7 Support</li>
+                                <li class="disable">Ingresos-Egresos</li>
+                                <li class="disable">Implementaciones a medida</li>
+                            </ul>
+                            <div class="atf-about-btn">
+                                <a class="atf-themes-btn" data-hover="inscribirse" href="#">
+                                    <span> inscribirse</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="pricingTable">
+                            <div class="pricingTable-header">
+                                <div class="price-value">
+                                    <span class="amount">20.000</span>
+                                    <span class="currency">₡</span>
+                                    <span class="duration">por-mes</span>
+                                </div>
+                            </div>
+                            <h2 class="title">Standard</h2>
+                            <ul class="pricing-content">
+                                <li>1-5 Barberos</li>
+                                <li>Control De Citas</li>
+                                <li>24/7 Support</li>
+                                <li class="">Ingresos-Egresos</li>
+                                <li class="disable">Implementaciones a medida</li>
+                            </ul>
+                            <div class="atf-about-btn">
+                                <a class="atf-themes-btn" data-hover="inscribirse" href="#">
+                                    <span> inscribirses</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="pricingTable">
+                            <div class="pricingTable-header">
+                                <div class="price-value">
+                                    <span class="amount">30.000</span>
+                                    <span class="currency">₡</span>
+                                    <span class="duration">por-mes</span>
+                                </div>
+                            </div>
+                            <h2 class="title">Premium</h2>
+                            <ul class="pricing-content">
+                                <li>5-10 Barberos</li>
+                                <li>Control De Citas</li>
+                                <li>24/7 Support</li>
+                                <li class="">Ingresos-Egresos</li>
+                                <li class="">Implementaciones a medida</li>
+                            </ul>
+                            <div class="atf-about-btn">
+                                <a class="atf-themes-btn" data-hover="inscribirse" href="#">
+                                    <span> inscribirse</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END  PRICING SECTION-->
+
+
+        <!-- BLOG SECTION START-->
+        <section id="blog" class="atf-blog-area atf-section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-xl-6">
+                        <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
+                            data-wow-delay="0.3s" data-wow-offset="0">
+                            <h5 class="atf-sheading"> ESTILOS</h5>
+                            <h2 class="">ARTICULOS DE INTERES</h2>
+                            {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
+                            sit amet elit.</p> --}}
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                </div>
+                <!--- END ROW -->
+
+
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div id="blog-slider" class="atf-main-testimonials atf-testimonial-slider owl-carousel owl-theme">
+                            <div class="atf-post-slide">
+                                <div class="atf-post-img">
+                                    <img src="{{ asset('storage/public/assets/img/blog/7.jpg') }}" alt="Blog">
+                                </div>
+                                <h5 class="atf-post-title"><a href="https://diprofem.com/blog/que-es-el-corte-buzz"> Corte
+                                        Buzz</a></h5>
+
+                                <p class="atf-post-description pr-lg-3">
+                                    El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con
+                                    maquinilla. También se le conoce como Corte de Bola porque es completamente redondo.
+                                </p>
+                            </div>
+                            <div class="atf-post-slide">
+                                <div class="atf-post-img">
+                                    <img src="{{ asset('storage/public/assets/img/blog/8.jpg') }}" alt="Blog">
+                                </div>
+                                <h5 class="atf-post-title"><a
+                                        href="https://tocado.es/corte-fade-en-que-consiste-y-como-mantenerlo/">corte
+                                        Fade</a></h5>
+
+                                <p class="atf-post-description pr-lg-3">
+                                    El corte fade (desvanecido)hace referencia al degradado que va de la nuca baja hacia la
+                                    coronilla, en algunas ocaciones se utiliza navaja para el área más rebajada y en otras
+                                    ocaciones se trabaja con máquina y tijera.
+                                </p>
+                            </div>
+                            <div class="atf-post-slide">
+                                <div class="atf-post-img">
+                                    <img src="{{ asset('storage/public/assets/img/blog/9.jpg') }}" alt="Blog">
+                                </div>
+                                <h5 class="atf-post-title"><a
+                                        href="https://www.allthingshair.com/es-ar/cortes-de-pelo-de-hombre/corte-mullet-hombre/">Corte
+                                        mullet</a></h5>
+                                <p class="atf-post-description pr-lg-3">
+                                    El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta,
+                                    tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--- END COL -->
+                </div>
+                <!--- END ROW -->
+            </div>
+            <!--- END CONTAINER -->
+        </section>
+        <!-- BLOG SECTION END-->
+
+        <!-- MAILCHAMP SECTION START-->
+        <div id="mailchamp" class="atf-mailchamp-area"
+            style="background-image:url({{ asset('storage/public/assets/img/slider/4.jpg') }});background-size:cover; background-position: center center">
+        </div>
+        <!--- END MAILCHAMP -->
+
+        <!-- CONTACT SECTION START-->
+        <section id="contact" class="atf-contact-area">
+            <div class="atf-section-padding">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7 col-xl-6">
+                            <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
+                                data-wow-delay="0.3s" data-wow-offset="0">
+                                <h5 class="atf-sheading">CONTACTANOS</h5>
+                                <h2 class="">Ponerse en contacto</h2>
+                                {{-- <p class="">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor
+                                sit amet elit dolor sit amet elit.</p> --}}
+                            </div>
+                        </div>
+                        <!--- END COL -->
+                    </div>
+                    <!--- END ROW -->
+
+                    <!-- START REDES BRAND LOGO  -->
+                    <div id="atf-brand-area" class="atf-section-padding">
+                        <div class="atf-brand-overlay">
+                            <div class="container">
+                                <div class="row clearfix">
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="atf-brand-active owl-carousel">
+                                            <a href="https://www.facebook.com/profile.php?id=100078238669949"><img
+                                                    src="{{ asset('storage/public/assets/img/redes/1.png') }}"
+                                                    alt="image"></a>
+                                            <a href="https://www.instagram.com/grupoteamcode/"><img
+                                                    src="{{ asset('storage/public/assets/img/redes/2.png') }}"
+                                                    alt="image"></a>
+                                            <a href="https://wa.me/+50662962424"><img
+                                                    src="{{ asset('storage/public/assets/img/redes/3.png') }}"
+                                                    alt="image"></a>
+                                            <a href="mailto:grupoteamcode@gmail.com"><img
+                                                    src="{{ asset('storage/public/assets/img/redes/4.png') }}"
+                                                    alt="image"></a>
+                                            <a href="https://www.tiktok.com/@teamcode.tech?lang=es"><img
+                                                    src="{{ asset('storage/public/assets/img/redes/5.png') }}"
+                                                    alt="image"></a>
+                                        </div>
+                                    </div><!-- END COL  -->
+                                </div>
+                                <!--END  ROW  -->
+                            </div><!-- END CONTAINER  -->
+                        </div><!-- END OVERLAY -->
+                    </div>
+                    <!-- END REDES BRAND LOGO -->
+
+                    <!-- CONTACT SECTION START-->
                     <div class="col-lg-7 col-12 d-block mx-auto my-auto" data-aos="fade-up">
                         <div class="contact">
                             <h4>Send a Message</h4>
@@ -851,7 +871,7 @@
                 <!--- END ROW -->
             </div>
             <!--- END CONTAINER -->
-        <!--- END OVERLAY -->
-    </section>
-    <!-- CONTACT SECTION END-->
-@endsection
+            <!--- END OVERLAY -->
+        </section>
+        <!-- CONTACT SECTION END-->
+    @endsection

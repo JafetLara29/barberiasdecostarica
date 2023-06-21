@@ -25,5 +25,23 @@ return [
     'recover_password_link' => 'Recover password',
     'username_placeholder' => 'Username',
     'password_placeholder' => 'Password',
+    'comunidad_service' => 'Implement technology in your barbershop and be part of the community.',
+    'quiero_ser_parte' => 'I want to be a part',
+    'mejor_impresion' => 'better impression',
+    'primera_impresion' => 'A negative first impression is harder to change than a positive one, DONT PLAY WITH IT!',
+    'buscar_barbershop' => 'Search Barbershop',
+    'Mi_barber' => 'My barber',
+    'Nosotros' => 'About Us',
+    'servicio_pensado_ser_parte_hagamoslo' => 'A service designed for you. Want to be part of the new technological movement and offer a better service to your customers? Let\'s make it happen!',
+    'ver_servicios' => 'see services',
+    'puedes_ver_video' => 'you can see video',
+    'services_view' => 'services',
+    'services_app' => 'App',
+    'agendado_de_citas' => 'appointment scheduling',
+    'tus_clientes' => ' Allow your clients to schedule appointments conveniently and without delays.',
+    'el_posicionamiento' => 'Positioning',
+    'los_rankings' => 'Make your barbershop known nationwide with the rankings and in the list of affiliated barbershops by canton.',
+
+
     // otros textos de idioma
 ];

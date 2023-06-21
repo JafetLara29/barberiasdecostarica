@@ -226,10 +226,10 @@
                                     </ul>
                                 </li> --}}
                                 <li class="nav-item">
-                                    <a href="{{route('search')}}" class="nav-link">Buscar barbershop</a>
+                                    <a href="{{ route('search') }}" class="nav-link">@lang('messages.buscar_barbershop')</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('login')}}" class="nav-link">Mi barber</a>
+                                    <a href="{{ route('login') }}" class="nav-link">@lang('messages.Mi_barber')</a>
                                 </li>
                             </ul>
                         </div>
@@ -365,13 +365,13 @@
     }
 </style>
 
-<a href="/en-page" class="language-container">
+{{-- <a href="/en-page" class="language-container">
     <img id="english-image" src="{{ asset('storage/public/assets/img/flag/English.jpg') }}" alt="English Image" style="display: none;">
 </a>
 
 <a href="/es-page" class="language-container">
     <img id="spanish-image" src="{{ asset('storage/public/assets/img/flag/Español.jpg') }}" alt="Spanish Image" style="display: inline;">
-</a>
+</a> --}}
 
 
 <script>
