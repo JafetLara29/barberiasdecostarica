@@ -33,7 +33,7 @@ class Barber extends Model
     public function socialMedias(){
         return $this->morphMany(SocialMedia::class, 'social_mediable');
     }
-
+    
     /**
      *|-------------------------------------------------------
      * |Metodo para indicar que un barbero tiene muchas citas-

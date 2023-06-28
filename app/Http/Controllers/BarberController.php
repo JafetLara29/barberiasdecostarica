@@ -56,6 +56,32 @@ class BarberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function verifyBarber(Request $request)
+     {
+         try {
+             $nombreBarbero = $request->input('name');
+
+             $barbero = barber::where('name', $nombreBarbero)->first();
+
+             if ($barbero) {
+                 return [
+                     'existe' => true,
+                     'user_id' => $barbero->id
+                 ];
+             } else {
+                 return [
+                     'existe' => false
+                 ];
+             }
+         } catch (\Throwable $th) {
+             return [
+                 'error' => 'Error al verificar el barbero: ' . $th->getMessage()
+             ];
+         }
+     }
+
+
     public function create()
     {
         return view('dashboards.forms.addbarbersinformationform'); //
@@ -207,10 +233,36 @@ class BarberController extends Controller
      * @param  \App\Models\Barber  $barber
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Barber $barber)
-    {
-        //
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required',
+        'image' => 'required',
+    ]);
+
+    $barber = Barber::findOrFail($id);
+    $barber->name = $request->name;
+
+    // Proceso de guardado de imagen:
+    $fileName = $request->file('image')->hashName();
+    $fileType = $request->file('image')->getMimeType();
+
+    if (str_contains($fileType, 'image')) {
+        $path = $request->file('image')->storeAs('barbers', $fileName, 'public');
+    } else {
+        return response()->json([
+            'errors' => true,
+        ]);
     }
+
+    $barber->image = '/storage/' . $path;
+    $barber->save();
+
+    return response()->json([
+        'success' => true,
+        'id' => $barber->id,
+    ]);
+}
 
     /**
      * Remove the specified resource from storage.

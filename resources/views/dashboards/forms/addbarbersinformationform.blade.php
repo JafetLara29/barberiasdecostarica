@@ -21,8 +21,8 @@
                             <form id="general-info" action="" method="post">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nombre del Barbero</label>
-                                    <input id="barbername" type="text" name="name" class="form-control"
-                                        placeholder="Escribe el nombre de tu barbero" required>
+                                    <input onblur="existBarberValidate()" id="barbername" type="text" name="name"
+                                        class="form-control" placeholder="Escribe el nombre de tu barbero" required>
                                     {{-- <small id="name-description" class="text-muted">Help text</small> --}}
                                 </div>
                                 <div class="mb-3">
@@ -203,10 +203,176 @@
                 </div>
             </div>
             <br>
-            <input onClick="barberValidate()" class="btn btn-outline-success" type="submit" value="Guardar">
+            <input id="submit-button" onClick="barberValidate()" class="btn btn-outline-success" type="submit"
+                value="Guardar">
         </div>
     </div>
     <script>
+        //Para en caso de existir un barber tener su id global
+        let globalId="";
+        //Methods to preload the information if exists an user_id, auth()->user_id or role_id related to the form information
+        function existBarberValidate() {
+            $.ajax({
+                url: '/verify-barber',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    name: $('#barbername').val() // Reemplaza con el nombre del barbero que deseas verificar
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.existe) {
+                        Toastify({
+                            text: "Hemos encontrado informacion previamente guardada , te ayudamos para que actualices la informacion. Revisa los formularios ",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #a8dba8, #7bc87b)", // Colores de fondo en degradado en tonos de verde
+                                color: "black", // Color del texto en negro para mayor contraste
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                            },
+
+                        }).showToast();
+
+                        // Cambiamos el nombre del botón de guardar a actualizar
+                        $('#submit-button').val('Actualizar');
+
+                        // Barbero encontrado, precargar la información en los inputs
+                        $('#nombre').val($('#barbername').val());
+                        $('#user_id').val(response.user_id);
+                        globalId=response.user_id;
+
+                        // Llamar a la función de verificar horario
+                        existScheduleValidate(response.user_id);
+                    } else {
+                        // Continuar con el flujo inicial y enviamos una advertencia
+                        Toastify({
+                            text: "¡Tienes suerte , no hay barberos con este nombre",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
+                                color: "black", // Color del texto en negro
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                            },
+                        }).showToast();
+                        clearInputsBarbers();
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                    // Manejamos el error
+                }
+            });
+        }
+
+        //Validamos si existe un horario para el barbero previamente existente
+        function existScheduleValidate(id) {
+            $.ajax({
+                url: '/verify-schedule',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id // Reemplaza con el id del barbero que deseas verificar
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success) {
+
+                        // Barbero encontrado, precargar la información en los inputs del horario
+                        var scheduleInfo = response.data;
+                        for (var i = 0; i < scheduleInfo.length; i++) {
+                            var day = scheduleInfo[i].day;
+                            var start = scheduleInfo[i].start;
+                            var end = scheduleInfo[i].end;
+
+                            $('#' + day + '-checkbox').prop('checked', true);
+                            $('#' + day + '-start').val(start);
+                            $('#' + day + '-end').val(end);
+                        }
+
+                        // Llamar a la función de verificar redes sociales
+                        existSocialmediaValidate(id);
+                    } else {
+                        // Continuar con una advertencia
+                        Toastify({
+                            text: "Al parecer no hay informacion de horario relacionada al barbero !",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
+                                color: "black", // Color del texto  en negro
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                            },
+
+                        }).showToast();
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                    // Mostramos error al estilo hackerman
+                }
+            });
+        }
+        //Validamos si existe unas redes sociales relacionadas al barbero existente
+        function existSocialmediaValidate(id) {
+            $.ajax({
+                url: '/verify-Social',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    id: id // Reemplaza con el id del barbero que deseas verificar
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Barbero encontrado, precargar la información en los inputs de redes sociales
+                        var socialmediaInfo = response.data;
+                        for (var i = 0; i < socialmediaInfo.length; i++) {
+                            var type = socialmediaInfo[i].type;
+                            var data = socialmediaInfo[i].data;
+
+                            $('#' + type + '-checkbox').prop('checked', true);
+                            $('#' + type + '-input').val(data);
+                        }
+                    } else {
+                        // Enviamos una advertencia de falta de información
+                        Toastify({
+                            text: "Al parecer no hay informacion de redes Sociales relacionada al barbero !",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
+                                color: "black", // Color del texto  en negro
+                                fontWeight: "bold", // Negrita en el texto
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
+                            },
+
+                        }).showToast();
+
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.log('Error:', errorThrown);
+                    // Mostrar error al estilo hackerman
+                }
+            });
+        }
+
+
         // making validations on the checkboxes to ensure that something is coming from imputs of every form
         function barberValidate() {
             var barbername = $('#barbername').val();
@@ -232,10 +398,15 @@
 
         }
 
-        function clearInputsBarbers(){
-            document.getElementById('general-info').reset();
+        //Para vaciar los campos de los formularios
+        function clearInputsBarbers() {
+
+
             document.getElementById('socialmedia-info').reset();
             document.getElementById('schedule-info').reset();
+            $('#submit-button').val('Guardar');
+            globalId=="";
+
         }
 
         function scheduleValidate() {
@@ -357,8 +528,179 @@
                 return false; // Se retorna false para evitar el envío del formulario
             }
 
-            // Si los checkboxes seleccionados y los inputs están llenos, se ejecuta la función barbersave()
-            barbersave();
+            // Si los checkboxes seleccionados y los inputs están llenos, se ejecuta la función para validar si el formulario guarda o actualiza
+            if ($('#submit-button').val() == 'Guardar') {
+                barbersave();
+            } else {
+                //Le pasamos su id global
+                barberUpdate(globalId);
+            }
+
+        }
+
+        //Functions of Updating
+        function barberUpdate(id) {
+            // Collect the info from the general-info form
+            var htmlForm = document.getElementById('general-info');
+            var form = new FormData(htmlForm);
+
+            $.ajax({
+                url: '/barbers/' + id,
+                type: 'POST',
+                data: form,
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success == true && response.id != 0) {
+                        // If the corresponding data is received from the backend, proceed to update the schedule info
+                        scheduleUpdate(id);
+                    } else if (response.errors == true) {
+                        Toastify({
+                            text: "Ha ocurrido un error, asegúrese de llenar los campos de su barbero.",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                    } else {
+                        Toastify({
+                            text: "Un error ha ocurrido al guardar el nombre y perfil de su barbero.",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                    }
+                }
+            });
+        }
+
+        function scheduleUpdate(id) {
+            // Collect the info from the schedule-info form
+            var htmlForm = document.getElementById('schedule-info');
+            var form = new FormData(htmlForm);
+            form.append("barber_id", id);
+
+            $.ajax({
+                url: '/schedule/' + id,
+                type: 'POST',
+                data: form,
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success == true && response.id != '') {
+                        // If the corresponding data is received from the backend, proceed to update the social media info
+                        socialmediaUpdate(id);
+                    } else if (response.errors == true) {
+                        Toastify({
+                            text: "Ha ocurrido un error, debe llenar la información del horario.",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                    } else {
+                        Toastify({
+                            text: "Un error ha ocurrido al guardar el horario.",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                    }
+                }
+            });
+        }
+
+        function socialmediaUpdate(id) {
+            // Collect the info from the socialmedia-info form
+            var htmlForm = document.getElementById('socialmedia-info');
+            var form = new FormData(htmlForm);
+            form.append("barber_id", id);
+
+            $.ajax({
+                url: '/socialmedia/' + id,
+                type: 'POST',
+                data: form,
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success) {
+
+                        Toastify({
+                            text: "Información actualizada exitosamente!",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #a8dba8, #7bc87b)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                        clearInputsBarbers();
+                    } else if (response.errors == true) {
+                        Toastify({
+                            text: "Ha ocurrido un error, debe llenar los campos de la información de contacto.",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                    } else {
+                        Toastify({
+                            text: "Un error ha ocurrido.",
+                            duration: 5000,
+                            gravity: "top",
+                            position: "center",
+                            style: {
+                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
+                                color: "black",
+                                fontWeight: "bold",
+                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                            }
+                        }).showToast();
+                    }
+                }
+            });
         }
 
 
