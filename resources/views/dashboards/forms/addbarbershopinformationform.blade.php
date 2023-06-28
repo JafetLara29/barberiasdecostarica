@@ -8,37 +8,37 @@
 @section('content')
 <!--contenedor de información del admin barberia-->
     <div class="container-information-barbery">
-        <div class="card shadow mb-5">
+        <div class="card shadow mb-5 bg-dark">
           <h1 class="container-fluid pt-2">Información de tu barbería</h1>
           <div class="accordion accordion-flush" id="accordionFlushExample">
             <form action="" method="post" id="form">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <h2 class="accordion-header" id="flush-headingOne" >
+                  <button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                     Información general
                   </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
+                  <div class="accordion-body bg-dark">
                       <div class="mb-3">
                         <small class="text-muted">Si desea cambiar alguno de los siguientes datos solo escriba en los campos de texto el valor nuevo y seleccione el botón "Cambiar"</small>
                       </div>
                         <div class="mb-3">
                           <label for="name" class="form-label">Nombre de la barbería</label>
-                          <input type="text" name="name" id="name" class="form-control" placeholder="Escribe el nombre de tu barbería" value="{{ $barbershop->name }}">
+                          <input type="text" name="name" id="name" class="form-control  bg-dark" placeholder="Escribe el nombre de tu barbería" value="{{ $barbershop->name }}">
 
                         </div>
                         <div class="mb-3">
                           <label for="image" class="form-label">Logo</label>
-                          <input type="file" name="image" id="image" class="form-control">
+                          <input type="file" name="image" id="image" class="form-control  bg-dark">
                         </div>
                         <div class="mb-3">
                           <label for="canton" class="form-label">Cantón</label>
-                          <input type="text" name="canton" id="canton" class="form-control" placeholder="Ingrese el nombre del cantón en el cuál se ubica la barbershop" value="{{ $barbershop->canton }}">
+                          <input type="text" name="canton" id="canton" class="form-control  bg-dark" placeholder="Ingrese el nombre del cantón en el cuál se ubica la barbershop" value="{{ $barbershop->canton }}">
                         </div>
                         <div class="mb-3">
                           <label for="address" class="form-label">Dirección</label>
-                          <textarea name="address" id="address" class="form-control" placeholder="Escribe la dirección de tu barbería">{{ $barbershop->address }}</textarea>
+                          <textarea name="address" id="address" class="form-control  bg-dark" placeholder="Escribe la dirección de tu barbería">{{ $barbershop->address }}</textarea>
 
                         </div>
                   </div>
@@ -46,7 +46,7 @@
               </div>
               <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingThree">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      <button class="accordion-button collapsed  bg-dark" type="button" data-bs-toggle="collapse"
                           data-bs-target="#flush-collapseThree" aria-expanded="false"
                           aria-controls="flush-collapseThree">
                           Información de contacto
@@ -54,7 +54,7 @@
                   </h2>
                   <div id="flush-collapseThree" class="accordion-collapse collapse"
                       aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                      <div class="accordion-body">
+                      <div class="accordion-body  bg-dark">
                           <div class="list-group">
                                   <div class="mb-3">
                                       <small class="text-muted">"Marque y llene los campos con la información de redes y
@@ -67,53 +67,53 @@
 
                                     @endif
                                   @endforeach
-                                  <label class="list-group-item">
+                                  <label class="list-group-item  bg-dark">
                                       <div class="m-3">
                                           <input id="phone-checkbox" class="form-check-input me-1" name="type[]"
                                               type="checkbox" value="phone">
                                           <ion-icon size="large" name="call-outline"></ion-icon>
-                                          <input id="phone-input" class="form-control" type="text" name="data[]"
+                                          <input id="phone-input" class="form-control  bg-dark" type="text" name="data[]"
                                               placeholder="Escriba su número de teléfono" value="">
                                       </div>
                                   </label>
                                   {{-- Item --}}
-                                  <label class="list-group-item">
+                                  <label class="list-group-item  bg-dark">
                                       <div class="m-3">
                                           <input id="whatsapp-checkbox" class="form-check-input me-1"name="type[]"
                                               type="checkbox" value="whatsapp">
                                           <ion-icon size="large" name="logo-whatsapp"></ion-icon>
-                                          <input id="whatsapp-input" class="form-control" type="text"
+                                          <input id="whatsapp-input" class="form-control  bg-dark" type="text"
                                               name="data[]" placeholder="Escriba su número de whatsapp"
                                               value="">
                                       </div>
                                   </label>
                                   {{-- Item --}}
-                                  <label class="list-group-item">
+                                  <label class="list-group-item  bg-dark">
                                       <div class="m-3">
                                           <input id="facebook-checkbox" class="form-check-input me-1" name="type[]"
                                               type="checkbox" value="facebook">
                                           <ion-icon size="large" name="logo-facebook"></ion-icon>
-                                          <input id="facebook-input" class="form-control" type="text"
+                                          <input id="facebook-input" class="form-control  bg-dark" type="text"
                                               name="data[]" placeholder="Nombre de su perfil" value="">
                                       </div>
                                   </label>
                                   {{-- Item --}}
-                                  <label class="list-group-item">
+                                  <label class="list-group-item  bg-dark">
                                       <div class="m-3">
                                           <input id="insta-checkbox" class="form-check-input me-1" name="type[]"
                                               type="checkbox" value="insta">
                                           <ion-icon size="large" name="logo-instagram"></ion-icon>
-                                          <input id="insta-input" class="form-control" type="text" name="data[]"
+                                          <input id="insta-input" class="form-control  bg-dark" type="text" name="data[]"
                                               placeholder="Nombre de su perfil" value="">
                                       </div>
                                   </label>
                                   {{-- Item --}}
-                                  <label class="list-group-item">
+                                  <label class="list-group-item  bg-dark">
                                       <div class="m-3">
                                           <input id="tiktok-checkbox" class="form-check-input me-1" name="type[]"
                                               type="checkbox" value="tiktok">
                                           <ion-icon size="large" name="logo-tiktok"></ion-icon>
-                                          <input id="tiktok-input" class="form-control" type="text" name="data[]"
+                                          <input id="tiktok-input" class="form-control  bg-dark" type="text" name="data[]"
                                               placeholder="Escriba su perfil" value="">
                                       </div>
                                   </label>

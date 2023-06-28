@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <!-- Default select start -->
-                <div class="card">
+                <div class="card  bg-dark">
                     <div class="page-header-title">
                         <!--  <h5>Default Select</h5>
                     <span>Add class of <code>.form-control</code> with
@@ -22,7 +22,7 @@
 
                             <div class="col-sm-12 col-xl-3 m-b-30">
                                 <h4 class="sub-title">Ver Ingresos</h4>
-                                <select name="select_year" id="select_year" class="form-select form-control form-control-primary">
+                                <select name="select_year" id="select_year" class="form-select form-control form-control-primary  bg-dark">
                                     <option selected value="0">Seleccione un año</option>
                                     <option value="2022">2022</option>
                                     <option value="2023">2023</option>

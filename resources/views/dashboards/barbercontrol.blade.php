@@ -34,11 +34,11 @@
         </div>
         <!-- Page-header end -->
         <!-- round card start -->
-        <div class="row users-card">
+        <div class="row users-card p-3">
             @foreach ($barbers as $barber)
-                <div class="col-lg-6 col-xl-3 col-md-6">
-                    <div class="card rounded-card user-card">
-                        <div class="card-block">
+                <div class="col-lg-6 col-xl-3 col-md-6 ">
+                    <div class="card rounded-card user-card bg-dark">
+                        <div class="card-block ">
                             <div class="img-hover">
                                 <img class="img-fluid img-radius" src="{{ asset($barber->image) }}" alt="round-img">
                                 <div class="img-overlay img-radius">

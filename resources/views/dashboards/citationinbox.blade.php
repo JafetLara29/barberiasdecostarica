@@ -2,11 +2,21 @@
 
 @section('content')
     <div class="">
-        <div class="card shadow">
+        <div class="card shadow bg-dark ml-2 mt-4">
+
             <h1>Pendientes</h1>
             <div class="list-group overflow-auto p-2" id="citation">
 
             </div>
+
+            @if(!isset($barber) || $barber->citations->isEmpty())
+        
+                <div class="alert alert-warning">
+                    no hay citas pendientes
+                    
+                </div>
+            @endif
+    
         </div>
     </div>
 

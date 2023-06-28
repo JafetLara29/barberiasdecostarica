@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="py-5">
-    <div class="card shadow m-2 mt-3 bg-light">
+<div class="py-5 bg-dark">
+    <div class="card shadow m-2 mt-3 bg-dark">
         <h1 class="container-fluid pt-2">[{{ auth()->user()->name }}] Registrar la informaci&oacute;n de usuarios</h1>
         <div class="m-3">
             @if (session('status'))
@@ -18,14 +18,14 @@
                 @csrf
                 <div class="mb-2">
                     <!--                         <label for="name" class="form-label">Nombre de Usuario</label> -->
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Escribe el nombre del barbero">
+                    <input type="text" name="name" id="name" class="form-control bg-dark" placeholder="Escribe el nombre del barbero">
                     {{-- <small id="name-description" class="text-muted">Help text</small> --}}
                 </div>
 
                 <div class="row mt-3">
                     <div class="col-md-10">
                         <div class="d-grid">
-                            <input type="text" name="password" id="password" class="form-control" placeholder="Genere la contraseña" readonly>
+                            <input type="text" name="password" id="password" class="form-control bg-dark" placeholder="Genere la contraseña" readonly>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -38,7 +38,7 @@
                 <div class="mb-2">
                     <!-- <label for="image" class="form-label">Email</label> -->
                     <div class="form-group">
-                        <input type="email" placeholder="Escribe el email de usuario" class="form-control" name="email" id="email">
+                        <input type="email" placeholder="Escribe el email de usuario" class="form-control bg-dark" name="email" id="email">
                     </div>
                 </div>
                 <div>

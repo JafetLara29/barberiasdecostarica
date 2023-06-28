@@ -168,6 +168,10 @@ class CitationController extends Controller
 
     public function inbox(){
         $barber = Barber::find(Auth::user()->id);
+
+        if(!isset($barber->citations) || $barber->citations->isEmpty())
+        return view('dashboards.citationinbox');
+        else
         $barber->citations()->where('read', 0);
         $citations = Citation::all();
         return view('dashboards.citationinbox')->with([

@@ -1,17 +1,17 @@
 @extends('layouts.adminhome')
 @section('content')
     <div class="">
-        <div class="card shadow mb-5">
+        <div class="card shadow mb-5 bg-dark">
             <h1 class="container-fluid pt-2">Información de barbero</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             Información general
                         </button>
                     </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingOne"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="mb-3">
@@ -21,7 +21,7 @@
                             <form id="general-info" action="" method="post">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nombre del Barbero</label>
-                                    <input id="barbername" type="text" name="name" class="form-control"
+                                    <input id="barbername" type="text" name="name" class="form-control bg-dark"
                                         placeholder="Escribe el nombre de tu barbero" required>
                                     {{-- <small id="name-description" class="text-muted">Help text</small> --}}
                                 </div>
@@ -29,7 +29,7 @@
                                     <label for="image" class="form-label">Imagen de perfil</label>
                                     <div class="form-group">
                                         <label for="image">Seleccione una imagen para el perfil de su barbero:</label>
-                                        <input type="file" class="form-control" name="image" id="inputimage" required>
+                                        <input type="file" class="form-control bg-dark" name="image" id="inputimage" required>
 
                                     </div>
                                 </div>
@@ -39,18 +39,18 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             Información del horario
                         </button>
                     </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingTwo"
                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <small class="text-muted">Marque los días en que su barbero viene a trabajar:</small>
                             <form id="schedule-info" class="list-group" action="" method="post">
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="monday"
                                             id="monday-checkbox">
@@ -60,7 +60,7 @@
                                     a: <input id="monday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="tuesday"
                                             id="tuesday-checkbox">
@@ -70,7 +70,7 @@
                                     a: <input id="tuesday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="wednesday"
                                             id="wednesday-checkbox">
@@ -80,7 +80,7 @@
                                     a: <input id="Wednesday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="thursday"
                                             id="thursday-checkbox">
@@ -90,7 +90,7 @@
                                     a: <input id="thursday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="friday"
                                             id="friday-checkbox">
@@ -100,7 +100,7 @@
                                     a: <input id="friday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="saturday"
                                             id="saturday-checkbox">
@@ -110,7 +110,7 @@
                                     a: <input id="saturday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
-                                <label class="list-group-item">
+                                <label class="list-group-item bg-dark">
                                     <div class="m-3">
                                         <input class="form-check-input" name="day[]" type="checkbox" value="sunday"
                                             id="sunday-checkbox">
@@ -126,16 +126,16 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed bg-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseThree" aria-expanded="false"
                             aria-controls="flush-collapseThree">
                             Información de contacto
                         </button>
                     </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                    <div id="flush-collapseThree" class="accordion-collapse collapse bg-dark"
                         aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            <div class="list-group">
+                            <div class="list-group bg-dark">
                                 <form id="socialmedia-info" action="" method="post">
                                     <div class="mb-3">
                                         <small class="text-muted">"Marque y llene los campos con la información de redes y
@@ -143,53 +143,53 @@
                                             desea)"</small>
                                     </div>
                                     {{-- Item --}}
-                                    <label class="list-group-item">
+                                    <label class="list-group-item bg-dark">
                                         <div class="m-3">
                                             <input id="phone-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="phone">
                                             <ion-icon size="large" name="call-outline"></ion-icon>
-                                            <input id="phone-input" class="form-control" type="text" name="data[]"
+                                            <input id="phone-input" class="form-control bg-dark" type="text" name="data[]"
                                                 placeholder="Escriba su número de teléfono" value="">
                                         </div>
                                     </label>
                                     {{-- Item --}}
-                                    <label class="list-group-item">
+                                    <label class="list-group-item bg-dark">
                                         <div class="m-3">
                                             <input id="whatsapp-checkbox" class="form-check-input me-1"name="type[]"
                                                 type="checkbox" value="whatsapp">
                                             <ion-icon size="large" name="logo-whatsapp"></ion-icon>
-                                            <input id="whatsapp-input" class="form-control" type="text"
+                                            <input id="whatsapp-input" class="form-control bg-dark" type="text"
                                                 name="data[]" placeholder="Escriba su número de whatsapp"
                                                 value="">
                                         </div>
                                     </label>
                                     {{-- Item --}}
-                                    <label class="list-group-item">
+                                    <label class="list-group-item bg-dark">
                                         <div class="m-3">
                                             <input id="facebook-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="facebook">
                                             <ion-icon size="large" name="logo-facebook"></ion-icon>
-                                            <input id="facebook-input" class="form-control" type="text"
+                                            <input id="facebook-input" class="form-control bg-dark" type="text"
                                                 name="data[]" placeholder="Nombre de su perfil" value="">
                                         </div>
                                     </label>
                                     {{-- Item --}}
-                                    <label class="list-group-item">
+                                    <label class="list-group-item bg-dark">
                                         <div class="m-3">
                                             <input id="insta-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="insta">
                                             <ion-icon size="large" name="logo-instagram"></ion-icon>
-                                            <input id="insta-input" class="form-control" type="text" name="data[]"
+                                            <input id="insta-input" class="form-control bg-dark" type="text" name="data[]"
                                                 placeholder="Nombre de su perfil" value="">
                                         </div>
                                     </label>
                                     {{-- Item --}}
-                                    <label class="list-group-item">
+                                    <label class="list-group-item bg-dark">
                                         <div class="m-3">
                                             <input id="tiktok-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="tiktok">
                                             <ion-icon size="large" name="logo-tiktok"></ion-icon>
-                                            <input id="titktok-input" class="form-control" type="text" name="data[]"
+                                            <input id="titktok-input" class="form-control bg-dark" type="text" name="data[]"
                                                 placeholder="Escriba su perfil" value="">
                                         </div>
                                     </label>
