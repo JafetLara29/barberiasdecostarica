@@ -42,6 +42,8 @@ Route::resource('/barbers', BarberController::class);
 |-------------------------------
 */
 Route::resource('/socialmedia',SocialMediaController::class);
+//Ruta para consulta de redes sociales
+Route::post('/verify-Social', [SocialMediaController::class,'verifySocial'])->name('verify-Social');
 Route::post('/socialmedia/store/for_barbershop', [SocialMediaController::class,'storeSocialMediaForBarbershop'])->name('socialmedia.storeForBarberhop');
 
 /*
@@ -92,7 +94,8 @@ Route::get('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('ba
 
 Route::get('/createuser', [BarberController::class, 'createUser'])->name('barbers.createUser');
 Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers.storeUser');
-// Nueva ruta para consulta
+// Nueva ruta para consulta de barber
+Route::post('/verify-barber', [BarberController::class,'verifyBarber'])->name('verify-barber');
 
 
 /*
@@ -126,7 +129,26 @@ Route::post('/incomes/filter', [IncomeController::class,'filter'])->name('income
 |--------------------------
 */
 Route::resource('/schedule', ScheduleController::class);
-
+// Ruta de consulta de horario
+Route::post('/verify-schedule', [ScheduleController::class,'verifySchedule'])->name('verify-schedule');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+/*
+|------------------------------------------
+| Rutas para actualizar algunos formularios
+|--------------------------------------------
+*/
+
+Route::prefix('barbers')->group(function () {
+    Route::post('/{id}', [BarberController::class, 'update'])->name('barbers.update');
+});
+
+Route::prefix('schedule')->group(function () {
+    Route::post('/{id}', [ScheduleController::class, 'update'])->name('schedule.update');
+});
+
+Route::prefix('socialmedia')->group(function () {
+    Route::post('/{id}', [SocialMediaController::class, 'update'])->name('socialmedia.update');
+});
