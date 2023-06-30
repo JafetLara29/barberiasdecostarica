@@ -69,7 +69,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="d-grid">
-                                            <a href="{{ route('register') }}" class="btn btn-info">
+                                            <a href="{{ route('register') }}" class="btn btn-outline-info">
                                                 @lang('messages.register_link')
                                             </a>
                                         </div>
