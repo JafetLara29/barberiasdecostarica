@@ -89,15 +89,16 @@ class RegisterController extends Controller
         ]);
         $user = User::where('email', $data['email'])
                         ->where('name', $data['name'])      
-                        ->get();
+                        ->get()
+                        ->first();
         $barbershop = Barbershop::create([
             'name'   => $data['name'],
             'address'=> $data['address'],
-            'image'=> 'none',
+            'image'=> '/storage/images/user-barber',
             'canton' => $data['canton'],
-            'user_id'=> $user[0]->id
+            'user_id'=> $user->id
         ]);
-        $barbershop = Barbershop::where('user_id', $user[0]->id)->get();
+        $barbershop = Barbershop::where('user_id', $user->id)->get();
         SocialMedia::create([
             'data'                => $data['phone'],
             'type'                => 'Telefono',
@@ -105,7 +106,7 @@ class RegisterController extends Controller
             'social_mediable_type' => Barbershop::class,
         ]);
         DB::table('role_user')->insert([
-            'user_id' => $user[0]->id,
+            'user_id' => $user->id,
             'role_id' => $role->id
         ]);
         session(['registered' => true]);

@@ -41,7 +41,7 @@
     {{-- ############################################################################################################# --}}
 
 
-    @vite(['resources/css/admin.css', 'resources/css/adminlte.min.css','resources/sass/app.scss','resources/css/adminschedule.css'])
+    @vite(['resources/js/app.js', 'resources/css/admin.css', 'resources/css/adminlte.min.css','resources/sass/app.scss','resources/css/adminschedule.css'])
 
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
@@ -280,7 +280,7 @@
         <script>
             AOS.init();
         </script>
-        <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}">
+        {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"> --}}
         </script>
         {{-- Datatables --}}
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.js">

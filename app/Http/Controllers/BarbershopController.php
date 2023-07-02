@@ -50,7 +50,8 @@ class BarbershopController extends Controller
         $socialMedia = $barbershop->socialMedias;
         return view('dashboards.forms.addbarbershopinformationform')->with([
             'barbershop' => $barbershop,
-            'socialMedia' => $socialMedia
+            'socialMedia' => $socialMedia,
+            'id' => $barbershop->id
         ]);
     }
 
@@ -62,7 +63,6 @@ class BarbershopController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -77,7 +77,8 @@ class BarbershopController extends Controller
             'barbershop' => $barbershop,
             'schedule'   => $barbershop->schedules,
             'barbers'    => $barbershop->barbers,
-            'services'   => $barbershop->services
+            'services'   => $barbershop->services,
+            'id'   => $barbershop->id
         ]);
     }
 
@@ -120,10 +121,12 @@ class BarbershopController extends Controller
         }
         // Guardamos el path y el tipo de archivo en el modelo
         $barbershop->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
+        
         $barbershop->save();
+        
         return response()->json([
             'success' => true,
-            'id' => Barber::latest('id')->first()->id,
+            'id' => $barbershop->id,
         ]);
     }
 

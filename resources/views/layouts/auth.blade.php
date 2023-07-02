@@ -64,6 +64,9 @@
 
             }).showToast();
         </script>
+        @php
+            session(['registered' => false]);
+        @endphp
     @endif
     {{-- scripts ADMINTY --}}
     <script type="text/javascript" src="{{ asset('/storage/bower_components/jquery/dist/jquery.min.js') }}"></script>

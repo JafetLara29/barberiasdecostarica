@@ -170,7 +170,10 @@ class SocialMediaController extends Controller
             ]);
         } else {
             //OBTENEMOS A LA BARBERSHOP ACTUALMENTE LOGUEADA
-            $barbershop = Barbershop::findOrFail(Auth::user()->id);
+            $barbershop = Auth::user()->barbershop;
+            // BORRAMOS LOS REGISTROS PREVIOS DE REDES SOCIALES PARA REGISTRAR LOS NUEVOS EN LIMPIO
+            $barbershop->socialMedias()->delete();
+
             foreach ($dataInfo as $key => $data) {
                 if (!empty($data)) {
                     $type = isset($typeInfo[$key]) ? $typeInfo[$key] : '';

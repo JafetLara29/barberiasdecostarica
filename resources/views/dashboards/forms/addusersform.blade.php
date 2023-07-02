@@ -3,16 +3,16 @@
 @section('content')
 
 <div class="py-5 bg-dark">
-    <div class="card shadow m-2 mt-3 bg-dark">
-        <h1 class="container-fluid pt-2">[{{ auth()->user()->name }}] Registrar la informaci&oacute;n de usuarios</h1>
-        <div class="m-3">
-            @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
+    <div class="card shadow m-2 mt-3 bg-dark p-2">
+        <small class="text-success mb-3">* Registre los usuarios con los que accederan sus barberos a la aplicación</small>
+        <h1>Registro de usuarios</h1>
+        @if (session('status'))
+            <div class="m-3">
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
             </div>
-            @endif
-            <br>
-        </div>
+        @endif
         <form id="add-user" action="{{ route('barbers.storeUser') }}" method="post">
             <div class="container">
                 @csrf
@@ -46,12 +46,12 @@
                 </div>
             </div>
         </form>
-
         <div class="row m-0 users-card">
-
+            <h3 class="mt-3">Usuarios registrados</h1>
+            <small class="text-success mb-3">* De click sobre la imagen de usuario para editar</small>
             @foreach ($users as $user)
             <div class="col-lg-6 col-xl-3 col-md-6">
-                <div class="card rounded-card user-card">
+                <div class="card rounded-card user-card" style="background: inherit">
                     <div class="card-block">
                         <div class="img-hover">
                             <img class="img-fluid img-radius" style="height: 150px;width: 150px;" src="{{ asset('/storage/images/user-barber.png') }}" alt="user-image">

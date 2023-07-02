@@ -2,8 +2,8 @@
 return [
     'welcome' => 'Welcome to the Dashboard!',
     'greeting' => 'Hello, :name!',
-    'welcome_dashboard' => 'Bienvenido al Dashboard!',
-    'select_option' => 'Selecciona una opción',
+    'welcome_dashboard' => 'Bienvenido(a)',
+    'select_option' => 'La app pensada para vos',
     'incomes' => 'Ingresos',
     'select_year' => 'Seleccione un año',
     'view_incomes' => 'Ver Ingresos',
