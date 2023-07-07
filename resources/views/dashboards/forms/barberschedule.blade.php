@@ -34,11 +34,21 @@
                 </div>
             </div>
         </div>
+
+        {{-- Toastify miedo del yimbon --}}
+        <!-- Toast -->
+        <div class="toast-container position-fixed top-0 end-0 p-3">
+            <!-- Toasts -->
+            <!-- Aquí se agregarán los toasts dinámicamente con JavaScript -->
+        </div>
+
     </body>
 @endsection
 
 @section('custom-scripts')
     <script>
+
+
         let view = "admin";
     </script>
     @vite(['resources/js/schedules.js'])

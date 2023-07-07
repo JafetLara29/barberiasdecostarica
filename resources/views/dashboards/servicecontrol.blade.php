@@ -70,8 +70,9 @@
         <div class="row mb-3">
             <div class="col-12">
                 <div class="page-header-title">
-                    <h1 class="container-fluid mt-0">Control de Servicios</h1>
-                    <p class="pt-1">Aquí puedes agregar, visualizar y eliminar los servicios disponibles al público</p>
+                    <h1 style="color:wheat!important" class="container-fluid mt-0">Control de Servicios</h1>
+                    <p style="color:wheat!important" class="pt-1">Aquí puedes agregar, visualizar y eliminar los servicios
+                        disponibles al público</p>
                     <a href="{{ Route('show.service.list') }}" class="btn btn-primary ml-3 mb-3 mt-3">Agregar servicio</a>
                     <hr>
                 </div>
@@ -98,16 +99,53 @@
             </div>
         </div>
     </div>
+    {{-- Toastify miedo del yimbon --}}
+    <!-- Toast -->
+    <div class="toast rounded-1" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000"
+        style="position: fixed; bottom: 1rem; right: 1rem;" id="myToast">
+        <div class="toast-header" style="background-color: #343a40; color: #ffffff;">
+            <strong class="mr-auto">Sistema</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body bg-light" id="toastContent" style="color: #343a40;">
+            <!-- El contenido del toast se actualizará dinámicamente con JavaScript -->
+        </div>
     </div>
 
 
     <script>
+        // Functions related to the new notification systems , bootstrap 4 toasts for compatibility
+        $(document).ready(function() {
+            $('.toast').toast('hide'); // Mostrar el toast al cargar la página
+
+            $('.toast .close').on('click', function() {
+                $(this).closest('.toast').toast('hide');
+            });
+        });
+
+
+
         var tbody = $("#services-table");
 
 
         $(document).ready(function() {
             loadServices();
         });
+
+        function showToast(message) {
+            var toast = $('.toast');
+            var toastContent = $('.toast-body');
+            toastContent.html(message);
+            $('#toastContent').css({
+                            background: "linear-gradient(to right, #a8dba8, #7bc87b)",
+                            color: "black",
+                            fontWeight: "bold",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                        });
+            toast.toast('show');
+        }
 
         function loadServices() {
             // Se realiza una petición AJAX al servidor para obtener los servicios
@@ -118,41 +156,36 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(data) {
-
                     let services = data.data;
-                    console.log(services);
 
                     // Se vacía la tabla para evitar duplicados
                     tbody.empty(); // Vacía solo los datos de la tabla
 
-                    // Si se recibieron servicios en la respuesta, se recorren para crear las filas de la tabla
-                    if (services.length > 0) {
-
+                    // Si se recibieron servicios válidos en la respuesta, se recorren para crear las filas de la tabla
+                    if (services && services.length > 0) {
                         services.forEach(service => {
-
                             // Se crea una fila de la tabla por cada servicio recibido
                             var row = `
-                                <tr id="row-${service.id}">
-                                    <td>${service.id}</td>
-                                    <td>${service.description}</td>
-                                    <td>${service.price}</td>
-                                    <td>${service.date_service}</td>
-                                    <td>
-                                        <button class="btn btn-primary" onclick="deleteService(${service.id})">
-                                            Eliminar
-                                        </button>
-                                    </td>
-                                </tr>
-                              `;
+                        <tr id="row-${service.id}">
+                            <td style="color:wheat !important">${service.id}</td>
+                            <td style="color:wheat !important">${service.description}</td>
+                            <td style="color:wheat !important">${service.price}</td>
+                            <td style="color:wheat !important">${service.date_service}</td>
+                            <td>
+                                <button class="btn btn-primary" onclick="deleteService(${service.id})">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    `;
                             // Se agrega la fila a la tabla
                             tbody.append(row);
                         });
-
                     } else {
-                        // Si no se recibieron servicios en la respuesta, se muestra un mensaje en la tabla
+                        // Si no se recibieron servicios válidos en la respuesta, se muestra un mensaje en la tabla
                         var row = `
                     <tr>
-                        <td colspan="4" class="text-center">No hay servicios registrados</td>
+                        <td colspan="4" style="color:wheat !important" class="text-center">No hay servicios registrados</td>
                     </tr>
                 `;
                         // Se agrega la fila a la tabla
@@ -160,22 +193,12 @@
                     }
                 },
                 error: function(xhr) {
-                    // Si la petición falla, se muestra una notificación de error utilizando la librería Toastify
-                    Toastify({
-                        text: "Ha ocurrido un error al cargar los servicios",
-                        duration: 5000,
-                        gravity: "top",
-                        position: "center",
-                        style: {
-                            background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                            color: "black",
-                            fontWeight: "bold",
-                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                        },
-                    }).showToast();
+                    // Si la petición falla, se muestra una notificación de error utilizando el Toast de Bootstrap 4
+                    showToast("Ha ocurrido un error al cargar los servicios");
                 }
             });
         }
+
 
         function deleteService(id) {
             $.ajax({
@@ -190,32 +213,10 @@
                 },
                 success: function(data) {
                     loadServices();
-                    Toastify({
-                        text: "Servicio eliminado exitosamente",
-                        duration: 5000,
-                        gravity: "top",
-                        position: "center",
-                        style: {
-                            background: "linear-gradient(to right, #a8dba8, #7bc87b)", // Colores de fondo en degradado en tonos de verde
-                            color: "black", // Color del texto en negro para mayor contraste
-                            fontWeight: "bold", // Negrita en el texto
-                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                        },
-                    }).showToast();
+                    showToast("Servicio eliminado exitosamente", "success");
                 },
                 error: function(xhr) {
-                    Toastify({
-                        text: "Ha ocurrido un error al eliminar el servicio",
-                        duration: 5000,
-                        gravity: "top",
-                        position: "center",
-                        style: {
-                            background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                            color: "black", // Color del texto en negro para mayor contraste
-                            fontWeight: "bold", // Negrita en el texto
-                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                        },
-                    }).showToast();
+                    showToast("Ha ocurrido un error al eliminar el servicio", "error");
                 }
             });
         }
