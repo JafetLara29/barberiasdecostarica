@@ -10,7 +10,7 @@ class SubscriptionController extends Controller
 {
     public function showSubscriptionForm()
     {
-        return view('subscription.form');
+        return view('dashboards.suscription');
     }
 
     public function createSubscription(Request $request)

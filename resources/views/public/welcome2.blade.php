@@ -641,7 +641,7 @@
                                 <li class="disable">Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
-                                <a class="atf-themes-btn" data-hover="inscribirse" href="#">
+                                <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
                                     <span> inscribirse</span>
                                 </a>
                             </div>
@@ -666,7 +666,7 @@
                                 <li class="disable">Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
-                                <a class="atf-themes-btn" data-hover="inscribirse" href="#">
+                                <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
                                     <span> inscribirses</span>
                                 </a>
                             </div>
@@ -690,7 +690,7 @@
                                 <li class="">Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
-                                <a class="atf-themes-btn" data-hover="inscribirse" href="#">
+                                <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
                                     <span> inscribirse</span>
                                 </a>
                             </div>
