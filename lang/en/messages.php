@@ -41,7 +41,13 @@ return [
     'tus_clientes' => ' Allow your clients to schedule appointments conveniently and without delays.',
     'el_posicionamiento' => 'Positioning',
     'los_rankings' => 'Make your barbershop known nationwide with the rankings and in the list of affiliated barbershops by canton.',
+    'control_de_barberos' => 'barber control',
+    'agregado_de_barberos' => 'Add, edit or remove barbers to give them Access the platform and have your own appointment control.',
+    'control_de_citas' => 'appointment control',
+    'administra_las_citas' => ' Manage the appointments scheduled by your clients, confirm or cancel them according to your availability',
+    'brinda_informacion' => 'Provide information',
 
+    '' => '',
 
     // otros textos de idioma
 ];

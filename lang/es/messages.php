@@ -41,6 +41,13 @@ return [
     'tus_clientes' => ' Permite a tus clientes agendar citas de manera cómoda y sin retrasos.',
     'el_posicionamiento' => ' Posicionamiento',
     'los_rankings' => 'Da a conocer tu barbería a nivel nacional con los rankings y en la lista de barberías afiliadas por cantón.',
+    'control_de_barberos' => 'Control de barberos',
+    'agregado_de_barberos' => 'Agrega, edita o elimina a barberos para darles acceso a la plataforma y tener su propio control de citas.  ',
+    'control_de_citas' => 'Control De Citas',
+    'administra_las_citas' => 'Gestiona las citas agendadas por tus clientes, confírmalas o cancela según tu disponibilidad.',
+    'brinda_informacion' => 'Brinda información',
+
+    '' => '',
 
     // otros textos de idioma
 ];

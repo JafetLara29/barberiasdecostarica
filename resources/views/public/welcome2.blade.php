@@ -186,9 +186,8 @@
                                             src="{{ asset('storage/public/assets/img/blog/Control de barberos.jpg') }}" alt="Blog"></a>
                                 </div>
                                 <div class="atf-best-service-content text-center">
-                                    <h3 class="atf-best-service-title">Control de barberos</h3>
-                                    <p class="atf-best-service-description">Agrega, edita o elimina a barberos para darles
-                                        acceso a la plataforma y tener su propio control de citas.</p>
+                                    <h3 class="atf-best-service-title">@lang('messages.control_de_barberos')</h3>
+                                    <p class="atf-best-service-description">@lang('messages.agregado_de_barberos')</p>
                                 </div>
                             </div>
 
@@ -198,10 +197,8 @@
                                             src="{{ asset('storage/public/assets/img/blog/Control de citas.jpg') }}" alt="Blog"></a>
                                 </div>
                                 <div class="atf-best-service-content text-center">
-                                    <h3 class="atf-best-service-title">Control de citas</h3>
-                                    <p class="atf-best-service-description">Administra las citas agendadas por tus
-                                        clientes,
-                                        confirmalas o cancelalas de acuerdo a tu disponibilidad.</p>
+                                    <h3 class="atf-best-service-title">@lang('messages.control_de_citas')</h3>
+                                    <p class="atf-best-service-description">@lang('messages.administra_las_citas')</p>
                                 </div>
                             </div>
 
@@ -211,9 +208,8 @@
                                             src="{{ asset('storage/public/assets/img/blog/Brinda información.jpg') }}" alt="Blog"></a>
                                 </div>
                                 <div class="atf-best-service-content text-center">
-                                    <h3 class="atf-best-service-title">Brinda información</h3>
-                                    <p class="atf-best-service-description">Con nosotros, tendrás tu espacio para informar
-                                        a
+                                    <h3 class="atf-best-service-title">@lang('messages.brinda_informacion')</h3>
+                                    <p class="atf-best-service-description">Con nosotros, tendrás tu espacio para informar a
                                         tus clientes sobre información de contacto de tu barbería y tus barberos. Orarios,
                                         direcciones de llegada y mucho más</p>
                                 </div>
@@ -276,7 +272,7 @@
                         </ul>
                     </div>
                 </div>
-
+I
                 <div class="col-lg-4 col-md-6 col-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s"
                     data-wow-offset="0">
                     <div class="atf-single-service">
