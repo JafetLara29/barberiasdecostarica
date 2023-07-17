@@ -39,7 +39,7 @@ class SubscriptionController extends Controller
 
             // Manejar la creación exitosa de la suscripción
 
-            // PARA RICH Aqui es donde tienes que redirigir a la vista que jafet te solicito, es un ejemplo
+
             return redirect()->route('apertura_cuenta')->with('subscription_status', 'success');
         } catch (\Exception $e) {
             // Manejar el error en la creación de la suscripción

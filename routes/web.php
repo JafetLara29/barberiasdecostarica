@@ -161,4 +161,4 @@ Route::prefix('socialmedia')->group(function () {
 Route::get('/subscription', [SubscriptionController::class, 'showSubscriptionForm'])->name('subscriptions.form');
 Route::post('/subscription', [SubscriptionController::class, 'createSubscription'])->name('subscriptions.create');
 // Route::get('/apertura_cuenta', [AperturaCuentaController::class, 'index'])->name('apertura_cuenta');
-// puedes poner la ruta que vayas a usar aqui para el orden, cualquier cosa le preguntas a jafet
+
