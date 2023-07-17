@@ -11,8 +11,8 @@
                             Información general
                         </button>
                     </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseOne" class="accordion-collapse collapse bg-dark"
+                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="mb-3">
                                 <small class="text-muted">LLene los campos vacios seleccionandolos y al finalizar precione
@@ -29,7 +29,8 @@
                                     <label for="image" class="form-label">Imagen de perfil</label>
                                     <div class="form-group">
                                         <label for="image">Seleccione una imagen para el perfil de su barbero:</label>
-                                        <input type="file" class="form-control bg-dark" name="image" id="inputimage" required>
+                                        <input type="file" class="form-control bg-dark" name="image" id="inputimage"
+                                            required>
 
                                     </div>
                                 </div>
@@ -44,8 +45,8 @@
                             Información del horario
                         </button>
                     </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse bg-dark" aria-labelledby="flush-headingTwo"
-                        data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse bg-dark"
+                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <small class="text-muted">Marque los días en que su barbero viene a trabajar:</small>
                             <form id="schedule-info" class="list-group" action="" method="post">
@@ -148,8 +149,9 @@
                                             <input id="phone-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="phone">
                                             <ion-icon size="large" name="call-outline"></ion-icon>
-                                            <input id="phone-input" class="form-control bg-dark" type="text" name="data[]"
-                                                placeholder="Escriba su número de teléfono" value="">
+                                            <input id="phone-input" class="form-control bg-dark" type="text"
+                                                name="data[]" placeholder="Escriba su número de teléfono"
+                                                value="">
                                         </div>
                                     </label>
                                     {{-- Item --}}
@@ -179,8 +181,8 @@
                                             <input id="insta-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="insta">
                                             <ion-icon size="large" name="logo-instagram"></ion-icon>
-                                            <input id="insta-input" class="form-control bg-dark" type="text" name="data[]"
-                                                placeholder="Nombre de su perfil" value="">
+                                            <input id="insta-input" class="form-control bg-dark" type="text"
+                                                name="data[]" placeholder="Nombre de su perfil" value="">
                                         </div>
                                     </label>
                                     {{-- Item --}}
@@ -189,8 +191,8 @@
                                             <input id="tiktok-checkbox" class="form-check-input me-1" name="type[]"
                                                 type="checkbox" value="tiktok">
                                             <ion-icon size="large" name="logo-tiktok"></ion-icon>
-                                            <input id="titktok-input" class="form-control bg-dark" type="text" name="data[]"
-                                                placeholder="Escriba su perfil" value="">
+                                            <input id="titktok-input" class="form-control bg-dark" type="text"
+                                                name="data[]" placeholder="Escriba su perfil" value="">
                                         </div>
                                     </label>
                                     <div class="mb-3">
@@ -206,62 +208,77 @@
             <input id="submit-button" onClick="barberValidate()" class="btn btn-outline-success" type="submit"
                 value="Guardar">
         </div>
+        {{-- Toastify miedo del yimbon --}}
+        <!-- Toast -->
+        <div class="toast rounded-1" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000"
+            style="position: fixed; bottom: 1rem; right: 1rem;" id="myToast">
+            <div class="toast-header" style="background-color: #343a40; color: #ffffff;">
+                <strong class="mr-auto">Sistema</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body bg-light" id="toastContent" style="color: #343a40;">
+                <!-- El contenido del toast se actualizará dinámicamente con JavaScript -->
+            </div>
+        </div>
+
+
+
     </div>
     <script>
+        // Functions related to the new notification systems , bootstrap 4 toasts for compatibility
+        $(document).ready(function() {
+            $('.toast').toast('hide'); // Mostrar el toast al cargar la página
+
+            $('.toast .close').on('click', function() {
+                $(this).closest('.toast').toast('hide');
+            });
+        });
         //Para en caso de existir un barber tener su id global
-        let globalId="";
-        //Methods to preload the information if exists an user_id, auth()->user_id or role_id related to the form information
+        let globalId = "";
+
+        //Methods to preload the information if exists an user_id, auth()->user_id or role_id related to the form information>
         function existBarberValidate() {
             $.ajax({
                 url: '/verify-barber',
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    name: $('#barbername').val() // Reemplaza con el nombre del barbero que deseas verificar
+                    name: $('#barbername').val()
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(response) {
                     if (response.existe) {
-                        Toastify({
-                            text: "Hemos encontrado informacion previamente guardada , te ayudamos para que actualices la informacion. Revisa los formularios ",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #a8dba8, #7bc87b)", // Colores de fondo en degradado en tonos de verde
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        $('.toast').toast('show');
+                        $('#toastContent').html(
+                            "Hemos encontrado información previamente guardada, te ayudamos para que actualices la información. Revisa los formularios"
+                        );
+                        $('#toastContent').css({
+                            background: "linear-gradient(to right, #a8dba8, #7bc87b)",
+                            color: "black",
+                            fontWeight: "bold",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                        });
 
-                        }).showToast();
-
-                        // Cambiamos el nombre del botón de guardar a actualizar
                         $('#submit-button').val('Actualizar');
-
-                        // Barbero encontrado, precargar la información en los inputs
                         $('#nombre').val($('#barbername').val());
                         $('#user_id').val(response.user_id);
-                        globalId=response.user_id;
+                        globalId = response.user_id;
 
-                        // Llamar a la función de verificar horario
                         existScheduleValidate(response.user_id);
                     } else {
-                        // Continuar con el flujo inicial y enviamos una advertencia
-                        Toastify({
-                            text: "¡Tienes suerte , no hay barberos con este nombre",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                                color: "black", // Color del texto en negro
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
-                        }).showToast();
+                        $('.toast').toast('show');
+                        $('#toastContent').html("¡Tienes suerte, no hay barberos con este nombre");
+                        $('#toastContent').css({
+                            background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
+                            color: "black",
+                            fontWeight: "bold",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+                        });
+
                         clearInputsBarbers();
                     }
                 },
@@ -271,6 +288,7 @@
                 }
             });
         }
+
 
         //Validamos si existe un horario para el barbero previamente existente
         function existScheduleValidate(id) {
@@ -286,7 +304,6 @@
                 },
                 success: function(response) {
                     if (response.success) {
-
                         // Barbero encontrado, precargar la información en los inputs del horario
                         var scheduleInfo = response.data;
                         for (var i = 0; i < scheduleInfo.length; i++) {
@@ -303,19 +320,19 @@
                         existSocialmediaValidate(id);
                     } else {
                         // Continuar con una advertencia
-                        Toastify({
-                            text: "Al parecer no hay informacion de horario relacionada al barbero !",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                                color: "black", // Color del texto  en negro
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = new bootstrap.Toast($('#myToast')[0], {
+                            autohide: false
+                        });
 
-                        }).showToast();
+                        var toastContent = $('#toastContent')[0];
+                        toastContent.innerHTML =
+                            "Al parecer no hay información de horario relacionada al barbero!";
+                        toastContent.style.background = "linear-gradient(to right, #f9d9bc, #f5cda1)";
+                        toastContent.style.color = "black";
+                        toastContent.style.fontWeight = "bold";
+                        toastContent.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+
+                        toast.show();
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
@@ -324,6 +341,7 @@
                 }
             });
         }
+
         //Validamos si existe unas redes sociales relacionadas al barbero existente
         function existSocialmediaValidate(id) {
             $.ajax({
@@ -349,20 +367,19 @@
                         }
                     } else {
                         // Enviamos una advertencia de falta de información
-                        Toastify({
-                            text: "Al parecer no hay informacion de redes Sociales relacionada al barbero !",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                                color: "black", // Color del texto  en negro
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = new bootstrap.Toast($('#myToast')[0], {
+                            autohide: false
+                        });
 
-                        }).showToast();
+                        var toastContent = $('#toastContent')[0];
+                        toastContent.innerHTML =
+                            "Al parecer no hay información de redes sociales relacionada al barbero!";
+                        toastContent.style.background = "linear-gradient(to right, #f9d9bc, #f5cda1)";
+                        toastContent.style.color = "black";
+                        toastContent.style.fontWeight = "bold";
+                        toastContent.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
 
+                        toast.show();
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
@@ -381,34 +398,26 @@
             if (barbername && inputimage.length > 0) {
                 scheduleValidate();
             } else {
-                Toastify({
-                    text: "Asegurese de llenar el campo de nombre e imagen de perfil de su barbero !",
-                    duration: 5000,
-                    gravity: "top",
-                    position: "center",
-                    style: {
-                        background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                        color: "black", // Color del texto  en negro
-                        fontWeight: "bold", // Negrita en el texto
-                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                    },
+                var toast = $('.toast');
+                var toastContent = $('.toast-body');
+                toastContent.html("Asegúrese de llenar el campo de nombre e imagen de perfil de su barbero!");
+                toastContent.css('background', 'linear-gradient(to right, #f9d9bc, #f5cda1)');
+                toastContent.css('color', 'black');
+                toastContent.css('font-weight', 'bold');
+                toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                }).showToast();
+                toast.toast('show');
             }
-
         }
 
         //Para vaciar los campos de los formularios
         function clearInputsBarbers() {
-
-
             document.getElementById('socialmedia-info').reset();
             document.getElementById('schedule-info').reset();
             $('#submit-button').val('Guardar');
-            globalId=="";
-
+            globalId == "";
         }
-
+        // Validamos los campos de checkbox e imput del formulario para horario
         function scheduleValidate() {
             const checkboxes = [
                 $('#monday-checkbox'),
@@ -435,37 +444,34 @@
                     if (startInput.val() === '' || endInput.val() === '') {
                         const day = days[i]; // Obtener el nombre del día en español
 
-                        Toastify({
-                            text: "Debe añadir una hora de entrada y salida correspondiente al día seleccionado: " +
-                                day + "!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                            },
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html(
+                            "Debe añadir una hora de entrada y salida correspondiente al día seleccionado: " + day + "!"
+                        );
+                        toastContent.css('background', 'linear-gradient(to right, #f9d9bc, #f5cda1)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                         return false; // Se retorna false para evitar el envío del formulario y salir de la función
                     }
                 }
             }
 
             if (!isChecked) {
-                Toastify({
-                    text: "Debe seleccionar al menos un día para trabajar y agregar su horario correspondiente!",
-                    duration: 5000,
-                    gravity: "top",
-                    position: "center",
-                    style: {
-                        background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
-                        color: "black",
-                        fontWeight: "bold",
-                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                    },
-                }).showToast();
+                var toast = $('#myToast');
+                var toastContent = $('#toastContent');
+                toastContent.html(
+                    "Debe seleccionar al menos un día para trabajar y agregar su horario correspondiente!"
+                );
+                toastContent.css('background', 'linear-gradient(to right, #f9d9bc, #f5cda1)');
+                toastContent.css('color', 'black');
+                toastContent.css('font-weight', 'bold');
+                toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                toast.toast('show');
                 return false; // Se retorna false para evitar el envío del formulario
             }
 
@@ -473,6 +479,7 @@
             socialmediaValidate();
         }
 
+        // Validamos los inputs y checkbox del formulario de redes sociales
         function socialmediaValidate() {
             const checkboxes = [
                 '#phone-checkbox',
@@ -481,7 +488,7 @@
                 '#insta-checkbox',
                 '#tiktok-checkbox'
             ];
-            const contacts = ['Telefono', 'Whatsapp', 'Facebook', 'Instagram', 'Tiktok'];
+            const contacts = ['Teléfono', 'Whatsapp', 'Facebook', 'Instagram', 'Tiktok'];
 
             let isChecked = false; // Variable para verificar si al menos un checkbox está seleccionado
 
@@ -495,36 +502,34 @@
                     if (input.val() === '') {
                         const contact = contacts[i]; // Obtener el nombre del contacto en español
 
-                        Toastify({
-                            text: `Debe agregar información correspondiente al canal de contacto seleccionado: ${contact}!`,
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html(
+                            `Debe agregar información correspondiente al canal de contacto seleccionado: ${contact}!`
+                        );
+                        toastContent.css('background', 'linear-gradient(to right, #f9d9bc, #f5cda1)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                         return false; // Se retorna false para evitar el envío del formulario y salir de la función
                     }
                 }
             }
 
             if (!isChecked) {
-                Toastify({
-                    text: "Debe seleccionar al menos una opción de contacto y agregar su información correspondiente!",
-                    duration: 5000,
-                    gravity: "top",
-                    position: "center",
-                    style: {
-                        background: "linear-gradient(to right, #f9d9bc, #f5cda1)", // Colores de fondo en degradado
-                        color: "black", // Color del texto en negro para mayor contraste
-                        fontWeight: "bold", // Negrita en el texto
-                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                    },
-                }).showToast();
+                var toast = $('#myToast');
+                var toastContent = $('#toastContent');
+                toastContent.html(
+                    "Debe seleccionar al menos una opción de contacto y agregar su información correspondiente!"
+                );
+                toastContent.css('background', 'linear-gradient(to right, #f9d9bc, #f5cda1)');
+                toastContent.css('color', 'black');
+                toastContent.css('font-weight', 'bold');
+                toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                toast.toast('show');
                 return false; // Se retorna false para evitar el envío del formulario
             }
 
@@ -532,13 +537,13 @@
             if ($('#submit-button').val() == 'Guardar') {
                 barbersave();
             } else {
-                //Le pasamos su id global
+                // Le pasamos su id global
                 barberUpdate(globalId);
             }
-
         }
 
         //Functions of Updating
+
         function barberUpdate(id) {
             // Collect the info from the general-info form
             var htmlForm = document.getElementById('general-info');
@@ -559,35 +564,31 @@
                         // If the corresponding data is received from the backend, proceed to update the schedule info
                         scheduleUpdate(id);
                     } else if (response.errors == true) {
-                        Toastify({
-                            text: "Ha ocurrido un error, asegúrese de llenar los campos de su barbero.",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html(
+                            "Ha ocurrido un error, asegúrese de llenar los campos de su barbero.");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                     } else {
-                        Toastify({
-                            text: "Un error ha ocurrido al guardar el nombre y perfil de su barbero.",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Un error ha ocurrido al guardar el nombre y perfil de su barbero.");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                     }
                 }
             });
         }
+
 
         function scheduleUpdate(id) {
             // Collect the info from the schedule-info form
@@ -610,35 +611,32 @@
                         // If the corresponding data is received from the backend, proceed to update the social media info
                         socialmediaUpdate(id);
                     } else if (response.errors == true) {
-                        Toastify({
-                            text: "Ha ocurrido un error, debe llenar la información del horario.",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Ha ocurrido un error, debe llenar la información del horario.");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                     } else {
-                        Toastify({
-                            text: "Un error ha ocurrido al guardar el horario.",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Un error ha ocurrido al guardar el horario.");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                     }
                 }
             });
         }
+
+
+
 
         function socialmediaUpdate(id) {
             // Collect the info from the socialmedia-info form
@@ -658,46 +656,37 @@
                 },
                 success: function(response) {
                     if (response.success) {
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Información actualizada exitosamente!");
+                        toastContent.css('background', 'linear-gradient(to right, #a8dba8, #7bc87b)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        Toastify({
-                            text: "Información actualizada exitosamente!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #a8dba8, #7bc87b)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        toast.toast('show');
                         clearInputsBarbers();
                     } else if (response.errors == true) {
-                        Toastify({
-                            text: "Ha ocurrido un error, debe llenar los campos de la información de contacto.",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html(
+                            "Ha ocurrido un error, debe llenar los campos de la información de contacto.");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                     } else {
-                        Toastify({
-                            text: "Un error ha ocurrido.",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)",
-                                color: "black",
-                                fontWeight: "bold",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                            }
-                        }).showToast();
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Un error ha ocurrido.");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
+
+                        toast.toast('show');
                     }
                 }
             });
@@ -705,9 +694,11 @@
 
 
 
+        // Functions for saving the information
+
         // Since we validate the info we can proceed to save it in the next schema : [Barber->schedule->socialmedia]
         function barbersave() {
-            //Collecting the info from the general-info form
+            // Collecting the info from the general-info form
             var htmlForm = document.getElementById('general-info');
             var form = new FormData(htmlForm);
 
@@ -723,52 +714,41 @@
                 },
                 success: function(response) {
                     if (response.success == true && response.id != 0) {
-
-                        // If we receipt the corresponding data from backend we proceed to save the info and let the pass to the next method
+                        // If we receive the corresponding data from the backend, proceed to save the info and move to the next method
                         schedulesave(response.id);
-
                     } else if (response.errors == true) {
-                        Toastify({
-                            text: "Ha ocurrido un error, asegurese de llenar los campos de su barbero!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html(
+                            "Ha ocurrido un error, asegúrese de llenar los campos de su barbero!");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        }).showToast();
-
+                        toast.toast('show');
                     } else {
-                        Toastify({
-                            text: "Un error ha ocurrido al guardar el nombre y perfil de su barbero !",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Un error ha ocurrido al guardar el nombre y perfil de su barbero!");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        }).showToast();
-
+                        toast.toast('show');
                     }
                 }
             });
-
         }
 
+
+
         function schedulesave(id) {
-            //Collecting the info from the schedule-info form
+            // Collecting the info from the schedule-info form
             var htmlForm = document.getElementById('schedule-info');
             var form = new FormData(htmlForm);
             form.append("barber_id", id);
-
 
             $.ajax({
                 url: '/schedule',
@@ -782,47 +762,37 @@
                 },
                 success: function(response) {
                     if (response.success == true && response.id != '') {
-                        // If we receipt the corresponding data from backend we proceed to save the info and let the pass to the next method
+                        // If we receive the corresponding data from the backend, proceed to save the info and move to the next method
                         socialmediasave(response.id);
-
                     } else if (response.errors == true) {
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Ha ocurrido un error, debe llenar la información del horario!");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        Toastify({
-                            text: "Ha ocurrido un error, debe de llenar la informacion del horario !",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
-
-                        }).showToast();
-
+                        toast.toast('show');
                     } else {
-                        Toastify({
-                            text: "Un error ha ocurrido al guardar el horario !",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Un error ha ocurrido al guardar el horario!");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        }).showToast();
+                        toast.toast('show');
                     }
                 }
             });
-
         }
 
+
+
         function socialmediasave(id) {
-            //Collecting the info from the socialmedia-info form
+            // Collecting the info from the socialmedia-info form
             var htmlForm = document.getElementById('socialmedia-info');
             var form = new FormData(htmlForm);
             form.append("barber_id", id);
@@ -839,61 +809,41 @@
                 },
                 success: function(response) {
                     if (response.success) {
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Información guardada exitosamente!");
+                        toastContent.css('background', 'linear-gradient(to right, #a8dba8, #7bc87b)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-
-                        // If we receipt the corresponding data from backend we proceed to save the info and show the success message
-                        Toastify({
-                            text: "Información guardada exitosamente !!!!!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #a8dba8, #7bc87b)", // Colores de fondo en degradado en tonos de verde
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
-
-                        }).showToast();
+                        toast.toast('show');
 
                         clearInputsBarbers();
-
                     } else if (response.errors == true) {
-                        // Display an error message
-                        Toastify({
-                            text: "Ha ocurrido un error, debe de llenar los campos de la informacion de contacto !!!!!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html(
+                            "Ha ocurrido un error, debe llenar los campos de la información de contacto!");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        }).showToast();
-
+                        toast.toast('show');
                     } else {
-                        // Display an error message
-                        Toastify({
-                            text: "Un error ha ocurrido !!!!!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, #ffcccc, #ff9999)", // Colores de fondo en degradado en tonos de rojo
-                                color: "black", // Color del texto en negro para mayor contraste
-                                fontWeight: "bold", // Negrita en el texto
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)", // Sombra
-                            },
+                        var toast = $('#myToast');
+                        var toastContent = $('#toastContent');
+                        toastContent.html("Un error ha ocurrido!");
+                        toastContent.css('background', 'linear-gradient(to right, #ffcccc, #ff9999)');
+                        toastContent.css('color', 'black');
+                        toastContent.css('font-weight', 'bold');
+                        toastContent.css('box-shadow', '0 4px 8px rgba(0,0,0,0.1)');
 
-                        }).showToast();
+                        toast.toast('show');
                     }
                 }
             });
-
-
         }
     </script>
 @endsection

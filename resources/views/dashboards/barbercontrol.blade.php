@@ -8,7 +8,7 @@
                 <div class="row mb-3 ">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h1>Control de Barberos</h1>
+                            <h1 class="pl-2" style="color:gray !important;">Control de Información de Barberos</h1>
                             <span>
                                 <a class="btn btn-outline-success mb-3 sm ml-3" href="{{ route('barbers.create') }}"
                                     role="button">Agregar</a></span>

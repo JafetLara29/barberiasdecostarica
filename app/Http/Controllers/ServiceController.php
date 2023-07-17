@@ -43,25 +43,26 @@ class ServiceController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-  public function getServices()
-{
-    try {
-        $user = auth()->user();
-        $services = $user->services; // Obtener los servicios del usuario autenticado
+     public function getServices()
+     {
+         try {
+             $userId = auth()->user()->id;
+             $services = Service::where('serviceable_id', $userId)->get();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Services retrieved successfully',
-            'data' => $services
-        ], 200);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Failed to retrieve services',
-            'error' => $e->getMessage()
-        ], 500);
-    }
-}
+             return response()->json([
+                 'status' => 'success',
+                 'message' => 'Services retrieved successfully',
+                 'data' => $services
+             ], 200);
+         } catch (\Exception $e) {
+             return response()->json([
+                 'status' => 'error',
+                 'message' => 'Failed to retrieve services',
+                 'error' => $e->getMessage()
+             ], 500);
+         }
+     }
+
 
 
 

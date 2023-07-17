@@ -25,7 +25,7 @@
                   </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body bg-dark">                     
+                  <div class="accordion-body bg-dark">
                         <div class="mb-3">
                           <label for="name" class="form-label">Nombre de la barbería</label>
                           <input type="text" name="name" id="name" class="form-control  bg-dark" placeholder="Escribe el nombre de tu barbería" value="{{ $barbershop->name }}">
