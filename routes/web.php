@@ -28,13 +28,12 @@ use App\Http\Controllers\SetLocaleController;
 Route::get('/barbershops/create', [BarbershopController::class,'create'])->name('barbershop.create');
 Route::get('/barbershops/search', [BarbershopController::class,'search'])->name('barbershop.search');
 Route::resource('/barbershops', BarbershopController::class);
+Route::get('/barbershopBarber/{userId}', [BarbershopController::class,'getBarberUser']);
+Route::put('/barbershopBarber/update/{userId}', [BarbershopController::class, 'updateBarberUser'])->name('barbershopBarber.update');
+Route::get('barbershop/barber/services/{userId}', [BarbershopController::class, 'getServiceCards'])->name('barbershop.services');
+Route::post('/actualizar-servicio', [BarbershopController::class, 'actualizarServicio'])->name('barbershop.actualizar-servicio');
+Route::post('/eliminar-servicio', [BarbershopController::class, 'eliminarServicio'])->name('barbershop.eliminar-servicio');
 
-/*
-|------------------------
-| Rutas para los barbers-
-|------------------------
-*/
-Route::resource('/barbers', BarberController::class);
 
 /*
 |-------------------------------
@@ -87,7 +86,8 @@ Route::resource('/services', ServiceController::class);
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
-Route::get('/profile', [BarberController::class, 'profile'])->name('barbers.profile');
+
+Route::get('/profile/{userId}', [BarberController::class, 'profile'])->name('barbers.profile');
 Route::get('/barberSchedule',[BarberController::class ,'schedule'] )->name('barbers.schedule');
 Route::delete('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('barbers.destroy');
 Route::get('/barbers/{barber}', [BarberController::class ,'destroy'] )->name('barbers.destroy');
@@ -96,6 +96,9 @@ Route::get('/createuser', [BarberController::class, 'createUser'])->name('barber
 Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers.storeUser');
 // Nueva ruta para consulta de barber
 Route::post('/verify-barber', [BarberController::class,'verifyBarber'])->name('verify-barber');
+//Para saber si este barber pertenece a una barber y extraer sus datos
+Route::get('/barbers/showForm/{userId}', [BarberController::class, 'showForm'])->name('barbers.showForm');
+
 
 
 /*
