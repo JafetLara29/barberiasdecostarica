@@ -402,7 +402,7 @@
                     var card = $('<div>').addClass('card b-l-success business-info services');
                     var cardHeader = $('<div>').addClass('card-header');
                     var serviceHeader = $('<div>').addClass('service-header');
-                    var serviceName = $('<h5>').addClass('card-title ml-2 mt-2').text('Servicio #' + (index + 1));
+                    var serviceName = $('<h5>').addClass('card-title text-black ml-2 mt-2').text('Servicio #' + (index + 1));
                     serviceHeader.append(serviceName);
 
                     var cardBody = $('<div>').addClass('card-block');
