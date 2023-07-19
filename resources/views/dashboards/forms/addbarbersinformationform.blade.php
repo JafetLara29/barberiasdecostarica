@@ -22,7 +22,7 @@
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nombre del Barbero</label>
                                     <input onblur="existBarberValidate()" id="barbername" type="text" name="name"
-                                        class="form-control bg-dark" placeholder="Escribe el nombre de tu barbero" required>
+                                        class="form-control bg-dark" placeholder="Escribe el nombre de tu barbero" value="">
                                     {{-- <small id="name-description" class="text-muted">Help text</small> --}}
                                 </div>
                                 <div class="mb-3">

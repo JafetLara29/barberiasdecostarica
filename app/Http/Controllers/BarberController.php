@@ -26,10 +26,10 @@ class BarberController extends Controller
         return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
     // Ruta de perfil barber
-    public function profile()
+    public function profile($userId)
     {
 
-        return view('dashboards.forms.barberprofile');
+        return view('dashboards.forms.barberprofile',['userId' => $userId]);
     }
     // ruta de calendario Barber
     public function schedule()
@@ -279,5 +279,6 @@ class BarberController extends Controller
         return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
 
-    // Metodo para la consulta de informacion basada en barber_id o auth()->user_id
+
+
 }

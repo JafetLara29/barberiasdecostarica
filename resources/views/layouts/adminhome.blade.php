@@ -117,18 +117,20 @@
                             </li>
                         @endif --}}
 
+                                {{-- Validamos el tipo de usuario barbería o barber --}}
 
                         @if ( session('user_type') == "barbershop" )
-                            <li class="nav-item">
-                                <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
-                                    <ion-icon size="large" name="person-add-outline"></ion-icon>
-                                    <p>
-                                        @lang('messages.manage_users')
-                                    </p>
+                        <li class="nav-item">
+                            <a href="{{ route('barbers.createUser') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                                <ion-icon size="large" name="person-add-outline"></ion-icon>
+                                <p>
+                                    @lang('messages.manage_users')
+                                </p>
 
-                                </a>
-                            </li>
-                        @endif
+                            </a>
+                        </li>
+                    @endif
+
 
 
                         @if ( session('user_type') == "barbershop" )
@@ -201,7 +203,7 @@
 
 
 
-                        
+
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -281,7 +283,7 @@
             AOS.init();
         </script>
         {{-- <script type="text/javascript" src="{{ asset('/storage/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"> --}}
-        </script>
+
         {{-- Datatables --}}
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/r-2.3.0/sp-2.0.2/datatables.min.js">
         </script>
@@ -295,6 +297,7 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         {{-- Lugar donde se colocaran los scripts que especifiquemos para cada vista en especifico --}}
         @yield('custom-scripts')
+
 </body>
 
 </html>

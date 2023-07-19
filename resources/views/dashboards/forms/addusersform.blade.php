@@ -57,7 +57,7 @@
                             <img class="img-fluid img-radius" style="height: 150px;width: 150px;" src="{{ asset('/storage/images/user-barber.png') }}" alt="user-image">
                             <div class="img-overlay img-radius">
                                 <span>
-                                    <a href="#" class="btn btn-outline-primary" data-popup="lightbox"><ion-icon name="create-outline"></ion-icon></a>
+                                    <a href="{{ route('barbers.profile', ['userId' => $user->id]) }}" class="btn btn-outline-primary" data-popup="lightbox"><ion-icon name="create-outline"></ion-icon></a>
                                 </span>
                             </div>
                         </div>
@@ -69,6 +69,7 @@
                 </div>
             </div>
             @endforeach
+
         </div>
     </div>
 

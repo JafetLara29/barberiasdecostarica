@@ -22,7 +22,8 @@
                                 <a href="{{ route('barbers.index') }}"> <i class="feather icon-home"></i> </a>
                             </li>
                             <li class="breadcrumb-item" style="float: left;"><a
-                                    href="{{ route('barbers.profile') }}">Barberos</a>
+                                    href="{{ route('barbers.profile', ['userId' => auth()->user()->id]) }}
+                                    ">Barberos</a>
                             </li>
                             <li class="breadcrumb-item" style="float: left;"><a
                                     href="{{ route('barbers.index') }}">Perfiles</a>
@@ -45,7 +46,7 @@
                                     <span>
                                         <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
                                             data-popup="lightbox"><i class="icofont icofont-briefcase-alt-1"></i></a>
-                                        <a href="{{ route('barbers.profile') }}" class="btn btn-outline-primary"><i
+                                        <a href="{{ route('barbers.create') }}" class="btn btn-outline-primary"><i
                                                 class="icofont icofont-businessman"></i></a>
                                     </span>
                                 </div>
