@@ -111,7 +111,7 @@
                                 <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                     <ion-icon size="large" name="people-circle-outline"></ion-icon>
                                     <p>
-                                        Barberos
+                                        Perfil
                                     </p>
                                 </a>
                             </li>
