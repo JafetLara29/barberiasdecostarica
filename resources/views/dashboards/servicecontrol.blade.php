@@ -70,8 +70,17 @@
         <div class="row mb-3">
             <div class="col-12">
                 <div class="page-header-title">
-                    <h1 class="container-fluid mt-0">Control de Servicios</h1>
-                    <p class="pt-1">Aquí puedes agregar, visualizar y eliminar los servicios
+                    <div class="d-flex align-items-start">
+                        <h1 for="image" class="form-label ml-3 text-gray text-center">
+                            Control de Servicios
+                        </h1>
+                        <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
+                            title="Ayuda"
+                            data-bs-content="Acá puede visualizar los diferentes servicios registrados en su perfil. Seleccione el botón de 'Agregar servicio' para redirigirle a un formulario donde puede añadir fácilmente los servicios relacionados a su perfil de barbero.">
+                            <i class="ti-help-alt"></i>
+                        </small>
+                    </div>
+                    <p class="pt-1 text-gray">Aquí puedes agregar, visualizar y eliminar los servicios
                         disponibles al público</p>
                     <a href="{{ Route('show.service.list') }}" class="btn btn-primary ml-3 mb-3 mt-3">Agregar servicio</a>
                     <hr>
@@ -124,6 +133,9 @@
                 $(this).closest('.toast').toast('hide');
             });
         });
+        $(document).ready(function() {
+            $('[data-bs-toggle="popover"]').popover();
+        });
 
 
 
@@ -139,11 +151,11 @@
             var toastContent = $('.toast-body');
             toastContent.html(message);
             $('#toastContent').css({
-                            background: "linear-gradient(to right, #a8dba8, #7bc87b)",
-                            color: "black",
-                            fontWeight: "bold",
-                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
-                        });
+                background: "linear-gradient(to right, #a8dba8, #7bc87b)",
+                color: "black",
+                fontWeight: "bold",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+            });
             toast.toast('show');
         }
 

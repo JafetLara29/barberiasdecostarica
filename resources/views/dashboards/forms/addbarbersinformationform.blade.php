@@ -6,7 +6,16 @@
 
     <div class="">
         <div class="card shadow mb-5 bg-dark">
-            <h1 class="container-fluid pt-2">Información de barbero</h1>
+            <div class="d-flex align-items-start">
+                <h1 for="image" class="form-label ml-3 text-gray text-center">
+                    Informacion del Barbero
+                </h1>
+                <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
+                    title="Ayuda"
+                    data-bs-content="Seleccione las diferentes pestañas de informacion y llene los campos según corresponda , al final use el botón de guardar o actualizar para finalizar el proceso.">
+                    <i class="ti-help-alt"></i>
+                </small>
+            </div>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -239,14 +248,17 @@
                 $(this).closest('.toast').toast('hide');
             });
         });
+        $(document).ready(function(){
+            $('[data-bs-toggle="popover"]').popover();
+        });
         //Para en caso de existir un barber tener su id global
         let globalId = "";
 
         $(document).ready(function() {
             // Agrega un retraso de 2 segundos (2000 milisegundos)
 
-                var userId = $('#barber-info').data('user-id');
-                existBarberValidate(userId);
+            var userId = $('#barber-info').data('user-id');
+            existBarberValidate(userId);
 
         });
 
@@ -284,16 +296,15 @@
                     } else {
                         $('.toast').toast('show');
                         $('#toastContent').html(
-                            "¡Tienes suerte, no hay informacion relacionada con este barbero");
+                            "¡Tienes suerte, no hay información relacionada con este barbero");
                         $('#toastContent').css({
                             background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
                             color: "black",
                             fontWeight: "bold",
                             boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
                         });
-
-                    //     clearInputsBarbers();
-                    // }
+                        // clearInputsBarbers();
+                    }
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error:', errorThrown);
@@ -301,6 +312,7 @@
                 }
             });
         }
+
         //Validamos si existe un horario para el barbero previamente existente
         function existScheduleValidate(id) {
             $.ajax({

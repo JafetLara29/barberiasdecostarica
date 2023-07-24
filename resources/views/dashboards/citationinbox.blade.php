@@ -4,24 +4,36 @@
     <div class="">
         <div class="card shadow bg-dark ml-2 mt-4">
 
-            <h1>Pendientes</h1>
+
+            <div class="d-flex align-items-start">
+                <h3 for="image" class="form-label ml-3 text-gray text-center">
+                    Citas pendientes
+                </h3>
+                <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
+                    title="Ayuda"
+                    data-bs-content="Seleccione alguna de las citas disponibles en la lista , para aceptarlas o rechazarlas ,según lo requiera.">
+                    <i class="ti-help-alt"></i>
+                </small>
+            </div>
             <div class="list-group overflow-auto p-2" id="citation">
 
             </div>
 
-            @if(!isset($barber) || $barber->citations->isEmpty())
-        
+            @if (!isset($barber) || $barber->citations->isEmpty())
                 <div class="alert alert-warning">
                     no hay citas pendientes
-                    
+
                 </div>
             @endif
-    
+
         </div>
     </div>
 
 
     <script>
+        $(document).ready(function() {
+            $('[data-bs-toggle="popover"]').popover();
+        });
         $(document).ready(function() {
             receiveCitations();
         });

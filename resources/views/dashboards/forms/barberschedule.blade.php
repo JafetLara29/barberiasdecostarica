@@ -9,20 +9,28 @@
         ?>
         <!-- Contenedor del calendario -->
         <div class="" id="calendar-container">
+            <div class="d-flex align-items-start">
+                <h3 for="image" class="form-label ml-3 text-gray text-center">
+                    Citas Agendadas
+                </h3>
+                <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
+                    title="Ayuda"
+                    data-bs-content="Clickeé sobre alguno de los dias del calentario para verificar si existe una cita agendada , la cual podrá aceptar o rechazar según lo requiera.">
+                    <i class="ti-help-alt"></i>
+                </small>
+            </div>
             <div id="calendar">
 
             </div>
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="font-family: 'Roboto', sans-serif;" id="myModalLabel">Citas
-                            Agendadas
-                        </h4>
-                    </div>
+
+
                     <div class="modal-body" id="modal-body">
                         <!-- Aquí se agregará la tabla generada por la consulta AJAX -->
                     </div>
@@ -47,8 +55,9 @@
 
 @section('custom-scripts')
     <script>
-
-
+        $(document).ready(function() {
+            $('[data-bs-toggle="popover"]').popover();
+        });
         let view = "admin";
     </script>
     @vite(['resources/js/schedules.js'])

@@ -6,10 +6,9 @@
         <div class="page-header">
             <div class="row align-items-end">
                 <div class="row mb-3 ">
-                    <h1 class="ml-3" style="color:gray !important;">Control de Perfil de Barbero</h1>
-                    <small class="text-muted ml-3">*Mueva el cursor sobre el perfil de su barbero y seleccione el icono
-                        correpondiente a "usuario" para redirigirle al formulario correspondiente o el icono del "maletín"
-                        para redirigirle a los servicios</small>
+                    <h1 class="ml-3 text-gray" >Control de Perfil de Barbero</h1>
+
+
                     {{-- <div class="page-header-title">
                         //Mofdificar el perfil
                         <div class="d-inline">
@@ -36,6 +35,19 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+                <h3 for="image" class="form-label ml-3 text-gray">
+                    Perfil de Barbero
+                </h3>
+                <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
+                    title="Ayuda"
+                    data-bs-content="Mueva el cursor sobre el perfil de su barbero y seleccione el icono
+                        correpondiente a 'usuario' para redirigirle al formulario correspondiente o el icono del 'maletín'
+                        para redirigirle a los servicios">
+                    <i class="ti-help-alt"></i>
+                </small>
             </div>
         </div>
         <!-- Page-header end -->
@@ -82,8 +94,11 @@
             @endif
         </div>
 
-
-
         <!-- Round card end -->
     </div>
+    <script>
+         $(document).ready(function(){
+            $('[data-bs-toggle="popover"]').popover();
+        });
+    </script>
 @endsection

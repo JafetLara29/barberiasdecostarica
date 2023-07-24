@@ -61,8 +61,15 @@
 
 
     <div style="padding: 20px;">
-        <h2 class="text-white">Agregar servicios</h2>
-        <p class="text-white">Por favor completa el siguiente formulario para agregar un servicio brindado por la barbería.</p>
+        <div class="d-flex align-items-start">
+            <h3 for="image" class="form-label ml-3 text-gray text-center">
+                Agregar Servicios
+            </h3>
+            <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" title="Ayuda"
+                data-bs-content="En el selector se le ofrecen unas opciones preestablecidas sobre algunos posibles servicios a ofrecer como barbero en su perfil. Si desea especificar manualmente , seleccione la opcion de 'otros' para hablitarle un campo especifico para el servicio que desea brindar ">
+                <i class="ti-help-alt"></i>
+            </small>
+        </div>
 
         <form action="/serviceStore" method="POST">
             @csrf
@@ -119,7 +126,9 @@
             $('.toast .close').on('click', function() {
                 $(this).closest('.toast').toast('hide');
             });
-
+            $(document).ready(function() {
+                $('[data-bs-toggle="popover"]').popover();
+            });
             // Función para manejar el cambio de opción en el select del tipo de servicio
             $("#tipo-servicio").change(function() {
                 if ($(this).val() == "otros") {
