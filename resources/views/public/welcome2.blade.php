@@ -209,9 +209,7 @@
                                 </div>
                                 <div class="atf-best-service-content text-center">
                                     <h3 class="atf-best-service-title">@lang('messages.brinda_informacion')</h3>
-                                    <p class="atf-best-service-description">Con nosotros, tendrás tu espacio para informar a
-                                        tus clientes sobre información de contacto de tu barbería y tus barberos. Orarios,
-                                        direcciones de llegada y mucho más</p>
+                                    <p class="atf-best-service-description">@lang('messages.contacto_de_tu_barberia')</p>
                                 </div>
                             </div>
 
@@ -221,9 +219,8 @@
                                             src="{{ asset('storage/public/assets/img/blog/Reseñas y valoraciones.jpg') }}" alt="Blog"></a>
                                 </div>
                                 <div class="atf-best-service-content text-center">
-                                    <h3 class="atf-best-service-title">Reseñas y valoraciones</h3>
-                                    <p class="atf-best-service-description">Permite a tus clientes valorar tu servicio,
-                                        recomendarlo y puntuarlo para posicionarte a nivel nacional.</p>
+                                    <h3 class="atf-best-service-title">@lang('messages.reseñas_y_valoraciones')</h3>
+                                    <p class="atf-best-service-description">@lang('messages.valorar_tu_servicio')</p>
                                 </div>
                             </div>
                         </div>
@@ -526,8 +523,8 @@ I
                     <div class="col-lg-7 col-xl-6">
                         <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                             data-wow-delay="0.3s" data-wow-offset="0">
-                            <h5 class="atf-sheading"> Reseñas</h5>
-                            <h2 class="text-white">NUESTROS CLIENTES DICEN</h2>
+                            <h5 class="atf-sheading">@lang('messages.tus_reseñas')</h5>
+                            <h2 class="text-white">@lang('messages.nuestros_clientes_dicen')</h2>
                             {{-- <p class="text-white">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor
                             sit amet elit dolor sit amet elit.</p> --}}
                         </div>
@@ -550,7 +547,7 @@ I
                                 <h3 class="testimonial-title">Al-Mubdi</h3>
                                 {{-- <small class="post">Web Designer</small> --}}
                                 <p class="description">
-                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                    @lang('messages.exellente_app')
                                 </p>
                             </div>
 
@@ -562,7 +559,7 @@ I
                                 <h3 class="testimonial-title">Al-Mushi</h3>
                                 {{-- <small class="post">Web Developer</small> --}}
                                 <p class="description">
-                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                    @lang('messages.exellente_app')
                                 </p>
                             </div>
 
@@ -574,7 +571,7 @@ I
                                 <h3 class="testimonial-title">Al-Hasib</h3>
                                 {{-- <small class="post">Web Developer</small> --}}
                                 <p class="description">
-                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                    @lang('messages.exellente_app')
                                 </p>
                             </div>
 
@@ -586,7 +583,7 @@ I
                                 <h3 class="testimonial-title">Al-Wahid</h3>
                                 {{-- <small class="post">Web Developer</small> --}}
                                 <p class="description">
-                                    Exelente app. Nos ha ayudado mucho a mejorar nuestro servicio
+                                    @lang('messages.exellente_app')
                                 </p>
                             </div>
                         </div>
@@ -608,8 +605,8 @@ I
                     <div class="col-lg-7 col-xl-6">
                         <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                             data-wow-delay="0.3s" data-wow-offset="0">
-                            <h5 class="atf-sheading"> Planes</h5>
-                            <h2 class="">Nuestros precios</h2>
+                            <h5 class="atf-sheading">@lang('messages.mis_planes')</h5>
+                            <h2 class="">@lang('messages.nuestros_precios')</h2>
                             {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
                             sit amet elit.</p> --}}
                         </div>
@@ -625,20 +622,20 @@ I
                                 <div class="price-value">
                                     <span class="amount">15.000</span>
                                     <span class="currency">₡</span>
-                                    <span class="duration">por-mes</span>
+                                    <span class="duration">@lang('messages.por_mes')</span>
                                 </div>
                             </div>
-                            <h2 class="title">Basico</h2>
+                            <h2 class="title">@lang('messages.un_basico')</h2>
                             <ul class="pricing-content">
-                                <li>1 Barbero</li>
-                                <li>Control De Citas</li>
-                                <li>24/7 Support</li>
-                                <li class="disable">Ingresos-Egresos</li>
-                                <li class="disable">Implementaciones a medida</li>
+                                <li>@lang('messages.un_barbero')</li>
+                                <li>@lang('messages.control_citas')</li>
+                                <li> @lang('messages.un_support')</li>
+                                <li class="">@lang('messages.ingresos_egresos')</li>
+                                <li class="disable">@lang('messages.una_medida')</li>
                             </ul>
                             <div class="atf-about-btn">
-                                <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
-                                    <span> inscribirse</span>
+                                <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
+                                    <span>@lang('messages.un_inscribirse')</span>
                                 </a>
                             </div>
                         </div>
@@ -650,20 +647,20 @@ I
                                 <div class="price-value">
                                     <span class="amount">20.000</span>
                                     <span class="currency">₡</span>
-                                    <span class="duration">por-mes</span>
+                                    <span class="duration">@lang('messages.por_mes')</span>
                                 </div>
                             </div>
-                            <h2 class="title">Standard</h2>
+                            <h2 class="title">@lang('messages.un_standart')</h2>
                             <ul class="pricing-content">
-                                <li>1-5 Barberos</li>
-                                <li>Control De Citas</li>
-                                <li>24/7 Support</li>
-                                <li class="">Ingresos-Egresos</li>
-                                <li class="disable">Implementaciones a medida</li>
+                                <li>@lang('messages.dos_barbero')</li>
+                                <li>@lang('messages.control_citas')</li>
+                                <li> @lang('messages.un_support')</li>
+                                <li class="">@lang('messages.ingresos_egresos')</li>
+                                <li class="disable">@lang('messages.una_medida')</li>
                             </ul>
                             <div class="atf-about-btn">
-                                <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
-                                    <span> inscribirses</span>
+                                <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
+                                    <span>@lang('messages.un_inscribirse')</span>
                                 </a>
                             </div>
                         </div>
@@ -674,20 +671,20 @@ I
                                 <div class="price-value">
                                     <span class="amount">30.000</span>
                                     <span class="currency">₡</span>
-                                    <span class="duration">por-mes</span>
+                                    <span class="duration">@lang('messages.por_mes')</span>
                                 </div>
                             </div>
-                            <h2 class="title">Premium</h2>
+                            <h2 class="title">@lang('messages.un_premium')</h2>
                             <ul class="pricing-content">
-                                <li>5-10 Barberos</li>
-                                <li>Control De Citas</li>
-                                <li>24/7 Support</li>
-                                <li class="">Ingresos-Egresos</li>
-                                <li class="">Implementaciones a medida</li>
+                                <li>@lang('messages.tres_barbero')</li>
+                                <li>@lang('messages.control_citas')</li>
+                                <li> @lang('messages.un_support')</li>
+                                <li class="">@lang('messages.ingresos_egresos')</li>
+                                <li class="disable">@lang('messages.una_medida')</li>
                             </ul>
                             <div class="atf-about-btn">
-                                <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
-                                    <span> inscribirse</span>
+                                <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
+                                    <span>@lang('messages.un_inscribirse')</span>
                                 </a>
                             </div>
                         </div>
@@ -706,8 +703,8 @@ I
                     <div class="col-lg-7 col-xl-6">
                         <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                             data-wow-delay="0.3s" data-wow-offset="0">
-                            <h5 class="atf-sheading"> ESTILOS</h5>
-                            <h2 class="">ARTICULOS DE INTERES</h2>
+                            <h5 class="atf-sheading">@lang('messages.un_estilos')</h5>
+                            <h2 class="">@lang('messages.de_interes') </h2>
                             {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
                             sit amet elit.</p> --}}
                         </div>
@@ -724,8 +721,7 @@ I
                                 <div class="atf-post-img">
                                     <img src="{{ asset('storage/public/assets/img/blog/7.jpg') }}" alt="Blog">
                                 </div>
-                                <h5 class="atf-post-title"><a href="https://diprofem.com/blog/que-es-el-corte-buzz"> Corte
-                                        Buzz</a></h5>
+                                <h5 class="atf-post-title"><a href="https://diprofem.com/blog/que-es-el-corte-buzz"> @lang('messages.un_corte')</a></h5>
 
                                 <p class="atf-post-description pr-lg-3">
                                     El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con
@@ -737,8 +733,7 @@ I
                                     <img src="{{ asset('storage/public/assets/img/blog/8.jpg') }}" alt="Blog">
                                 </div>
                                 <h5 class="atf-post-title"><a
-                                        href="https://tocado.es/corte-fade-en-que-consiste-y-como-mantenerlo/">corte
-                                        Fade</a></h5>
+                                        href="https://tocado.es/corte-fade-en-que-consiste-y-como-mantenerlo/"> @lang('messages.un_corte2')</a></h5>
 
                                 <p class="atf-post-description pr-lg-3">
                                     El corte fade (desvanecido)hace referencia al degradado que va de la nuca baja hacia la
@@ -751,8 +746,8 @@ I
                                     <img src="{{ asset('storage/public/assets/img/blog/9.jpg') }}" alt="Blog">
                                 </div>
                                 <h5 class="atf-post-title"><a
-                                        href="https://www.allthingshair.com/es-ar/cortes-de-pelo-de-hombre/corte-mullet-hombre/">Corte
-                                        mullet</a></h5>
+                                        href="https://www.allthingshair.com/es-ar/cortes-de-pelo-de-hombre/corte-mullet-hombre/">@lang('messages.un_corte3')</a></h5>
+
                                 <p class="atf-post-description pr-lg-3">
                                     El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta,
                                     tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.
