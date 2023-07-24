@@ -12,10 +12,25 @@ body {
 /* login card */
 .auth-box{
 	width: 80%;
-	border: 1px solid #f1f1f1;
-    backdrop-filter: blur(7px);
+	height: 80%;
+	border: 1px solid #0000001c;
+    backdrop-filter: blur(5px);
 	background: inherit;
 	border-radius: 10px;
+	position: absolute;
+}
+
+.card-shape {
+	position: relative;
+	
+	background: inherit;
+	height: fit-content;
+	width: fit-content;
+
+}
+.cardfx {
+padding: 0px!important;
+height: 70%;
 }
 
 /* Form styles */
