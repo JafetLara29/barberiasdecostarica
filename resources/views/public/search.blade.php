@@ -47,14 +47,18 @@
 
 @section('js')
 
-<link rel="stylesheet" href="{{asset('storage/public/assets/css/jquery-ui.css')}}">
-<script src="{{asset('storage/public/assets/js/jquery-1.12.4.min.js')}}"></script>
-<script src="{{asset('storage/public/assets/js/jquery-ui.min.js')}}"></script>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+</head>
+</html>
 <script>
     $(document).ready(function() {
 
         $("#search").autocomplete({
-
             source: function(request, response) {
                 $.ajax({
                     url: "{{ route('barbershop.search') }}",

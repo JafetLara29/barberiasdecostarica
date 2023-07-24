@@ -21,15 +21,26 @@ class BarberController extends Controller
      */
     public function index()
     {
-        $barbers = Barber::all();
+        $user = Auth::user();
+        $barber = $user->barber;
+
+        // Verificar si el usuario tiene un perfil de barbero asociado
+        if ($barber) {
+            
+            $barbers = collect([$barber]);
+        } else {
+
+            $barbers = collect([]);
+        }
 
         return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
+
     // Ruta de perfil barber
     public function profile($userId)
     {
 
-        return view('dashboards.forms.barberprofile',['userId' => $userId]);
+        return view('dashboards.forms.barberprofile', ['userId' => $userId]);
     }
     // ruta de calendario Barber
     public function schedule()
@@ -57,38 +68,44 @@ class BarberController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function verifyBarber(Request $request)
-     {
-         try {
-             $nombreBarbero = $request->input('name');
-
-             $barbero = barber::where('name', $nombreBarbero)->first();
-
-             if ($barbero) {
-                 return [
-                     'existe' => true,
-                     'user_id' => $barbero->id
-                 ];
-             } else {
-                 return [
-                     'existe' => false
-                 ];
-             }
-         } catch (\Throwable $th) {
-             return [
-                 'error' => 'Error al verificar el barbero: ' . $th->getMessage()
-             ];
-         }
-     }
-
-
-    public function create()
+    public function verifyBarber(Request $request)
     {
-        return view('dashboards.forms.addbarbersinformationform'); //
+        try {
+            $idBarbero = $request->id;
+
+            // Buscar el barbero por ID
+            $barbero = Barber::where('id', $idBarbero)->first();
+
+            if ($barbero) {
+                // Si se encuentra un barbero con el ID proporcionado, devolver el user_id y name del barbero en el response
+                return [
+                    'existe' => true,
+                    'user_id' => $barbero->id,
+                    'name' => $barbero->name,
+                ];
+            } else {
+                return [
+                    'existe' => false,
+                ];
+            }
+        } catch (\Throwable $th) {
+            return [
+                'error' => 'Error al verificar el barbero: ' . $th->getMessage(),
+            ];
+        }
     }
 
+
+
+
+    public function create($userId = null)
+    {
+        return view('dashboards.forms.addbarbersinformationform', compact('userId'));
+    }
+
+
     /**
-     * * Create a new user barber
+     * Create a new user barber
      */
     public function createUser()
     {
@@ -96,6 +113,7 @@ class BarberController extends Controller
             ->join('users', 'users.id', '=', 'role_user.user_id')
             ->select('users.id', 'users.name', 'users.email')
             ->where('role_user.role_id', '=', '2')
+            ->where('role_user.parent_id', '=', Auth::user()->id)
             ->get();
         return view('dashboards.forms.addusersform')->with(['users' => $users]);
     }
@@ -138,9 +156,29 @@ class BarberController extends Controller
         $user->role = $role->id;
 
         return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
-        // } catch (\Throwable $th) {
-        //     return redirect()->route('barbers.createUser')->withErrors($th->getMessage());
-        // }
+    }
+
+    function updateUser(Request $request){
+        $rule = [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $request->user_id],
+            'password' => ['required', 'string', 'min:8'],
+        ];
+
+        $message = [
+            'required' => 'El input :attribute es requerido',
+            'email' => 'El input :attribute debe tener un formato válido',
+            'email.unique' => 'Email ya registrado en el sistema',
+        ];
+
+        $this->validate($request, $rule, $message);
+
+        $user = User::find($request->user_id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->update();
+
+        return redirect()->route('barbers.createUser')->with('status', '¡Usuario actualizado correctamente!');
     }
 
     /**
@@ -149,9 +187,6 @@ class BarberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function store(Request $request)
     {
         $request->validate([
@@ -234,35 +269,35 @@ class BarberController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required',
-        'image' => 'required',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+        ]);
 
-    $barber = Barber::findOrFail($id);
-    $barber->name = $request->name;
+        $barber = Barber::findOrFail($id);
+        $barber->name = $request->name;
 
-    // Proceso de guardado de imagen:
-    $fileName = $request->file('image')->hashName();
-    $fileType = $request->file('image')->getMimeType();
+        // Proceso de guardado de imagen:
+        $fileName = $request->file('image')->hashName();
+        $fileType = $request->file('image')->getMimeType();
 
-    if (str_contains($fileType, 'image')) {
-        $path = $request->file('image')->storeAs('barbers', $fileName, 'public');
-    } else {
+        if (str_contains($fileType, 'image')) {
+            $path = $request->file('image')->storeAs('barbers', $fileName, 'public');
+        } else {
+            return response()->json([
+                'errors' => true,
+            ]);
+        }
+
+        $barber->image = '/storage/' . $path;
+        $barber->save();
+
         return response()->json([
-            'errors' => true,
+            'success' => true,
+            'id' => $barber->id,
         ]);
     }
-
-    $barber->image = '/storage/' . $path;
-    $barber->save();
-
-    return response()->json([
-        'success' => true,
-        'id' => $barber->id,
-    ]);
-}
 
     /**
      * Remove the specified resource from storage.
@@ -276,9 +311,6 @@ class BarberController extends Controller
 
         $barbers = Barber::all();
 
-        return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
+        return redirect()->route('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
-
-
-
 }

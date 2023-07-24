@@ -1,6 +1,6 @@
 @extends('layouts.adminhome')
 @section('content')
-    <style>
+    {{-- <style>
         body {
             background-color: #F9E0D9;
         }
@@ -56,19 +56,19 @@
             background-color: #9D6E5F;
             border-color: #9D6E5F;
         }
-    </style>
+    </style> --}}
 
 
 
     <div style="padding: 20px;">
-        <h2 style="color: wheat !important;">Agregar servicios</h2>
-        <p style="color: wheat !important;">Por favor completa el siguiente formulario para agregar un servicio brindado por la barbería.</p>
+        <h2 class="text-white">Agregar servicios</h2>
+        <p class="text-white">Por favor completa el siguiente formulario para agregar un servicio brindado por la barbería.</p>
 
         <form action="/serviceStore" method="POST">
             @csrf
             <!-- Token de seguridad Laravel -->
             <div class="form-group">
-                <label style="color:wheat!important" for="tipo-servicio">Tipo de servicio:</label>
+                <label for="tipo-servicio" class="text-white">Tipo de servicio:</label>
                 <select class="form-control" id="tipo-servicio" name="tipo-servicio">
                     <option value="corte-cabello">Corte de cabello</option>
                     <option value="afeitado">Afeitado</option>
@@ -80,7 +80,7 @@
                 </select>
             </div>
             <div class="form-group" id="otro-servicio" style="display:none;">
-                <label for="tipo-servicio-otro">Tipo de servicio:</label>
+                <label for="tipo-servicio-otro" class="text-white">Tipo de servicio:</label>
                 <input type="text" class="form-control" id="tipo-servicio-otro" name="tipo-servicio-otro">
             </div>
             <div class="form-group">

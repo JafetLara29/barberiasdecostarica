@@ -605,8 +605,8 @@ I
                     <div class="col-lg-7 col-xl-6">
                         <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                             data-wow-delay="0.3s" data-wow-offset="0">
-                            <h5 class="atf-sheading">@lang('messages.mis_planes')</h5>
-                            <h2 class="">@lang('messages.nuestros_precios')</h2>
+                            <h5 class="atf-sheading"> Planes</h5>
+                            <h2 class="">Nuestros precios</h2>
                             {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
                             sit amet elit.</p> --}}
                         </div>
@@ -620,18 +620,18 @@ I
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <div class="price-value">
-                                    <span class="amount">15.000</span>
+                                    <span class="amount">5.000</span>
                                     <span class="currency">₡</span>
                                     <span class="duration">@lang('messages.por_mes')</span>
                                 </div>
                             </div>
                             <h2 class="title">@lang('messages.un_basico')</h2>
                             <ul class="pricing-content">
-                                <li>@lang('messages.un_barbero')</li>
-                                <li>@lang('messages.control_citas')</li>
-                                <li> @lang('messages.un_support')</li>
-                                <li class="">@lang('messages.ingresos_egresos')</li>
-                                <li class="disable">@lang('messages.una_medida')</li>
+                                <li>1 Barbero</li>
+                                <li>Control De Citas</li>
+                                <li>24/7 Support</li>
+                                <li class="disable">Ingresos-Egresos</li>
+                                <li class="disable">Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
@@ -645,18 +645,18 @@ I
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <div class="price-value">
-                                    <span class="amount">20.000</span>
+                                    <span class="amount">7.000</span>
                                     <span class="currency">₡</span>
                                     <span class="duration">@lang('messages.por_mes')</span>
                                 </div>
                             </div>
                             <h2 class="title">@lang('messages.un_standart')</h2>
                             <ul class="pricing-content">
-                                <li>@lang('messages.dos_barbero')</li>
-                                <li>@lang('messages.control_citas')</li>
-                                <li> @lang('messages.un_support')</li>
-                                <li class="">@lang('messages.ingresos_egresos')</li>
-                                <li class="disable">@lang('messages.una_medida')</li>
+                                <li>1-5 Barberos</li>
+                                <li>Control De Citas</li>
+                                <li>24/7 Support</li>
+                                <li class="">Ingresos-Egresos</li>
+                                <li class="disable">Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
@@ -669,18 +669,18 @@ I
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <div class="price-value">
-                                    <span class="amount">30.000</span>
+                                    <span class="amount">10.000</span>
                                     <span class="currency">₡</span>
                                     <span class="duration">@lang('messages.por_mes')</span>
                                 </div>
                             </div>
                             <h2 class="title">@lang('messages.un_premium')</h2>
                             <ul class="pricing-content">
-                                <li>@lang('messages.tres_barbero')</li>
-                                <li>@lang('messages.control_citas')</li>
-                                <li> @lang('messages.un_support')</li>
-                                <li class="">@lang('messages.ingresos_egresos')</li>
-                                <li class="disable">@lang('messages.una_medida')</li>
+                                <li>5-10 Barberos</li>
+                                <li>Control De Citas</li>
+                                <li>24/7 Support</li>
+                                <li class="">Ingresos-Egresos</li>
+                                <li class="">Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">

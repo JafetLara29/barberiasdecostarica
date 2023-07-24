@@ -125,7 +125,7 @@
                         <div class="logo">
                             <a href="index.html">
                                 {{-- <img src="{{asset('storage/public/assets/img/logo.png')}}" class="logo" alt="logo"> --}}
-                                <a class="navbar-brand text-light logo" href="/">BARBERSHOPS CR</a>
+                                <a class="navbar-brand text-light logo" href="/">YouBarbershopCR</a>
                             </a>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="index.html">
                             {{-- <img src="{{asset('storage/public/assets/img/logo.png')}}" class="logo" alt="logo"> --}}
-                            <a class="navbar-brand text-light logo" href="/">BARBERSHOPS CR</a>
+                            <a class="navbar-brand text-light logo" href="/">YouBarbershopCR</a>
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav nav justify-content-center ms-auto">

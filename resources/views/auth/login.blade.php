@@ -21,11 +21,12 @@
                     <!-- Authentication card start -->
                     <form class="md-float-material form-material d-flex align-items-center justify-content-center" style="height: 100vh;" method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="auth-box card">
+                        <div class="auth-box"></div>
+                        <div class="card-shape">                          
                             <div class="text-center">
                                 <img class="logo" src="{{ asset('https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png') }}" alt="logo.png" width="150" height="125">
                             </div>
-                            <div class="card-block">
+                            <div class="card-fx">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
                                         <h3 class="text-center text-light loginTitles">@lang('messages.login_title')</h3>
@@ -86,15 +87,14 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- end of form -->
                     </form>
-                    <!-- end of form -->
+                    <!-- Authentication card end -->
                 </div>
-                <!-- Authentication card end -->
+                <!-- end of col-sm-12 -->
             </div>
-            <!-- end of col-sm-12 -->
+            <!-- end of row -->
         </div>
-        <!-- end of row -->
-    </div>
     <!-- end of container-fluid -->
-</section>
+    </section>
 @endsection

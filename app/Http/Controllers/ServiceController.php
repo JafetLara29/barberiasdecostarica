@@ -148,4 +148,26 @@ class ServiceController extends Controller
 
         return response()->json(['message' => 'Servicio eliminado exitosamente']);
     }
+
+    public function adminServiceDelete(Request $request)
+    {
+        try {
+            $serviceId = $request->input('serviceId');
+
+            // Buscar el servicio en la base de datos
+            $servicio = Service::find($serviceId);
+
+            if ($servicio) {
+                // Eliminar el servicio
+                $servicio->delete();
+
+                return response()->json(['success' => true]);
+            } else {
+                return response()->json(['success' => false]);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['success' => false]);
+        }
+    }
+
 }

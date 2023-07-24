@@ -1,5 +1,9 @@
 @extends('layouts.adminhome')
 @section('content')
+    {{-- User id desde ruta --}}
+    <div id="barber-info" data-user-id="{{ $userId }}"></div>
+
+
     <div class="">
         <div class="card shadow mb-5 bg-dark">
             <h1 class="container-fluid pt-2">Información de barbero</h1>
@@ -21,8 +25,8 @@
                             <form id="general-info" action="" method="post">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nombre del Barbero</label>
-                                    <input onblur="existBarberValidate()" id="barbername" type="text" name="name"
-                                        class="form-control bg-dark" placeholder="Escribe el nombre de tu barbero" value="">
+                                    <input id="barbername" type="text" name="name" class="form-control bg-dark"
+                                        placeholder="Escribe el nombre de tu barbero" value="">
                                     {{-- <small id="name-description" class="text-muted">Help text</small> --}}
                                 </div>
                                 <div class="mb-3">
@@ -77,8 +81,8 @@
                                             id="wednesday-checkbox">
                                         Miércoles
                                     </div>
-                                    de: <input id="Wednesday-start" type="time" name="start[]">
-                                    a: <input id="Wednesday-end" type="time" name="end[]">
+                                    de: <input id="wednesday-start" type="time" name="start[]">
+                                    a: <input id="wednesday-end" type="time" name="end[]">
                                 </label>
                                 {{-- Item --}}
                                 <label class="list-group-item bg-dark">
@@ -238,14 +242,22 @@
         //Para en caso de existir un barber tener su id global
         let globalId = "";
 
+        $(document).ready(function() {
+            // Agrega un retraso de 2 segundos (2000 milisegundos)
+
+                var userId = $('#barber-info').data('user-id');
+                existBarberValidate(userId);
+
+        });
+
         //Methods to preload the information if exists an user_id, auth()->user_id or role_id related to the form information>
-        function existBarberValidate() {
+        function existBarberValidate(userId) {
             $.ajax({
                 url: '/verify-barber',
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    name: $('#barbername').val()
+                    id: userId
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -264,14 +276,15 @@
                         });
 
                         $('#submit-button').val('Actualizar');
-                        $('#nombre').val($('#barbername').val());
+                        $('#nombre').val($('#barbername').val(response.name));
                         $('#user_id').val(response.user_id);
                         globalId = response.user_id;
 
                         existScheduleValidate(response.user_id);
                     } else {
                         $('.toast').toast('show');
-                        $('#toastContent').html("¡Tienes suerte, no hay barberos con este nombre");
+                        $('#toastContent').html(
+                            "¡Tienes suerte, no hay informacion relacionada con este barbero");
                         $('#toastContent').css({
                             background: "linear-gradient(to right, #f9d9bc, #f5cda1)",
                             color: "black",
@@ -279,8 +292,8 @@
                             boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
                         });
 
-                        clearInputsBarbers();
-                    }
+                    //     clearInputsBarbers();
+                    // }
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.log('Error:', errorThrown);
@@ -288,8 +301,6 @@
                 }
             });
         }
-
-
         //Validamos si existe un horario para el barbero previamente existente
         function existScheduleValidate(id) {
             $.ajax({

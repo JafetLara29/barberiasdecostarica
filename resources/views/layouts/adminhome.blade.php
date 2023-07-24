@@ -56,6 +56,11 @@
                         <ion-icon size="large" name="menu"></ion-icon>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        {{ session('user_type') }}
+                    </a>
+                </li>
             </ul>
         </nav>
         {{-- sidebar --}}
@@ -111,7 +116,7 @@
                                 <a href="{{ route('barbers.index') }}" class="nav-link py-3 border-bottom" title="Citas" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                                     <ion-icon size="large" name="people-circle-outline"></ion-icon>
                                     <p>
-                                        Barberos
+                                        Perfil
                                     </p>
                                 </a>
                             </li>
