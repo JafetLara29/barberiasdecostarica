@@ -24,7 +24,6 @@
                             </h3>
 
                             <h5>@lang('messages.welcome_dashboard')</h5>
-                            <p>@lang('messages.select_option')</p>
 
                         </div>
                     </div>

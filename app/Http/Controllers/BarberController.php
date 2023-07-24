@@ -105,7 +105,7 @@ class BarberController extends Controller
 
 
     /**
-     * * Create a new user barber
+     * Create a new user barber
      */
     public function createUser()
     {
@@ -113,6 +113,7 @@ class BarberController extends Controller
             ->join('users', 'users.id', '=', 'role_user.user_id')
             ->select('users.id', 'users.name', 'users.email')
             ->where('role_user.role_id', '=', '2')
+            ->where('role_user.parent_id', '=', Auth::user()->id)
             ->get();
         return view('dashboards.forms.addusersform')->with(['users' => $users]);
     }
@@ -155,9 +156,29 @@ class BarberController extends Controller
         $user->role = $role->id;
 
         return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
-        // } catch (\Throwable $th) {
-        //     return redirect()->route('barbers.createUser')->withErrors($th->getMessage());
-        // }
+    }
+
+    function updateUser(Request $request){
+        $rule = [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $request->user_id],
+            'password' => ['required', 'string', 'min:8'],
+        ];
+
+        $message = [
+            'required' => 'El input :attribute es requerido',
+            'email' => 'El input :attribute debe tener un formato válido',
+            'email.unique' => 'Email ya registrado en el sistema',
+        ];
+
+        $this->validate($request, $rule, $message);
+
+        $user = User::find($request->user_id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->update();
+
+        return redirect()->route('barbers.createUser')->with('status', '¡Usuario actualizado correctamente!');
     }
 
     /**
@@ -166,9 +187,6 @@ class BarberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function store(Request $request)
     {
         $request->validate([
@@ -293,6 +311,6 @@ class BarberController extends Controller
 
         $barbers = Barber::all();
 
-        return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
+        return redirect()->route('dashboards.barbercontrol')->with(['barbers' => $barbers]);
     }
 }

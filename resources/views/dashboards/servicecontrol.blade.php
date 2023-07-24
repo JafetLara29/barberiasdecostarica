@@ -1,6 +1,6 @@
 @extends('layouts.adminhome')
 @section('content')
-    <style>
+    {{-- <style>
         body {
             background-color: #F9E0D9;
             overflow-y: scroll;
@@ -63,15 +63,15 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
-    </style>
+    </style> --}}
 
 
     <div class="container">
         <div class="row mb-3">
             <div class="col-12">
                 <div class="page-header-title">
-                    <h1 style="color:wheat!important" class="container-fluid mt-0">Control de Servicios</h1>
-                    <p style="color:wheat!important" class="pt-1">Aquí puedes agregar, visualizar y eliminar los servicios
+                    <h1 class="container-fluid mt-0">Control de Servicios</h1>
+                    <p class="pt-1">Aquí puedes agregar, visualizar y eliminar los servicios
                         disponibles al público</p>
                     <a href="{{ Route('show.service.list') }}" class="btn btn-primary ml-3 mb-3 mt-3">Agregar servicio</a>
                     <hr>

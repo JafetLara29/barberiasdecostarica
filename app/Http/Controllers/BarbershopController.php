@@ -23,9 +23,11 @@ class BarbershopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function restoreSession()
     {
-        //
+        if(!session()->has('user_type')){
+            session(['user_type', 'barbershop']);
+        }
     }
 
     /**
@@ -47,6 +49,7 @@ class BarbershopController extends Controller
      */
     public function create()
     {
+        $this->restoreSession();
         $user = Auth::user();
         $barbershop = $user->barbershop;
         $socialMedia = $barbershop->socialMedias;
@@ -75,6 +78,7 @@ class BarbershopController extends Controller
      */
     public function show(Barbershop $barbershop)
     {
+        $this->restoreSession();
         return view('public.barbershopinfo')->with([
             'barbershop' => $barbershop,
             'schedule'   => $barbershop->schedules,
@@ -104,25 +108,27 @@ class BarbershopController extends Controller
      */
     public function update(Request $request, Barbershop $barbershop)
     {
+        $this->restoreSession();
         $barbershop->name = $request->name;
         $barbershop->address = $request->address;
         $barbershop->canton = $request->canton;
 
-        // Proceso de guardado de imagen:
-        $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
-        $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
-
-        // Verificamos el tipo de archivo
-        if (str_contains($fileType, 'image') == true) {
-            $path = $request->file('image')->storeAs('barbershops', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
-        } else {
-            // An error response
-            return response()->json([
-                'errors' => true,
-            ]);
+        if($request->hasFile('image')){
+            // Proceso de guardado de imagen:
+            $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
+            $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
+            // Verificamos el tipo de archivo
+            if (str_contains($fileType, 'image') == true) {
+                $path = $request->file('image')->storeAs('barbershops', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
+            } else {
+                // An error response
+                return response()->json([
+                    'errors' => true,
+                ]);
+            }
+            // Guardamos el path y el tipo de archivo en el modelo
+            $barbershop->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
         }
-        // Guardamos el path y el tipo de archivo en el modelo
-        $barbershop->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
 
         $barbershop->save();
 
@@ -145,6 +151,7 @@ class BarbershopController extends Controller
 
     public function getBarberUser($userId)
     {
+        $this->restoreSession();
         // Buscar el barbero según el user_id
         $barber = Barber::where('user_id', $userId)->first();
 
@@ -279,6 +286,5 @@ class BarbershopController extends Controller
             return response()->json(['success' => false]);
         }
     }
-
 
 }

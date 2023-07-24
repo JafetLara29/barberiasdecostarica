@@ -88,18 +88,14 @@ Route::post('/eliminar-servicio', [ServiceController::class, 'adminServiceDelete
 |------------------------
 */
 Route::resource('/barbers', BarberController::class);
-
 Route::get('/barbers/create/{userId?}', [BarberController::class, 'create'])->name('barbers.create');
-
-
 Route::get('/profile/{userId}', [BarberController::class, 'profile'])->name('barbers.profile');
 Route::get('/barberSchedule', [BarberController::class, 'schedule'])->name('barbers.schedule');
-
 Route::delete('/barbers/{barber}', [BarberController::class, 'destroy'])->name('barbers.destroy');
 Route::get('/barbers/{barber}', [BarberController::class, 'destroy'])->name('barbers.destroy');
-
 Route::get('/createuser', [BarberController::class, 'createUser'])->name('barbers.createUser');
 Route::post('/storeUser', [BarberController::class, 'storeUser'])->name('barbers.storeUser');
+Route::post('/barbers/updateUser', [BarberController::class, 'updateUser'])->name('barbers.updateUser');
 // Nueva ruta para consulta de barber
 Route::post('/verify-barber', [BarberController::class, 'verifyBarber'])->name('verify-barber');
 //Para saber si este barber pertenece a una barber y extraer sus datos

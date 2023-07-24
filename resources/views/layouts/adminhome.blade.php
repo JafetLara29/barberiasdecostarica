@@ -56,6 +56,11 @@
                         <ion-icon size="large" name="menu"></ion-icon>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                        {{ session('user_type') }}
+                    </a>
+                </li>
             </ul>
         </nav>
         {{-- sidebar --}}

@@ -610,8 +610,6 @@ I
                             data-wow-delay="0.3s" data-wow-offset="0">
                             <h5 class="atf-sheading"> Planes</h5>
                             <h2 class="">Nuestros precios</h2>
-                            {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
-                            sit amet elit.</p> --}}
                         </div>
                     </div>
                     <!--- END COL -->
@@ -623,7 +621,7 @@ I
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <div class="price-value">
-                                    <span class="amount">15.000</span>
+                                    <span class="amount">5.000</span>
                                     <span class="currency">₡</span>
                                     <span class="duration">por-mes</span>
                                 </div>
@@ -633,8 +631,8 @@ I
                                 <li>1 Barbero</li>
                                 <li>Control De Citas</li>
                                 <li>24/7 Support</li>
-                                <li class="disable">Ingresos-Egresos</li>
-                                <li class="disable">Implementaciones a medida</li>
+                                <li>Ingresos-Egresos</li>
+                                <li>Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
@@ -648,7 +646,7 @@ I
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <div class="price-value">
-                                    <span class="amount">20.000</span>
+                                    <span class="amount">7.000</span>
                                     <span class="currency">₡</span>
                                     <span class="duration">por-mes</span>
                                 </div>
@@ -658,8 +656,8 @@ I
                                 <li>1-5 Barberos</li>
                                 <li>Control De Citas</li>
                                 <li>24/7 Support</li>
-                                <li class="">Ingresos-Egresos</li>
-                                <li class="disable">Implementaciones a medida</li>
+                                <li>Ingresos-Egresos</li>
+                                <li>Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
@@ -672,7 +670,7 @@ I
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <div class="price-value">
-                                    <span class="amount">30.000</span>
+                                    <span class="amount">10.000</span>
                                     <span class="currency">₡</span>
                                     <span class="duration">por-mes</span>
                                 </div>
@@ -682,8 +680,8 @@ I
                                 <li>5-10 Barberos</li>
                                 <li>Control De Citas</li>
                                 <li>24/7 Support</li>
-                                <li class="">Ingresos-Egresos</li>
-                                <li class="">Implementaciones a medida</li>
+                                <li>Ingresos-Egresos</li>
+                                <li>Implementaciones a medida</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="inscribirse" href="{{ route('subscriptions.form') }}">
