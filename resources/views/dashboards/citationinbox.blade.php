@@ -19,13 +19,35 @@
 
             </div>
 
-            @if (!isset($barber) || $barber->citations->isEmpty())
-                <div class="alert alert-warning">
-                    no hay citas pendientes
-
+            <!-- Aquí está el toast que se mostrará cuando sea necesario -->
+            <div class="position-fixed bottom-0 end-0 p-3">
+                <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-success text-white">
+                        <strong class="me-auto">Sistema</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body" style="background-color: #353c4e; color: white;">
+                        <span id="toast-message"></span>
+                    </div>
                 </div>
+            </div>
+
+            @if (!isset($barber) || $barber->citations->isEmpty())
             @endif
 
+            {{-- Toast miedo  --}}
+            <!-- Aquí está el toast que se mostrará cuando sea necesario -->
+            <div class="position-fixed bottom-0 end-0 p-3">
+                <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-success text-white">
+                        <strong class="me-auto">Sistema</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body" style="background-color: #353c4e; color: white;">
+                        <span id="toast-message"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -54,26 +76,30 @@
                         $.each(response.citation, function(index, citation) {
                             // Append the message to the messages list
                             html += `
-                                <a href="#" class="list-group-item list-group-item-action" aria-current="true" style="background: linear-gradient(90deg, #E9F7F3 0%, #00D29C 100%); ">
-                                    <div class="d-flex w-100 justify-content-between flex-wrap">
-                                        <h5 class="mb-1">${citation.sender}</h5>
-                                    </div>
-                                    <p class="mb-1"></p>
-                                    <small>Fecha Agendada: ${citation.date}</small>
-                                    <br>
-                                    <small>Hora Agendada: ${citation.time}</small>
-                                    <br>
-                                    <div class="d-flex ">
-                                        <button onClick="acceptCitation(${citation.id})" type="button" id="accept" class="btn btn-outline-success btn-sm">Aceptar</button>
-                                        <button onClick="rejectCitation(${citation.id})" type="button" id="reject" class="btn btn-outline-danger btn-sm">Rechazar</button>
-                                    </div>
-
-                                </a>`;
+                            <a href="#" class="list-group-item list-group-item-action" aria-current="true" style="background: linear-gradient(90deg, #E9F7F3 0%, #00D29C 100%); ">
+                                <div class="d-flex w-100 justify-content-between flex-wrap">
+                                    <h5 class="mb-1">${citation.sender}</h5>
+                                </div>
+                                <p class="mb-1"></p>
+                                <small>Fecha Agendada: ${citation.date}</small>
+                                <br>
+                                <small>Hora Agendada: ${citation.time}</small>
+                                <br>
+                                <div class="d-flex ">
+                                    <button onClick="acceptCitation(${citation.id})" type="button" id="accept" class="btn btn-outline-success btn-sm">Aceptar</button>
+                                    <button onClick="rejectCitation(${citation.id})" type="button" id="reject" class="btn btn-outline-danger btn-sm">Rechazar</button>
+                                </div>
+                            </a>`;
                         });
                         $('#citation').html(html);
+
+                        // Show the toast message
+                        $('#toast-message').html('Consulta realizada exitosamente!');
+                        $('#toast').toast('show');
                     } else {
-                        // Display an error message
-                        alert('An error occurred');
+                        // Show the toast message
+                        $('#toast-message').html('Ha ocurrido un error al mostrar las citas pendientes');
+                        $('#toast').toast('show');
                     }
                 }
             });
@@ -91,25 +117,18 @@
                     if (response.success) {
                         // Mark the message as read in the list
 
-                        Toastify({
-                            text: "Cita aceptada exitosamente!!!!!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, green, green)",
-                            },
-
-                        }).showToast();
+                        // Show the toast message
+                        $('#toast-message').html('Cita aceptada exitosamente!!!!!');
+                        $('#toast').addClass('bg-success text-white').removeClass('bg-danger').toast('show');
 
                         receiveCitations();
                     } else {
-                        // Display an error message
-                        alert('An error occurred');
+                        // Show the toast message
+                        $('#toast-message').html('Ha ocurrido un error al aceptar la cita');
+                        $('#toast').addClass('bg-danger text-white').removeClass('bg-success').toast('show');
                     }
                 }
             });
-
         }
 
         function rejectCitation(id) {
@@ -124,25 +143,18 @@
                     if (response.success) {
                         // Mark the message as read in the list
 
-                        Toastify({
-                            text: "Cita rechazada exitosamente !!!",
-                            duration: 5000,
-                            gravity: "top",
-                            position: "center",
-                            style: {
-                                background: "linear-gradient(to right, green, green)",
-                            },
-
-                        }).showToast();
+                        // Show the toast message
+                        $('#toast-message').html('Cita rechazada exitosamente !');
+                        $('#toast').addClass('bg-success text-white').removeClass('bg-danger').toast('show');
 
                         receiveCitations();
                     } else {
-                        // Display an error message
-                        alert('An error occurred');
+                        // Show the toast message
+                        $('#toast-message').html('Ha ocurrido un error al rechazar la cita !');
+                        $('#toast').addClass('bg-danger text-white').removeClass('bg-success').toast('show');
                     }
                 }
             });
-
         }
     </script>
 @endsection

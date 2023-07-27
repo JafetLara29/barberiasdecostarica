@@ -14,14 +14,27 @@
                 </small>
             </div>
 
-          @if (session('status'))
-                <div class="m-3">
-                    <div class="alert alert-success">
-                        {{ session('status') }}
+            {{-- Toast para mostrar mensajes de éxito --}}
+            @if (session()->has('success'))
+                <div class="position-fixed bottom-0 end-0 p-3">
+                    <div id="success-toast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-success text-white">
+                            <strong class="me-auto">Sistema</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body" style="background-color: #353c4e;">
+                            <span>{{ session()->get('success') }}</span>
+                        </div>
                     </div>
                 </div>
+                <script>
+                    var successToast = new bootstrap.Toast(document.querySelector('#success-toast'));
+                    successToast.show();
+                </script>
             @endif
-            {{-- Store user form --}}
+
+
+            {{-- Resto del contenido --}}
             <form id="add-user" action="{{ route('barbers.storeUser') }}" method="post">
                 <div class="container">
                     @csrf
@@ -39,7 +52,6 @@
                         </div>
                         <div class="col-md-2">
                             <div class="d-grid">
-
                                 <button type="button" onclick="generatePassword('password')"
                                     class="btn btn-secondary mb-3">
                                     <ion-icon name="key-outline"></ion-icon>Generar
@@ -58,7 +70,7 @@
                     </div>
                 </div>
             </form>
-            {{-- Update user form --}}
+
             <form id="edit-user" class="visually-hidden" action="{{ route('barbers.updateUser') }}" method="post">
                 <div class="container">
                     @csrf
@@ -76,7 +88,6 @@
                         </div>
                         <div class="col-md-2">
                             <div class="d-grid">
-
                                 <button type="button" onclick="generatePassword('passwordEdit')"
                                     class="btn btn-secondary mb-3">
                                     <ion-icon name="key-outline"></ion-icon>Generar
@@ -97,14 +108,15 @@
                     </div>
                 </div>
             </form>
+
             <div class="row m-0 users-card">
                 <h3 class="mt-3">Usuarios registrados</h1>
                     <div class="d-flex align-items-start">
                         <label for="image" class="form-label mr-2">
                             Perfil de Usuario de Barbería
                         </label>
-                        <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
-                            title="Ayuda"
+                        <small class="text-success" data-bs-container="body" data-bs-toggle="popover"
+                            data-bs-placement="top" title="Ayuda"
                             data-bs-content="Use el icono sobre la imagen de perfil del usuario de su barbería, para cargar la informacion previamente guardada y así actualizarla ">
                             <i class="ti-help-alt"></i>
                         </small>
@@ -133,51 +145,47 @@
                             </div>
                         </div>
                     @endforeach
-
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('custom-scripts')
-        <script>
-            $(document).ready(function() {
-                // Inicializa todos los popovers en la página
-                $('[data-bs-toggle="popover"]').popover();
-            });
+@section('custom-scripts')
+    <script>
+        $(document).ready(function() {
+            // Inicializa todos los popovers en la página
+            $('[data-bs-toggle="popover"]').popover();
+        });
 
-            function generatePassword(id) {
+        function generatePassword(id) {
+            $("#" + id).val(generateP())
+        }
 
-                $("#" + id).val(generateP())
+        function generateP() {
+            var pass = '';
+            var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+
+            for (let i = 1; i <= 8; i++) {
+                var char = Math.floor(Math.random() * str.length + 1);
+                pass += str.charAt(char)
             }
+            return pass;
+        }
 
-            function generateP() {
+        function setUserIntoForm(id, name, email) {
+            $('#add-user').addClass('visually-hidden');
+            $('#edit-user').removeClass('visually-hidden');
+            $('#nameEdit').val(name);
+            $('#emailEdit').val(email);
+            $('#user_id').val(id);
+        }
 
-                var pass = '';
-                var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-                    'abcdefghijklmnopqrstuvwxyz0123456789@#$';
-
-                for (let i = 1; i <= 8; i++) {
-                    var char = Math.floor(Math.random() *
-                        str.length + 1);
-                    pass += str.charAt(char)
-                }
-                return pass;
-            }
-
-            function setUserIntoForm(id, name, email) {
-                $('#add-user').addClass('visually-hidden');
-                $('#edit-user').removeClass('visually-hidden');
-                $('#nameEdit').val(name);
-                $('#emailEdit').val(email);
-                $('#user_id').val(id);
-            }
-
-            function cancelEdit() {
-                $('#add-user').removeClass('visually-hidden');
-                $('#edit-user').addClass('visually-hidden');
-                $('#nameEdit').val('');
-                $('#emailEdit').val('');
-                $('#user_id').val(0);
-            }
-        </script>
-    @endsection
+        function cancelEdit() {
+            $('#add-user').removeClass('visually-hidden');
+            $('#edit-user').addClass('visually-hidden');
+            $('#nameEdit').val('');
+            $('#emailEdit').val('');
+            $('#user_id').val(0);
+        }
+    </script>
+@endsection

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Barber;
 use App\Models\Barbershop;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class BarberController extends Controller
 
         // Verificar si el usuario tiene un perfil de barbero asociado
         if ($barber) {
-            
+
             $barbers = collect([$barber]);
         } else {
 
@@ -115,7 +116,8 @@ class BarberController extends Controller
             ->where('role_user.role_id', '=', '2')
             ->where('role_user.parent_id', '=', Auth::user()->id)
             ->get();
-        return view('dashboards.forms.addusersform')->with(['users' => $users]);
+
+        return view('dashboards.forms.addusersform')->with(['users' => $users, 'status']);
     }
 
     /**
@@ -124,7 +126,6 @@ class BarberController extends Controller
 
     public function storeUser(Request $request)
     {
-        // try{
         $rule = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . Auth::user()->id],
@@ -137,7 +138,11 @@ class BarberController extends Controller
             'email.unique' => 'Email ya registrado en el sistema',
         ];
 
-        $this->validate($request, $rule, $message);
+        $validator = Validator::make($request->all(), $rule, $message);
+
+        if ($validator->fails()) {
+            return redirect()->route('barbers.createUser')->withErrors($validator)->withInput();
+        }
 
         $user = User::create([
             'name' => $request->input('name'),
@@ -155,10 +160,11 @@ class BarberController extends Controller
 
         $user->role = $role->id;
 
-        return redirect()->route('barbers.createUser')->with('status', '¡Usuario agregado correctamente!');
-    }
+        return redirect()->route('barbers.createUser')->with('success', '¡Usuario agregado correctamente!');
 
-    function updateUser(Request $request){
+    }
+    function updateUser(Request $request)
+    {
         $rule = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $request->user_id],
@@ -178,7 +184,8 @@ class BarberController extends Controller
         $user->email = $request->email;
         $user->update();
 
-        return redirect()->route('barbers.createUser')->with('status', '¡Usuario actualizado correctamente!');
+        return redirect()->route('barbers.createUser')->with('success', '¡Usuario actualizado correctamente!');
+
     }
 
     /**

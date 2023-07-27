@@ -54,6 +54,7 @@
         <!-- round card start -->
         <div class="row users-card p-3">
             @if (empty($barbers))
+
                 <div class="col-12">
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script>
