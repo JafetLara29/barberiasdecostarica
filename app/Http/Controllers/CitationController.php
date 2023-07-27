@@ -65,14 +65,14 @@ class CitationController extends Controller
     public function getBarberCitationSchedule(Request $request)
     {
         $colors = ['#9A40F4', '#111', '#859F11', '#389D9A', '#7E73EB', '#BC73EB', '#BF2C66', '#C0A339', '#C039BE'];
-        if(session('barber_id') != null){                    // Si tenemos variable de session (Proceso de la parte publica)
+        if (session('barber_id') != null) {                    // Si tenemos variable de session (Proceso de la parte publica)
             $barber = Barber::find(session('barber_id'));
-        }else{
+        } else {
             $barber = Barber::find(Auth::user()->id);
         }
         // Obtenemos las citas ligadas a este barber
         $events = [];
-        if($citations = $barber->citations){
+        if ($citations = $barber->citations) {
             foreach ($citations as $key => $citation) {
                 $hour = explode(":", $citation->time);
                 $hour = $hour[0] . ":" . $hour[1];
@@ -83,14 +83,14 @@ class CitationController extends Controller
                     'detail' => 'Cita agendada',
                 ];
             }
-    
+
             session(['barber_id' => $barber->id]); // Vamos llenando los datos de la citation en variables session. Esto nos permite acceder a un dato desde otros metodos
-    
+
             return response()->json([
                 'ok'        => true,
                 'events'    => $events
             ]);
-        }else{
+        } else {
             return response()->json([
                 'ok'        => true,
                 'events'    => $events
@@ -166,13 +166,14 @@ class CitationController extends Controller
         }
     }
 
-    public function inbox(){
+    public function inbox()
+    {
         $barber = Barber::find(Auth::user()->id);
 
-        if(!isset($barber->citations) || $barber->citations->isEmpty())
-        return view('dashboards.citationinbox');
+        if (!isset($barber->citations) || $barber->citations->isEmpty())
+            return view('dashboards.citationinbox');
         else
-        $barber->citations()->where('read', 0);
+            $barber->citations()->where('read', 0);
         $citations = Citation::all();
         return view('dashboards.citationinbox')->with([
             'citations' => $citations
@@ -256,12 +257,14 @@ class CitationController extends Controller
         // TODO: Hay que implementar una columna para la tabla user que nos permita saber si un usuario es de un barbero o una barberia
         // TODO: if($user->type == Barber::class){}
         $citations = Barber::find(1)->citations()->where('read', false)->get();
+
         // Return a JSON response
         return response()->json([
             'success' => true,
             'citation' => $citations,
         ]);
     }
+
     public function acceptCitation(Request $request)
     {
         // Retrieve the message

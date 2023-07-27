@@ -4,14 +4,13 @@
     <div class="">
         <div class="card shadow bg-dark ml-2 mt-4">
 
-
             <div class="d-flex align-items-start">
                 <h3 for="image" class="form-label ml-3 text-gray text-center">
                     Citas pendientes
                 </h3>
                 <small class="text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
                     title="Ayuda"
-                    data-bs-content="Seleccione alguna de las citas disponibles en la lista , para aceptarlas o rechazarlas ,según lo requiera.">
+                    data-bs-content="Seleccione alguna de las citas disponibles en la lista, para aceptarlas o rechazarlas, según lo requiera.">
                     <i class="ti-help-alt"></i>
                 </small>
             </div>
@@ -24,7 +23,8 @@
                 <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header bg-success text-white">
                         <strong class="me-auto">Sistema</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"
+                            aria-label="Close"data-bs-delay="5000"></button>
                     </div>
                     <div class="toast-body" style="background-color: #353c4e; color: white;">
                         <span id="toast-message"></span>
@@ -34,29 +34,14 @@
 
             @if (!isset($barber) || $barber->citations->isEmpty())
             @endif
-
-            {{-- Toast miedo  --}}
-            <!-- Aquí está el toast que se mostrará cuando sea necesario -->
-            <div class="position-fixed bottom-0 end-0 p-3">
-                <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header bg-success text-white">
-                        <strong class="me-auto">Sistema</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body" style="background-color: #353c4e; color: white;">
-                        <span id="toast-message"></span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-
 
     <script>
         $(document).ready(function() {
             $('[data-bs-toggle="popover"]').popover();
-        });
-        $(document).ready(function() {
+
+            // Load the initial list of citations
             receiveCitations();
         });
 
@@ -115,21 +100,28 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        // Mark the message as read in the list
 
-                        // Show the toast message
                         $('#toast-message').html('Cita aceptada exitosamente!!!!!');
                         $('#toast').addClass('bg-success text-white').removeClass('bg-danger').toast('show');
 
-                        receiveCitations();
+
+                        setTimeout(function() {
+                            receiveCitations();
+                        }, 2000);
                     } else {
-                        // Show the toast message
+
                         $('#toast-message').html('Ha ocurrido un error al aceptar la cita');
                         $('#toast').addClass('bg-danger text-white').removeClass('bg-success').toast('show');
+
+
+                        setTimeout(function() {
+                            receiveCitations();
+                        }, 2000);
                     }
                 }
             });
         }
+
 
         function rejectCitation(id) {
             $.ajax({
@@ -141,17 +133,22 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        // Mark the message as read in the list
-
                         // Show the toast message
                         $('#toast-message').html('Cita rechazada exitosamente !');
                         $('#toast').addClass('bg-success text-white').removeClass('bg-danger').toast('show');
 
-                        receiveCitations();
+
+                        setTimeout(function() {
+                            receiveCitations();
+                        }, 2000);
                     } else {
                         // Show the toast message
                         $('#toast-message').html('Ha ocurrido un error al rechazar la cita !');
                         $('#toast').addClass('bg-danger text-white').removeClass('bg-success').toast('show');
+
+                        setTimeout(function() {
+                            receiveCitations();
+                        }, 2000);
                     }
                 }
             });
