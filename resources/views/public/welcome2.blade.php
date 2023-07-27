@@ -605,8 +605,8 @@ I
                     <div class="col-lg-7 col-xl-6">
                         <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                             data-wow-delay="0.3s" data-wow-offset="0">
-                            <h5 class="atf-sheading"> Planes</h5>
-                            <h2 class="">Nuestros precios</h2>
+                            <h5 class="atf-sheading">@lang('messages.mis_planes')</h5>
+                            <h2 class="">@lang('messages.nuestros_precios')</h2>
                             {{-- <p>Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit amet elit dolor
                             sit amet elit.</p> --}}
                         </div>
@@ -627,11 +627,11 @@ I
                             </div>
                             <h2 class="title">@lang('messages.un_basico')</h2>
                             <ul class="pricing-content">
-                                <li>1 Barbero</li>
-                                <li>Control De Citas</li>
-                                <li>24/7 Support</li>
-                                <li class="disable">Ingresos-Egresos</li>
-                                <li class="disable">Implementaciones a medida</li>
+                                <li>@lang('messages.un_barbero')</li>
+                                <li>@lang('messages.dos_barbero')</li>
+                                <li>@lang('messages.un_support')</li>
+                                <li class="disable">@lang('messages.ingresos_egresos')</li>
+                                <li class="disable">@lang('messages.una_medida')</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
@@ -652,11 +652,11 @@ I
                             </div>
                             <h2 class="title">@lang('messages.un_standart')</h2>
                             <ul class="pricing-content">
-                                <li>1-5 Barberos</li>
-                                <li>Control De Citas</li>
-                                <li>24/7 Support</li>
-                                <li class="">Ingresos-Egresos</li>
-                                <li class="disable">Implementaciones a medida</li>
+                                <li>@lang('messages.dos_barbero')</li>
+                                <li>@lang('messages.control_citas')</li>
+                                <li>@lang('messages.un_support')</li>
+                                <li class="disable">@lang('messages.ingresos_egresos')</li>
+                                <li class="disable">@lang('messages.una_medida')</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
@@ -676,11 +676,11 @@ I
                             </div>
                             <h2 class="title">@lang('messages.un_premium')</h2>
                             <ul class="pricing-content">
-                                <li>5-10 Barberos</li>
-                                <li>Control De Citas</li>
-                                <li>24/7 Support</li>
-                                <li class="">Ingresos-Egresos</li>
-                                <li class="">Implementaciones a medida</li>
+                                <li>@lang('messages.tres_barbero')</li>
+                                <li>@lang('messages.control_citas')</li>
+                                <li>@lang('messages.un_support')</li>
+                                <li class="disable">@lang('messages.ingresos_egresos')</li>
+                                <li class="disable">@lang('messages.una_medida')</li>
                             </ul>
                             <div class="atf-about-btn">
                                 <a class="atf-themes-btn" data-hover="@lang('messages.un_inscribirse')" href="{{ route('subscriptions.form') }}">
@@ -724,8 +724,7 @@ I
                                 <h5 class="atf-post-title"><a href="https://diprofem.com/blog/que-es-el-corte-buzz"> @lang('messages.un_corte')</a></h5>
 
                                 <p class="atf-post-description pr-lg-3">
-                                    El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con
-                                    maquinilla. También se le conoce como Corte de Bola porque es completamente redondo.
+                                   @lang('messages.el_corte')
                                 </p>
                             </div>
                             <div class="atf-post-slide">
@@ -736,9 +735,7 @@ I
                                         href="https://tocado.es/corte-fade-en-que-consiste-y-como-mantenerlo/"> @lang('messages.un_corte2')</a></h5>
 
                                 <p class="atf-post-description pr-lg-3">
-                                    El corte fade (desvanecido)hace referencia al degradado que va de la nuca baja hacia la
-                                    coronilla, en algunas ocaciones se utiliza navaja para el área más rebajada y en otras
-                                    ocaciones se trabaja con máquina y tijera.
+                                    @lang('messages.el_corte2')
                                 </p>
                             </div>
                             <div class="atf-post-slide">
@@ -749,8 +746,7 @@ I
                                         href="https://www.allthingshair.com/es-ar/cortes-de-pelo-de-hombre/corte-mullet-hombre/">@lang('messages.un_corte3')</a></h5>
 
                                 <p class="atf-post-description pr-lg-3">
-                                    El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta,
-                                    tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.
+                                    @lang('messages.el_corte3')
                                 </p>
                             </div>
                         </div>
@@ -777,8 +773,8 @@ I
                         <div class="col-lg-7 col-xl-6">
                             <div class="atf-section-title text-center wow zoomIn" data-wow-duration="1s"
                                 data-wow-delay="0.3s" data-wow-offset="0">
-                                <h5 class="atf-sheading">CONTACTANOS</h5>
-                                <h2 class="">Ponerse en contacto</h2>
+                                <h5 class="atf-sheading">@lang('messages.un_contacto') </h5>
+                                <h2 class="">@lang('messages.ponerse_en_contacto')</h2>
                                 {{-- <p class="">Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor
                                 sit amet elit dolor sit amet elit.</p> --}}
                             </div>
