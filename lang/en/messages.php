@@ -73,5 +73,11 @@ return [
     'un_corte' => 'buzz haircut',
     'un_corte2' => 'fade haircut',
     'un_corte3' => 'mullet haircut',
+    'el_corte' => 'The Buzz Cut is mainly used on men and is based on a shave performed with clippers. It is also known as a Ball Cut because it is completely round.',
+    'el_corte2' => 'The fade cut (faded) refers to the gradient that goes from the lower nape to the crown of the head, on some occasions a razor is used for the lower area and on other occasions it is worked with a machine and scissors',
+    'el_corte3' => 'The mullet cut is a style that is characterized by having a short front part, both the bangs and the sides, and a longer back part, covering the nape of the neck.',
+    'un_contacto' => 'CONTACT US',
+    'ponerse_en_contacto' => 'Get in touch',
+
     // otros textos de idioma
 ];

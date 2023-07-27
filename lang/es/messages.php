@@ -68,7 +68,15 @@ return [
     'un_inscribirse' => 'inscribirse',
     'un_estilos' => 'ESTILOS',
     'de_interes' => 'DE INTERES',
-    'un_corte' => '',
+    'un_corte' => 'corte buzz ',
+    'un_corte2' => 'corte fade ',
+    'un_corte3' => 'corte mullet',
+    'el_corte' => 'El Corte Buzz se usa principalente en hombres y se basa en un rapado realizado con maquinilla. También se le conoce como Corte de Bola porque es completamente redondo.',
+    'el_corte2' => 'El corte fade (desvanecido)hace referencia al degradado que va de la nuca baja hacia la coronilla, en algunas ocaciones se utiliza navaja para el área más rebajada y en otras ocaciones se trabaja con máquina y tijera.',
+    'el_corte3' => 'El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta,tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.',
+    'un_contacto' => 'CONTACTANOS',
+    'ponerse_en_contacto' => 'Ponerse en contacto',
+
     // otros textos de idioma
 ];
 
