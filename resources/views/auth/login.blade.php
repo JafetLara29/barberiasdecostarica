@@ -13,94 +13,83 @@
         </div>
     </div>
     <!-- Pre-loader end -->
-    <section class="login-block mx-auto ">
-        <!-- Container-fluid starts -->
-        <div class="container-fluid ">
-            <div class="row ">
-                <div class="col-sm-12 ">
-                    <!-- Authentication card start -->
-                    
-                    <form class="md-float-material form-material d-flex align-items-center justify-content-center" style="height: 100%;" method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="forma-card ">
-
-                            <div class="auth-box"></div>
-                            
-                            <div class="card-shape">                          
-                                <div class="text-center">
-                                    <img class="logo" src="{{ asset('https://cdn.pixabay.com/photo/2020/09/06/22/58/scissors-5550322_960_720.png') }}" alt="logo.png" width="150" height="125">
-                                </div>
-                                <div class="card-fx">
-                                    <div class="row m-b-20">
-                                        <div class="col-md-12">
-                                            <h3 class="text-center text-light loginTitles">@lang('messages.login_title')</h3>
-                                        </div>
-                                    </div>
-                                    <p class="text-center p-b-5 text-light loginTitles">@lang('messages.enter_credentials')</p>
-                                    <div class="mb-3 form-primary">
-                                        <input id="email" type="email" class="colorsI @error('email') is-invalid @enderror text-light" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('messages.username_placeholder')">
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3 form-primary">
-                                        <input id="password" type="password" class="colorsI @error('password') is-invalid @enderror text-light" name="password" required autocomplete="current-password" placeholder="@lang('messages.password_placeholder')">
-                                        @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="row mt-3">
-                                        <div class="col-md-8 mb-2">
-                                            <div class="d-grid">
-                                                <button type="submit" class="btn btn-outline-success">
-                                                    @lang('messages.login_button')
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="d-grid">
-                                                <a href="{{ route('welcome') }}" class="btn btn-outline-danger">
-                                                    @lang('messages.logout_link')
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-md-12">
-                                            <div class="d-grid">
-                                                <a href="{{ route('register') }}" class="btn btn-outline-info">
-                                                    @lang('messages.register_link')
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-12">
-                                            <div class="d-grid">
-                                                <a href="{{ route('password.request') }}" class="btn btn-outline-light">
-                                                    @lang('messages.recover_password_link')
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+    <section class="login-block text-center">
+        <div class="container">
+            <!-- Quitamos un contenedor div para que el contenido se centre correctamente -->
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <!-- Agregamos la clase "min-vh-100" para que el contenedor ocupe al menos el 100% del viewport en altura -->
+                <div class="form-box mb-5">
+                    <div class="form-value">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <h2 class="text-white">Barberías de Costa Rica</h2>
+                            <h4 class="text-white mt-2">Bienvenido de nuevo !</h4>
+                            <div class="form-group">
+                                <div class="inputbox position-relative">
+                                    <ion-icon name="mail-outline" class="text-white position-absolute"
+                                        style="right: 8px; top: 20px;"></ion-icon>
+                                    <input type="email" class="form-control custom-input" required
+                                        oninput="checkInput(this)" autocomplete="username" name="email" id="email">
+                                    <label class="text-white">Email/Usuario</label>
                                 </div>
                             </div>
-                        </div>
-                        <!-- end of form -->
-                    </form>
-
-                    <!-- Authentication card end -->
+                            <div class="form-group d-flex align-items-center">
+                                <div class="inputbox position-relative flex-grow-1">
+                                    <ion-icon name="lock-closed-outline" class="text-white position-absolute"
+                                        style="right: 8px; top: 20px;"></ion-icon>
+                                    <input type="password" class="form-control custom-input" required
+                                        oninput="checkInput(this)" autocomplete="current-password" name="password"
+                                        id="password">
+                                    <label class="text-white">Contraseña</label>
+                                </div>
+                                <button type="button" class="btn btn-light btn-show-password"
+                                    onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></button>
+                            </div>
+                            <div class="form-group form-check text-white d-flex justify-content-between">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input mt-0" id="recordarme" name="remember">
+                                    <label class="form-check-label" for="recordarme">
+                                        Recordarme
+                                    </label>
+                                </label>
+                                <a href="{{ route('password.request') }}" class="forget mt-1">Olvidé mi contraseña</a>
+                            </div>
+                            <button type="submit" class="btn-danger btn-block">Inicia Sesión</button>
+                            <div class="register text-white">
+                                <p class="text-center">No tienes una cuenta? <a
+                                        href="{{ route('register') }}">Registrate</a></p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <!-- end of col-sm-12 -->
             </div>
-            <!-- end of row -->
         </div>
-    <!-- end of container-fluid -->
+        <!-- end of container -->
     </section>
+    <script>
+        function checkInput(input) {
+            const label = input.nextElementSibling;
+            if (input.value !== '') {
+                label.classList.add('active');
+            } else {
+                label.classList.remove('active');
+            }
+        }
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const icon = document.querySelector('.btn-show-password i');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+               icon.style.backgroundColor="trasnsparent";
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.style.backgroundColor="trasnsparent";
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
 @endsection
