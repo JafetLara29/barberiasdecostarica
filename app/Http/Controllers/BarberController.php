@@ -202,7 +202,7 @@ class BarberController extends Controller
         ]);
 
         $barbers = new Barber();
-        $barbers->barbershop_id = Barbershop::latest('id')->first()->id;
+        $barber->barbershop_id = $user->barbershop->id;
         $barbers->name = $request->name;
 
         // Obtener el usuario autenticado y sus roles asociados

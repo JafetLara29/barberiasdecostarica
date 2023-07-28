@@ -11,26 +11,46 @@ body {
 
 /* login card */
 .auth-box{
-	width: 80%;
-	height: 80%;
-	border: 1px solid #0000001c;
+
+	width: 100%;
+	height: 100%;
+	
+	max-width: 1000px!important;
+	
     backdrop-filter: blur(5px);
-	background: inherit;
+	background-color: rgba(0, 0, 0, 0.356)!important;
+	border: 1px solid #0000002c;
 	border-radius: 10px;
+	
+	background: inherit;
 	position: absolute;
 }
 
 .card-shape {
-	position: relative;
+	width: 100%;
+	height: 100%;
 	
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
 	background: inherit;
-	height: fit-content;
-	width: fit-content;
+	position: relative;
 
 }
-.cardfx {
-padding: 0px!important;
-height: 70%;
+
+.forma-card {
+	display: flex;
+	align-items: center;
+	width: 80%;
+	height: auto;
+	top: 20%;
+	max-width: 1000px!important;
+
+	background: inherit;
+	position: absolute;
+
 }
 
 /* Form styles */
