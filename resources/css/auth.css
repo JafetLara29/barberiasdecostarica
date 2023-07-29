@@ -235,6 +235,25 @@ body {
     font-size: 1em;
     font-weight: 600;
 }
+.login-block .btn-back{
+   justify-content: center;
+   color:white;
+}
+.login-block .btn-back:hover{
+    
+    justify-content: center;
+    color:salmon !important;
+   
+ }
+ .login-block .btn-register{
+    justify-content: center;
+    color:white;
+ }
+ .login-block .btn-register:hover{
+   
+     justify-content: center;
+     color:salmon !important;
+  }
 .login-block .btn-show-password {
     transform:translateX(70%);
     transition:50%;

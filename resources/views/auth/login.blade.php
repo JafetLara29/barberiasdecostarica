@@ -56,8 +56,11 @@
                             </div>
                             <button type="submit" class="btn-danger btn-block">Inicia Sesión</button>
                             <div class="register text-white">
-                                <p class="text-center">No tienes una cuenta? <a
+                                <p class="text-center">No tienes una cuenta? <a class="text-white btn-register "
                                         href="{{ route('register') }}">Registrate</a></p>
+                                        <br>
+                                <p class="text-center pt-2"><a class="text-white btn-back"
+                                        href="{{ route('welcome') }}">Salir</a></p>
                             </div>
                         </form>
                     </div>
@@ -81,12 +84,12 @@
             const icon = document.querySelector('.btn-show-password i');
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-               icon.style.backgroundColor="trasnsparent";
+                icon.style.backgroundColor = "trasnsparent";
                 icon.classList.remove('fa-eye');
                 icon.classList.add('fa-eye-slash');
             } else {
                 passwordInput.type = 'password';
-                icon.style.backgroundColor="trasnsparent";
+                icon.style.backgroundColor = "trasnsparent";
                 icon.classList.remove('fa-eye-slash');
                 icon.classList.add('fa-eye');
             }
