@@ -35,7 +35,7 @@
 
 
             {{-- Resto del contenido --}}
-            <form id="add-user" action="{{ route('barbers.storeUser') }}" method="post">
+            <form id="add-user" action="{{ route('barbers.storeUser') }}" method="put">
                 <div class="container">
                     @csrf
                     <div class="mb-2">
@@ -83,7 +83,7 @@
                         <div class="col-md-10">
                             <div class="d-grid">
                                 <input type="text" name="password" id="passwordEdit" class="form-control bg-dark"
-                                    placeholder="Genere la contraseña" readonly>
+                                    placeholder="Genere o ingrese la contraseña">
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -95,6 +95,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="mb-2">
                         <div class="form-group">
                             <input type="email" name="email" id="emailEdit" class="form-control bg-dark"
@@ -103,7 +104,8 @@
                     </div>
                     <div>
                         <input type="hidden" name="user_id" id="user_id">
-                        <button type="submit" class="btn btn-warning mb-2">Actualizar</button>
+                        <button type="submit"
+                            class="btn btn-warning mb-2"onclick="updateBarberUserInformation()">Actualizar</button>
                         <button type="button" class="btn btn-danger mb-2" onclick="cancelEdit()">Cancelar</button>
                     </div>
                 </div>
@@ -147,6 +149,9 @@
                     @endforeach
             </div>
         </div>
+        <!-- Toast container -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        </div>
     </div>
 @endsection
 
@@ -158,7 +163,15 @@
         });
 
         function generatePassword(id) {
-            $("#" + id).val(generateP())
+            var passwordField = document.getElementById(id);
+            if (!passwordField.readOnly) {
+                passwordField.readOnly = true;
+            } else {
+                passwordField.readOnly = false;
+            }
+            if (!passwordField.readOnly) {
+                passwordField.value = generateP();
+            }
         }
 
         function generateP() {
@@ -166,11 +179,12 @@
             var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz0123456789@#$';
 
             for (let i = 1; i <= 8; i++) {
-                var char = Math.floor(Math.random() * str.length + 1);
-                pass += str.charAt(char)
+                var char = Math.floor(Math.random() * str.length);
+                pass += str.charAt(char);
             }
             return pass;
         }
+
 
         function setUserIntoForm(id, name, email) {
             $('#add-user').addClass('visually-hidden');
@@ -186,6 +200,85 @@
             $('#nameEdit').val('');
             $('#emailEdit').val('');
             $('#user_id').val(0);
+        }
+
+        function updateBarberUserInformation(userId) {
+            // Obtener los datos del formulario
+            var name = $('#nameEdit').val();
+            var password = $('#passwordEdit').val();
+            var email = $('#emailEdit').val();
+            var userId = $('#user_id').val();
+            // Crear el objeto de datos para enviar en la solicitud PUT
+            var userData = {
+                name: name,
+                password: password,
+                email: email
+            };
+
+            console.log('name:', name);
+            console.log('password:', password);
+            console.log('email:', email);
+            // Realizar la solicitud AJAX
+            $.ajax({
+                url: '/barbershopBarber/update/' + userId,
+                type: 'PUT',
+                data: userData,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    showToast(response.message, 'success');
+                },
+
+                error: function(xhr) {
+                    handleAjaxError(xhr.status);
+                }
+            });
+
+            // Prevenir el envío convencional del formulario
+            event.preventDefault();
+        }
+
+
+        function handleAjaxError(status) {
+            var errorMessage = 'Ha ocurrido un error al actualizar la informacion de tu usuario!';
+
+            // Verificar el tipo de error
+            if (status === 404) {
+                errorMessage = 'No se encontró información previa para tu usuario.';
+            } else if (status === 500) {
+                errorMessage = 'Ha ocurrido un error interno en el servidor.';
+            }
+
+            // Mostrar un toast de error
+            showToast(errorMessage, 'error');
+        }
+
+        function showToast(message, type) {
+            var toast = `
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+                <div class="toast-header bg-${type === 'success' ? 'success' : 'danger'} text-white">
+                    <strong class="mr-auto">${type === 'success' ? 'Éxito' : 'Error'}</strong>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body bg-${type === 'success' ? 'light' : 'danger'}">
+                    ${message}
+                </div>
+                </div>
+            `;
+
+            $('.toast-container').append(toast);
+
+            // Personalizar el estilo del toast
+            var toastElement = $('.toast:last');
+            toastElement.addClass('position-fixed bottom-0 end-0 m-3'); // Posicionamiento
+            toastElement.find('.toast-header').addClass(
+                `bg-${type === 'success' ? 'success' : 'danger'} text-white`); // Estilo del encabezado
+            toastElement.find('.toast-body').addClass(`bg-${type === 'success' ? 'light' : 'danger'}`); // Estilo del cuerpo
+
+            toastElement.toast('show');
         }
     </script>
 @endsection

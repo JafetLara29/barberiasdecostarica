@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class BarbershopController extends Controller
 {
@@ -189,64 +190,97 @@ class BarbershopController extends Controller
         }
     }
 
-    public function updateBarberUser(Request $request, $userId)
-    {
-        // Obtener el barbero según el user_id
-        $barber = Barber::where('user_id', $userId)->first();
+    // Método futuro para usarlo con la vista llamada barberprofile.blade.php
+    // public function updateBarberUser(Request $request, $userId)
+    // {
+    //     // Obtener el barbero según el user_id
+    //     $barber = Barber::where('user_id', $userId)->first();
 
-        if ($barber) {
-            // Actualizar los datos adicionales del barbero
-            $barber->name = $request->input('name');
-            $barber->save();
+    //     if ($barber) {
+    //         // Actualizar los datos adicionales del barbero
+    //         $barber->name = $request->input('name');
+    //         $barber->save();
 
-            // Obtener el usuario asociado al barbero
-            $user = User::where('id', $userId)->first();
+    //         // Obtener el usuario asociado al barbero
+    //         $user = User::where('id', $userId)->first();
 
-            if ($user) {
-                // Actualizar el nombre en la tabla users
-                $user->name = $barber->name;
-                $user->save();
+    //         if ($user) {
+    //             // Actualizar el nombre en la tabla users
+    //             $user->name = $barber->name;
+    //             $user->save();
 
-                // Actualizar el email del usuario
-                $user->email = $request->input('email');
-                $user->save();
+    //             // Actualizar el email del usuario
+    //             $user->email = $request->input('email');
+    //             $user->save();
+    //         }
+
+    //         // Obtener la barbería asociada al barbero
+    //         $barbershop = Barbershop::where('id', $barber->barbershop_id)->first();
+
+    //         if ($barbershop) {
+    //             // Actualizar la dirección de la barbería
+    //             $barbershop->address = $request->input('address');
+    //             $barbershop->save();
+    //         }
+
+    //         // Actualizar los teléfonos del modelo SocialMedia
+    //         $telefono = $request->input('telefono');
+    //         $socialMedia = SocialMedia::where('social_mediable_id', $barber->id)
+    //             ->where('type', 'telefono')
+    //             ->first();
+
+    //         if ($socialMedia) {
+    //             $socialMedia->data = $telefono;
+    //             $socialMedia->save();
+    //         } else {
+    //             // Crear un nuevo registro en la tabla SocialMedia si no existe
+    //             $socialMedia = new SocialMedia();
+    //             $socialMedia->social_mediable_id = $barber->id;
+    //             $socialMedia->social_mediable_type = 'App\Models\Barber';
+    //             $socialMedia->type = 'telefono';
+    //             $socialMedia->data = $telefono;
+    //             $socialMedia->save();
+    //         }
+
+    //         // Retornar una respuesta de éxito
+    //         return response()->json(['success' => true, 'message' => 'Datos actualizados correctamente']);
+    //     } else {
+    //         // Retornar una respuesta de error si no se encuentra el barbero
+    //         return response()->json(['error' => 'Barber not found'], 404);
+    //     }
+    // }
+
+
+
+    public function updateBarberUser(Request $request, $userId) {
+        try {
+            $user = User::findOrFail($userId);
+
+            // Validar y actualizar la información del usuario
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,' . $userId,
+                'password' => 'nullable|string|min:8', // Permitir el campo de contraseña como opcional
+            ]);
+
+            $user->name = $request->name;
+            $user->email = $request->email;
+
+            // Verificar si se proporcionó una nueva contraseña y encriptarla
+            if (!empty($request->password)) {
+                $user->password = Hash::make($request->password);
             }
 
-            // Obtener la barbería asociada al barbero
-            $barbershop = Barbershop::where('id', $barber->barbershop_id)->first();
+            $user->save();
 
-            if ($barbershop) {
-                // Actualizar la dirección de la barbería
-                $barbershop->address = $request->input('address');
-                $barbershop->save();
-            }
-
-            // Actualizar los teléfonos del modelo SocialMedia
-            $telefono = $request->input('telefono');
-            $socialMedia = SocialMedia::where('social_mediable_id', $barber->id)
-                ->where('type', 'telefono')
-                ->first();
-
-            if ($socialMedia) {
-                $socialMedia->data = $telefono;
-                $socialMedia->save();
-            } else {
-                // Crear un nuevo registro en la tabla SocialMedia si no existe
-                $socialMedia = new SocialMedia();
-                $socialMedia->social_mediable_id = $barber->id;
-                $socialMedia->social_mediable_type = 'App\Models\Barber';
-                $socialMedia->type = 'telefono';
-                $socialMedia->data = $telefono;
-                $socialMedia->save();
-            }
-
-            // Retornar una respuesta de éxito
-            return response()->json(['success' => true, 'message' => 'Datos actualizados correctamente']);
-        } else {
-            // Retornar una respuesta de error si no se encuentra el barbero
-            return response()->json(['error' => 'Barber not found'], 404);
+            return response()->json(['message' => 'Información del usuario barbero actualizada exitosamente.']);
+        } catch (\Exception $e) {
+            // Manejar cualquier excepción que ocurra durante el proceso
+            return response()->json(['message' => 'Ha ocurrido un error al actualizar la información del usuario barbero.'], 500);
         }
     }
+
+
 
     // Para los servicios de un barber con X user_id
     public function getServiceCards($userId)

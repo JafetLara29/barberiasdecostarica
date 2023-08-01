@@ -57,7 +57,7 @@
                             <button type="submit" class="btn-danger btn-block">Inicia Sesión</button>
                             <div class="register text-white">
                                 <p class="text-center">No tienes una cuenta? <a class="text-white btn-register "
-                                        href="{{ route('register') }}">Registrate</a></p>
+                                        href="{{ route('subscriptions.form') }}">Registrate</a></p>
                                         <br>
                                 <p class="text-center pt-2"><a class="text-white btn-back"
                                         href="{{ route('welcome') }}">Salir</a></p>
