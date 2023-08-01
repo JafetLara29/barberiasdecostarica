@@ -35,7 +35,7 @@
 
 
             {{-- Resto del contenido --}}
-            <form id="add-user" action="{{ route('barbers.storeUser') }}" method="put">
+            <form id="add-user" action="{{ route('barbers.storeUser') }}" method="post">
                 <div class="container">
                     @csrf
                     <div class="mb-2">
@@ -47,12 +47,12 @@
                         <div class="col-md-10">
                             <div class="d-grid">
                                 <input type="text" name="password" id="password" class="form-control bg-dark"
-                                    placeholder="Genere la contraseña" readonly>
+                                    placeholder="Genere la contraseña" >
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="d-grid">
-                                <button type="button" onclick="generatePassword('password')"
+                                <button type="button" onclick="generateAndCopyPassword('password')"
                                     class="btn btn-secondary mb-3">
                                     <ion-icon name="key-outline"></ion-icon>Generar
                                 </button>
@@ -71,7 +71,7 @@
                 </div>
             </form>
 
-            <form id="edit-user" class="visually-hidden" action="{{ route('barbers.updateUser') }}" method="post">
+            <form id="edit-user" class="visually-hidden" action="{{ route('barbers.updateUser') }}" method="put">
                 <div class="container">
                     @csrf
                     <div class="mb-2">
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-md-2">
                             <div class="d-grid">
-                                <button type="button" onclick="generatePassword('passwordEdit')"
+                                <button type="button" onclick="generateAndCopyPassword('passwordEdit')"
                                     class="btn btn-secondary mb-3">
                                     <ion-icon name="key-outline"></ion-icon>Generar
                                 </button>
@@ -162,17 +162,6 @@
             $('[data-bs-toggle="popover"]').popover();
         });
 
-        function generatePassword(id) {
-            var passwordField = document.getElementById(id);
-            if (!passwordField.readOnly) {
-                passwordField.readOnly = true;
-            } else {
-                passwordField.readOnly = false;
-            }
-            if (!passwordField.readOnly) {
-                passwordField.value = generateP();
-            }
-        }
 
         function generateP() {
             var pass = '';
@@ -279,6 +268,15 @@
             toastElement.find('.toast-body').addClass(`bg-${type === 'success' ? 'light' : 'danger'}`); // Estilo del cuerpo
 
             toastElement.toast('show');
+        }
+         function generateAndCopyPassword(inputId) {
+            
+            var copyText = document.getElementById(inputId);
+            var password = generateP();
+            copyText.value = password;
+            copyText.select();
+            document.execCommand("copy");
+            showToast("Copiado!","success");
         }
     </script>
 @endsection
