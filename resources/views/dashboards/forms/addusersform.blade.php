@@ -263,7 +263,7 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="toast-body bg-${type === 'success' ? 'light' : 'danger'}">
+                <div class="toast-body bg-${type === 'success' ? 'dark' : 'danger'}">
                     ${message}
                 </div>
                 </div>
