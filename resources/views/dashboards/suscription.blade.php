@@ -5,13 +5,15 @@
   <style>
     /* Estilos para el formulario */
     body {
-      background: cornflowerblue; /* Fondo azul */
+      background: url("https://images.unsplash.com/photo-1519500528352-2d1460418d41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
+      background-color: rgba(0, 0, 0, 0.603);
       font-family: Arial, sans-serif;
-      color: #fff; /* Texto en color blanco */
+      color: #747474; /* Texto en color blanco */
     }
     .form-group {
     text-align: center;
     margin-bottom: 10px;
+    border-color: #3452cc;
   }
 
   .form-group label {
@@ -35,7 +37,7 @@
       background-color: #fff;
       border-radius: 8px;
       padding: 50px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0, 50, 255, 0.8);
     }
 
     .form-group label {
@@ -125,13 +127,13 @@
 </head>
 <body>
   <div class="container">
-    <h1 style="text-align: center">Pasarela de Suscripción</h1>
     <div id="subscription-status" class="alert" style="display: none;"></div>
-
+    
     <div class="subscription-form">
       <form id="subscription-form" method="POST" action="{{ route('subscriptions.create') }}" onsubmit="return createSubscription(event)">
         @csrf
-
+        
+        <h1 style="text-align: center">Pasarela de Suscripción</h1>
         <div class="form-group">
           <label for="name">Nombre:</label>
           <input type="text" id="name" name="name" placeholder="Ingrese su nombre" required>
@@ -161,7 +163,7 @@
         </div>
 
         <div style="display: flex; justify-content: center;">
-          <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease;">
+          <button type="submit" style="background-color: rgba(0, 50, 255, 0.8); color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease;">
             Suscribirse
           </button>
         </div>
