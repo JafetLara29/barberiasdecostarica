@@ -45,9 +45,12 @@
 
                     <div class="row mt-3">
                         <div class="col-md-10">
-                            <div class="d-grid">
+                            <div class="input-group">
                                 <input type="text" name="password" id="password" class="form-control bg-dark"
-                                    placeholder="Genere la contraseña" >
+                                    placeholder="Genere la contraseña">
+                                <span class="input-group-text bg-c-green" id="copyBtn" onclick="copyPasswordToClipboard()">
+                                    <ion-icon name="clipboard"></ion-icon>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -59,6 +62,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="mb-2">
                         <div class="form-group">
                             <input type="email" placeholder="Escribe el email de usuario" class="form-control bg-dark"
@@ -81,9 +86,12 @@
 
                     <div class="row mt-3">
                         <div class="col-md-10">
-                            <div class="d-grid">
+                            <div class="input-group">
                                 <input type="text" name="password" id="passwordEdit" class="form-control bg-dark"
-                                    placeholder="Genere o ingrese la contraseña">
+                                    placeholder="Genere la contraseña">
+                                <span class="input-group-text bg-c-green" id="copyBtn" onclick="copyPasswordToClipboard()">
+                                    <ion-icon name="clipboard"></ion-icon>
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -95,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="mb-2">
                         <div class="form-group">
@@ -269,14 +278,26 @@
 
             toastElement.toast('show');
         }
-         function generateAndCopyPassword(inputId) {
-            
+
+        function generateAndCopyPassword(inputId) {
+
             var copyText = document.getElementById(inputId);
             var password = generateP();
             copyText.value = password;
             copyText.select();
             document.execCommand("copy");
-            showToast("Copiado!","success");
+            showToast("Contraseña copiada al portapapeles!", "success");
+        }
+
+        function copyPasswordToClipboard() {
+            var passwordInput = document.getElementById('password');
+            passwordInput.select();
+            passwordInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+            document.execCommand('copy');
+
+            // Mostrar un mensaje de éxito o realizar alguna otra acción
+            showToast('Contraseña copiada al portapapeles', 'success');
         }
     </script>
 @endsection

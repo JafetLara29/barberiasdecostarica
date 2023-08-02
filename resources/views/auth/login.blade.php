@@ -28,19 +28,31 @@
                                 <div class="inputbox position-relative">
                                     <ion-icon name="mail-outline" class="text-white position-absolute"
                                         style="right: 8px; top: 20px;"></ion-icon>
-                                    <input type="email" class="form-control custom-input" required
+                                    <input type="email"
+                                        class="form-control custom-input @error('email') is-invalid @enderror" required
                                         oninput="checkInput(this)" autocomplete="username" name="email" id="email">
                                     <label class="text-white">Email/Usuario</label>
+                                    @error('email')
+                                        <div class="invalid-feedback p-1 m-1" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group d-flex align-items-center">
                                 <div class="inputbox position-relative flex-grow-1">
                                     <ion-icon name="lock-closed-outline" class="text-white position-absolute"
                                         style="right: 8px; top: 20px;"></ion-icon>
-                                    <input type="password" class="form-control custom-input" required
+                                    <input type="password"
+                                        class="form-control custom-input @error('password') is-invalid @enderror" required
                                         oninput="checkInput(this)" autocomplete="current-password" name="password"
                                         id="password">
                                     <label class="text-white">Contraseña</label>
+                                    @error('password')
+                                        <div class="invalid-feedback p-1 m-1" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <button type="button" class="btn btn-light btn-show-password"
                                     onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></button>
@@ -58,7 +70,7 @@
                             <div class="register text-white">
                                 <p class="text-center">No tienes una cuenta? <a class="text-white btn-register "
                                         href="{{ route('subscriptions.form') }}">Registrate</a></p>
-                                        <br>
+                                <br>
                                 <p class="text-center pt-2"><a class="text-white btn-back"
                                         href="{{ route('welcome') }}">Salir</a></p>
                             </div>
@@ -70,6 +82,8 @@
         <!-- end of container -->
     </section>
     <script>
+
+
         function checkInput(input) {
             const label = input.nextElementSibling;
             if (input.value !== '') {
