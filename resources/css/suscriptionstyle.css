@@ -1,0 +1,139 @@
+body {
+    /* background-image:url('/storage/welcome_images/admin-bg.jpg')!important; 
+    background-size: cover!important;
+    background-repeat: no-repeat!important; 
+    background-color: rgba(0, 0, 0, 0.603)!important; */
+    color: #ffffff;
+  }
+
+
+.form-group {
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  text-align: left;
+  width: 90%;
+  padding: 14px;
+}
+  .container {
+
+    margin: 0 auto;
+    padding-top: 30%;
+  }
+
+  .subscription-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 50px;
+    box-shadow: 0 0 10px rgba(0, 50, 255, 0.8);
+  }
+
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 98%;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .form-group select {
+    appearance: none;
+  }
+
+  .form-group .card-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .form-group .card-input > div {
+    flex: 1;
+  }
+
+  .form-group .card-input .card-brand {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .form-group .card-errors {
+    color: #dc3545;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  .form-group #card-element {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 12px;
+
+    background-color: #ffffff;
+  }
+
+  .form-group button {
+    background-color: #4266ff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .form-group button:hover {
+    background-color: #3452cc;
+  }
+
+  /* Estilos para los mensajes de alerta */
+  .alert {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+  }
+
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+  }
+
+.form-car {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        width: 400px;
+        height: 500px;
+        border-radius: 20px;
+        backdrop-filter: blur(15px) brightness(80%);
+        padding: 30px;
+}
+
+/* Nuevo CSS para las etiquetas activas */
+ .input-space label.active {
+    top: -7px !important;
+    background: transparent!important;
+} 
