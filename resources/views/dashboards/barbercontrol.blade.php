@@ -1,5 +1,6 @@
 @extends('layouts.adminhome')
 @section('content')
+@push('scripts')
     {{-- Barbers profiles from DB NEW ADMINTY --}}
     <div class="page-body">
         <!-- Page-header start -->
@@ -19,6 +20,7 @@
                         </div>
                     </div> --}}
                 </div>
+                {{-- Breadcrums --}}
                 <div class="col-lg-4 pb-5">
                     <div class="page-header-breadcrumb">
                         <ul class="breadcrumb-title">
