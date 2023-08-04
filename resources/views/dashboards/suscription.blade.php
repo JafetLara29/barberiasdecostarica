@@ -60,12 +60,12 @@
         var cardElement = elements.create('card', {
             style: {
                 base: {
-                    color: 'white',
+                    color: 'lightgray',
                     fontFamily: 'Arial, sans-serif',
                     fontSmoothing: 'antialiased',
                     fontSize: '16px',
                     '::placeholder': {
-                        color: 'white'
+                        color: 'lightgray'
                     }
                 }
             }
