@@ -761,7 +761,7 @@ I
 
         <!-- MAILCHAMP SECTION START-->
         <div id="mailchamp" class="atf-mailchamp-area"
-            style="background-image:url({{ asset('storage/public/assets/img/slider/4.jpg') }});background-size:cover; background-position: center center">
+            style="background-image:url({{ asset('storage/public/assets/img/slider/8.jpg') }});background-size:cover; background-position: center center">
         </div>
         <!--- END MAILCHAMP -->
 
