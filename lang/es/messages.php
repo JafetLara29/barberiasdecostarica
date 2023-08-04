@@ -76,7 +76,12 @@ return [
     'el_corte3' => 'El corte mullet es un estilo que se caracteriza por llevar la parte de adelante corta,tanto el flequillo como los lados, y la parte de atrás más larga, cubriendo la nuca.',
     'un_contacto' => 'CONTACTANOS',
     'ponerse_en_contacto' => 'Ponerse en contacto',
-
+    'acerca_de' => 'Acerca de',
+    'about_dos' => 'Somos un equipo apasionado de profesionales dedicados a brindar soluciones innovadoras para nuestros clientes.',
+    'enlaces_rapidos' => 'enlaces rápidos',
+    'mi_conpañia' => 'Compañía',
+    'mis_derechos' => 'Copyright - Todos los derechos reservados.',
+    'un_enpezar' => 'Empezar',
     // otros textos de idioma
 ];
 

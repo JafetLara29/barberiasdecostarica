@@ -78,6 +78,11 @@ return [
     'el_corte3' => 'The mullet cut is a style that is characterized by having a short front part, both the bangs and the sides, and a longer back part, covering the nape of the neck.',
     'un_contacto' => 'CONTACT US',
     'ponerse_en_contacto' => 'Get in touch',
-
+    'acerca_de' => 'About',
+    'about_dos' => 'We are a passionate team of professionals dedicated to providing innovative solutions for our clients.',
+    'enlaces_rapidos' => 'quick links',
+    'mi_conpañia' => 'Company',
+    'mis_derechos' => 'Copyright - All Right Reserved.',
+    'un_enpezar' => 'Begin',
     // otros textos de idioma
 ];
