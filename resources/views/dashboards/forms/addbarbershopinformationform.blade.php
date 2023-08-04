@@ -14,6 +14,15 @@
 @section('content')
 <!--contenedor de información del admin barberia-->
     <div class="container-information-barbery">
+        {{-- breadcrumbs start --}}
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+
+            <li class="breadcrumb-item"><a href="home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">BarbershopInfo</li>
+            </ol>
+        </nav>
+        {{-- breadcrumbs end --}}
         <div class="card shadow mb-5 mt-3 bg-dark">
           <h1 class="container-fluid pt-2">Información de tu barbería <small class="ml-2 text-success" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" title="Ayuda" data-bs-content="Si desea cambiar alguno de los siguientes datos solo escriba en los campos de texto el valor nuevo y utilice el botón 'Guardar'"><i class="ti-help-alt"></i></small></h1>
           <div class="accordion accordion-flush" id="accordionFlushExample">
