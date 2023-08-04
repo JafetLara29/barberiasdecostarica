@@ -39,14 +39,11 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group d-flex align-items-center">
-                                <div class="inputbox position-relative flex-grow-1">
-                                    <ion-icon name="lock-closed-outline" class="text-white position-absolute"
-                                        style="right: 8px; top: 20px;"></ion-icon>
-                                    <input type="password"
-                                        class="form-control custom-input @error('password') is-invalid @enderror" required
-                                        oninput="checkInput(this)" autocomplete="current-password" name="password"
-                                        id="password">
+                            <div class="form-group position-relative">
+                                <div class="inputbox d-flex align-items-center">
+                                    <ion-icon name="lock-closed-outline" class="text-white position-absolute" style="right: 8px; top: 50%; transform: translateY(-50%);"></ion-icon>
+                                    <input type="password" class="form-control custom-input @error('password') is-invalid @enderror" required
+                                        oninput="checkInput(this)" autocomplete="current-password" name="password" id="password">
                                     <label class="text-white">Contraseña</label>
                                     @error('password')
                                         <div class="invalid-feedback p-1 m-1" role="alert">
@@ -54,8 +51,10 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <button type="button" class="btn btn-light btn-show-password"
-                                    onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></button>
+                                <button type="button" class="btn btn-light btn-show-password position-absolute" onclick="togglePasswordVisibility()"
+                                    style="right: 8px; top: 50%; transform: translateY(-50%);">
+                                    <i class="fa fa-eye"></i>
+                                </button>
                             </div>
                             <div class="form-group form-check text-white d-flex justify-content-between">
                                 <label class="form-check-label">
