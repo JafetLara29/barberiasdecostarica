@@ -248,8 +248,8 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-12 atf-footer-link">
                             <div class="atf-footer-box">
-                                <h5>About Muhydi</h5>
-                                <p class="mt-3 pr-3"> Lorem ipsum dolor sit amet elit , consectetur adipiscing , sed eiusmod tempor sit.</p>
+                                <h5>@lang('messages.acerca_de')</h5>
+                                <p class="mt-3 pr-3">@lang('messages.about_dos')</p>
                                 <div class="atf-footer-social-icon mt-3">
                                     <a href="#" class="icon"> <i class="fab fa-facebook"></i> </a>
                                     <a href="#" class="icon"> <i class="fab fa-dribbble"></i> </a>
@@ -259,9 +259,9 @@
                         </div><!--- END COL -->
 
                         <div class="col-lg-2 col-md-6 col-12 atf-footer-link">
-                            <h5>enlaces rápidos</h5>
+                            <h5>@lang('messages.enlaces_rapidos')</h5>
                             <ul class="atf-list-menu">
-                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Empezar</a></li>
+                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.un_enpezar')</a></li>
                                 <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Soporte 24/7</a></li>
                                 <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>About Us</a></li>
                                 <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Necesito ayuda</a></li>
@@ -270,7 +270,7 @@
                         </div><!--- END COL -->
 
                         <div class="col-lg-2 col-md-6 col-12 atf-footer-link">
-                            <h5>Compañía</h5>
+                            <h5>@lang('messages.mi_conpañia')</h5>
                             <ul class="atf-list-menu">
                                 <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestro servicio</a></li>
                                 <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestra Privacidad</a></li>
@@ -280,8 +280,8 @@
                             </ul>
                         </div><!--- END COL -->
 
-                        <div class="col-lg-5 col-md-6 col-12 atf-footer-link">
-                            <h5>Nuestro Mapa </h5>
+                        {{-- <div class="col-lg-5 col-md-6 col-12 atf-footer-link">
+                            <h5>@lang('') Nuestro Mapa </h5>
                             <!-- Google Map start-->
                             <div id="atf-map-area">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.1516153355674!2d-105.24276688517374!3d38.43796677964402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87148f9a4466afe5%3A0x24b66e04146cc9e2!2sCanon%20City%20Santa%20Fe%20Depot!5e0!3m2!1sen!2sbd!4v1622049345355!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -290,13 +290,13 @@
                         </div><!--- END COL -->
                     </div><!--- END ROW -->
                 </div><!--- END SINGLE FOOTER -->
-            </div><!--- END OVERLAY -->
+            </div><!--- END OVERLAY --> --}}
 
             <div class="atf-footer-boottom text-center mt-4">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p>&copy;Copyright - All Right Reserved.Designed <i class="fa fa-heart ms-1 me-1"></i> by <a href="#">Theme Family</a> </p>
+                            <p>&copy;@lang('messages.mis_derechos') Copyright - All Right Reserved.Designed <i class="fa fa-heart ms-1 me-1"></i> by <a href="#">Theme Family</a> </p>
                         </div><!--- END COL -->
                     </div><!--- END ROW -->
                 </div><!--- END ROW -->

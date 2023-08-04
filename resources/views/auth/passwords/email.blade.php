@@ -78,7 +78,7 @@
                                 <div class="row mt-3">
                                     <div class="col-md-7 m-1">
                                         <div class="d-grid">
-                                            <button type="submit" class="btn btn-outline-danger">
+                                            <button type="submit" class="reset-btn">
                                                 Enviar link de recuperación
                                             </button>
                                         </div>

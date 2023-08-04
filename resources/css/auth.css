@@ -144,7 +144,7 @@ body {
 
 .login-block h2 {
     font-size: 2em;
-    
+
     text-align: center;
 }
 
@@ -187,7 +187,7 @@ body {
 .login-block .inputbox ion-icon {
     position: absolute;
     right: 8px;
-    
+
     font-size: 1.2em;
     top: 20px;
 }
@@ -207,7 +207,7 @@ body {
 .login-block .forget:hover {
     text-decoration: underline;
     color:salmon;
-    
+
 }
 
 .login-block .forget label input {
@@ -215,20 +215,20 @@ body {
 }
 
 .login-block .forget a {
-   
+
     text-decoration: none;
 }
 
 .login-block .forget a:hover {
     text-decoration: underline;
-    
+
 }
 
-.login-block button {
+ .login-block button {
     width: 80%;
     height: 40px;
     border-radius: 40px;
-   
+
     border: none;
     outline: none;
     cursor: pointer;
@@ -240,17 +240,17 @@ body {
    color:white;
 }
 .login-block .btn-back:hover{
-    
+
     justify-content: center;
     color:salmon !important;
-   
+
  }
  .login-block .btn-register{
     justify-content: center;
     color:white;
  }
  .login-block .btn-register:hover{
-   
+
      justify-content: center;
      color:salmon !important;
   }
@@ -275,8 +275,23 @@ body {
     text-align: center;
     margin: 15px 0; /* Ajustamos el margen para que haya espacio entre los campos y el enlace "Don't have an account?" */
 }
+.reset-btn {
+    background-color: salmon;
+    color: #fff;
+    border: none;
+    height: 36px!important;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: unset!important;
+    border-radius: 5px!important;
 
+}
+.reset-btn:hover{
+background-color:red;
 
+}
 /* Media queries */
 @media (max-width: 767px) {
     .login-block .form-box {
