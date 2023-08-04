@@ -60,6 +60,15 @@
 
 
 
+    {{-- breadcrumbs start --}}
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="home">Home</a></li>
+            <li class="breadcrumb-item"><a href="addServices">Servicios</a></li>
+            <li class="breadcrumb-item active" aria-current="page">AgregarServicions</li>
+        </ol>
+    </nav>
+    {{-- breadcrumbs end --}}
     <div style="padding: 20px;">
         <div class="d-flex align-items-start">
             <h3 for="image" class="form-label ml-3 text-gray text-center">

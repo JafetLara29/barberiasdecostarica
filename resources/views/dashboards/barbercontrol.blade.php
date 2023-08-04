@@ -3,6 +3,14 @@
 @push('scripts')
     {{-- Barbers profiles from DB NEW ADMINTY --}}
     <div class="page-body">
+        {{-- breadcrumbs start --}}
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Barbero</li>
+            </ol>
+        </nav>
+        {{-- breadcrumbs end --}}
         <!-- Page-header start -->
         <div class="page-header">
             <div class="row align-items-end">
