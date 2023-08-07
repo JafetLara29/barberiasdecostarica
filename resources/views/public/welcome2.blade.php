@@ -115,7 +115,7 @@
 
         <!-- START PROGRAM -->
         <section id="program" class="atf-program-area" data-stellar-background-ratio="0.3"
-            style="background-image:url({{ asset('storage/public/assets/img/slider/3.jpg') }});background-size:cover; background-position: center center">
+            style="background-image:url({{ asset('storage/public/assets/img/slider/5.jpg') }});background-size:cover; background-position: center center">
             <div class="atf-section-padding program-area">
                 <div class="container">
                     <div class="row clearfix justify-content-center">
@@ -761,7 +761,7 @@ I
 
         <!-- MAILCHAMP SECTION START-->
         <div id="mailchamp" class="atf-mailchamp-area"
-            style="background-image:url({{ asset('storage/public/assets/img/slider/8.jpg') }});background-size:cover; background-position: center center">
+            style="background-image:url({{ asset('storage/public/assets/img/slider/9.jpg') }});background-size:cover; background-position: center center">
         </div>
         <!--- END MAILCHAMP -->
 

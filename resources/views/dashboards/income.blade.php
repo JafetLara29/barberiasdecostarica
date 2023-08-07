@@ -9,14 +9,21 @@
                 <div class="col-sm-12">
                     <!-- Default select start -->
                     <div class="card  bg-dark">
+
                         {{-- breadcrumbs start --}}
-                            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="home">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Ingresos</li>
-                                </ol>
-                            </nav>
+                        <div class="page-header-breadcrumb">
+                            <ul class="breadcrumb-title">
+                                <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item" style="float: left;"><a href="home"><i class="feather icon-home"></i></a></li>
+                                        <li class="breadcrumb-item active" style="float: left;" aria-current="page">Ingresos</li>
+                                    </ol>
+                                </nav>
+                            </ul>
+                        </div>
                         {{-- breadcrumbs end --}}
+
+                        
                         <div class="page-header-title">
                             <!--  <h5>Default Select</h5>
                         <span>Add class of <code>.form-control</code> with

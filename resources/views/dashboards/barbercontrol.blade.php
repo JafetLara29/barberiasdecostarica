@@ -3,14 +3,22 @@
 @push('scripts')
     {{-- Barbers profiles from DB NEW ADMINTY --}}
     <div class="page-body">
+
         {{-- breadcrumbs start --}}
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="home">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Barbero</li>
-            </ol>
-        </nav>
+        <div class="page-header-breadcrumb">
+            <ul class="breadcrumb-title">
+                <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" style="float: left;"><a href="home"><i class="feather icon-home"></i></a></li>
+                        <li class="breadcrumb-item active" style="float: left;" aria-current="page">Barbero</li>
+                    </ol>
+                </nav>
+            </ul>
+        </div>
         {{-- breadcrumbs end --}}
+
+        
+
         <!-- Page-header start -->
         <div class="page-header">
             <div class="row align-items-end">
@@ -27,23 +35,6 @@
                                     role="button">Agregar</a></span>
                         </div>
                     </div> --}}
-                </div>
-                {{-- Breadcrums --}}
-                <div class="col-lg-4 pb-5">
-                    <div class="page-header-breadcrumb">
-                        <ul class="breadcrumb-title">
-                            <li class="breadcrumb-item" style="float: left;">
-                                <a href="{{ route('barbers.index') }}"> <i class="feather icon-home"></i> </a>
-                            </li>
-                            <li class="breadcrumb-item" style="float: left;"><a
-                                    href="{{ route('barbers.profile', ['userId' => auth()->user()->id]) }}
-                                    ">Barberos</a>
-                            </li>
-                            <li class="breadcrumb-item" style="float: left;"><a
-                                    href="{{ route('barbers.index') }}">Perfiles</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
 
