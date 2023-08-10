@@ -32,4 +32,9 @@ class Service extends Model
     public function citation(){
         return $this->belongsTo(Citation::class);
     }
+
+    public function barbershop()
+    {
+        return $this->belongsTo(Barbershop::class);
+    }
 }

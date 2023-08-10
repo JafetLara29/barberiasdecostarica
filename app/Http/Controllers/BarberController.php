@@ -25,16 +25,7 @@ class BarberController extends Controller
         $user = Auth::user();
         $barber = $user->barber;
 
-        // Verificar si el usuario tiene un perfil de barbero asociado
-        if ($barber) {
-
-            $barbers = collect([$barber]);
-        } else {
-
-            $barbers = collect([]);
-        }
-
-        return view('dashboards.barbercontrol')->with(['barbers' => $barbers]);
+        return view('dashboards.barbercontrol')->with(['barber' => $barber]);
     }
 
     // Ruta de perfil barber
@@ -200,43 +191,44 @@ class BarberController extends Controller
             'name' => 'required',
             'image' => 'required',
         ]);
-
-        $barbers = new Barber();
-        $barber->barbershop_id = $user->barbershop->id;
-        $barbers->name = $request->name;
+        $user = Auth::user();
+        $parentId = DB::table('role_user')
+            ->where('user_id', $user->id)
+            ->whereNotNull('parent_id')
+            ->pluck('parent_id');
+        $barber = new Barber();
+        $barber->user_id = $user->id;
+        $barber->name = $request->name;
 
         // Obtener el usuario autenticado y sus roles asociados
-        $role = Role::where('name', 'barber')->first();
+        //$role = Role::where('name', 'barber')->first();
         // Verificar si el usuario tiene un rol asociado
-        if ($role) {
+        //if ($role) {
             // Obtener el ID del rol
-            $roleId = $role->id;
+            //$roleId = $role->id;
 
             // Asignar el ID del rol al campo user_id
-            $barbers->user_id = $roleId;
-
+            
             // Proceso de guardado de imagen:
-            $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
-            $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
+        $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
+        $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)
 
-            // Verificamos el tipo de archivo
-            if (str_contains($fileType, 'image') == true) {
-                $path = $request->file('image')->storeAs('barbers', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
-            } else {
-                // An error response
-                return response()->json([
-                    'errors' => true,
-                ]);
-            }
-            // Guardamos el path y el tipo de archivo en el modelo
-            $barbers->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
-            $barbers->save();
-
+        // Verificamos el tipo de archivo
+        if (str_contains($fileType, 'image') == true) {
+            $path = $request->file('image')->storeAs('barbers', $fileName, 'public'); // Esto va almacenar el archivo en la carpeta storage/app/public/barbers
+        } else {
             return response()->json([
-                'success' => true,
-                'id' => $barbers->id,
+                'errors' => true,
             ]);
         }
+        $barber->image = '/storage/' . $path; // Se va a guardar en la db -> "/storage/images/nombreFoto.extension";
+        $barber->barbershop_id = $parentId[0];
+
+        $barber->save();
+        return response()->json([
+            'success' => true,
+            'id' => $barber->id,
+        ]);
 
         // Si el usuario no tiene un rol asociado, devuelve una respuesta de error
         return response()->json([
@@ -244,7 +236,6 @@ class BarberController extends Controller
             'message' => 'El usuario autenticado no tiene un rol asociado.',
         ]);
     }
-
 
     /**
      * Display the specified resource.

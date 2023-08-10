@@ -65,7 +65,6 @@
         }
     </style> --}}
 
-
     {{-- breadcrumbs start --}}
     <div class="page-header-breadcrumb">
         <ul class="breadcrumb-title">
@@ -106,7 +105,7 @@
         <div class="col">
             <div class="table-responsive shadow px-3">
                 <table class="table table-striped">
-                    <thead style="background-color:#f8c1b8;">
+                    <thead class="bg-secondary">
                         <tr>
                             <th>Id</th>
                             <th>Descripción</th>
@@ -211,7 +210,7 @@
                         // Si no se recibieron servicios válidos en la respuesta, se muestra un mensaje en la tabla
                         var row = `
                     <tr>
-                        <td colspan="4" style="color:wheat !important" class="text-center">No hay servicios registrados</td>
+                        <td colspan="5" class="text-center text-white">No hay servicios registrados</td>
                     </tr>
                 `;
                         // Se agrega la fila a la tabla
@@ -224,7 +223,6 @@
                 }
             });
         }
-
 
         function deleteService(id) {
             $.ajax({

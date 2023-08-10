@@ -79,6 +79,7 @@ class BarbershopController extends Controller
      */
     public function show(Barbershop $barbershop)
     {
+        
         $this->restoreSession();
         return view('public.barbershopinfo')->with([
             'barbershop' => $barbershop,

@@ -52,7 +52,6 @@
     <title>{{ config('app.name', 'Barberiasdecostarica') }}</title>
 </head>
 
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper" id="app">
         {{-- Navbar --}}
@@ -99,8 +98,6 @@
 
                             </a>
                         </li>
-
-
 
                         {{-- @if (session('user_type') == 'barbershop')
                             <li class="nav-item">
@@ -149,8 +146,6 @@
                             </li>
                         @endif
 
-
-
                         @if (session('user_type') == 'barbershop')
                             <li class="nav-item">
                                 <a href="{{ route('barbershops.create') }}" class="nav-link py-3 border-bottom"
@@ -163,7 +158,6 @@
                                 </a>
                             </li>
                         @endif
-
 
                         @if (session('user_type') == 'barber')
                             <li class="nav-item">
@@ -231,9 +225,6 @@
                             </li>
                         @endif
 
-
-
-
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -243,11 +234,8 @@
                                         @lang('messages.logout')
                                     </p>
                                 </button>
-
-
                             </form>
                         </li>
-
                     </ul>
                 </nav>
             </div>
@@ -272,9 +260,6 @@
                 successToast.show();
             </script>
         @endif
-
-
-
 
         <main class="content-wrapper bg-darkbg scroll-area">
             {{-- Main app container --}}
@@ -312,12 +297,6 @@
                     errorToast.show();
                 </script>
             @endif
-
-
-
-
-
-
             @yield('content')
         </main>
 

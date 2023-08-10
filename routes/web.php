@@ -101,8 +101,6 @@ Route::post('/verify-barber', [BarberController::class, 'verifyBarber'])->name('
 //Para saber si este barber pertenece a una barber y extraer sus datos
 Route::get('/barbers/showForm/{userId}', [BarberController::class, 'showForm'])->name('barbers.showForm');
 
-
-
 /*
 |-----------------
 | Rutas de idioma-

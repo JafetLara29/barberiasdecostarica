@@ -186,7 +186,6 @@
             $('[data-bs-toggle="popover"]').popover();
         });
 
-
         function generateP() {
             var pass = '';
             var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz0123456789@#$';
@@ -197,7 +196,6 @@
             }
             return pass;
         }
-
 
         function setUserIntoForm(id, name, email) {
             $('#add-user').addClass('visually-hidden');
