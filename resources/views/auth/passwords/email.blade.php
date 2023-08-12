@@ -63,11 +63,11 @@
                             <div class="card-block">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-center text-light loginTitles ">Restablecer contraseña</h3>
+                                        <h3 class="text-center text-light loginTitles "></h3>@lang('messages.Restablecer_contraseña')</h3>
                                     </div>
                                 </div>
                                 <div class="mb-3 form-primary ">
-                                    <input id="email" type="email" class="colorsI @error('email') is-invalid @enderror text-light" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingrese su correo electrónico">
+                                    <input id="email" type="email" class="colorsI @error('email') is-invalid @enderror text-light" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('messages.Ingrese_su_correo_electrónico')">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -79,14 +79,14 @@
                                     <div class="col-md-7 m-1">
                                         <div class="d-grid">
                                             <button type="submit" class="reset-btn">
-                                                Enviar link de recuperación
+                                               @lang('messages.Enviar_link_de_recuperación')
                                             </button>
                                         </div>
                                     </div>
                                     <div class="col-md-4 m-1">
                                         <div class="d-grid">
                                             <a href="{{ route('welcome') }}" class="btn btn-dark">
-                                                Salir
+                                                @lang('messages.Salir')
                                             </a>
                                         </div>
                                     </div>

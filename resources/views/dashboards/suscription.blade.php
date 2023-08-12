@@ -4,48 +4,48 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @vite(['resources/css/suscriptionstyle.css', 'resources/js/app.js', 'resources/sass/app.scss']) {{--  --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title >Pasarela de Suscripción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="container">
         <div id="subscription-status" class="alert alert-success" style="display: none;"></div>
-        <form class="form-car text-shadow-3" id="subscription-form" method="POST" action="{{ route('subscriptions.create') }}"
-            onsubmit="return createSubscription(event)">
+        <form class="form-car text-shadow-3" id="subscription-form" method="POST"
+            action="{{ route('subscriptions.create') }}" onsubmit="return createSubscription(event)">
             <div class="form-car-inner">
                 @csrf
 
-                <h3 class="mb-4 text-center text-light">Pasarela de Suscripción</h3>
+                <h3 class="mb-4 text-center text-light">@lang('messages.Pasarela_de_Suscripción')</h3>
 
                 <div class="form-group">
                     <input type="text" id="name" name="name" required class="form-control">
-                    <label for="name">Nombre:</label>
+                    <label for="name">@lang('messages.Name')</label>
                 </div>
 
                 <div class="form-group">
                     <input type="email" id="email" name="email" required class="form-control">
-                    <label for="email">Correo electrónico:</label>
+                    <label for="email">@lang('messages.Correo_electrónico') </label>
                 </div>
 
                 <div class="form-group">
-                    <label for="barbers" id="barbers-label">Cantidad de barberos:</label>
+                    <label for="barbers" id="barbers-label">@lang('messages.Cantidad_de_barberos')</label>
                     <select id="barbers" name="barbers" required class="form-control">
-                        <option value="">Seleccione</option>
-                        <option value="1">1 barbero ($5000/mes)</option>
-                        <option value="2">2-3 barberos ($7000/mes)</option>
-                        <option value="3">4-6 barberos ($10000/mes)</option>
+                        <option value="">@lang('messages.Seleccione')</option>
+                        <option value="1">@lang('messages.1 barbero')</option>
+                        <option value="2">@lang('messages.2-3 barberos')</option>
+                        <option value="3">@lang('messages.4-6 barberos')</option>
                     </select>
                 </div>
 
                 <div class="form-group" id="card-element-container">
-                    <label for="barbers" id="email">Tarjeta de crédito:</label>
+                    <label for="barbers" id="email">@lang('messages.Tarjeta_de_crédito')</label>
                     <div id="card-element" class="card-input"></div>
                     <div id="card-errors" class="card-errors" role="alert"></div>
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-outline-danger btn-lg">Suscribirse</button>
+                    <button type="submit" class="btn btn-outline-danger btn-lg">@lang('messages.Suscribirse')</button>
                 </div>
             </div>
         </form>

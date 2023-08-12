@@ -22,8 +22,8 @@
                     <div class="form-value">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <h2 class="text-white">Barberías de Costa Rica</h2>
-                            <h4 class="text-white mt-2">Bienvenido de nuevo !</h4>
+                            <h2 class="text-white">@lang('messages.barberias_de_costarica')</h2>
+                            <h4 class="text-white mt-2">@lang('messages.bienvenido_de_nuevo')</h4>
                             <div class="form-group">
                                 <div class="inputbox position-relative">
                                     <ion-icon name="mail-outline" class="text-white position-absolute"
@@ -31,7 +31,7 @@
                                     <input type="email"
                                         class="form-control custom-input @error('email') is-invalid @enderror" required
                                         oninput="checkInput(this)" autocomplete="username" name="email" id="email">
-                                    <label class="text-white">Email/Usuario</label>
+                                    <label class="text-white">@lang('messages.email_usuario')</label>
                                     @error('email')
                                         <div class="invalid-feedback p-1 m-1" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -44,7 +44,7 @@
                                     <ion-icon name="lock-closed-outline" class="text-white position-absolute" style="right: 8px; top: 50%; transform: translateY(-50%);"></ion-icon>
                                     <input type="password" class="form-control custom-input @error('password') is-invalid @enderror" required
                                         oninput="checkInput(this)" autocomplete="current-password" name="password" id="password">
-                                    <label class="text-white">Contraseña</label>
+                                    <label class="text-white">@lang('messages.password')</label>
                                     @error('password')
                                         <div class="invalid-feedback p-1 m-1" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -60,18 +60,18 @@
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input mt-0" id="recordarme" name="remember">
                                     <label class="form-check-label" for="recordarme">
-                                        Recordarme
+                                        @lang('messages.Recordarme')
                                     </label>
                                 </label>
-                                <a href="{{ route('password.request') }}" class="forget mt-1">Olvidé mi contraseña</a>
+                                <a href="{{ route('password.request') }}" class="forget mt-1">@lang('messages.olvidé_mi_contraseña')</a>
                             </div>
-                            <button type="submit" class="btn-danger btn-block">Inicia Sesión</button>
+                            <button type="submit" class="btn-danger btn-block">@lang('messages.Inicia_Sesión')</button>
                             <div class="register text-white">
-                                <p class="text-center">No tienes una cuenta? <a class="text-white btn-register "
-                                        href="{{ route('subscriptions.form') }}">Registrate</a></p>
+                                <p class="text-center">@lang('messages.no_tienes_cuenta') <a class="text-white btn-register "
+                                        href="{{ route('subscriptions.form') }}">@lang('messages.Registrate')</a></p>
                                 <br>
                                 <p class="text-center pt-2"><a class="text-white btn-back"
-                                        href="{{ route('welcome') }}">Salir</a></p>
+                                        href="{{ route('welcome') }}">@lang('messages.Salir')</a></p>
                             </div>
                         </form>
                     </div>

@@ -51,10 +51,10 @@
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end text-light">Email</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="colorsI @error('email') is-invalid @enderror text-light" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-    
+
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -62,13 +62,13 @@
                                     @enderror
                                 </div>
                             </div>
-    
+
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end text-light">Contraseña</label>
-    
+
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="colorsI @error('password') is-invalid @enderror text-light" name="password" required autocomplete="new-password">
-    
+
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

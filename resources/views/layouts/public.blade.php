@@ -262,21 +262,21 @@
                             <h5>@lang('messages.enlaces_rapidos')</h5>
                             <ul class="atf-list-menu">
                                 <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.un_enpezar')</a></li>
-                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Soporte 24/7</a></li>
-                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>About Us</a></li>
-                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Necesito ayuda</a></li>
-                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>Contacto</a></li>
+                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.un_soporte')</a></li>
+                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.Nosotros')</a></li>
+                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.Necesito_ayuda')</a></li>
+                                <li> <a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.Contacto')</a></li>
                             </ul>
                         </div><!--- END COL -->
 
                         <div class="col-lg-2 col-md-6 col-12 atf-footer-link">
                             <h5>@lang('messages.mi_conpañia')</h5>
                             <ul class="atf-list-menu">
-                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestro servicio</a></li>
-                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestra Privacidad</a></li>
-                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Noticias actualizadas</a></li>
-                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Nuestro equipo</a></li>
-                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>Consulta Gratis</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.Nuestro_servicio')</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.Nuestra_privacidad')</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('Nuestro equipo')</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.consulta_gratis')</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right me-2"></i>@lang('messages.Noticias')</a></li>
                             </ul>
                         </div><!--- END COL -->
 
