@@ -24,8 +24,7 @@ class BarberController extends Controller
     {
         $user = Auth::user();
         $barber = $user->barber;
-
-        return view('dashboards.barbercontrol')->with(['barber' => $barber]);
+        return view('dashboards.barbercontrol')->with(['barbers' => $barber]);
     }
 
     // Ruta de perfil barber
@@ -208,7 +207,7 @@ class BarberController extends Controller
             //$roleId = $role->id;
 
             // Asignar el ID del rol al campo user_id
-            
+
             // Proceso de guardado de imagen:
         $fileName = $request->file('image')->hashName();        // Creamos un nombre unico para el archivo
         $fileType = $request->file('image')->getMimeType();     // Verificamos que tipo de archivo estamos guardando (image/jpg)

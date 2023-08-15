@@ -17,7 +17,7 @@
         </div>
         {{-- breadcrumbs end --}}
 
-        
+
 
         <!-- Page-header start -->
         <div class="page-header">
@@ -55,7 +55,6 @@
         <!-- round card start -->
         <div class="row users-card p-3">
             @if (empty($barbers))
-
                 <div class="col-12">
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script>
@@ -65,36 +64,35 @@
                             icon: 'info',
                         });
                     </script>
-                    <h4 class="ml-1 text-gray">Llena la información de tu perfil presionando este botón </h4>
+                    <h4 class="ml-1 text-gray">Llena la información de tu perfil presionando este botón</h4>
                     <a href="{{ route('barbers.create') }}" class="btn btn-success">Crear perfil</a>
                 </div>
             @else
-                @foreach ($barbers as $barber)
-                    <div class="col-lg-6 col-xl-3 col-md-6">
-                        <div class="card rounded-card user-card bg-dark">
-                            <div class="card-block">
-                                <div class="img-hover">
-                                    <img class="img-fluid img-radius" src="{{ asset($barber->image) }}" alt="round-img">
-                                    <div class="img-overlay img-radius">
-                                        <span>
-                                            <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
-                                                data-popup="lightbox"><i class="icofont icofont-briefcase-alt-1"></i></a>
-                                            <a href="{{ route('barbers.create', ['userId' => $barber->id]) }}"
-                                                class="btn btn-outline-primary"><i
-                                                    class="icofont icofont-businessman"></i></a>
-                                        </span>
-                                    </div>
+                <div class="col-lg-6 col-xl-3 col-md-6">
+                    <div class="card rounded-card user-card bg-dark">
+                        <div class="card-block">
+                            <div class="img-hover">
+                                <img class="img-fluid img-radius" src="{{ asset($barbers->image) }}" alt="round-img">
+                                <div class="img-overlay img-radius">
+                                    <span>
+                                        <a href="{{ route('services.index') }}" class="btn btn-outline-primary"
+                                            data-popup="lightbox"><i class="icofont icofont-briefcase-alt-1"></i></a>
+                                        <a href="{{ route('barbers.create', ['userId' => $barbers->id]) }}"
+                                            class="btn btn-outline-primary"><i
+                                                class="icofont icofont-businessman"></i></a>
+                                    </span>
                                 </div>
-                                <div class="user-content">
-                                    <h4 class="">{{ $barber->name }}</h4>
-                                    <p class="m-b-0 text-muted">Barbero</p>
-                                </div>
+                            </div>
+                            <div class="user-content">
+                                <h4 class="">{{ $barbers->name }}</h4>
+                                <p class="m-b-0 text-muted">Barbero</p>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
             @endif
         </div>
+
 
         <!-- Round card end -->
     </div>
