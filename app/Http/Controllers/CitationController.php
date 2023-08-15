@@ -56,11 +56,17 @@ class CitationController extends Controller
     public function getCitationCalendar(Barber $barber)
     {
         session(['barber_id' => $barber->id]);
+
+        $user_id = $barber->user_id;
+
+        $services = Service::where('serviceable_id', $user_id)->get();
+
         return view('public.citationschedule')->with([
             'barber' => $barber,
-            'services'  => $barber->services
+            'services' => $services,
         ]);
     }
+
 
     public function getBarberCitationSchedule(Request $request)
     {
@@ -120,7 +126,6 @@ class CitationController extends Controller
     {
 
         $barbers = $barbershop->barbers;
-
         return view('public.barbers')->with([
             'barbers' => $barbers
         ]);
@@ -138,26 +143,33 @@ class CitationController extends Controller
         try {
             $user = auth()->user();
 
-            //Para caundo haya admin de barberos
-            //$user= Barber::find(session('barber_id'));
+            $user_id = $user->id; // Obtén el ID del usuario autenticado
             $date = $request->input('date');
-            $citations = Citation::select('service_id', 'time', 'date', 'sender')
-                ->where('barber_id', $user->id)
-                ->whereDate('date', '=', $date)->get();
-            $events = array();
-            foreach ($citations as $citation) {
+
+            // Buscar la cita basada en el user_id del usuario autenticado
+            $citation = Citation::select('service_id', 'time', 'date', 'sender')
+                ->where('id', $user_id) // Usar el user_id como filtro en la columna id
+                ->whereDate('date', '=', $date)
+                ->first(); // Usar first() en lugar de get() para obtener solo una cita
+
+            if ($citation) {
                 $event = array(
-                    'service' => $citation->serviceid,
+                    'service' => $citation->service_id,
                     'time' => $citation->time,
                     'date' => $citation->date,
                     'sender' => $citation->sender
                 );
-                array_push($events, $event);
+
+                return response()->json([
+                    'success' => true,
+                    'events' => [$event] // Devolver un array con el evento
+                ]);
+            } else {
+                return response()->json([
+                    'success' => true,
+                    'events' => [] // Sin eventos
+                ]);
             }
-            return response()->json([
-                'success' => true,
-                'events' => $events
-            ]);
         } catch (Throwable $th) {
             return response()->json([
                 'success' => false,
@@ -165,6 +177,7 @@ class CitationController extends Controller
             ]);
         }
     }
+
 
     public function inbox()
     {

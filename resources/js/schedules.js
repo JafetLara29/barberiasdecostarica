@@ -203,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     dataType: "json",
                     success: function (response) {
                         if (response.success && response.events.length !== 0) {
+                            console.log(response.events);
                             // Agregar estilos personalizados para el modal
                             $(".table th").css({
                                 "background-color": "#fff",
