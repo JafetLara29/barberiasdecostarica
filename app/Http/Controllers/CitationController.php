@@ -139,44 +139,42 @@ class CitationController extends Controller
     // Obtenemos todas las citas para parte de admin
 
     public function barberCitationsForSchedule(Request $request)
-    {
-        try {
-            $user = auth()->user();
+{
+    try {
+        $user = auth()->user();
 
-            $user_id = $user->id; // Obtén el ID del usuario autenticado
-            $date = $request->input('date');
+        $user_id = $user->id; // Obtén el ID del usuario autenticado
+        $date = $request->input('date');
 
-            // Buscar la cita basada en el user_id del usuario autenticado
-            $citation = Citation::select('service_id', 'time', 'date', 'sender')
-                ->where('id', $user_id) // Usar el user_id como filtro en la columna id
-                ->whereDate('date', '=', $date)
-                ->first(); // Usar first() en lugar de get() para obtener solo una cita
+        // Buscar las citas basadas en el user_id del usuario autenticado
+        $citations = Citation::select('service_id', 'time', 'date', 'sender')
+            ->where('schedule_id', $user_id) // Usar el user_id como filtro en la columna schedule_id
+            ->whereDate('date', '=', $date)
+            ->get();
 
-            if ($citation) {
-                $event = array(
-                    'service' => $citation->service_id,
-                    'time' => $citation->time,
-                    'date' => $citation->date,
-                    'sender' => $citation->sender
-                );
+        $events = [];
 
-                return response()->json([
-                    'success' => true,
-                    'events' => [$event] // Devolver un array con el evento
-                ]);
-            } else {
-                return response()->json([
-                    'success' => true,
-                    'events' => [] // Sin eventos
-                ]);
-            }
-        } catch (Throwable $th) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Error retrieving events'
-            ]);
+        foreach ($citations as $citation) {
+            $event = [
+                'service' => $citation->service_id,
+                'time' => $citation->time,
+                'date' => $citation->date,
+                'sender' => $citation->sender
+            ];
+            $events[] = $event;
         }
+
+        return response()->json([
+            'success' => true,
+            'events' => $events
+        ]);
+    } catch (Throwable $th) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Error retrieving events'
+        ]);
     }
+}
 
 
     public function inbox()
