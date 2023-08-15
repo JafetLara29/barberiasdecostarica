@@ -141,14 +141,14 @@ class CitationController extends Controller
     public function barberCitationsForSchedule(Request $request)
 {
     try {
-        $user = auth()->user();
+        $barber = auth()->user()->barber;
 
-        $user_id = $user->id; // Obtén el ID del usuario autenticado
+        $barber_id = $barber->id; // Obtén el ID del barbero autenticado
         $date = $request->input('date');
 
-        // Buscar las citas basadas en el user_id del usuario autenticado
+        // Buscar las citas basadas en el barber_id del barbero autenticado
         $citations = Citation::select('service_id', 'time', 'date', 'sender')
-            ->where('schedule_id', $user_id) // Usar el user_id como filtro en la columna schedule_id
+            ->where('barber_id', $barber_id) // Usar el barber_id como filtro en la columna barber_id
             ->whereDate('date', '=', $date)
             ->get();
 
@@ -175,6 +175,7 @@ class CitationController extends Controller
         ]);
     }
 }
+
 
 
     public function inbox()
