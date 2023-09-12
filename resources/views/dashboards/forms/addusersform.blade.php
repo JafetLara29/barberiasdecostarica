@@ -268,15 +268,15 @@
         function showToast(message, type) {
             var toast = `
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
-                <div class="toast-header bg-${type === 'success' ? 'success' : 'danger'} text-white">
-                    <strong class="mr-auto">${type === 'success' ? 'Éxito' : 'Error'}</strong>
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="toast-body bg-${type === 'success' ? 'dark' : 'danger'}">
-                    ${message}
-                </div>
+                    <div class="toast-header bg-${type === 'success' ? 'success' : 'danger'} text-white">
+                        <strong class="mr-auto">${type === 'success' ? 'Éxito' : 'Error'}</strong>
+                        <button type="button" class="ml-2 mb-1 close" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body bg-${type === 'success' ? 'dark' : 'danger'}">
+                        ${message}
+                    </div>
                 </div>
             `;
 
@@ -289,6 +289,11 @@
                 `bg-${type === 'success' ? 'success' : 'danger'} text-white`); // Estilo del encabezado
             toastElement.find('.toast-body').addClass(`bg-${type === 'success' ? 'light' : 'danger'}`); // Estilo del cuerpo
 
+            // Cerrar el toast cuando se haga clic en el botón de cerrar
+            toastElement.find('.close').on('click', function() {
+                toastElement.toast('hide');
+            });
+
             toastElement.toast('show');
         }
 
@@ -299,18 +304,25 @@
             copyText.value = password;
             copyText.select();
             document.execCommand("copy");
-            showToast("Contraseña copiada al portapapeles!", "success");
+            showToast("Contraseña Generada Exitosamente!", "success");
         }
 
         function copyPasswordToClipboard() {
             var passwordInput = document.getElementById('password');
-            passwordInput.select();
-            passwordInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+            var password = passwordInput.value.trim(); // Obtener el valor del campo de entrada sin espacios en blanco iniciales y finales
 
-            document.execCommand('copy');
+            if (password === '') {
+                // El campo de contraseña está vacío, mostrar notificación de error
+                showToast('El campo de contraseña está vacío', 'error');
+            } else {
+                passwordInput.select();
+                passwordInput.setSelectionRange(0, 99999); // Para dispositivos móviles
 
-            // Mostrar un mensaje de éxito o realizar alguna otra acción
-            showToast('Contraseña copiada al portapapeles', 'success');
+                document.execCommand('copy');
+
+                // Mostrar un mensaje de éxito o realizar alguna otra acción
+                showToast('Contraseña Copiada Exitosamente!', 'success');
+            }
         }
     </script>
 @endsection
